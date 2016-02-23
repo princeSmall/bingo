@@ -500,10 +500,13 @@
             {
                 row2=2;
             }
-            return (kViewWidth-10)/2*147/119 *row1  +(kViewWidth-10)/3 *147/119*row2 +40*3 + 50;
+            return (kViewWidth-12)/2*147/119 *row1  +147*row2 +40*3 +30;
         }
-else{
-            return 87;}
+
+    else
+    {
+            return 87;
+    }
 }
 
 #pragma mark - 头部的View
@@ -574,7 +577,7 @@ else{
         {
             row2=2;
         }
-        self.collectView.frame = CGRectMake(4, 4, kViewWidth-8, (kViewWidth-10)/2*150/119 *row1  +147*row2 +40*3);
+        self.collectView.frame = CGRectMake(4, 4, kViewWidth-8, (kViewWidth-12)/2*147/119 *row1  +147*row2 +40*3 +30);
         
         
         //添加collectionView
