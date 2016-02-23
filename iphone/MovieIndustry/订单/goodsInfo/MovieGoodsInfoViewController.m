@@ -2,7 +2,7 @@
 //  MovieGoodsInfoViewController.m
 //  MovieIndustry
 //
-//  Created by 猫爷MACIO on 15/11/20.
+//  Created by 猫爷MACIO on 15/11/20.123
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 #define BTN_START_TAG 200

@@ -822,7 +822,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "729"
             endingLineNumber = "729"
-            landmarkName = "-showSelectGoodsAttr:"
+            landmarkName = "-addGoodInMineShopCar:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -902,7 +902,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "906"
             endingLineNumber = "906"
-            landmarkName = "-nextRentAction"
+            landmarkName = "-rentGoodRightNow:"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -982,7 +982,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "964"
             endingLineNumber = "964"
-            landmarkName = "-removeTapGesViewConfirm"
+            landmarkName = "-nextRentAction"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1270,7 +1270,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "666"
             endingLineNumber = "666"
-            landmarkName = "-createGoodsInfoBottomView"
+            landmarkName = "-backAction"
             landmarkType = "5">
          </BreakpointContent>
       </BreakpointProxy>
@@ -1286,7 +1286,7 @@
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "606"
             endingLineNumber = "606"
-            landmarkName = "-loadGoodsAttribute"
+            landmarkName = "-setNavBack"
             landmarkType = "5">
             <Locations>
                <Location
