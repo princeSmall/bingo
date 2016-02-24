@@ -7,11 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "PictureCarouselView.h"
+#import "SDCycleScrollView.h"
+
 @interface GoodsInfoHeaderView : UIView
 
 ///商品展示图片
-@property (weak, nonatomic) IBOutlet PictureCarouselView *goodsScrollView;
+@property (strong, nonatomic) SDCycleScrollView *goodsScrollView;
 
 @property (weak, nonatomic) IBOutlet UILabel *goodsNameLabel;
 ///当前价格

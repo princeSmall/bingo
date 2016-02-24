@@ -66,6 +66,7 @@
     [self createGoodManangeView];
     [self setupTableViewRefresh];
 //    [self requestMineAllManagerGoods];
+    [self ReloadDataNew];
 }
 
 
@@ -83,10 +84,11 @@
 - (void)createGoodManangeView
 {
     //文本框的圆角背景View
-    UIView *textView = [WNController createViewFrame:CGRectMake(10, 10, kViewWidth-20, 36)];
+//    UIView *textView = [WNController createViewFrame:CGRectMake(10, 10, kViewWidth-20, 36)];
+    UIView *textView = [WNController createViewFrame:CGRectMake(10, 0, kViewWidth-20, 0)];
     textView.layer.cornerRadius = 16;
     textView.clipsToBounds = YES;
-    [self.view addSubview:textView];
+//    [self.view addSubview:textView];
     
     self.textField = [WNController createTextFieldWithFrame:CGRectMake(10, 0, kViewWidth-70, 36) boreStyle:UITextBorderStyleNone font:15];
     self.textField.backgroundColor = [UIColor whiteColor];
@@ -458,9 +460,9 @@
     return cell;
 }
 
-- (void)viewWillAppear:(BOOL)animated{
-    [self ReloadDataNew];
-}
+//- (void)viewWillAppear:(BOOL)animated{
+//    [self ReloadDataNew];
+//}
 
 #pragma mark - UITableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath

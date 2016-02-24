@@ -11,12 +11,12 @@
 @implementation GoodsInfoHeaderView
 
 - (void)drawRect:(CGRect)rect {
-    self.goodsScrollView = [PictureCarouselView pictureCarouselViewWithFrame:CGRectMake(0, 0, kViewWidth, 366)];
+    
+    self.goodsScrollView = [[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, 366)];
     //
     //    //设置自动滚动和滚动的时间
-    [self.goodsScrollView isAutomaticDragging:YES withAnimation:YES withTimeInterval:3];
+   
     //    //设置pageControl的属性
-    [self.goodsScrollView setPageControlWithFrame:CGRectMake(kViewWidth/4, 320, kViewWidth/2, 20) AlignmentMethod:AlignmentMethodCenter withCurrentColor:[UIColor redColor] withIndicatorColor:[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1]];
     [self addSubview:self.goodsScrollView];
     
     

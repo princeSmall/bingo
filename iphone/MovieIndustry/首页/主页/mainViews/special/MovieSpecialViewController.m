@@ -8,7 +8,7 @@
 
 #import "MovieSpecialViewController.h"
 #import "MovieSepcialGoodsInfoCell.h"
-#import "PictureCarouselView.h"
+#import "SDCycleScrollView.h"
 #import "MovieSpecialShowModel.h"
 #import "MovieSpecialShowGoodIndoModel.h"
 #import "MovieGoodsInfoViewController.h"
@@ -80,20 +80,7 @@
     CGRect frame=CGRectMake(0,0,imgW,imgH);
     UIView *headerView = [[UIView alloc] initWithFrame:frame];
     
-    PictureCarouselView *bannerView = [PictureCarouselView pictureCarouselViewWithFrame:CGRectMake(0, 0,imgW,imgH)];
-    
-    //设置自动滚动和滚动的时间
-    [bannerView isAutomaticDragging:YES withAnimation:YES withTimeInterval:3];
-    
-    CGFloat pageCtrlW = self.scrollArray.count*20;
-    CGFloat pageCtrlH = 20.0f;
-    CGFloat pageCtrlX = (kViewWidth/2)-(pageCtrlW/2);
-    CGFloat pageCtrlY = imgH - pageCtrlH - 10;
-    
-    CGRect pageCtrlFrame = CGRectMake(pageCtrlX, pageCtrlY, pageCtrlW, pageCtrlH);
-    
-    //设置pageControl的属性
-    [bannerView setPageControlWithFrame:pageCtrlFrame AlignmentMethod:AlignmentMethodCenter withCurrentColor:[UIColor redColor] withIndicatorColor:[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:1]];
+    SDCycleScrollView *bannerView = [[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0,imgW,imgH)];
     
     NSMutableArray *imageArray = [NSMutableArray new];
     for (MovieSpecialShowGoodIndoModel *model in self.scrollArray) {
@@ -101,7 +88,7 @@
     }
     
     //设置滚动视图的滚动图片
-        bannerView.pictures = imageArray;
+        bannerView.localizationImagesGroup = imageArray;
     
 //    self.bannerView = bannerView;
     

@@ -7,7 +7,7 @@
 //
 
 #import "HHIndexViewController.h"
-#import "PictureCarouselView.h"
+#import "SDCycleScrollView.h"
 #import "SearchIndexController.h"
 #import "ChooseCityController.h"
 #import "LightningRentController.h"
@@ -30,7 +30,7 @@
 
 
 
-@interface HHIndexViewController ()<UITableViewDataSource,UITableViewDelegate,ChooseCityControllerDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,MovieArticleDetailDelegate,PictureCarouselViewDelegate>
+@interface HHIndexViewController ()<UITableViewDataSource,UITableViewDelegate,ChooseCityControllerDelegate,UICollectionViewDelegateFlowLayout,UICollectionViewDelegate,UICollectionViewDataSource,MovieArticleDetailDelegate,SDCycleScrollViewDelegate>
 {
     UITableView *_tbView;
     UILabel *_locationLabel;
@@ -50,7 +50,7 @@
 
 
 @property (nonatomic,strong) NSMutableArray *activityArray;
-@property (nonatomic,strong) PictureCarouselView *bannerView;
+@property (nonatomic,strong) SDCycleScrollView *bannerView;
 @property (nonatomic,strong) UICollectionView *collectView;
 @property (nonatomic,assign) BOOL isShowSearch;
 
@@ -265,14 +265,17 @@
     //设置头部View的大小
     UIView *tbHeaderView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 168)];
     //
-    PictureCarouselView *bannerView = [PictureCarouselView pictureCarouselViewWithFrame:CGRectMake(0, 0, kViewWidth, 168)];
+    UIImage * image1 = [UIImage imageNamed:@"zhouerqiang"];
+    UIImage * image2 = [UIImage imageNamed:@"changdi"];
+    UIImage * image3 = [UIImage imageNamed:@"dianpu"];
+    UIImage * image4 = [UIImage imageNamed:@"qicai"];
+    UIImage * image5 = [UIImage imageNamed:@"renyuan"];
     
-    //设置自动滚动和滚动的时间
-    [bannerView isAutomaticDragging:YES withAnimation:YES withTimeInterval:3];
-    //设置pageControl的属性
-    [bannerView setPageControlWithFrame:CGRectMake(kViewWidth/4, 124, kViewWidth/2, 40) AlignmentMethod:AlignmentMethodCenter withCurrentColor:[UIColor whiteColor] withIndicatorColor:[UIColor colorWithRed:0.85 green:0.85 blue:0.85 alpha:0.5]];
+    NSArray * imageArray = @[image1,image2,image3,image4,image5];
+    SDCycleScrollView * bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kViewWidth, 168) imagesGroup:imageArray];
+    
         bannerView.delegate = self;
-    
+    bannerView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     self.bannerView = bannerView;
     
     //添加到头部视图
@@ -330,18 +333,18 @@
 //    [self.navigationItem setLeftBarButtonItem:backItem];
     
    // 闪电租
-    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 80, 25)];
-    [rightBtn setTitle:@"闪电租" forState:UIControlStateNormal];
-    [rightBtn setImage:[UIImage imageNamed:@"lightning"] forState:UIControlStateNormal];
-    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-    [rightBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 5, 0, -5)];
-    //添加点击事件
-    [rightBtn addTarget:self action:@selector(lightningAction) forControlEvents:UIControlEventTouchUpInside];
-    [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-    
-    //设置TabBar左边的按钮
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    [self.navigationItem setRightBarButtonItem:rightItem];
+//    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 80, 25)];
+//    [rightBtn setTitle:@"闪电租" forState:UIControlStateNormal];
+//    [rightBtn setImage:[UIImage imageNamed:@"lightning"] forState:UIControlStateNormal];
+//    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+//    [rightBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 5, 0, -5)];
+//    //添加点击事件
+//    [rightBtn addTarget:self action:@selector(lightningAction) forControlEvents:UIControlEventTouchUpInside];
+//    [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+//    
+//    //设置TabBar左边的按钮
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+//    [self.navigationItem setRightBarButtonItem:rightItem];
 
 }
 
@@ -857,7 +860,6 @@
 - (void)loadAdvList
 {
     
-    self.bannerView.pictures = @[@"changdi",@"dianpu",@"qicai",@"renyuan"];
     
 //    [HttpRequestServers requestBaseUrl:Adv_list withParams:nil withRequestFinishBlock:^(id result) {
 //        
@@ -1090,7 +1092,7 @@
 }
 
 #pragma mark - 切换文章
-- (void)didClickedPictureCarouselView:(PictureCarouselView *)pictureCarouslView pictureIndex:(NSInteger)index
+- (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index
 {
     if (index == 1) {
         MovieTalkToPersonViewController *talkVc = [[MovieTalkToPersonViewController alloc] init];

@@ -146,11 +146,14 @@
                     typePoss = @"快递";
                 }
                 if ([shopModel.method isEqualToString:@"2"]) {
-                    typePoss = @"自取";
+                    typePoss = @"自提";
                 }
                 
                     self.tbFooterView.postCompanyName.text = typePoss;
                     [self.tbFooterView.contactBtn addTarget:self action:@selector(contactBtnClickedAction:) forControlEvents:UIControlEventTouchUpInside];
+#warning 这边隐藏联系商家的按钮
+                self.tbFooterView.contactBtn.hidden = YES;
+                
                     [self.tbFooterView.callNumBtn addTarget:self action:@selector(callNumBtnClickedAction:) forControlEvents:UIControlEventTouchUpInside];
                 for (NSDictionary * shDict in shopModel.order_goods) {
                     
@@ -245,7 +248,7 @@
             
             //取消订单
             UIButton *cancelBtn = [self orderDetailButtonWithFrame:leftBtnFrame andTitle:@"取消订单"];
-            [cancelBtn addTarget:self action:@selector(warnPostMineOrderBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+            [cancelBtn addTarget:self action:@selector(warnPostMineOrderBtnClicked1:) forControlEvents:UIControlEventTouchUpInside];
             [bottomView addSubview:cancelBtn];
         }
             break;
@@ -416,6 +419,36 @@
 }
 
 #pragma mark - 取消订单
+- (void)warnPostMineOrderBtnClicked1:(UIButton *)button
+{
+ 
+    
+        NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:APP_DELEGATE.user_id,@"user_id",self.order_id,@"order_id", @"0",@"status", nil];
+        [HttpRequestServers requestBaseUrl:TIOrder_ConfirmOrder withParams:userDict withRequestFinishBlock:^(id result) {
+            NSDictionary *dict = result;
+            HHNSLog(@"%@",dict);
+            @try {
+                if ([dict[@"code"] intValue] == 0) {
+    
+                    [PromptLabel custemAlertPromAddView:self.view text:@"取消订单成功"];
+                    [self.navigationController popViewControllerAnimated:YES];
+                }
+            }
+            @catch (NSException *exception) {
+    
+            }
+            @finally {
+    
+            }
+    
+            
+        } withFieldBlock:^{
+            
+        }];
+}
+
+
+
 - (void)warnPostMineOrderBtnClicked:(UIButton *)button
 {
     [PromptLabel custemAlertPromAddView:self.view text:@"已支付订单，如要取消须联系商家"];

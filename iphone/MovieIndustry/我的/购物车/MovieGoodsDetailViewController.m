@@ -941,7 +941,7 @@
             }
             
             if (self.imgsArray.count>0) {
-                self.goodsTbHeaderView.goodsScrollView.pictures = self.imgsArray;
+                self.goodsTbHeaderView.goodsScrollView.localizationImagesGroup = self.imgsArray;
             }
 //             [self createUI];
             

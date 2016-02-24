@@ -59,29 +59,34 @@
         
         UIButton * button1 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 12, 20, 20)];
         self.button1 = button1;
-        [self.button1 addTarget:self action:@selector(BtnOneClick:) forControlEvents: UIControlEventTouchUpInside];
+        UIButton * buttonC1 = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, screenW , 42)];
+        [buttonC1 addTarget:self action:@selector(BtnOneClick:) forControlEvents: UIControlEventTouchUpInside];
         
         UILabel * labelLine1 = [self labelLineWithRect:CGRectMake(25, 42, screenW - 50, 1)];
         [self addSubview:label1];
         [self addSubview:button1];
         [self addSubview:labelLine1];
+        [self addSubview:buttonC1];
         UILabel * label2 = [self createLabelWithTitle:@"顺丰快递" AndFrame:CGRectMake(13, 44, screenW - 50, 42)];
         UIButton * button2 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 56, 20, 20)];
         self.button2 = button2;
-        [self.button2 addTarget:self action:@selector(BtnTwoClick:) forControlEvents:UIControlEventTouchUpInside];
+       UIButton * buttonC2 = [[UIButton alloc]initWithFrame:CGRectMake(0, 45, screenW , 42)];
+        [buttonC2 addTarget:self action:@selector(BtnTwoClick:) forControlEvents:UIControlEventTouchUpInside];
         UILabel * labelLine2 = [self labelLineWithRect:CGRectMake(25, 86, screenW - 50, 1)];
         [self addSubview:label2];
         [self addSubview:button2];
         [self addSubview:labelLine2];
-        
+        [self addSubview:buttonC2];
         UILabel * label3 = [self createLabelWithTitle:@"申通快递" AndFrame:CGRectMake(13, 88, screenW - 50, 42)];
         UIButton * button3 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 100, 20, 20)];
         self.button3 = button3;
-        [self.button3 addTarget:self action:@selector(BtnThreeClick:) forControlEvents:UIControlEventTouchUpInside];
+        UIButton * buttonC3 = [[UIButton alloc]initWithFrame:CGRectMake(0, 90, screenW , 42)];
+        [buttonC3 addTarget:self action:@selector(BtnThreeClick:) forControlEvents:UIControlEventTouchUpInside];
         UILabel * labelLine3 = [self labelLineWithRect:CGRectMake(25, 130, screenW - 50, 1)];
         [self addSubview:label3];
         [self addSubview:button3];
         [self addSubview:labelLine3];
+        [self addSubview:buttonC3];
         self.button1.selected = YES;
         self.block(@"商家送货");
     }

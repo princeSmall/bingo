@@ -1030,7 +1030,16 @@
             
             
             if (self.imgsArray.count>0) {
-                self.goodsTbHeaderView.goodsScrollView.pictures = self.imgsArray;
+                NSMutableArray * imageArray = [NSMutableArray array];
+                for (int i = 0; i < self.imgsArray.count; i ++) {
+                    NSString * iamge = [NSString stringWithFormat:@"%@%@",TIBIGImage,self.imgsArray[i]];
+                    [imageArray addObject:iamge];
+                }
+                
+                
+                self.goodsTbHeaderView.goodsScrollView.imageURLStringsGroup = imageArray;
+                self.goodsTbHeaderView.goodsScrollView.dotColor = [UIColor lightGrayColor];
+                
             }
 
             

@@ -388,7 +388,9 @@
     ///设置头视图
     self.mainTableView.tableHeaderView.frame = CGRectMake(0, 0, kViewWidth, 84);
     self.mainTableView.tableFooterView.frame = CGRectMake(0, 0, kViewWidth, 60);
-    self.mainTableView.tableFooterView = [self CreateScoreView];
+    
+#warning 积分管理页面
+//    self.mainTableView.tableFooterView = [self CreateScoreView];
     if (self.isHaveAddress==YES) {
         self.mainTableView.tableHeaderView = self.addressView;
     }else if(self.isHaveAddress == NO){
@@ -590,13 +592,13 @@
 - (NSString *)judgeExpressType:(NSString *)express
 {
     if ([express isEqualToString:@"商家送货"]) {
-        return @"1";
+        return @"0";
     }
     if ([express isEqualToString:@"快递"]) {
-        return @"2";
+        return @"1";
     }
     if ([express isEqualToString:@"自提"]) {
-        return @"3";
+        return @"2";
     }
     return @"快递";
 }
@@ -677,7 +679,7 @@
             dict[@"order_amount"] = [NSString stringWithFormat:@"%d",orderMoney];
             dict[@"pay_status"] = @"1";
             dict[@"pay_id"] = @"1";
-            dict[@"method"] = @"1";
+            dict[@"method"] =  [self judgeExpressType:self.expressLabel.text];
             dict[@"remark"] = @"购物车";
             dict[@"goods"] = orderStr;
             //创建订单了
@@ -810,7 +812,7 @@
         if ([self.expressLabel.text isEqualToString:@"快递"]) {
             methodStr = @"1";
         }
-        if ([self.expressLabel.text isEqualToString:@"自取"]) {
+        if ([self.expressLabel.text isEqualToString:@"自提"]) {
             methodStr = @"2";
         }
         

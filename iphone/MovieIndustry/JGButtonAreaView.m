@@ -385,30 +385,36 @@
             if (!result[@"data"]) {
                 
             }else{
-                NSArray * resArray = result[@"data"];
-                for (int i = 0; i < resArray.count; i ++) {
-                    JGAreaModel * model = [[JGAreaModel alloc]initWithDict:resArray[i]];
-                    [areArray addObject:model];
-                }
-                [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                    
-                    __weak __typeof(self)weakSelf = self;
-                    self.coverView = [[JGCoverView alloc]initWithFrame:[UIScreen mainScreen].bounds And:areArray And:^(NSString *string) {
+                
+                if ([result[@"data"] isKindOfClass:[NSArray class]]) {
+                    NSArray * resArray = result[@"data"];
+                    for (int i = 0; i < resArray.count; i ++) {
+                        JGAreaModel * model = [[JGAreaModel alloc]initWithDict:resArray[i]];
+                        [areArray addObject:model];
+                    }
+                    [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                         
-                        NSArray * arrayStr = [string componentsSeparatedByString:@","];
-                        
-                        weakSelf.areaBtn.buttonTitle = arrayStr[0];
-                        weakSelf.areID = arrayStr[1];
-                        
-                        if (weakSelf.areaBlock) {
-                            weakSelf.areaBlock(string);
-                        }
-                        [weakSelf.coverView removeFromSuperview];
-                        weakSelf.coverView = nil;
+                        __weak __typeof(self)weakSelf = self;
+                        self.coverView = [[JGCoverView alloc]initWithFrame:[UIScreen mainScreen].bounds And:areArray And:^(NSString *string) {
+                            
+                            NSArray * arrayStr = [string componentsSeparatedByString:@","];
+                            
+                            weakSelf.areaBtn.buttonTitle = arrayStr[0];
+                            weakSelf.areID = arrayStr[1];
+                            
+                            if (weakSelf.areaBlock) {
+                                weakSelf.areaBlock(string);
+                            }
+                            [weakSelf.coverView removeFromSuperview];
+                            weakSelf.coverView = nil;
+                        }];
+                        [self.viewController.view addSubview:_coverView];
                     }];
-                    [self.viewController.view addSubview:_coverView];
-                }];
-
+                }else{
+                   self.areaBtn.buttonTitle = @"无";
+                    self.areID = @"0";
+                
+                }
             }
         } withFieldBlock:^{
             [self CreateAlertViewWith:@"网络请求失败，请检查网络"];
