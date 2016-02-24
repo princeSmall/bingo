@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,41 +14,66 @@
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                 <rect key="frame" x="0.0" y="0.0" width="119" height="147"/>
                 <subviews>
-                    <view contentMode="scaleToFill" id="sne-03-kQM">
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sne-03-kQM">
                         <rect key="frame" x="0.0" y="0.0" width="119" height="147"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LED.png" id="1su-kM-ISC">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LED.png" translatesAutoresizingMaskIntoConstraints="NO" id="1su-kM-ISC">
                                 <rect key="frame" x="0.0" y="0.0" width="119" height="98"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="hi0-7P-mca">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hi0-7P-mca">
                                 <rect key="frame" x="69" y="130" width="41" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="ASE-1D-b9K"/>
+                                    <constraint firstAttribute="width" constant="41" id="NfZ-4q-RiH"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥50.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="f7S-7K-5xA">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥50.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7S-7K-5xA">
                                 <rect key="frame" x="2" y="130" width="72" height="15"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="15" id="ZFg-fp-JYO"/>
+                                    <constraint firstAttribute="width" constant="72" id="gkl-mr-3EZ"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.95294117649999999" green="0.0" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LED面光灯板灯 LED1000 LED10000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ql9-yD-dis">
-                                <rect key="frame" x="3" y="99" width="112" height="31"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LED面光灯板灯 LED1000 LED10000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ql9-yD-dis">
+                                <rect key="frame" x="3" y="99" width="112" height="34"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="34" id="qV4-0d-cwX"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                 <color key="textColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="1su-kM-ISC" firstAttribute="height" secondItem="sne-03-kQM" secondAttribute="height" multiplier="0.666667" id="78W-ek-2az"/>
+                            <constraint firstAttribute="trailing" secondItem="ql9-yD-dis" secondAttribute="trailing" constant="4" id="Ix5-ds-Al8"/>
+                            <constraint firstAttribute="bottom" secondItem="f7S-7K-5xA" secondAttribute="bottom" constant="2" id="Jv8-IE-eLF"/>
+                            <constraint firstAttribute="bottom" secondItem="hi0-7P-mca" secondAttribute="bottom" constant="2" id="R8N-TR-RcL"/>
+                            <constraint firstAttribute="trailing" secondItem="hi0-7P-mca" secondAttribute="trailing" constant="9" id="T1H-1X-V6U"/>
+                            <constraint firstItem="1su-kM-ISC" firstAttribute="top" secondItem="sne-03-kQM" secondAttribute="top" id="Xzv-Ym-FbL"/>
+                            <constraint firstItem="ql9-yD-dis" firstAttribute="top" secondItem="1su-kM-ISC" secondAttribute="bottom" constant="1" id="csf-TB-sNh"/>
+                            <constraint firstItem="f7S-7K-5xA" firstAttribute="leading" secondItem="sne-03-kQM" secondAttribute="leading" constant="2" id="giC-Al-thv"/>
+                            <constraint firstAttribute="trailing" secondItem="1su-kM-ISC" secondAttribute="trailing" id="h8x-rd-Jij"/>
+                            <constraint firstItem="1su-kM-ISC" firstAttribute="leading" secondItem="sne-03-kQM" secondAttribute="leading" id="k5T-Iu-C8X"/>
+                            <constraint firstItem="ql9-yD-dis" firstAttribute="leading" secondItem="sne-03-kQM" secondAttribute="leading" constant="3" id="v8H-7V-b0a"/>
+                        </constraints>
                     </view>
                 </subviews>
                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
             </view>
+            <constraints>
+                <constraint firstItem="sne-03-kQM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="IPJ-EK-lec"/>
+                <constraint firstAttribute="trailing" secondItem="sne-03-kQM" secondAttribute="trailing" id="P2G-UQ-Iqy"/>
+                <constraint firstAttribute="bottom" secondItem="sne-03-kQM" secondAttribute="bottom" id="mkT-VJ-6T3"/>
+                <constraint firstItem="sne-03-kQM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="uxF-eQ-2s4"/>
+            </constraints>
             <connections>
                 <outlet property="goodsCityLabel" destination="hi0-7P-mca" id="6oP-kl-3Ky"/>
                 <outlet property="goodsImageView" destination="1su-kM-ISC" id="SBs-NU-uEc"/>

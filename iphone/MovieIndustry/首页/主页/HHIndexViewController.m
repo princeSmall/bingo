@@ -422,12 +422,12 @@
             return 0.1f;
         }else
         {
-            return 9;
+            return 1;
         }
     }
     
     
-    return 9;
+    return 1;
 }
 //尾部视图的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
@@ -503,7 +503,7 @@
             {
                 row2=2;
             }
-            return (kViewWidth-12)/2*147/119 *row1  +147*row2 +40*3 +30;
+            return (kViewWidth-15)/2*147/119 *row1  +147*row2 +40*3 +30;
         }
 
     else
@@ -523,7 +523,7 @@
     }else
     {
         UIView *view = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 10)];
-        view.backgroundColor = [UIColor clearColor];
+        view.backgroundColor = [UIColor whiteColor];
         return view;
     }
 }
@@ -580,7 +580,7 @@
         {
             row2=2;
         }
-        self.collectView.frame = CGRectMake(4, 4, kViewWidth-8, (kViewWidth-12)/2*147/119 *row1  +147*row2 +40*3 +30);
+        self.collectView.frame = CGRectMake(6, 6, kViewWidth-12, (kViewWidth-15)/2*147/119 *row1  +147*row2 +40*3 +30);
         
         
         //添加collectionView
@@ -770,13 +770,6 @@
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
 {
     
-    if (!APP_DELEGATE.user_id) {
-        
-        LoginInController *loginVc = [[LoginInController alloc] init];
-        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:loginVc];
-        [self presentViewController:navC animated:YES completion:nil];
-    }else
-    {
         MovieGoodsInfoViewController *movieGoodsVc = [[MovieGoodsInfoViewController alloc] init];
 
         IndexHomeDealModel *model = self.homeDealListArr[indexPath.section][indexPath.row];
@@ -785,7 +778,7 @@
         movieGoodsVc.shopID = model.shop_id;
         [movieGoodsVc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:movieGoodsVc animated:YES];
-    }
+
 }
 
 
@@ -796,13 +789,13 @@
 {
     if(indexPath.section==0 || indexPath.section==1)
     {
-        return CGSizeMake((kViewWidth-10)/2, (kViewWidth-10)/2*147/119);
+        return CGSizeMake((kViewWidth-15)/2, (kViewWidth-15)/2*147/119);
         
     }
     
     if(indexPath.section==2)
     {
-        return CGSizeMake((kViewWidth-10)/3, 147);
+        return CGSizeMake((kViewWidth-14)/3, 147);
     }
     
     
@@ -821,7 +814,7 @@
         NSString * category =[self.sortArray objectAtIndex:indexPath.section];;
         
         [headerView.button setImage:[self.imageDic valueForKey:category] forState:UIControlStateNormal];
-        [headerView.button addTarget:self action:@selector(actionClass:) forControlEvents:UIControlEventTouchUpInside];
+//        [headerView.button addTarget:self action:@selector(actionClass:) forControlEvents:UIControlEventTouchUpInside];
         reusableView = headerView;
     }
     return reusableView;
@@ -832,7 +825,14 @@
 //每个item之间的间距
 - (CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section
 {
-    return 1;
+    if(section==2)
+    {
+        return 1;
+    }
+    else
+    {
+        return 2;
+    }
 }
 
 //每个section中不同的行之间的行间距
@@ -934,7 +934,7 @@
 }
 
 
-#pragma mark - 加载首页展览物品的数据 六个产品展示
+#pragma mark - 加载首页展览物品的数据 产品展示
 - (void)loadHomeGoodsData
 
 {
@@ -969,16 +969,7 @@
                         [self.sortArray addObject:infoDic[@"category_name"]];
                         for(NSDictionary *goodDic in goodsArray)
                         {
-                            IndexHomeDealModel *model = [[IndexHomeDealModel alloc] init];
-                            model.goods_id = goodDic[@"goods_id"];
-                            model.goods_city_name = [WNController nullString:goodDic[@"goods_city_name"]];
-                            model.img_path = [WNController nullString:goodDic[@"img_path"]];
-                            model.goods_name = [WNController nullString:goodDic[@"goods_name"]];
-                            model.goods_price = [WNController nullString:goodDic[@"goods_price"]];
-                            model.goods_city_id = [WNController nullString:goodDic[@"goods_city_id"]];
-                            model.shop_id =[WNController nullString:goodDic[@"shop_id"]];
-                            model.goods_number = [WNController nullString:goodDic[@"goods_number"]];
-                            model.type =[WNController nullString:goodDic[@"type"]];
+                            IndexHomeDealModel *model = [[IndexHomeDealModel alloc] initWithDic:goodDic];
                             [weakSelf.dealListArr addObject:model];
                         }
                     

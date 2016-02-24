@@ -20,5 +20,5 @@
 @property (nonatomic,copy) NSString *type;
 @property (nonatomic,copy) NSString *goods_city_name;
 
-
+-(instancetype)initWithDic:(NSDictionary *)dic;
 @end

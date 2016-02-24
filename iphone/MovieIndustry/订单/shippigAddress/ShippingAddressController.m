@@ -292,14 +292,17 @@
             [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号码"];
         }else
         {
-            if ([self.postCodeLabel.text isEqualToString:@""]) {
-                [PromptLabel custemAlertPromAddView:self.view text:@"请输入邮编"];
-            }else
-            {
-               if ([self.addressDetailTextView.text isEqualToString:@""]||[self.addressDetailTextView.text isEqualToString:@"详细地址"]) {
+//            if ([self.postCodeLabel.text isEqualToString:@""]) {
+//                [PromptLabel custemAlertPromAddView:self.view text:@"请输入邮编"];
+//            }else
+//            {
+            
+            if ([self.addressDetailTextView.text isEqualToString:@""]||[self.addressDetailTextView.text isEqualToString:@"详细地址"]) {
                         [PromptLabel custemAlertPromAddView:self.view text:@"请输入详细地址"];
-                    }else
-                    {
+                
+            }else
+                
+            {
                         
                         MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
                         
@@ -331,25 +334,31 @@
                                 [self backAction];
                                 
                                 
+                           
                             }
                             
                             [MBHudManager removeHud:hud scallBack:^(id obj) {
                                 
                             }];
                             
+                       
                         } withFieldBlock:^{
                             [MBHudManager removeHud:hud scallBack:^(id obj) {
                                 
                             }];
                         }];
-                    }
-                    
-                    
-                }
+                
             }
+                    
+                    
             
         }
+        
     }
+            
+    
+}
+
 
 
 #pragma mark - UIPickerView代理方法

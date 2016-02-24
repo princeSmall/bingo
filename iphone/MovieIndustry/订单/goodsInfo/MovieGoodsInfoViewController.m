@@ -614,8 +614,13 @@
 - (void)loadGoodsAttribute
 {
     MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
+      NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.goodsId,@"goods_id", APP_DELEGATE.user_id,@"user_id",nil];
     
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.goodsId,@"goods_id", APP_DELEGATE.user_id,@"user_id",nil];
+    if(!APP_DELEGATE.user_id)
+    {
+        [userDict setValue:@"" forKey:@"user_id"];
+    }
+    
     [HttpRequestServers requestBaseUrl:TIGoods_GoodsAttributes withParams:userDict withRequestFinishBlock:^(id result) {
         
         @try {
@@ -672,6 +677,11 @@
 
 - (void)createGoodsInfoBottomView
 {
+    if(self.bottomView)
+    {
+        return;
+    }else
+    {
     UIView *lineView = [WNController createViewFrame:CGRectMake(0, kViewHeight-51+20, kViewWidth, 1)];
     lineView.backgroundColor = kViewBackColor;
     [self.view addSubview:lineView];
@@ -701,6 +711,7 @@
     [self.bottomView addSubview:btn4];
     
     [self.view addSubview:self.bottomView];
+    }
 }
 
 
@@ -907,7 +918,14 @@
 {
     HHNSLog(@"立即租用此商品被点击");
     //显示选择分类
-    
+    if(!APP_DELEGATE.user_id)
+    {
+        LoginInController *loginVc = [[LoginInController alloc] init];
+        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:loginVc];
+        [self presentViewController:navC animated:YES completion:nil];
+        [self loadGoodsAttribute];
+        return;
+    }
     if ([self.model.goods_number isEqualToString:@"0"]) {
         [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
     }else
@@ -994,7 +1012,15 @@
 - (void)loadGoodsData
 {
     NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.goodsId,@"goods_id", nil];
-    [userDict setObject:APP_DELEGATE.user_id forKey:@"user_id"];
+    if(APP_DELEGATE.user_id)
+    {
+        [userDict setObject:APP_DELEGATE.user_id forKey:@"user_id"];
+    }
+    else
+    {
+        [userDict setObject:@"" forKey:@"user_id"];
+
+    }
 //    [userDict setObject:@"1" forKey:@"goods_id"];
     [HttpRequestServers requestBaseUrl:TIGoods_Details withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
