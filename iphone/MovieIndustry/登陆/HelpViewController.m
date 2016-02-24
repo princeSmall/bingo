@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.textLabel.text = @"发送验证码";
+//    self.textLabel.text = @"发送验证码";
     UserLoginModel * model = [UserLoginModel UnarchiverUser];
     self.currentPhoneLabel.text = model.phoneNumber;
     
@@ -37,7 +37,7 @@
     }
     
     
-    if (kViewWidth<375) {
+    if (kViewWidth>=375) {
         self.changePhoneLabel.font = [UIFont systemFontOfSize:15];
         self.cuNumberLabel.font = [UIFont systemFontOfSize:15];
     }

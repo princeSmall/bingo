@@ -103,6 +103,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kViewBackColor;
+    
+    self.Order = @"DS";
+    
     [self setNavTabBar:@"我的订单"];
     
     if(self.Order){

@@ -13,6 +13,8 @@ typedef void (^ClickBlock)(NSString *possType);
 
 @interface ShopSendClickView : UIView
 
+@property (nonatomic,strong)NSString * line;
+
 - (instancetype)initWithFrame:(CGRect)frame AndClickBlock:(ClickBlock)block;
 
 @end

@@ -57,7 +57,7 @@
         CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
         UILabel * label1 = [self createLabelWithTitle:@"商家送货" AndFrame: CGRectMake(13, 0, screenW - 50, 42)];
         
-        UIButton * button1 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 12, 20, 20)];
+        UIButton * button1 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 12, 15, 15)];
         self.button1 = button1;
         UIButton * buttonC1 = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, screenW , 42)];
         [buttonC1 addTarget:self action:@selector(BtnOneClick:) forControlEvents: UIControlEventTouchUpInside];
@@ -68,7 +68,7 @@
         [self addSubview:labelLine1];
         [self addSubview:buttonC1];
         UILabel * label2 = [self createLabelWithTitle:@"顺丰快递" AndFrame:CGRectMake(13, 44, screenW - 50, 42)];
-        UIButton * button2 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 56, 20, 20)];
+        UIButton * button2 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 56, 15, 15)];
         self.button2 = button2;
        UIButton * buttonC2 = [[UIButton alloc]initWithFrame:CGRectMake(0, 45, screenW , 42)];
         [buttonC2 addTarget:self action:@selector(BtnTwoClick:) forControlEvents:UIControlEventTouchUpInside];
@@ -78,7 +78,7 @@
         [self addSubview:labelLine2];
         [self addSubview:buttonC2];
         UILabel * label3 = [self createLabelWithTitle:@"申通快递" AndFrame:CGRectMake(13, 88, screenW - 50, 42)];
-        UIButton * button3 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 100, 20, 20)];
+        UIButton * button3 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 100, 15, 15)];
         self.button3 = button3;
         UIButton * buttonC3 = [[UIButton alloc]initWithFrame:CGRectMake(0, 90, screenW , 42)];
         [buttonC3 addTarget:self action:@selector(BtnThreeClick:) forControlEvents:UIControlEventTouchUpInside];

@@ -14,6 +14,8 @@
 #import "ManagerShippingAddressController.h"
 #import "LoginInController.h"
 #import "HelpViewController.h"
+#import "VerificationUserController.h"
+
 
 @interface SettingViewController ()<UIAlertViewDelegate>
 
@@ -23,7 +25,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
     //设置缓存显示
     NSUInteger intg = [[SDImageCache sharedImageCache] getSize];
     NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:intg]];
@@ -31,6 +32,11 @@
     
     [self setNavTabBar:@"设置"];
 }
+- (void)backAction
+{
+        [self.navigationController popViewControllerAnimated:YES];
+}
+
 
 
 
@@ -51,8 +57,8 @@
 #pragma mark - 修改账号
 - (IBAction)modifyMineAccountAction:(UIButton *)sender
 {
-    HelpViewController *paySucVc = [[HelpViewController alloc] init];
-    paySucVc.type = @"1";
+   VerificationUserController  *paySucVc = [[VerificationUserController alloc] init];
+//    paySucVc.type = @"1";
     [self.navigationController pushViewController:paySucVc animated:YES];
 //    UIStoryboard *storeboard = [UIStoryboard storyboardWithName:@"MoviePersonal" bundle:nil];
 //    MovieModifyAccountViewController *modifyVC = [storeboard instantiateViewControllerWithIdentifier:@"changeAccount"];

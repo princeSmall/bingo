@@ -112,11 +112,11 @@
 {
     UIView *btnView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 45)];
     [self.view addSubview:btnView];
-    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(5, 44, kViewWidth/6-10, 1)];
+    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(5, 44, kViewWidth/5-10, 1)];
     _btnLine.backgroundColor = [UIColor redColor];
     [btnView addSubview:_btnLine];
     
-    UIButton *btn1 = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(allOrderAction:) Title:@"全部" fontSize:14];
+    UIButton *btn1 = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth/5, 45) ImageName:@"" Target:self Action:@selector(allOrderAction:) Title:@"全部" fontSize:14];
     
     //初始化选中的按钮
     _btnType = @"0";
@@ -124,19 +124,52 @@
     [_selectedBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
     
     [btnView addSubview:btn1];
-    UIButton *btn2 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(noPayAction:) Title:@"待付款" fontSize:14];
+    UIButton *btn2 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/5, 0, kViewWidth/5, 45) ImageName:@"" Target:self Action:@selector(noPayAction:) Title:@"待付款" fontSize:14];
     [btnView addSubview:btn2];
-    UIButton *btn3 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*2, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(noSendAction:) Title:@"待发货" fontSize:14];
+    UIButton *btn3 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/5*2, 0, kViewWidth/5, 45) ImageName:@"" Target:self Action:@selector(noSendAction:) Title:@"待发货" fontSize:14];
     [btnView addSubview:btn3];
-    UIButton *btn4 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*3, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(waitReceiveAction:) Title:@"待收货" fontSize:14];
+    UIButton *btn4 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/5*3, 0, kViewWidth/5, 45) ImageName:@"" Target:self Action:@selector(waitReceiveAction:) Title:@"待收货" fontSize:14];
     [btnView addSubview:btn4];
     
-    UIButton *btn5 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*4, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(waitComAction:) Title:@"待评价" fontSize:14];
+    UIButton *btn5 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/5*4, 0, kViewWidth/5, 45) ImageName:@"" Target:self Action:@selector(waitComAction:) Title:@"待评价" fontSize:14];
     [btnView addSubview:btn5];
-    UIButton *btn6 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*5, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(BackMoneyComAction:) Title:@"退款" fontSize:14];
-    [btnView addSubview:btn6];
+//    UIButton *btn6 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*5, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(BackMoneyComAction:) Title:@"退款" fontSize:14];
+//    [btnView addSubview:btn6];
     
 }
+
+
+
+
+//- (void)createUI
+//{
+//    UIView *btnView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 45)];
+//    [self.view addSubview:btnView];
+//    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(5, 44, kViewWidth/6-10, 1)];
+//    _btnLine.backgroundColor = [UIColor redColor];
+//    [btnView addSubview:_btnLine];
+//    
+//    UIButton *btn1 = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(allOrderAction:) Title:@"全部" fontSize:14];
+//    
+//    //初始化选中的按钮
+//    _btnType = @"0";
+//    _selectedBtn = btn1;
+//    [_selectedBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+//    
+//    [btnView addSubview:btn1];
+//    UIButton *btn2 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(noPayAction:) Title:@"待付款" fontSize:14];
+//    [btnView addSubview:btn2];
+//    UIButton *btn3 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*2, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(noSendAction:) Title:@"待发货" fontSize:14];
+//    [btnView addSubview:btn3];
+//    UIButton *btn4 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*3, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(waitReceiveAction:) Title:@"待收货" fontSize:14];
+//    [btnView addSubview:btn4];
+//    
+//    UIButton *btn5 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*4, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(waitComAction:) Title:@"待评价" fontSize:14];
+//    [btnView addSubview:btn5];
+//    UIButton *btn6 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*5, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(BackMoneyComAction:) Title:@"退款" fontSize:14];
+//    [btnView addSubview:btn6];
+//    
+//}
 #warning
 #warning status=6时会报错
 #warning 
@@ -159,28 +192,28 @@
 - (void)noPayAction:(UIButton *)btn
 {
     
-    [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/6+5, 44, kViewWidth/6-10, 1)];
+    [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/5+5, 44, kViewWidth/5-10, 1)];
     [self getDatawithOrder];
 }
 
 #pragma mark - 待发货
 - (void)noSendAction:(UIButton *)btn
 {
-    [self setBtnType:@"2" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/6*2+5, 44, kViewWidth/6-10, 1)];
+    [self setBtnType:@"2" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/5*2+5, 44, kViewWidth/5-10, 1)];
     [self getDatawithOrder];
 }
 
 #pragma mark - 待收货
 - (void)waitReceiveAction:(UIButton *)btn
 {
-    [self setBtnType:@"3" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/6*3+5, 44, kViewWidth/6-10,1)];
+    [self setBtnType:@"3" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/5*3+5, 44, kViewWidth/5-10,1)];
     [self getDatawithOrder];
 }
 
 #pragma mark - 待评价
 - (void)waitComAction:(UIButton *)btn
 {
-    [self setBtnType:@"4" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/6*4+5, 44, kViewWidth/6-10, 1)];
+    [self setBtnType:@"4" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/5*4+5, 44, kViewWidth/5-10, 1)];
     [self getDatawithOrder];
 }
 

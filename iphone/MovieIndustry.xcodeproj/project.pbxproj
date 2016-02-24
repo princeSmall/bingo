@@ -22,6 +22,8 @@
 		002CDC981C574CA50056CB09 /* weixuan.png in Resources */ = {isa = PBXBuildFile; fileRef = 002CDC961C574CA40056CB09 /* weixuan.png */; };
 		004754D91C50D622002F9C28 /* bg_dianpujieshao.png in Resources */ = {isa = PBXBuildFile; fileRef = 004754D81C50D622002F9C28 /* bg_dianpujieshao.png */; };
 		005683AB1C4F659C0066D17A /* line_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 005683AA1C4F659C0066D17A /* line_red.png */; };
+		00580DCA1C7D84CB008012F0 /* VerificationUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00580DC81C7D84CB008012F0 /* VerificationUserController.m */; };
+		00580DCB1C7D84CB008012F0 /* VerificationUserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00580DC91C7D84CB008012F0 /* VerificationUserController.xib */; };
 		0058C2B61C5628FE00CF2549 /* JGBtnView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0058C2B51C5628FE00CF2549 /* JGBtnView.m */; };
 		005A88661C573F4D0093F93C /* ShopSendClickView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005A88651C573F4D0093F93C /* ShopSendClickView.m */; };
 		005CF2051C5645ED0035A50B /* BtnSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005CF2041C5645ED0035A50B /* BtnSelectView.m */; };
@@ -48,6 +50,7 @@
 		008A921B1C72B88D0092CDB5 /* JGAreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 008A921A1C72B88D0092CDB5 /* JGAreaModel.m */; };
 		008A92221C7313330092CDB5 /* MyHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008A92211C7313330092CDB5 /* MyHelpViewController.m */; };
 		00A22F4E1C60A26E000F11DB /* ShopMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A22F4D1C60A26E000F11DB /* ShopMainModel.m */; };
+		00A34F381C7D9E7600707673 /* ShopSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A34F371C7D9E7600707673 /* ShopSendView.m */; };
 		00B1F3B51C5B02100027672A /* JGCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1F3A81C5B02100027672A /* JGCoverView.m */; };
 		00B1F3B61C5B02100027672A /* AreaButton.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1F3AA1C5B02100027672A /* AreaButton.m */; };
 		00B1F3B71C5B02100027672A /* bg_dianpujieshao.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B1F3AB1C5B02100027672A /* bg_dianpujieshao.png */; };
@@ -816,6 +819,9 @@
 		002CDC961C574CA40056CB09 /* weixuan.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = weixuan.png; sourceTree = "<group>"; };
 		004754D81C50D622002F9C28 /* bg_dianpujieshao.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = bg_dianpujieshao.png; sourceTree = "<group>"; };
 		005683AA1C4F659C0066D17A /* line_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line_red.png; sourceTree = "<group>"; };
+		00580DC71C7D84CB008012F0 /* VerificationUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationUserController.h; sourceTree = "<group>"; };
+		00580DC81C7D84CB008012F0 /* VerificationUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationUserController.m; sourceTree = "<group>"; };
+		00580DC91C7D84CB008012F0 /* VerificationUserController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VerificationUserController.xib; sourceTree = "<group>"; };
 		0058C2B41C5628FE00CF2549 /* JGBtnView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGBtnView.h; sourceTree = "<group>"; };
 		0058C2B51C5628FE00CF2549 /* JGBtnView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGBtnView.m; sourceTree = "<group>"; };
 		005A88641C573F4D0093F93C /* ShopSendClickView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopSendClickView.h; sourceTree = "<group>"; };
@@ -857,6 +863,8 @@
 		008A92211C7313330092CDB5 /* MyHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpViewController.m; sourceTree = "<group>"; };
 		00A22F4C1C60A26E000F11DB /* ShopMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopMainModel.h; sourceTree = "<group>"; };
 		00A22F4D1C60A26E000F11DB /* ShopMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopMainModel.m; sourceTree = "<group>"; };
+		00A34F361C7D9E7600707673 /* ShopSendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopSendView.h; sourceTree = "<group>"; };
+		00A34F371C7D9E7600707673 /* ShopSendView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopSendView.m; sourceTree = "<group>"; };
 		00B1F3A71C5B02100027672A /* JGCoverView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGCoverView.h; sourceTree = "<group>"; };
 		00B1F3A81C5B02100027672A /* JGCoverView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGCoverView.m; sourceTree = "<group>"; };
 		00B1F3A91C5B02100027672A /* AreaButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AreaButton.h; sourceTree = "<group>"; };
@@ -2150,6 +2158,8 @@
 			children = (
 				005A88641C573F4D0093F93C /* ShopSendClickView.h */,
 				005A88651C573F4D0093F93C /* ShopSendClickView.m */,
+				00A34F361C7D9E7600707673 /* ShopSendView.h */,
+				00A34F371C7D9E7600707673 /* ShopSendView.m */,
 			);
 			name = "送货选择View";
 			sourceTree = "<group>";
@@ -3428,6 +3438,9 @@
 				8482956F1C0E9CC200452BF9 /* LoginInController.h */,
 				848295701C0E9CC200452BF9 /* LoginInController.m */,
 				848295711C0E9CC200452BF9 /* LoginInController.xib */,
+				00580DC71C7D84CB008012F0 /* VerificationUserController.h */,
+				00580DC81C7D84CB008012F0 /* VerificationUserController.m */,
+				00580DC91C7D84CB008012F0 /* VerificationUserController.xib */,
 			);
 			path = "登陆";
 			sourceTree = "<group>";
@@ -4995,6 +5008,7 @@
 				8482952D1C0E9AB700452BF9 /* MovieTopicTitleCell.xib in Resources */,
 				848295351C0E9AB700452BF9 /* MovieSepcialGoodsInfoCell.xib in Resources */,
 				8482953C1C0E9AB700452BF9 /* MovieTalkPersonThirdCell.xib in Resources */,
+				00580DCB1C7D84CB008012F0 /* VerificationUserController.xib in Resources */,
 				846165471BFF3A8E003B656B /* share_03-05@2x.png in Resources */,
 				D382D2AE1C7C526000B699D2 /* CollectShopCell1.xib in Resources */,
 				846164DD1BFF3A8E003B656B /* discover_14.png in Resources */,
@@ -5342,6 +5356,7 @@
 				849487D51C086C420070AD4C /* MyOrderShopModel.m in Sources */,
 				00200A351C7C65D600DD8084 /* TAPageControl.m in Sources */,
 				848293781C0E968200452BF9 /* SelectCertificationView.m in Sources */,
+				00580DCA1C7D84CB008012F0 /* VerificationUserController.m in Sources */,
 				8482943F1C0E96C500452BF9 /* SDImageCache.m in Sources */,
 				848296371C0EA02C00452BF9 /* MovieDrawMoneyViewController.m in Sources */,
 				848294331C0E96C500452BF9 /* MJRefreshBackNormalFooter.m in Sources */,
@@ -5394,6 +5409,7 @@
 				848295561C0E9AB700452BF9 /* ShopDetailView.m in Sources */,
 				848294241C0E96C500452BF9 /* AFSecurityPolicy.m in Sources */,
 				8482942D1C0E96C500452BF9 /* MJRefreshFooter.m in Sources */,
+				00A34F381C7D9E7600707673 /* ShopSendView.m in Sources */,
 				A26BF2B11BFD906A009D65C4 /* MovieRefundMoneyViewController.m in Sources */,
 				8482954E1C0E9AB700452BF9 /* SearchCollectionCell.m in Sources */,
 				8482966F1C0EA02C00452BF9 /* MyPhotosCell.m in Sources */,

@@ -26,6 +26,8 @@
 #import "ShippingAddressController.h"
 #import "CartGood.h"
 
+#import "ShopSendView.h"
+
 
 
 @interface MovieComfirmOrderViewController ()<UITableViewDataSource,UITableViewDelegate,UITextFieldDelegate,UIAlertViewDelegate,ShippingAddressListDelegate,ShippingAddressControllerDelegate>
@@ -45,7 +47,6 @@
 @property (nonatomic,strong) NSMutableArray *goodsArray;
 ///商铺模型
 @property (nonatomic,strong) NSMutableArray *shopsArray;
-
 ///选择送货方式View
 @property (nonatomic,strong) ChooseExpressTypeView *chooseExpressView;
 @property (nonatomic,strong)ShopGroupFooter *footView;
@@ -77,6 +78,10 @@
 @property (nonatomic,strong)UITextField * textFiledFoot;
 
 @property (nonatomic,assign)CGFloat goodsPrice;
+
+
+@property (nonatomic,strong)ShopSendView * shop;
+@property (nonatomic,strong)UIView * bgView;
 
 @end
 
@@ -120,10 +125,6 @@
 
     UIView * view = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, 50)];
     view.backgroundColor = [UIColor whiteColor];
-//    UIView * grayView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, 10)];
-//    grayView.backgroundColor = [UIColor lightGrayColor];
-//    grayView.alpha = 0.5;
-//    [view addSubview:grayView];
     UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, 15, kViewWidth/2+30, 20)];
 //这边可以传参过来设置
     label.text = @"   可用200咖么积分";
@@ -247,11 +248,35 @@
         [self loadShippingMethod];
     }
 }
+- (void)removeTapGesAction
+{
+    [UIView animateWithDuration:0.3 animations:^{
+        self.shop.frame = CGRectMake(0, kViewHeight+20, kViewWidth, 180);
+        self.bgView.alpha = 0.0f;
+    } completion:^(BOOL finished) {
+        [self.bgView removeFromSuperview];
+    }];
+    
+}
+
 
 - (void)viewDidLoad{
 
     [super viewDidLoad];
-   
+    
+    ShopSendView * shop = [[ShopSendView alloc]initWithFrame:CGRectMake(0,kViewHeight, kViewWidth, 180) AndClickBlock:^(NSString *possType) {
+        NSLog(@"%@",possType);
+        self.expressLabel.text = possType;
+        [self removeTapGesAction];
+    }];
+    self.shop = shop;
+    shop.backgroundColor = [UIColor whiteColor];
+    UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, kViewHeight)];
+    self.bgView = bgView;
+    bgView.backgroundColor = [UIColor blackColor];
+    bgView.alpha = 0.3;
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeTapGesAction)];
+    [bgView addGestureRecognizer:tapGes];
 }
 
 #pragma mark - 选择收货地址
@@ -559,35 +584,16 @@
     ///取到点击到的尾部视图
     ShopGroupFooter *footerView = (ShopGroupFooter *)btn.superview;
     self.expressLabel = footerView.postTypeLabel;
+    [self.tabBarController.view addSubview:self.bgView];
+    [self.tabBarController.view addSubview:self.shop];
+    [UIView animateWithDuration:0.3 animations:^{
+        self.shop.frame = CGRectMake(0, kViewHeight - 160, kViewWidth, 180);
+        self.bgView.alpha = 0.3f;
+    } completion:^(BOOL finished) {
+    }];
     
-    [self.chooseExpressView show];
-    [self.chooseExpressView.topBtn addTarget:self action:@selector(removeChooseView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.chooseExpressView.midleBtn addTarget:self action:@selector(removeChooseView:) forControlEvents:UIControlEventTouchUpInside];
-    [self.chooseExpressView.bottomBtn addTarget:self action:@selector(removeChooseView:) forControlEvents:UIControlEventTouchUpInside];
 }
 
-- (void)removeChooseView:(UIButton *)btn
-{
-    [self.chooseExpressView removeTapGesAction];
-    if (btn.tag == 100) {
-        self.expressLabel.text = @"商家送货";
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    }
-    if (btn.tag == 101) {
-        self.expressLabel.text = @"快递";
-
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    }
-    
-    if (btn.tag == 102) {
-        self.expressLabel.text = @"自提";
-        [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    }
-    
-    NSNumber *number = [NSNumber numberWithInteger:self.expressLabel.superview.tag];
-    ///存储快递方式键值对
-    [self.expressDict setObject:self.expressLabel.text forKey:number];
-}
 #pragma mark - 判断商家送货方式
 - (NSString *)judgeExpressType:(NSString *)express
 {

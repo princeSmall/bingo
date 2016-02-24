@@ -40,8 +40,6 @@
     self.midleBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
     self.midleBtn.backgroundColor = [UIColor whiteColor];
     [btnView addSubview:self.midleBtn];
-    
-//    self.bottomBtn = [WNController createButtonWithFrame:CGRectMake(0, 148/3*2, kViewWidth, 148/3-1) ImageName:@"" Target:nil Action:nil Title:@"自提" fontSize:16];
     self.bottomBtn = [self createButtonWithFrame:CGRectMake(0, 148/3*2, kViewWidth, 148/3-1) ImageName:@"" Title:@"自提" fontSize:16];
     self.bottomBtn.backgroundColor = [UIColor whiteColor];
     self.bottomBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
@@ -81,17 +79,13 @@
 - (UIButton*)createButtonWithFrame:(CGRect)frame ImageName:(NSString*)imageName Title:(NSString*)title fontSize:(int)fontSize
 {
     UIButton*button=[UIButton buttonWithType:UIButtonTypeCustom];
-    //    [button setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
     button.frame=frame;
     [button setTitle:title forState:UIControlStateNormal];
-    
-//    [button setBackgroundImage:[WNController createImageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
     [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     //设置背景图片，可以使文字与图片共存
     [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
-    //图片与文字如果需要同时存在，就需要图片足够小 详见人人项目按钮设置
-    // [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     button.titleLabel.font = [UIFont systemFontOfSize:fontSize];
+    button.titleLabel.textAlignment = NSTextAlignmentCenter;
     return button;
 }
 
