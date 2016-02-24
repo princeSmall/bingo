@@ -69,7 +69,7 @@
     [self setNavTabBar:@"我的"];
      self.headerImage.layer.borderColor = [UIColor whiteColor].CGColor;
 #warning 帮助
-   [self setNavRightItem:@"帮助" rightAction:@selector(RightAction)];
+//   [self setNavRightItem:@"帮助" rightAction:@selector(RightAction)];
     [self addTargetActionForButton];
     [self getMineInfoRequest];
 
@@ -142,7 +142,7 @@
 //根据网络数据刷新界面
 - (void)refreshMineInfomations
 {
-    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TISMALLImage,self.desModel.img]] placeholderImage:[UIImage imageNamed:@"defualt_headerImg"]];
+    [self.headerImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.desModel.img]] placeholderImage:[UIImage imageNamed:@"defualt_headerImg"]];
     
     if ([self.desModel.nickname isEqualToString:@""]) {
         self.name.text = self.desModel.mobile;

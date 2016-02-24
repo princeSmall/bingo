@@ -85,8 +85,12 @@
 #pragma mark - 添加收货地址 
 - (void)addShippingAddress:(UIButton *)btn
 {
+    if (self.dataArray.count == 5) {
+     [PromptLabel custemAlertPromAddView:self.view text:@"最多可添加5个地址"];
+    }else{
+    
     ShippingAddressController *addSdVc = [[ShippingAddressController alloc] init];
-    [self.navigationController pushViewController:addSdVc animated:YES];
+        [self.navigationController pushViewController:addSdVc animated:YES];}
 }
 
 #pragma mark - 查询收货地址 用于判断是否有默认地址
@@ -215,32 +219,30 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ShippingAddressModel *model = self.dataArray[indexPath.row];
-    
     [self deleteShippingAddress:model.address_id];
     
     self.tbView.editing = NO;
 }
 
-#pragma mark - 修改删除的文字
-- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    return @"删除";
-}
-
-#pragma mark - 删除地址
 - (void)deleteShippingAddress:(NSString *)addressID
 {
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[UserInfo uid],@"user_id",@"del",@"make",addressID,@"address_id", nil];
-    [HttpRequestServers requestBaseUrl:Shop_address_modify withParams:userDict withRequestFinishBlock:^(id result) {
-        
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:APP_DELEGATE.user_id,@"user_id",addressID,@"shipping_address_id", nil];
+    [HttpRequestServers requestBaseUrl:TIShipping_DeleteAddr withParams:userDict withRequestFinishBlock:^(id result) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSDictionary *dict = result;
-        HHNSLog(@"--------> %@",dict);
+        //        HHNSLog(@"--------> %@",dict);
         @try {
-            if ([dict[@"status"] isEqualToString:Status_Success]) {
+            if ([dict[@"code"] intValue] == 0) {
                 
                 [PromptLabel custemAlertPromAddView:self.view text:@"删除成功"];
                 [self loadAddressList];
                 
+                
+            }else if([dict[@"message"] isEqualToString:@"最少一个地址"]){
+                
+                [PromptLabel custemAlertPromAddView:self.view text:@"最少留一个地址"];
             }
         }
         @catch (NSException *exception) {
@@ -256,6 +258,17 @@
     }];
     
 }
+
+
+
+#pragma mark - 修改删除的文字
+- (NSString *)tableView:(UITableView *)tableView titleForDeleteConfirmationButtonForRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    return @"删除";
+}
+
+#pragma mark - 删除地址
+
 
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {

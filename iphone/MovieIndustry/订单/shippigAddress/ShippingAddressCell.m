@@ -50,8 +50,8 @@
 - (void)layoutSubviews
 {
     [super layoutSubviews];
-    UIColor * color = [[UIColor alloc]initWithRed:226.0/255 green:106.0/255 blue:147.0/255 alpha:1];
-//    UIColor * color = COLORRGB(226, 106, 147);
+   UIColor * color = [[UIColor alloc]initWithRed:190.0/255 green:0.0/255 blue:0.0/255 alpha:1];
+
     for (UIView *subView in self.subviews) {
         if ([NSStringFromClass([subView class]) isEqualToString:@"UITableViewCellDeleteConfirmationView"]) {
             ((UIView *)[subView.subviews firstObject]).backgroundColor = color;

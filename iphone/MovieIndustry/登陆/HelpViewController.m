@@ -14,6 +14,7 @@
     NSString *_codeString;
 }
 @property (nonatomic,strong) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UILabel *textLabel;
 @property (nonatomic,assign) int timeCount;
 @end
 
@@ -21,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.textLabel.text = @"发送验证码";
     UserLoginModel * model = [UserLoginModel UnarchiverUser];
     self.currentPhoneLabel.text = model.phoneNumber;
     
@@ -131,12 +132,14 @@
 {
     if (self.timeCount>1) {
         self.timeCount--;
-        [self.sendCodeButton setTitle:[NSString stringWithFormat:@"%d秒后重发",self.timeCount] forState:UIControlStateNormal];
+        self.textLabel.text =[NSString stringWithFormat:@"%d秒后重发",self.timeCount];
+//        [self.sendCodeButton setTitle:[NSString stringWithFormat:@"%d秒后重发",self.timeCount] forState:UIControlStateNormal];
     }else
     {
         //关闭计时器
         [self.timer invalidate];
-        [self.sendCodeButton setTitle:@"重新发送" forState:UIControlStateNormal];
+//        [self.sendCodeButton setTitle:@"重新发送" forState:UIControlStateNormal];
+        self.textLabel.text = @"重新发送";
         self.sendCodeButton.enabled = YES;
     }
 }

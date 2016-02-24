@@ -15,6 +15,7 @@
 @interface LoginInController ()<UITextFieldDelegate>
 @property (nonatomic,copy) NSString *codeString;
 @property (nonatomic,strong) NSTimer *timer;
+@property (weak, nonatomic) IBOutlet UILabel *timeLabel;
 @property (nonatomic,assign) int timeCount;
 @end
 
@@ -27,7 +28,8 @@
     self.navigationController.navigationBar.barTintColor=kNavBarColor;
     self.navigationController.navigationBar.translucent=NO;
     
-    
+    self.timeLabel.layer.cornerRadius = 3;
+    self.timeLabel.layer.masksToBounds = YES;
     
     if (kViewWidth<375) {
         self.sendCodeButton.titleLabel.font = [UIFont boldSystemFontOfSize:13];
@@ -119,12 +121,13 @@
 {
     if (self.timeCount>1) {
         self.timeCount--;
-        [self.sendCodeButton setTitle:[NSString stringWithFormat:@"%d秒后重发",self.timeCount] forState:UIControlStateNormal];
+        self.timeLabel.text =[NSString stringWithFormat:@"%d秒后重发",self.timeCount];
+//        [self.sendCodeButton setTitle:[NSString stringWithFormat:@"%d秒后重发",self.timeCount] forState:UIControlStateNormal];
     }else
     {
         //关闭计时器
         [self.timer invalidate];
-        [self.sendCodeButton setTitle:@"重新发送" forState:UIControlStateNormal];
+        self.timeLabel.text =@"重新发送";
         self.sendCodeButton.enabled = YES;
     }
 }
