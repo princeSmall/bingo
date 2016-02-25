@@ -984,7 +984,7 @@
                     [_tbView reloadData];
                
                     [self.collectView reloadData];
-                    HHNSLog(@"%@",weakSelf.homeDealListArr);
+                    HHNSLog(@"homeDealListArr---%@",weakSelf.homeDealListArr);
                     //结束刷新
                     [_tbView.header endRefreshing];
                     [_tbView.footer endRefreshing];

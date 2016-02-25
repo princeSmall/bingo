@@ -45,7 +45,7 @@
     self.mainWebView.delegate = self;
     
 //    if (self.heperId) {
-        [self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.urlPath]]];
+        [self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:@"http://www.baidu.com"]]];
 //    }
 //    else{
 //        [self.mainWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@&id=%@",Help_info,@""]]]];
