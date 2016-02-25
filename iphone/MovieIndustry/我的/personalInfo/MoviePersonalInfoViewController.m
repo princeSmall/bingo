@@ -545,7 +545,7 @@
     self.imagePicker.delegate = self;
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     self.imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    self.imagePicker.allowsEditing = NO;
+    self.imagePicker.allowsEditing = YES;
     
     [self.imagePicker.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
     [self presentViewController:_imagePicker animated:YES completion:nil];
@@ -568,7 +568,7 @@
         //如果选择的类型是图片
         if ([type isEqualToString:@"public.image"])
         {
-            UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+            UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
             [self postImageRequestWith:image];
         }
     }

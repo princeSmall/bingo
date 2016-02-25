@@ -118,12 +118,14 @@
         @try {
             if ([dict[@"code"] intValue] == 0) {
                 
-                [PromptLabel custemAlertPromAddView:self.view text:@"删除成功"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"删除成功"];
+                 [DeliveryUtility showMessage:@"删除成功" target:nil];
                 [self.navigationController popViewControllerAnimated:YES];
                 
             }else if([dict[@"message"] isEqualToString:@"最少一个地址"]){
             
-            [PromptLabel custemAlertPromAddView:self.view text:@"最少留一个地址"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"最少留一个地址"];
+                 [DeliveryUtility showMessage:@"最少保留一个地址信息" target:nil];
             }
         }
         @catch (NSException *exception) {

@@ -481,7 +481,8 @@ UITableViewDelegate>
     [MovieHttpRequest createRushMineRecivedNeedsWith:model.receiveMsgId CallBack:^(id obj) {
         
         [HUD hide:YES];
-        [PromptLabel custemAlertPromAddView:self.view text:@"抢单成功"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"抢单成功"];
+         [DeliveryUtility showMessage:@"抢单成功" target:nil];
         model.status = @"1";
         [_tbView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationNone];
         

@@ -578,11 +578,13 @@
         NSString *statues = [DeliveryUtility nullString:dict[@"ping"]];
         
         if ([statues isEqualToString:@"1"]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"点赞成功"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"点赞成功"];
+             [DeliveryUtility showMessage:@"点赞成功" target:nil];
         }
         
         if ([statues isEqualToString:@"0"]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"取消点赞"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"取消点赞"];
+             [DeliveryUtility showMessage:@"取消点赞" target:nil];
         }
         
         commentModel.ping = statues;

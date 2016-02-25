@@ -182,12 +182,14 @@
 - (void)joinGoodsCars
 {
     if ([[self.selectedColorBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-        [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
+//        [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
+          [DeliveryUtility showMessage:@"请选择颜色" target:nil];
         
     }else
     {
         if ([[self.selectedXinhaoBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-            [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
+//            [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
+              [DeliveryUtility showMessage:@"请选择型号" target:nil];
         }else
         {
 //            NSString *colorString = [self.selectedColorBtn titleForState:UIControlStateNormal];
@@ -208,25 +210,22 @@
                 
                 if ([dict[@"code"] intValue] == 0) {
                     
-                    PromptLabel *prom = [[PromptLabel alloc] initWithString:@"加入购物车成功"];
-                    prom.frame = CGRectMake(0, 0, 120, 50);
-                    prom.center=CGPointMake(kViewWidth/2,kViewHeight*0.3);
-                    
-                    [self.view addSubview:prom];
-                    [prom MyViewRemove];
+  [DeliveryUtility showMessage:@"加入购物车成功！" target:nil];
                    
                     
                     [self  removeTapGesViewConfirm];
                     
                 }else
                 {
-                    [PromptLabel custemAlertPromAddView:self.view text:@"加入购物车失败"];
+//                    [PromptLabel custemAlertPromAddView:self.view text:@"加入购物车失败"];
+                      [DeliveryUtility showMessage:@"加入购物车失败！" target:nil];
                     [self  removeTapGesViewConfirm];
                 }
                 
                 
             } withFieldBlock:^{
-                [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
+//                [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
+                  [DeliveryUtility showMessage:kNetWork_ERROR target:nil];
             }];
             
         }
@@ -479,18 +478,21 @@
     [self removeCusShareView];
     [MovieHttpRequest createCollectMyFavourableGoodWithGoodId:self.goodsId CallBack:^(id obj) {
         
-        [PromptLabel custemAlertPromAddView:self.view text:@"收藏成功"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"收藏成功"];
+         [DeliveryUtility showMessage:@"收藏成功！" target:nil];
         
     } andSCallBack:^(id obj) {
         NSString *infoDict = obj;
 //        HHNSLog(@"%@",infoDict);
         if([infoDict isEqualToString:@"thing_id has been in collection table"])
         {
-            [PromptLabel custemAlertPromAddView:self.view text:@"该商品已被收藏"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"该商品已被收藏"];
+             [DeliveryUtility showMessage:@"该商品已经被收藏" target:nil];
         }
         else
         {
-            [PromptLabel custemAlertPromAddView:self.view text:@"收藏失败"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"收藏失败"];
+             [DeliveryUtility showMessage:@"收藏失败" target:nil];
         }
         
     }];
@@ -735,7 +737,8 @@
 {
     
     if ([self.model.goods_number isEqualToString:@"0"]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
+         [DeliveryUtility showMessage:@"亲，没有库存啦" target:nil];
     }else
     {
         [self showSelectGoodsAttr:@"0"];
@@ -909,7 +912,8 @@
         [self.shopingCarView.goodsCountLabel setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
     }else
     {
-        [PromptLabel custemAlertPromAddView:self.shopingCarView  text:@"不能再加了"];
+//        [PromptLabel custemAlertPromAddView:self.shopingCarView  text:@"不能再加了"];
+         [DeliveryUtility showMessage:@"不能再加了" target:nil];
     }
 }
 
@@ -927,7 +931,8 @@
         return;
     }
     if ([self.model.goods_number isEqualToString:@"0"]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
+         [DeliveryUtility showMessage:@"亲，没有库存了" target:nil];
     }else
     {
         [self showSelectGoodsAttr:@"1"];
@@ -955,12 +960,14 @@
         if ([dict[@"code"] intValue] == 0) {
             self.dataStr = dict[@"data"];
             if ([[self.selectedColorBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-                [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
+//                [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
+                 [DeliveryUtility showMessage:@"请选择颜色" target:nil];
                 
             }else
             {
                 if ([[self.selectedXinhaoBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-                    [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
+//                    [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
+                     [DeliveryUtility showMessage:@"请选择型号" target:nil];
                 }else
                 {
                     
@@ -979,13 +986,15 @@
             
         }else
         {
-            [PromptLabel custemAlertPromAddView:self.view text:@"获取cartid失败"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"获取cartid失败"];
+             [DeliveryUtility showMessage:@"获取cartid失败" target:nil];
             [self  removeTapGesViewConfirm];
         }
         
         
     } withFieldBlock:^{
-        [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
+//        [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
+         [DeliveryUtility showMessage:kNetWork_ERROR target:nil];
     }];
 
 }

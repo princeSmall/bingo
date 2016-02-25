@@ -391,7 +391,8 @@
         }
         
     } withFieldBlock:^{
-        [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+          [DeliveryUtility showMessage:@"请检查网络" target:nil];
         
     }];
     
