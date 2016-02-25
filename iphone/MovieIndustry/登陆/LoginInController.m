@@ -72,11 +72,13 @@
 - (void)sendCodeButtonAction
 {
     if ([self.phoneTextField.text isEqualToString:@""]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号"];
+         [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
     }else
     {
         if (self.phoneTextField.text.length < 11) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"手机号不正确"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"手机号不正确"];
+             [DeliveryUtility showMessage:@"手机号码不正确" target:nil];
         }else
         {
             NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"mobile", nil];
@@ -86,12 +88,7 @@
                 NSDictionary *dict = result;
                 HHNSLog(@"%@",dict);
                 if ([dict[@"status"] isEqualToString:@"f99"]) {
-                    PromptLabel *prom = [[PromptLabel alloc] initWithString:@"验证码已发送到您手机，请查收"];
-                     prom.frame = CGRectMake(0, 0, 120, 50);
-                    prom.center=CGPointMake(kViewWidth/2,kViewHeight*0.3);
-                   
-                    [self.view addSubview:prom];
-                    [prom MyViewRemove];
+                  [DeliveryUtility showMessage:@"验证码已经发到您的手机，请查收！" target:nil];
                     
                     
                     _codeString = dict[@"code"];
@@ -104,13 +101,15 @@
                 }
                 else
                 {
-                    [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+//                    [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+                     [DeliveryUtility showMessage:dict[@"msg"] target:nil];
                 }
                 
                 
             } withFieldBlock:^{
                 
-                [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+                 [DeliveryUtility showMessage:@"请检查网络" target:nil];
             }];
         }
     }
@@ -137,11 +136,13 @@
 {
     [self.view endEditing:YES];
     if ([self.phoneTextField.text isEqualToString:@""]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号"];
+         [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
     }else
     {
         if ([self.codeTextField.text isEqualToString:@""]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"请输入验证码"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"请输入验证码"];
+             [DeliveryUtility showMessage:@"请输入验证码" target:nil];
         }else
         {
             if ([self.phoneTextField.text isEqualToString:@"15800390791"]&&[self.codeTextField.text isEqualToString:@"1099"]) {
@@ -149,12 +150,14 @@
             }else
             {
                 if (![self.codeTextField.text isEqualToString:_codeString]) {
-                    [PromptLabel custemAlertPromAddView:self.view text:@"验证码不正确"];
+//                    [PromptLabel custemAlertPromAddView:self.view text:@"验证码不正确"];
+                     [DeliveryUtility showMessage:@"验证码不正确" target:nil];
                 }else
                 {
                     
                     if (![self.agreeButton isSelected]) {
-                        [PromptLabel custemAlertPromAddView:self.view text:@"未同意协议"];
+//                        [PromptLabel custemAlertPromAddView:self.view text:@"未同意协议"];
+                         [DeliveryUtility showMessage:@"未同意协议" target:nil];
                     }else
                     {
                         MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:[UIApplication sharedApplication].keyWindow];
@@ -170,7 +173,8 @@
                                 APP_DELEGATE.user_id = model.user_id;
                                 [UserLoginModel ArchiveUser:model];
                                 [self.view endEditing:YES];
-                                        [PromptLabel custemAlertPromAddView:self.view text:@"登陆成功！"];
+//                                        [PromptLabel custemAlertPromAddView:self.view text:@"登陆成功！"];
+                                 [DeliveryUtility showMessage:@"登陆成功！" target:nil];
                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     [self dismissViewControllerAnimated:YES completion:nil];
                                 });
@@ -189,14 +193,16 @@
                             }
                             else
                             {
-                                [PromptLabel custemAlertPromAddView:self.view text:@"登陆失败"];
+//                                [PromptLabel custemAlertPromAddView:self.view text:@"登陆失败"];
+                                 [DeliveryUtility showMessage:@"登录失败" target:nil];
                                 [MBHudManager removeHud:hud scallBack:^(id obj) {
                                     
                                 }];
                             }
                             
                         } withFieldBlock:^{
-                            [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+//                            [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+                             [DeliveryUtility showMessage:@"请检查网络" target:nil];
                             [MBHudManager removeHud:hud scallBack:^(id obj) {
                                 
                             }];
@@ -242,14 +248,16 @@
         }
         else
         {
-            [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+//            [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+             [DeliveryUtility showMessage:dict[@"msg"] target:nil];
             [MBHudManager removeHud:hud scallBack:^(id obj) {
                 
             }];
         }
         
     } withFieldBlock:^{
-        [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+          [DeliveryUtility showMessage:@"请检查网络" target:nil];
         [MBHudManager removeHud:hud scallBack:^(id obj) {
             
         }];

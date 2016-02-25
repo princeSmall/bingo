@@ -216,7 +216,9 @@
                 
             }else
             {
-                [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+                [DeliveryUtility showMessage:dict[@"msg"] target:nil];
+                
+//                [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
             }
             
             
@@ -230,7 +232,8 @@
         }
         
     } withFieldBlock:^{
-        [PromptLabel custemAlertPromAddView:self.view text:kNetWork_ERROR];
+//        [PromptLabel custemAlertPromAddView:self.view text:kNetWork_ERROR];
+        [DeliveryUtility showMessage:kNetWork_ERROR target:nil];
     }];
 }
 

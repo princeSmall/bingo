@@ -107,12 +107,7 @@
                 
                 NSDictionary *dict = result;
                 if ([dict[@"status"] isEqualToString:@"f99"]) {
-                    PromptLabel *prom = [[PromptLabel alloc] initWithString:@"验证码已发送到您手机，请查收"];
-                    prom.frame = CGRectMake(0, 0, 120, 50);
-                    prom.center=CGPointMake(kViewWidth/2,kViewHeight*0.3);
-                    
-                    [self.view addSubview:prom];
-                    [prom MyViewRemove];
+              [DeliveryUtility showMessage:@"验证码已经发到你的手机，请查收" target:nil];
                     _codeStr = dict[@"code"];
                     ///发送成功之后按钮不可点击 然后倒计时
                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(TimePlay) userInfo:nil repeats:YES];
@@ -121,10 +116,12 @@
                 }
                 else
                 {
-                    [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+//                    [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+                     [DeliveryUtility showMessage:dict[@"msg"] target:nil];
                 }
             } withFieldBlock:^{
-                [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+                 [DeliveryUtility showMessage:@"请检查网络" target:nil];
             }];
 }
 

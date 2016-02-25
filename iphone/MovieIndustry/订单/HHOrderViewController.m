@@ -776,7 +776,8 @@
 - (void)gotoCommentView:(UIButton *)sender
 {
     
-    [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+//    [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+     [DeliveryUtility showMessage:@"二期开发中" target:nil];
     
 //    MyOrderShopModel *shopsModel = self.shopArray[sender.tag - 20000];
 //    NSArray *array = self.dataArray[sender.tag - 20000];
@@ -928,7 +929,9 @@
 #pragma mark - 取消订单
 - (void)warnSenderMineOrder:(UIButton *)button
 {
-          [PromptLabel custemAlertPromAddView:self.view text:@"请联系商家"];
+//          [PromptLabel custemAlertPromAddView:self.view text:@"请联系商家"];
+    
+     [DeliveryUtility showMessage:@"请联系商家" target:nil];
 //    int a = (int)button.tag -20000;
 //    
 //
@@ -967,7 +970,8 @@
 #pragma mark -- 查看物流
 - (void)checkoutOrderDelivery:(UIButton *)button
 {
-    [PromptLabel custemAlertPromAddView:self.view text:@"后期开发中"];
+//    [PromptLabel custemAlertPromAddView:self.view text:@"后期开发中"];
+     [DeliveryUtility showMessage:@"后期开发中" target:nil];
     
 //    NSInteger index = button.tag - 10000;
 //    

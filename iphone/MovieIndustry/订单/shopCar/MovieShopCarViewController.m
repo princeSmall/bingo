@@ -322,7 +322,8 @@
         
         
         if (orderStr.length == 0) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"您还没有选择商品哦"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"您还没有选择商品哦"];
+             [DeliveryUtility showMessage:@"你还没有选择商品哦" target:nil];
         }else{
    
         MovieComfirmOrderViewController * detail = [[MovieComfirmOrderViewController alloc]init];
@@ -359,7 +360,8 @@
         
         ///删除多个商品
         if ([deleteGwcId isEqual:@""]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"您还没有选择商品哦"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"您还没有选择商品哦"];
+             [DeliveryUtility showMessage:@"您还没有选择商品哦" target:nil];
         }else{
         [self DeleteShopingCarGwc_id:deleteGwcId];
         }

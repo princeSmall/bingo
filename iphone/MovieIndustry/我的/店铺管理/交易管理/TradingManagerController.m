@@ -317,19 +317,23 @@
         }else if ([status1 isEqualToString:@"订单备注"])
         {
 //            [self  orderRemark:order_id];
-               [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+//               [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+             [DeliveryUtility showMessage:@"二期开发中" target:nil];
         }else if ([status1 isEqualToString:@"发货"])
         {
             [self changeOrderStatus:order_id status:@"2"];
         }
         if ([status1 isEqualToString:@"修改订单"]) {
-                    [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+//                    [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+             [DeliveryUtility showMessage:@"二期开发中" target:nil];
         }
         if ([status1 isEqualToString:@"订单评价"]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+             [DeliveryUtility showMessage:@"二期开发中" target:nil];
         }
         if ([status1 isEqualToString:@"收货"]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"请确定用户已经收货"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"请确定用户已经收货"];
+             [DeliveryUtility showMessage:@"请确定用户已经收货" target:nil];
         }
         
         

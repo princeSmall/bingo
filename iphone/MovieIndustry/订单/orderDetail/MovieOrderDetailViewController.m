@@ -403,7 +403,8 @@
     [MovieHttpRequest createConfirmCancelMineOrderWithOrdernum:self.orderNum CallBack:^(id obj) {
         
         [HUD hide:YES];
-        [PromptLabel custemAlertPromAddView:window text:@"订单取消成功"];
+//        [PromptLabel custemAlertPromAddView:window text:@"订单取消成功"];
+         [DeliveryUtility showMessage:@"订单取消成功" target:nil];
         [self performSelector:@selector(goBackLastView) withObject:nil afterDelay:0.5];
         
     } andSCallBack:^(id obj) {
@@ -451,7 +452,8 @@
 
 - (void)warnPostMineOrderBtnClicked:(UIButton *)button
 {
-    [PromptLabel custemAlertPromAddView:self.view text:@"已支付订单，如要取消须联系商家"];
+//    [PromptLabel custemAlertPromAddView:self.view text:@"已支付订单，如要取消须联系商家"];
+     [DeliveryUtility showMessage:@"已支付订单，如要取消须联系商家" target:nil];
     
 //    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:APP_DELEGATE.user_id,@"user_id",self.order_id,@"order_id", @"0",@"status", nil];
 //    [HttpRequestServers requestBaseUrl:TIOrder_ConfirmOrder withParams:userDict withRequestFinishBlock:^(id result) {
@@ -498,7 +500,8 @@
         @try {
             if ([dict[@"code"] intValue] == 0) {
                 
-                [PromptLabel custemAlertPromAddView:self.view text:@"确认收货成功"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"确认收货成功"];
+                 [DeliveryUtility showMessage:@"确认收货成功" target:nil];
                 [self.navigationController popViewControllerAnimated:YES];
             }
         }

@@ -323,7 +323,8 @@ typedef void (^babyClassify)(void);
     [MovieHttpRequest createCollectMyFavourableStoreWithStoreId:self.shopId CallBack:^(id obj) {
         
         
-        [PromptLabel custemAlertPromAddView:self.view text:@"收藏成功"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"收藏成功"];
+         [DeliveryUtility showMessage:@"收藏成功" target:nil];
         
         
     } andSCallBack:^(id obj) {
@@ -333,11 +334,13 @@ typedef void (^babyClassify)(void);
         //        HHNSLog(@"%@",infoDict);
         if([infoDict isEqualToString:@"thing_id has been in collection table"])
         {
-            [PromptLabel custemAlertPromAddView:self.view text:@"该店铺已被收藏"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"该店铺已被收藏"];
+             [DeliveryUtility showMessage:@"该店铺已经被收藏" target:nil];
         }
         else
         {
-            [PromptLabel custemAlertPromAddView:self.view text:@"收藏失败"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"收藏失败"];
+             [DeliveryUtility showMessage:@"收藏失败" target:nil];
         }
 
     }];

@@ -224,23 +224,28 @@
 {
     
     if ([self.consigneeTextField.text isEqualToString:@""]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"请输入收货人姓名"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"请输入收货人姓名"];
+         [DeliveryUtility showMessage:@"请输入收货人姓名" target:nil];
     }else
     {
         if ([self.phoneNumberText.text isEqualToString:@""]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号码"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号码"];
+             [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
         }else
         {
             if ([self.postCodeLabel.text isEqualToString:@""]) {
-                [PromptLabel custemAlertPromAddView:self.view text:@"请输入邮编"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"请输入邮编"];
+                 [DeliveryUtility showMessage:@"请输入邮编" target:nil];
             }else{
                     
                     if ([self.addressDetailTextView.text isEqualToString:@""]||[self.addressDetailTextView.text isEqualToString:@"详细地址"]) {
-                        [PromptLabel custemAlertPromAddView:self.view text:@"请输入详细地址"];
+//                        [PromptLabel custemAlertPromAddView:self.view text:@"请输入详细地址"];
+                         [DeliveryUtility showMessage:@"请输入详细地址" target:nil];
                     }else
                     {
                         if(![self.jgBtnView isAllAddress]){
-                             [PromptLabel custemAlertPromAddView:self.view text:@"请检查地址信息"];
+//                             [PromptLabel custemAlertPromAddView:self.view text:@"请检查地址信息"];
+                             [DeliveryUtility showMessage:@"请检查地址信息" target:nil];
                         }else{
                         MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
                         NSMutableDictionary * userDict = [NSMutableDictionary dictionary];

@@ -86,7 +86,8 @@
 - (void)addShippingAddress:(UIButton *)btn
 {
     if (self.dataArray.count == 5) {
-     [PromptLabel custemAlertPromAddView:self.view text:@"最多可添加5个地址"];
+//     [PromptLabel custemAlertPromAddView:self.view text:@"最多可添加5个地址"];
+          [DeliveryUtility showMessage:@"最多可添加5个地址" target:nil];
     }else{
     
     ShippingAddressController *addSdVc = [[ShippingAddressController alloc] init];
@@ -164,7 +165,8 @@
             }
             } } withFieldBlock:^{
         
-        [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
+                  [DeliveryUtility showMessage:@"请检查网络" target:nil];
         
     }];
 }
@@ -236,13 +238,15 @@
         @try {
             if ([dict[@"code"] intValue] == 0) {
                 
-                [PromptLabel custemAlertPromAddView:self.view text:@"删除成功"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"删除成功"];
+                  [DeliveryUtility showMessage:@"删除成功！" target:nil];
                 [self loadAddressList];
                 
                 
             }else if([dict[@"message"] isEqualToString:@"最少一个地址"]){
                 
-                [PromptLabel custemAlertPromAddView:self.view text:@"最少留一个地址"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"最少留一个地址"];
+                  [DeliveryUtility showMessage:@"最少保留一个收货地址！" target:nil];
             }
         }
         @catch (NSException *exception) {

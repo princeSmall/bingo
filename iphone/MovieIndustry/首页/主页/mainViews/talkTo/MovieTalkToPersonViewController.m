@@ -624,7 +624,8 @@
         HUD.labelText = @"发表成功";
         [HUD hide:YES];
         
-        [PromptLabel custemAlertPromAddView:self.view text:@"发表成功"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"发表成功"];
+         [DeliveryUtility showMessage:@"发表成功" target:nil];
         [self talkViewKeyboardDown];
         self.commentView.textView.text = @"";
         [self delectCommentImage:nil];
@@ -920,11 +921,13 @@
         NSString *statues = [DeliveryUtility nullString:dict[@"statuses"]];
         
         if ([statues isEqualToString:@"1"]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"点赞成功"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"点赞成功"];
+             [DeliveryUtility showMessage:@"点赞成功" target:nil];
         }
         
         if ([statues isEqualToString:@"0"]) {
-            [PromptLabel custemAlertPromAddView:self.view text:@"取消点赞"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"取消点赞"];
+             [DeliveryUtility showMessage:@"取消点赞" target:nil];
         }
         
         commentModel.statuses = statues;

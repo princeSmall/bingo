@@ -48,13 +48,7 @@
             @try {
                 if ([dict[@"status"] isEqualToString:@"f99"]) {
                     
-                    PromptLabel *prom = [[PromptLabel alloc] initWithString:@"感谢您的反馈！我们会尽快处理"];
-                    prom.frame = CGRectMake(0, 0, 120, 50);
-                    prom.center=CGPointMake(kViewWidth/2,kViewHeight*0.3);
-                    
-                    [self.view addSubview:prom];
-                    [prom MyViewRemove];
-                    
+                    [DeliveryUtility showMessage:@"感谢你的反馈，我们会尽快处理" target:nil];
                 }
             }
             @catch (NSException *exception) {
