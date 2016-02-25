@@ -6,6 +6,19 @@
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 
+
+//商户ID
+#define PARTNER @"2088612301888269"
+
+//账号ID
+#define SELLER @"butterfly02@shanggong.sh.cn"
+
+#define RSA_ALIPAY_PRIVATE @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMTyLdYdgafOQ1M9\nnCHSbstTBakA4598jgR8PYk8MxNRhLHblpvXo98JXSPgigAvOSwfCmwNldO8fku0\nLfmxWHv2JYHmSMz+HpdU7UhUJeIEj+z5+NEz22p/l6NNtSZD8vxi/+n+K8Ap2/2g\nWYpjZjhkIgFzz5JJaS3ikAJwzDXXAgMBAAECgYA1y2TDwGmC2W9AVGrKPj1vIi1A\nnXKPRKlSBlGUo7Hby/9vyWgZB0zGhjs/qnxnUn7OU2g4XXmYTTs+GGgadNuS/dUg\nPEJ08JmPlU7R8W6ceuBSA2jaEJ0zf3iOhe22v1WEmnhvn8Oum2i33JaoQhoNhKzs\n8LbwJIJLJBE9hlUeUQJBAOXcKGdhcAxgQymkN0hMj6DCwyfLXKuyjQzQpQPWR+a6\nm8Oy+JHQxwhKElI8xB7fLwZbZ8jW6LuWV62s/99NUE8CQQDbV86K+mUJrQz7L5CF\nTF+ncopQGUUW1e7B0UaWO98xYl2ehxp2wxQHn6E8iyL0gnc6wsmUuI20LBuahIQC\n/hf5AkBdo4RqKQ2GXSi/LADBWT8hlHYAHh5Qa9p+H/k5SO/dlKOj46LTdCPAwrwX\n+F1E3lK/2ji7XqFM2gA55kIOa+aNAkEA1X/XhEGL/Woa+5hltMoNRWDhLmwaasrb\ntn5slak7a8dSVw8sfDMQGQeRGuxXnuYrBeA59G/bRme0iqe4E22eiQJBAM1gnVKG\nE568ImvBNn1fvl//0Slh0E7xbyjSGvQebLr7LiD+Cl6lgQfZcDWrohYnPvzB7p2o\nDiQBiU+lzfJ7COM="
+
+#define RSA_ALIPAY_PUBLIC @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDE8i3WHYGnzkNTPZwh0m7LUwWp\nAOOffI4EfD2JPDMTUYSx25ab16PfCV0j4IoALzksHwpsDZXTvH5LtC35sVh79iWB\n5kjM/h6XVO1IVCXiBI/s+fjRM9tqf5ejTbUmQ/L8Yv/p/ivAKdv9oFmKY2Y4ZCIB\nc8+SSWkt4pACcMw11wIDAQAB"
+
+
+
 #import "HttpRequestServers.h"
 //阿里支付需要的头文件
 #import "Order.h"
@@ -182,26 +195,27 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
 + (void)sendAlipayWithOrderSn:(NSString *)orderSn orderName:(NSString *)orderName orderDescription:(NSString *)orderDescription orderPrice:(NSString *)OrderPrice andScallback:(Callback)scallback
 {
     //商家信息
-//    NSString *partner = @"2088021828324789";
-    NSString *partner = @"2088612301888269";
-//    NSString *seller = @"cs@comefilm.com";
-    NSString *seller = @"butterfly02@shanggong.sh.cn";
-//    NSString *privateKey = @"MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAOPrCXVVALT8fV5RtJxM433FBhKQxbrbvXdw7Dhsy6piA0ncZezwbV3N1lu+hpVa6h+aqPeKCl9WEmizOtmmkIC22Cl8bkMDxse4Wgmo+8bL65AvJc+lJ9d41JP23HUgtKM+JMHpGvev4KyKVCbgEGRseLFO5M/11N9O9sIbZrbrAgMBAAECgYEA3Ef060cNmN8TmE5lvk797De5h8YOpWvt8fvdAyf7rCBwxzlR9a/mNCxWSnOZhc7Jy2PifOUY403AGxtm/Kdkrn8BIozNz0MWfd5WnLGajjgmT+GI0aSg0SEMQRq2XkKIl730gN6m8gg42hxewi6z3kJwSYUY+4rzgyz2SUtZbNkCQQD+Pfs1xUGKhDjHSQCv8Ocn+zw/eyg1fTQ3MnQ5ksjIYYoK8ZdM/BVKRSlkleXAHNFe3AmN2pv/El7PGHzd/XhFAkEA5X52DBqSI8K20iulGX3ZpuMTRmaiB984WiXvxxY4MoxXv/fmoRWhXdsqmUkRzb+zT+Z6yAzOpyn5kn+Ly7zdbwJAcTA0+95i7IErKgXlSW8t6k3ep8BzyUSBj6VluxAPVa6fH3opSvvbmqIp6H8XtyzdRacelcnis2+BSB/1z3r+JQJBAJIad5bvF5jSrseQ57QZ7gYUTMImNwOh9eNWgZeSqsZrmLXrYhWtiqUREcaywTXm1IaKqiJQHQRJccz1jI9xttsCQQCjiWeroaG0ju9J0VF4X+Am6qOL64BtgkjpuNerBuD5TfBE2zE64E8bjmUlngcaG4xkDHGW7gePrKV7GbT8dRli";
-    NSString *privateKey = @"MIICdwIBADANBgkqhkiG9w0BAQEFAASCAmEwggJdAgEAAoGBAMTyLdYdgafOQ1M9\nnCHSbstTBakA4598jgR8PYk8MxNRhLHblpvXo98JXSPgigAvOSwfCmwNldO8fku0\nLfmxWHv2JYHmSMz+HpdU7UhUJeIEj+z5+NEz22p/l6NNtSZD8vxi/+n+K8Ap2/2g\nWYpjZjhkIgFzz5JJaS3ikAJwzDXXAgMBAAECgYA1y2TDwGmC2W9AVGrKPj1vIi1A\nnXKPRKlSBlGUo7Hby/9vyWgZB0zGhjs/qnxnUn7OU2g4XXmYTTs+GGgadNuS/dUg\nPEJ08JmPlU7R8W6ceuBSA2jaEJ0zf3iOhe22v1WEmnhvn8Oum2i33JaoQhoNhKzs\n8LbwJIJLJBE9hlUeUQJBAOXcKGdhcAxgQymkN0hMj6DCwyfLXKuyjQzQpQPWR+a6\nm8Oy+JHQxwhKElI8xB7fLwZbZ8jW6LuWV62s/99NUE8CQQDbV86K+mUJrQz7L5CF\nTF+ncopQGUUW1e7B0UaWO98xYl2ehxp2wxQHn6E8iyL0gnc6wsmUuI20LBuahIQC\n/hf5AkBdo4RqKQ2GXSi/LADBWT8hlHYAHh5Qa9p+H/k5SO/dlKOj46LTdCPAwrwX\n+F1E3lK/2ji7XqFM2gA55kIOa+aNAkEA1X/XhEGL/Woa+5hltMoNRWDhLmwaasrb\ntn5slak7a8dSVw8sfDMQGQeRGuxXnuYrBeA59G/bRme0iqe4E22eiQJBAM1gnVKG\nE568ImvBNn1fvl//0Slh0E7xbyjSGvQebLr7LiD+Cl6lgQfZcDWrohYnPvzB7p2o\nDiQBiU+lzfJ7COM=";
+    NSString *partner = @"2088021828324789";
+//    NSString *partner = PARTNER;
+    NSString *seller = @"cs@comefilm.com";
+//    NSString *seller = SELLER;
+    NSString *privateKey = @"MIICeAIBADANBgkqhkiG9w0BAQEFAASCAmIwggJeAgEAAoGBAOPrCXVVALT8fV5RtJxM433FBhKQxbrbvXdw7Dhsy6piA0ncZezwbV3N1lu+hpVa6h+aqPeKCl9WEmizOtmmkIC22Cl8bkMDxse4Wgmo+8bL65AvJc+lJ9d41JP23HUgtKM+JMHpGvev4KyKVCbgEGRseLFO5M/11N9O9sIbZrbrAgMBAAECgYEA3Ef060cNmN8TmE5lvk797De5h8YOpWvt8fvdAyf7rCBwxzlR9a/mNCxWSnOZhc7Jy2PifOUY403AGxtm/Kdkrn8BIozNz0MWfd5WnLGajjgmT+GI0aSg0SEMQRq2XkKIl730gN6m8gg42hxewi6z3kJwSYUY+4rzgyz2SUtZbNkCQQD+Pfs1xUGKhDjHSQCv8Ocn+zw/eyg1fTQ3MnQ5ksjIYYoK8ZdM/BVKRSlkleXAHNFe3AmN2pv/El7PGHzd/XhFAkEA5X52DBqSI8K20iulGX3ZpuMTRmaiB984WiXvxxY4MoxXv/fmoRWhXdsqmUkRzb+zT+Z6yAzOpyn5kn+Ly7zdbwJAcTA0+95i7IErKgXlSW8t6k3ep8BzyUSBj6VluxAPVa6fH3opSvvbmqIp6H8XtyzdRacelcnis2+BSB/1z3r+JQJBAJIad5bvF5jSrseQ57QZ7gYUTMImNwOh9eNWgZeSqsZrmLXrYhWtiqUREcaywTXm1IaKqiJQHQRJccz1jI9xttsCQQCjiWeroaG0ju9J0VF4X+Am6qOL64BtgkjpuNerBuD5TfBE2zE64E8bjmUlngcaG4xkDHGW7gePrKV7GbT8dRli";
+//    NSString *privateKey = RSA_ALIPAY_PRIVATE;
     
     //partner和seller获取失败,提示
-    if ([partner length] == 0 ||
-        [seller length] == 0 ||
-        [privateKey length] == 0)
-    {
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
-                                                        message:@"缺少partner或者seller或者私钥。"
-                                                       delegate:self
-                                              cancelButtonTitle:@"确定"
-                                              otherButtonTitles:nil];
-        [alert show];
-        return;
-    }
+//    if ([partner length] == 0 ||
+//        [seller length] == 0 ||
+//        [privateKey length] == 0)
+//    {
+//        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"提示"
+//                                                        message:@"缺少partner或者seller或者私钥。"
+//                                                       delegate:self
+//                                              cancelButtonTitle:@"确定"
+//                                              otherButtonTitles:nil];
+//        [alert show];
+//        return;
+//    }
+//    
     
 //   NSString *publicKey =  @"MIGfMA0GCSqGSIb3DQEBAQUAA4GNADCBiQKBgQDj6wl1VQC0/H1eUbScTON9xQYSkMW62713cOw4bMuqYgNJ3GXs8G1dzdZbvoaVWuofmqj3igpfVhJoszrZppCAttgpfG5DA8bHuFoJqPvGy+uQLyXPpSfXeNST9tx1ILSjPiTB6Rr3r+CsilQm4BBkbHixTuTP9dTfTvbCG2a26wIDAQAB";
     
@@ -214,8 +228,8 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     order.productName = orderName; //商品标题
     order.productDescription = orderDescription; //商品描述
     order.amount = [NSString stringWithFormat:@"%.2f",[OrderPrice floatValue]]; //商品价格
-    order.notifyURL = @"";
-//    order.notifyURL =  @"http://1.szmytravel.sinaapp.com/home/index/DoPayDemo"; //回调URL
+//    order.notifyURL = @"";
+    order.notifyURL =  @"http://1.szmytravel.sinaapp.com/home/index/DoPayDemo"; //回调URL
     
     
     

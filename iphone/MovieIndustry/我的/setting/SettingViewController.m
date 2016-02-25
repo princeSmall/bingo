@@ -142,7 +142,7 @@
             NSUInteger intg = [[SDImageCache sharedImageCache] getSize];
             //
             NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:intg]];
-            [PromptLabel custemAlertPromAddView:self.view text:[NSString stringWithFormat:@"成功清理%@缓存",currentVolum]];
+//            [PromptLabel custemAlertPromAddView:self.view text:[NSString stringWithFormat:@"成功清理%@缓存",currentVolum]];
             [[SDImageCache sharedImageCache] clearDisk];
             self.clearCacheLabel.text = [NSString stringWithFormat:@"有0K缓存"];
         }

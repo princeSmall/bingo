@@ -101,16 +101,16 @@
     NSLog(@"确定提交评价");
     
     if ([self.point_type isEqualToString:@""]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"你还没选择评价哦"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"你还没选择评价哦"];
     }else
     {
       if ([self.commentStr isEqualToString:@""])
         {
-            [PromptLabel custemAlertPromAddView:self.view text:@"请输入评价内容"];
+//            [PromptLabel custemAlertPromAddView:self.view text:@"请输入评价内容"];
         }else
         {
             if ([self.points isEqualToString:@"0"]) {
-                [PromptLabel custemAlertPromAddView:self.view text:@"请选择星级"];
+//                [PromptLabel custemAlertPromAddView:self.view text:@"请选择星级"];
             }else
             {
                 

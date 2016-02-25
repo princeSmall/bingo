@@ -14,7 +14,6 @@
     if (self=[super init]) {
         self.frame=CGRectMake(0, 0, 100, 30);
         self.backgroundColor=[UIColor blackColor];
-        
         self.text=str;
         self.center=CGPointMake(kViewWidth/2,kViewHeight*0.3);
         self.alpha=0.8;
@@ -24,7 +23,6 @@
         self.layer.cornerRadius = 5;
         self.layer.masksToBounds = YES;
         self.numberOfLines=0;
-        
     }
     return self;
 }
@@ -34,15 +32,9 @@
     double delayInSeconds = 1;
     dispatch_time_t popTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSeconds * NSEC_PER_SEC));
     dispatch_after(popTime, dispatch_get_main_queue(), ^(void){
-        
-        
         [UIView animateWithDuration:1 animations:^{
             self.alpha=0;
-            
         }];
-        
-        
-        
     });
     
     double delayInSecond = 2.0;
@@ -76,10 +68,7 @@
     double delayInSecond = 1.0;
     dispatch_time_t deleteTime = dispatch_time(DISPATCH_TIME_NOW, (int64_t)(delayInSecond * NSEC_PER_SEC));
     dispatch_after(deleteTime, dispatch_get_main_queue(), ^(void){
-        
-        
         [self removeFromSuperview];
-        
     });
 }
 

@@ -281,7 +281,7 @@
                 
             }else
             {
-                [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
+//                [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
             }
             
             
@@ -295,7 +295,7 @@
         }
         
     } withFieldBlock:^{
-        [PromptLabel custemAlertPromAddView:self.view text:kNetWork_ERROR];
+//        [PromptLabel custemAlertPromAddView:self.view text:kNetWork_ERROR];
     }];
 }
 
@@ -733,7 +733,7 @@
     ///判断起止时间是否有无
     if ([self.customPickView.startTimeLabel.text isEqualToString:@""]||[self.customPickView.endTimeLabel.text isEqualToString:@""]) {
         
-        [PromptLabel custemAlertPromAddView:self.view text:@"请选择起止时间"];
+//        [PromptLabel custemAlertPromAddView:self.view text:@"请选择起止时间"];
         
     }else
     {

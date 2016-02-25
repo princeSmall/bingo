@@ -37,8 +37,9 @@
 #pragma mark - 上传反馈信息
 - (void)createFeedback
 {
+    
     if ([self.SuggestionsTextView.text isEqualToString:@"请简要描述你的问题和意见"]||[self.SuggestionsTextView.text isEqualToString:@""]) {
-        [PromptLabel custemAlertPromAddView:self.view text:@"请输入反馈内容"];
+        [DeliveryUtility showMessage:@"请输入描述信息" target:nil];
     }else
     {
         NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[UserInfo uid],@"user_id",self.imageUrl,@"img",self.phoneTextField.text,@"mobile",self.SuggestionsTextView.text,@"content", nil];
