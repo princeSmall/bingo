@@ -142,16 +142,17 @@
         [HUD show:YES];
         
         [MovieHttpRequest createOpenMineStoreWithInfo:self.storeDict CallBack:^(id obj) {
-            
+            NSString *str = [NSString stringWithFormat:@"%@",obj];
+            NSLog(@"str---%@",str);
             HUD.labelText = @"保存发布";
             [HUD hide:YES];
             
-            [self.view makeToastCenter:@"发布成功"];
+            [self.view makeToastCenter:@"恭喜成功开通店铺"];
             [self performSelector:@selector(openMineShopGoBack) withObject:nil afterDelay:0.25];
             
         } andSCallBack:^(id obj) {
             
-            HUD.labelText = @"保存失败";
+            HUD.labelText = @"店铺名称已存在";
             [HUD hide:YES];
         }];
     }

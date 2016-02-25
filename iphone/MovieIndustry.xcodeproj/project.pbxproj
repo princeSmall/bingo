@@ -70,6 +70,7 @@
 		00E588821C7449960012B8E8 /* gallerymal_fullselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887C1C7449960012B8E8 /* gallerymal_fullselect.png */; };
 		00E588831C7449960012B8E8 /* gallerymal_fullselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887D1C7449960012B8E8 /* gallerymal_fullselect@2x.png */; };
 		00E588841C7449960012B8E8 /* gallerymal_fullselect@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887E1C7449960012B8E8 /* gallerymal_fullselect@3x.png */; };
+		257A8BD71C7E98E3009FF0B8 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A8BD61C7E98E3009FF0B8 /* NSArray+Log.m */; };
 		841960B31BFAEF740039B74B /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841960B21BFAEF740039B74B /* citydict.plist */; };
 		841B4CA81C0DA2D900DD51D9 /* ShopTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */; };
 		841B4CAA1C0DA2F200DD51D9 /* ShopTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B4CA91C0DA2F200DD51D9 /* ShopTableViewHeader.xib */; };
@@ -892,6 +893,8 @@
 		00E5887C1C7449960012B8E8 /* gallerymal_fullselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallerymal_fullselect.png; sourceTree = "<group>"; };
 		00E5887D1C7449960012B8E8 /* gallerymal_fullselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallerymal_fullselect@2x.png"; sourceTree = "<group>"; };
 		00E5887E1C7449960012B8E8 /* gallerymal_fullselect@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallerymal_fullselect@3x.png"; sourceTree = "<group>"; };
+		257A8BD51C7E98E3009FF0B8 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
+		257A8BD61C7E98E3009FF0B8 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		841960B21BFAEF740039B74B /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		841B4CA61C0DA2D900DD51D9 /* ShopTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewHeader.h; sourceTree = "<group>"; };
 		841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewHeader.m; sourceTree = "<group>"; };
@@ -3032,6 +3035,8 @@
 		848294721C0E975E00452BF9 /* Tools */ = {
 			isa = PBXGroup;
 			children = (
+				257A8BD51C7E98E3009FF0B8 /* NSArray+Log.h */,
+				257A8BD61C7E98E3009FF0B8 /* NSArray+Log.m */,
 				8472A7011C2253190042830B /* NSString+StringSize.h */,
 				8472A7021C2253190042830B /* NSString+StringSize.m */,
 				848294731C0E975E00452BF9 /* HHTableView.h */,
@@ -5361,6 +5366,7 @@
 				848296371C0EA02C00452BF9 /* MovieDrawMoneyViewController.m in Sources */,
 				848294331C0E96C500452BF9 /* MJRefreshBackNormalFooter.m in Sources */,
 				8482955A1C0E9AB700452BF9 /* SearchShopResultController.m in Sources */,
+				257A8BD71C7E98E3009FF0B8 /* NSArray+Log.m in Sources */,
 				8472A7031C2253190042830B /* NSString+StringSize.m in Sources */,
 				8482943B1C0E96C500452BF9 /* UIScrollView+MJRefresh.m in Sources */,
 				8482944D1C0E96C500452BF9 /* AFNetworkActivityIndicatorManager.m in Sources */,
