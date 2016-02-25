@@ -81,7 +81,7 @@
     CLLocation *location = [locations firstObject];//取出第一个位置
     CLLocationCoordinate2D coordinate = location.coordinate;//位置坐标
     
-    NSLog(@"经度 = %f,纬度 = %f",coordinate.longitude,coordinate.latitude);
+//    NSLog(@"经度 = %f,纬度 = %f",coordinate.longitude,coordinate.latitude);
     
     //根据经纬度获取位置信息
     [self getAddressByLatitude:coordinate.latitude longitude:coordinate.longitude];

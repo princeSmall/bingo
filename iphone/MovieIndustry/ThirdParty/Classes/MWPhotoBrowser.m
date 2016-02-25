@@ -1307,7 +1307,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     // Hide action button on nav bar if it exists
     if (self.navigationItem.rightBarButtonItem == _actionButton) {
         _gridPreviousRightNavItem = _actionButton;
-        [self.navigationItem setRightBarButtonItem:nil animated:YES];
+//        [self.navigationItem setRightBarButtonItem:nil animated:YES];
     } else {
         _gridPreviousRightNavItem = nil;
     }
@@ -1338,7 +1338,7 @@ static void * MWVideoPlayerObservation = &MWVideoPlayerObservation;
     
     // Restore action button if it was removed
     if (_gridPreviousRightNavItem == _actionButton && _actionButton) {
-        [self.navigationItem setRightBarButtonItem:_gridPreviousRightNavItem animated:YES];
+//        [self.navigationItem setRightBarButtonItem:_gridPreviousRightNavItem animated:YES];
     }
     
     // Position prior to hide animation

@@ -596,20 +596,23 @@
     [self.view addSubview:leftBtn];
     
 
-    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40) ImageName:@"point_info"];
+//    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40) ImageName:@"point_info"];
 //    [self setNavRightImage:@"point_info" rightAction:@selector(shareAction)];
 
-    [self.view addSubview:rightImage];
+//    [self.view addSubview:rightImage];
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40)];
     //    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
     [rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
+//    [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.alpha = 1;
 //    if ([self.goodsMaxBought isEqualToString:@""]) {
 //        rightBtn.enabled = NO;
 //    }
+#warning 这边的分享 被干掉了  记得打开
+    #warning 这边的分享 被干掉了  记得打开
+    #warning 这边的分享 被干掉了  记得打开
     
-    [self.view addSubview:rightBtn];
+//    [self.view addSubview:rightBtn];
 }
 
 #pragma mark - 商品分类选择信息

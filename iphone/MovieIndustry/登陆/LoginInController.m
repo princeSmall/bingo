@@ -304,8 +304,8 @@
     [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -12)];
     
     //设置TabBar左边的按钮
-    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    [self.navigationItem setRightBarButtonItem:rightItem];
+//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+//    [self.navigationItem setRightBarButtonItem:rightItem];
 }
 
 - (void)backAction

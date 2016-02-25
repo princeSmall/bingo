@@ -80,7 +80,7 @@
     
     //设置TabBar右边的按钮
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    [self.navigationItem setRightBarButtonItem:rightItem];
+//    [self.navigationItem setRightBarButtonItem:rightItem];
     
 }
 
@@ -97,7 +97,7 @@
     
     //设置TabBar左边的按钮
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    [self.navigationItem setRightBarButtonItem:rightItem];
+//    [self.navigationItem setRightBarButtonItem:rightItem];
 }
 
 //返回上一层
