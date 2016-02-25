@@ -183,7 +183,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="aJA-yJ-lUR">
-                                                    <rect key="frame" x="164.99999916934183" y="8" width="185" height="30"/>
+                                                    <rect key="frame" x="164.99999902946229" y="8" width="185" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -247,41 +247,12 @@
                                 </cells>
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="0KS-Yb-OXz">
-                                <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="45" id="53P-Rp-vR7">
-                                        <rect key="frame" x="0.0" y="225" width="375" height="45"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="53P-Rp-vR7" id="0Xe-Lz-r1h">
-                                            <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow_right" id="y2L-xB-Iqb">
-                                                    <rect key="frame" x="317" y="13" width="18" height="18"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="认证会员" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="JWj-W8-ZT3">
-                                                    <rect key="frame" x="10" y="13" width="80" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                    <color key="textColor" red="0.14901960784313725" green="0.14901960784313725" blue="0.14901960784313725" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="已认证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Utx-pi-Ajn">
-                                                    <rect key="frame" x="301" y="12" width="50" height="21"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" red="0.52941176470588236" green="0.52941176470588236" blue="0.52941176470588236" alpha="1" colorSpace="calibratedRGB"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
+                                <cells/>
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="yrt-yF-ApW">
                                 <cells>
                                     <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" rowHeight="45" id="Bv8-Ch-UZf">
-                                        <rect key="frame" x="0.0" y="270" width="375" height="45"/>
+                                        <rect key="frame" x="0.0" y="225" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Bv8-Ch-UZf" id="mCx-k6-PYl">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
@@ -295,7 +266,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="dlL-AI-BQ9">
-                                                    <rect key="frame" x="134" y="8" width="221" height="30"/>
+                                                    <rect key="frame" x="134" y="8" width="221.00000056098486" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -311,8 +282,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="uq0-5h-snW">
                                 <cells>
-                                    <tableViewCell contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="45" id="Htf-XC-rf7">
-                                        <rect key="frame" x="0.0" y="315" width="375" height="45"/>
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="45" id="Htf-XC-rf7">
+                                        <rect key="frame" x="0.0" y="270" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Htf-XC-rf7" id="kXp-y7-59h">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
@@ -355,7 +326,6 @@
                     <connections>
                         <outlet property="attention" destination="oOm-el-n3h" id="1cB-Kt-wcU"/>
                         <outlet property="boyBtn" destination="DOC-Od-ca1" id="8B6-9C-FOF"/>
-                        <outlet property="certifyStatue" destination="Utx-pi-Ajn" id="KMd-ng-FIu"/>
                         <outlet property="fans" destination="0ze-P5-BhF" id="hkq-E1-Plu"/>
                         <outlet property="girlBtn" destination="Vtv-J7-N15" id="pGx-Vp-cGl"/>
                         <outlet property="headerImg" destination="5Sn-4X-1sb" id="PhT-v2-v4r"/>
@@ -2384,7 +2354,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_right" width="25" height="25"/>
         <image name="changShop_logo" width="209" height="209"/>
         <image name="choose_no" width="29" height="30"/>
         <image name="choose_yes" width="30" height="30"/>

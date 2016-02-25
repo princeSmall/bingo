@@ -290,6 +290,10 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         CollectGoodsModel *model = self.goodsArray[indexPath.row];
+        
+        cell.connectBtn.tag = 3333 + indexPath.row;
+        [cell.connectBtn addTarget:self action:@selector(MessageShoper:) forControlEvents:UIControlEventTouchUpInside];
+        
         [cell config:model];
         //cell = model;
         cell.connectBtn.layer.borderWidth=1;
@@ -312,6 +316,8 @@
         cell.connectBtn.layer.borderWidth=1;
         cell.connectBtn.layer.borderColor = RGBColor(234,234, 234, 1).CGColor;
         cell.connectBtn.layer.cornerRadius = 5;
+        cell.connectBtn.tag = 3333 + indexPath.row;
+        [cell.connectBtn addTarget:self action:@selector(MessageShoper:) forControlEvents:UIControlEventTouchUpInside];
         [cell config:model];
         return cell;
         
@@ -343,6 +349,24 @@
         return cell;
     }
     
+}
+
+- (void)MessageShoper:(UIButton *)sender{
+    int index = (int)sender.tag - 3333;
+    if ([_btnType isEqualToString:@"0"]) {
+         CollectGoodsModel *model = self.goodsArray[index];
+        NSString * urlStr = [NSString stringWithFormat:@"tel://%@",model.shop_tel];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+        
+    }
+    if ([_btnType isEqualToString:@"1"]) {
+         ConllectShopModel *model = self.storeArray[index];
+        NSString * urlStr = [NSString stringWithFormat:@"tel://%@",model.shop_tel];
+        [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+    }
+
+    
+
 }
 
 

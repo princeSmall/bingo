@@ -19,9 +19,9 @@
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="亚亚数码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Erd-bW-RB0">
-                        <rect key="frame" x="14" y="85" width="68" height="21"/>
+                        <rect key="frame" x="0.0" y="85" width="94" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -80,7 +80,7 @@
                 <outlet property="orderTimeLbL" destination="dfh-Cd-tAO" id="nUr-U9-4km"/>
                 <outlet property="shopNameLbl" destination="Erd-bW-RB0" id="FWU-bA-cih"/>
             </connections>
-            <point key="canvasLocation" x="349" y="266.5"/>
+            <point key="canvasLocation" x="348.5" y="266"/>
         </tableViewCell>
     </objects>
     <resources>
