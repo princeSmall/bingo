@@ -118,11 +118,9 @@ typedef void (^babyClassify)(void);
 - (UIView *)pickBgView
 {
     if (!_pickBgView) {
-        _pickBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 42+128+10, kViewWidth, kViewHeight-44-42-128-10)];
+        _pickBgView = [[UIView alloc] initWithFrame:CGRectMake(0, 42+128+10, kViewWidth, kViewHeight-44-42-120-10)];
         UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(pickBgViewAction:)];
-        [_pickBgView addGestureRecognizer:tapGes];
-        
-    }
+        [_pickBgView addGestureRecognizer:tapGes];    }
     return _pickBgView;
 }
 
@@ -134,10 +132,8 @@ typedef void (^babyClassify)(void);
 - (UIPickerView *)listTypePickView
 {
     if (!_listTypePickView) {
-        _listTypePickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, 162)];
-        _listTypePickView.backgroundColor = [UIColor whiteColor];
-//        _listTypePickView.
-        _listTypePickView.delegate = self;
+        _listTypePickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, 120)];
+        _listTypePickView.backgroundColor = [UIColor whiteColor];      _listTypePickView.delegate = self;
         _listTypePickView.dataSource = self;
         _listTypePickView.showsSelectionIndicator = YES;
     }
@@ -609,7 +605,7 @@ typedef void (^babyClassify)(void);
     _btnLine.backgroundColor = [UIColor redColor];
     [btnView addSubview:_btnLine];
     
-    UIButton *btn1 = [WNController createButtonWithFrame:CGRectMake(0, 0, btnWidth/3, 42) ImageName:@"" Target:self Action:@selector(salesAction:) Title:@"店铺宝贝" fontSize:15];
+    UIButton *btn1 = [WNController createButtonWithFrame:CGRectMake(0, 0, btnWidth/3, 42) ImageName:@"" Target:self Action:@selector(salesAction:) Title:@"店铺首页" fontSize:15];
     btn1.tag =1;
     
     _btnType = @"0";
@@ -696,10 +692,10 @@ typedef void (^babyClassify)(void);
 - (void)priceAction:(UIButton *)btn
 {
     [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(btnWidth/3+10, 40, btnWidth/3-20, 2)];
-    
-    if (self.listTypeArray.count>0) {
-        [self.listTypePickView selectRow:0 inComponent:0 animated:NO];
-        self.listTypePickView.frame = CGRectMake(0, 0, kViewWidth, 162);
+    NSInteger count = self.listTypeArray.count;
+    if (count>0) {
+        [self.listTypePickView selectRow:4 inComponent:0 animated:NO];
+        self.listTypePickView.frame = CGRectMake(0, 0, kViewWidth, 120);
         [self.pickBgView addSubview:self.listTypePickView];
         ///滚动视图
         [self.view addSubview:self.pickBgView];
@@ -831,7 +827,8 @@ typedef void (^babyClassify)(void);
     //    [view addSubview:navBtn];
     [view addSubview:searchArticleBtn];
     //设置头部的View
-    self.navigationItem.titleView = view;
+#warning 搜索暂时隐藏
+//    self.navigationItem.titleView = view;
 }
 
 #pragma mark - 搜索店铺内的宝贝
@@ -1072,6 +1069,7 @@ typedef void (^babyClassify)(void);
             }
             
         }
+        
         [_tbView reloadData];
         [_collectView reloadData];
         [_tbView.header endRefreshing];
@@ -1137,7 +1135,6 @@ typedef void (^babyClassify)(void);
             
           
         }
-        
         [_tbView reloadData];
         [_collectView reloadData];
         [_tbView.header endRefreshing];
