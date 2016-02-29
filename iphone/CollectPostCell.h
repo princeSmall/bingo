@@ -10,4 +10,5 @@
 
 @interface CollectPostCell : UITableViewCell
 
+@property (weak, nonatomic) IBOutlet UIView *tagLbl;
 @end

@@ -9,7 +9,7 @@
 #import "FamousTeacherController.h"
 #import "RankingListHeader.h"
 #import "CollectCourseCell.h"
-
+#import "BestLikeRankingCell.h"
 @interface FamousTeacherController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *_tbView;
@@ -55,27 +55,16 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 125;
+    return 105;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellID = @"famousCellID";
-    CollectCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    BestLikeRankingCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"CollectCourseCell" owner:self options:nil]lastObject];
-        UIImageView *imageView = [WNController createImageViewWithFrame:CGRectMake(10, 10, 35, 35) ImageName:@""];
-        if (indexPath.row == 0) {
-            imageView.image = [UIImage imageNamed:@"yearRanking_05"];
-        }
-        if (indexPath.row == 1) {
-            imageView.image = [UIImage imageNamed:@"yearRanking_05-03"];
-        }
-        if (indexPath.row == 2) {
-            imageView.image = [UIImage imageNamed:@"yearRanking_05-04"];
-        }
-        
-        [cell.contentView addSubview:imageView];
+        cell = [[[NSBundle mainBundle] loadNibNamed:@"BestLikeRankingCell" owner:self options:nil]lastObject];
+
     }
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;

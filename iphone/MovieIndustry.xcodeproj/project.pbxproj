@@ -80,6 +80,8 @@
 		00E588831C7449960012B8E8 /* gallerymal_fullselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887D1C7449960012B8E8 /* gallerymal_fullselect@2x.png */; };
 		00E588841C7449960012B8E8 /* gallerymal_fullselect@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887E1C7449960012B8E8 /* gallerymal_fullselect@3x.png */; };
 		257A8BD71C7E98E3009FF0B8 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A8BD61C7E98E3009FF0B8 /* NSArray+Log.m */; };
+		257A8BEF1C842781009FF0B8 /* BestLikeRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A8BED1C842781009FF0B8 /* BestLikeRankingCell.m */; };
+		257A8BF01C842781009FF0B8 /* BestLikeRankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 257A8BEE1C842781009FF0B8 /* BestLikeRankingCell.xib */; };
 		841960B31BFAEF740039B74B /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841960B21BFAEF740039B74B /* citydict.plist */; };
 		841B4CA81C0DA2D900DD51D9 /* ShopTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */; };
 		841B4CAA1C0DA2F200DD51D9 /* ShopTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B4CA91C0DA2F200DD51D9 /* ShopTableViewHeader.xib */; };
@@ -920,6 +922,9 @@
 		00E5887E1C7449960012B8E8 /* gallerymal_fullselect@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallerymal_fullselect@3x.png"; sourceTree = "<group>"; };
 		257A8BD51C7E98E3009FF0B8 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		257A8BD61C7E98E3009FF0B8 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
+		257A8BEC1C842781009FF0B8 /* BestLikeRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestLikeRankingCell.h; sourceTree = "<group>"; };
+		257A8BED1C842781009FF0B8 /* BestLikeRankingCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestLikeRankingCell.m; sourceTree = "<group>"; };
+		257A8BEE1C842781009FF0B8 /* BestLikeRankingCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BestLikeRankingCell.xib; sourceTree = "<group>"; };
 		841960B21BFAEF740039B74B /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		841B4CA61C0DA2D900DD51D9 /* ShopTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewHeader.h; sourceTree = "<group>"; };
 		841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewHeader.m; sourceTree = "<group>"; };
@@ -2365,6 +2370,16 @@
 				00BB0B431C5F16D7008400A3 /* CartGood.m */,
 			);
 			name = Model;
+			sourceTree = "<group>";
+		};
+		257A8BEB1C842702009FF0B8 /* cell */ = {
+			isa = PBXGroup;
+			children = (
+				257A8BEC1C842781009FF0B8 /* BestLikeRankingCell.h */,
+				257A8BED1C842781009FF0B8 /* BestLikeRankingCell.m */,
+				257A8BEE1C842781009FF0B8 /* BestLikeRankingCell.xib */,
+			);
+			name = cell;
 			sourceTree = "<group>";
 		};
 		8432109B1C10812400E3026F /* AliPay */ = {
@@ -4517,6 +4532,7 @@
 		A2C8FB8D1C0D6C5C00E90468 /* 排行榜 */ = {
 			isa = PBXGroup;
 			children = (
+				257A8BEB1C842702009FF0B8 /* cell */,
 				A2C8FB8E1C0D6C5C00E90468 /* favourably */,
 				A2C8FB911C0D6C5C00E90468 /* RankingListController.h */,
 				A2C8FB921C0D6C5C00E90468 /* RankingListController.m */,
@@ -4944,6 +4960,7 @@
 				846165491BFF3A8E003B656B /* share_03-06.png in Resources */,
 				846164CA1BFF3A8E003B656B /* 15-07@3x.png in Resources */,
 				8482962E1C0EA02C00452BF9 /* TradeRecordCell.xib in Resources */,
+				257A8BF01C842781009FF0B8 /* BestLikeRankingCell.xib in Resources */,
 				847DB7821C23A40400337887 /* FeedbackViewController.xib in Resources */,
 				846165581BFF3A8E003B656B /* shop_03-02.png in Resources */,
 				846165731BFF3A8E003B656B /* site5.png in Resources */,
@@ -5557,6 +5574,7 @@
 				A2EC3A841C228AF200E38129 /* CommentHtmlViewController.m in Sources */,
 				848295311C0E9AB700452BF9 /* MovieNewCommentCell.m in Sources */,
 				848296961C0EC6FC00452BF9 /* OrderDetailTableHeader.m in Sources */,
+				257A8BEF1C842781009FF0B8 /* BestLikeRankingCell.m in Sources */,
 				841C78BB1C09AB8E00D0E074 /* ShopCarGoodsModel.m in Sources */,
 				848296321C0EA02C00452BF9 /* GoodsManagerController.m in Sources */,
 				A2C8FBAF1C0D6C5C00E90468 /* YearRankingController.m in Sources */,

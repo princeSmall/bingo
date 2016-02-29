@@ -11,7 +11,7 @@
 @implementation CollectPostCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    ViewBorderRadius(self.tagLbl, 5, 0.5, [UIColor redColor]);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

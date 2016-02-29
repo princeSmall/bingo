@@ -22,11 +22,15 @@
     
     ///判断是哪一个按钮  0 代表好友消息 1 代表发布的需求 2 代表收到的需求 3 代表通知
     NSString *_btnType;
+    
+    // 标签容器
+    UIView *_tagContentV;
+    
 }
 @end
 
 @implementation DiscoverBBSController
-
+static CGFloat *tbViewY;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTabBar:@"社区"];
@@ -57,7 +61,14 @@
 
 - (void)createTableView
 {
-    _tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 45, kViewWidth, kViewHeight-45-44) style:UITableViewStylePlain];
+    UIView *tagContentV = [[UIView alloc] init];
+    _tagContentV = tagContentV;
+    [self.view addSubview:tagContentV];
+    [self addTagToConentV:tagContentV];
+    tagContentV.backgroundColor = kViewBackColor;
+    tagContentV.frame = CGRectMake(0, 45, kViewWidth, 80);
+   
+    _tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 150, kViewWidth, kViewHeight-150-44) style:UITableViewStylePlain];
     _tbView.separatorColor = kViewBackColor;
     _tbView.delegate = self;
     _tbView.dataSource = self;
@@ -67,22 +78,47 @@
     ///设置头部View的大小
     _tbView.tableHeaderView = [[UIView alloc] initWithFrame:CGRectMake(0.0f, 0.0f, _tbView.bounds.size.width, 10.00f)];
     
-    
     [self.view addSubview:_tbView];
 }
 
-#pragma mark - 精品课程
+#pragma mark - 我的帖子
 - (void)myBBSAction:(UIButton *)btn
 {
     [self setBtnType:@"0" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 1)];
+    [self.view addSubview:_tagContentV];
+    _tbView.frame = CGRectMake(0, 150, kViewWidth, kViewHeight-150-44);
 }
 
-#pragma mark - 名师在线
+#pragma mark - 我的消息
 - (void)myMesAction:(UIButton *)btn
 {
     [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 1)];
+    [_tagContentV removeFromSuperview];
+        _tbView.frame = CGRectMake(0, 45, kViewWidth, kViewHeight-45-44);
 }
-
+- (void) addTagToConentV:(UIView *) v{
+    CGFloat margin = 10;
+    CGFloat btnW = (kViewWidth - 4 *margin) / 3;
+    CGFloat btnH = 40;
+    CGFloat btnX;
+    CGFloat btnY;
+    NSArray *tagArray = [NSArray arrayWithObjects:@"摄影",@"科技",@"艺术",@"其他",@"其他",@"其他",@"其他", nil];
+    for (int i = 0; i < tagArray.count; i ++ ) {
+        UIButton *tagbtn = [[UIButton alloc] init];
+        [v addSubview:tagbtn];
+        if (i < 3) {
+            btnX = margin *(i + 1) + btnW * i;
+            btnY = margin;
+        } else {
+            btnX = margin * (i%3 + 1) + btnW *(i%3);
+            btnY = 2 * margin + btnH;
+        }
+        tagbtn.frame = CGRectMake(btnX, btnY, btnW, btnH);
+        tagbtn.backgroundColor = [UIColor whiteColor];
+        [tagbtn setTitle:tagArray[i] forState:UIControlStateNormal];
+        [tagbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+    }
+}
 
 ///返回cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -110,7 +146,6 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"CollectPostCell" owner:nil options:nil] lastObject];
         }
-        
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if ([_btnType isEqualToString:@"1"])
@@ -125,9 +160,6 @@
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
-    
-    
-    
     
     static NSString *cellID = @"teacherCellID";
     CollectPostCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
