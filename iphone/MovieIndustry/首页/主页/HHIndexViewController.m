@@ -311,40 +311,40 @@
     self.navigationItem.titleView = titleView;
     
 #warning 这边是城市选择（左），闪电租（右）按钮
-//    UIView *leftView = [WNController createViewFrame:CGRectMake(0, 0, 70, 30)];
-//    leftView.backgroundColor = kNavBarColor;
-//    UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(0, 1, 40, 30) Font:14 Text:@"上海" textAligment:NSTextAlignmentLeft];
-//    _locationLabel = navLabel;
-//    navLabel.textColor = [UIColor whiteColor];
-//    
-//    UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(30, 8, 18, 18) ImageName:@"index_03-03"];
-//    [leftView addSubview:navLabel];
-//    [leftView addSubview:navImage];
-//    //可以点击的按钮
-//    UIButton *navBtn  = [WNController createButtonWithFrame:CGRectMake(0, 0, 70, 30) ImageName:@"" Target:self Action:@selector(selectCityAction:) Title:@""];
-//    [leftView addSubview:navBtn];
-//    
-//    [navBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
-//    
-//    
-//    
-//    //设置TabBar左边的按钮
-//    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
-//    [self.navigationItem setLeftBarButtonItem:backItem];
+    UIView *leftView = [WNController createViewFrame:CGRectMake(0, 0, 70, 30)];
+    leftView.backgroundColor = kNavBarColor;
+    UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(0, 1, 40, 30) Font:14 Text:@"上海" textAligment:NSTextAlignmentLeft];
+    _locationLabel = navLabel;
+    navLabel.textColor = [UIColor whiteColor];
     
-   // 闪电租
-//    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 80, 25)];
-//    [rightBtn setTitle:@"闪电租" forState:UIControlStateNormal];
-//    [rightBtn setImage:[UIImage imageNamed:@"lightning"] forState:UIControlStateNormal];
-//    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
-//    [rightBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 5, 0, -5)];
-//    //添加点击事件
-//    [rightBtn addTarget:self action:@selector(lightningAction) forControlEvents:UIControlEventTouchUpInside];
-//    [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
-//    
-//    //设置TabBar左边的按钮
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-//    [self.navigationItem setRightBarButtonItem:rightItem];
+    UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(30, 8, 18, 18) ImageName:@"index_03-03"];
+    [leftView addSubview:navLabel];
+    [leftView addSubview:navImage];
+    //可以点击的按钮
+    UIButton *navBtn  = [WNController createButtonWithFrame:CGRectMake(0, 0, 70, 30) ImageName:@"" Target:self Action:@selector(selectCityAction:) Title:@""];
+    [leftView addSubview:navBtn];
+    
+    [navBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
+    
+    
+    
+    //设置TabBar左边的按钮
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:leftView];
+    [self.navigationItem setLeftBarButtonItem:backItem];
+    
+//    闪电租
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 80, 25)];
+    [rightBtn setTitle:@"闪电租" forState:UIControlStateNormal];
+    [rightBtn setImage:[UIImage imageNamed:@"lightning"] forState:UIControlStateNormal];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:14];
+    [rightBtn setContentEdgeInsets:UIEdgeInsetsMake(0, 5, 0, -5)];
+    //添加点击事件
+    [rightBtn addTarget:self action:@selector(lightningAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, 0)];
+    
+    //设置TabBar左边的按钮
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [self.navigationItem setRightBarButtonItem:rightItem];
 
 }
 
