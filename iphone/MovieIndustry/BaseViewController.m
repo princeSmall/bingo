@@ -90,8 +90,8 @@
 //返回上一层
 - (void)backAction
 {
-//    [self.navigationController popViewControllerAnimated:YES];
-    [self.navigationController popToRootViewControllerAnimated:YES];
+    [self.navigationController popViewControllerAnimated:YES];
+//    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 // 什么时候调用：每次触发手势之前都会询问下代理，是否触发。

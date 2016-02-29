@@ -34,8 +34,9 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
 
-    [self setNavTabBar:@"抢购记录"];
-    [self requestTusedayHistoryListDatas];
+    [self setNavTabBar:@"历史抢购记录"];
+//    [self requestTusedayHistoryListDatas];
+    [self createTuesdayHistoryView];
 }
 
 - (void)createTuesdayHistoryView
@@ -77,14 +78,16 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return self.dataArray.count;
+//    return self.dataArray.count;
+    return 2;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    MovieTuesdayRushHistoryModel *model = _dataArray[section];
-    NSArray *rushArray = model.goods;
-    return rushArray.count+1;
+//    MovieTuesdayRushHistoryModel *model = _dataArray[section];
+//    NSArray *rushArray = model.goods;
+//    return rushArray.count+1;
+    return 5;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -96,8 +99,8 @@
             titleCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieTuesdayHistoryTitleCell" owner:self options:nil] lastObject];
         }
         
-        MovieTuesdayRushHistoryModel *model = _dataArray[indexPath.section];
-        [titleCell setTitleModel:model];
+//        MovieTuesdayRushHistoryModel *model = _dataArray[indexPath.section];
+//        [titleCell setTitleModel:model];
         
         return titleCell;
     }
@@ -109,11 +112,11 @@
             contentCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieTuesdayHistoryContentCell" owner:self options:nil] lastObject];
         }
         
-        MovieTuesdayRushHistoryModel *model = _dataArray[indexPath.section];
-        NSArray *detailArray = model.goods;
-        MovieTuesdayRushedPersonModel *infoModel = detailArray[indexPath.row-1];
-        
-        [contentCell setInfoModel:infoModel];
+//        MovieTuesdayRushHistoryModel *model = _dataArray[indexPath.section];
+//        NSArray *detailArray = model.goods;
+//        MovieTuesdayRushedPersonModel *infoModel = detailArray[indexPath.row-1];
+//        
+//        [contentCell setInfoModel:infoModel];
         
         return contentCell;
     }

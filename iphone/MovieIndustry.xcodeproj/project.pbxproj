@@ -29,6 +29,15 @@
 		005CF2051C5645ED0035A50B /* BtnSelectView.m in Sources */ = {isa = PBXBuildFile; fileRef = 005CF2041C5645ED0035A50B /* BtnSelectView.m */; };
 		006042A21C58570300FBAFB9 /* testImage.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 006042A11C58570300FBAFB9 /* testImage.jpg */; };
 		006042A61C58626300FBAFB9 /* CorrelationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006042A51C58626300FBAFB9 /* CorrelationTableViewController.m */; };
+		0076F7E61C8420BC00AC412F /* DJSView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7E31C8420BC00AC412F /* DJSView.m */; };
+		0076F7E71C8420BC00AC412F /* JGTimeView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7E51C8420BC00AC412F /* JGTimeView.m */; };
+		0076F7F01C84364900AC412F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7EF1C84364900AC412F /* main.m */; };
+		0076F7F31C84364900AC412F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7F21C84364900AC412F /* AppDelegate.m */; };
+		0076F7F61C84364900AC412F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7F51C84364900AC412F /* MasterViewController.m */; };
+		0076F7F91C84364900AC412F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7F81C84364900AC412F /* DetailViewController.m */; };
+		0076F7FC1C84364900AC412F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0076F7FA1C84364900AC412F /* Main.storyboard */; };
+		0076F7FE1C84364900AC412F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0076F7FD1C84364900AC412F /* Assets.xcassets */; };
+		0076F8011C84364900AC412F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0076F7FF1C84364900AC412F /* LaunchScreen.storyboard */; };
 		00800B271C76B76000B2AADC /* changdi.png in Resources */ = {isa = PBXBuildFile; fileRef = 00800B231C76B76000B2AADC /* changdi.png */; };
 		00800B281C76B76000B2AADC /* dianpu.png in Resources */ = {isa = PBXBuildFile; fileRef = 00800B241C76B76000B2AADC /* dianpu.png */; };
 		00800B291C76B76000B2AADC /* qicai.png in Resources */ = {isa = PBXBuildFile; fileRef = 00800B251C76B76000B2AADC /* qicai.png */; };
@@ -832,6 +841,22 @@
 		006042A11C58570300FBAFB9 /* testImage.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = testImage.jpg; sourceTree = "<group>"; };
 		006042A41C58626300FBAFB9 /* CorrelationTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CorrelationTableViewController.h; sourceTree = "<group>"; };
 		006042A51C58626300FBAFB9 /* CorrelationTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CorrelationTableViewController.m; sourceTree = "<group>"; };
+		0076F7E21C8420BC00AC412F /* DJSView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DJSView.h; sourceTree = "<group>"; };
+		0076F7E31C8420BC00AC412F /* DJSView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DJSView.m; sourceTree = "<group>"; };
+		0076F7E41C8420BC00AC412F /* JGTimeView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JGTimeView.h; sourceTree = "<group>"; };
+		0076F7E51C8420BC00AC412F /* JGTimeView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGTimeView.m; sourceTree = "<group>"; };
+		0076F7EC1C84364900AC412F /* TableView重用Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TableView重用Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		0076F7EF1C84364900AC412F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		0076F7F11C84364900AC412F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		0076F7F21C84364900AC412F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		0076F7F41C84364900AC412F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
+		0076F7F51C84364900AC412F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
+		0076F7F71C84364900AC412F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
+		0076F7F81C84364900AC412F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
+		0076F7FB1C84364900AC412F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		0076F7FD1C84364900AC412F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		0076F8001C84364900AC412F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		0076F8021C84364900AC412F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00800B231C76B76000B2AADC /* changdi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changdi.png; sourceTree = "<group>"; };
 		00800B241C76B76000B2AADC /* dianpu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dianpu.png; sourceTree = "<group>"; };
 		00800B251C76B76000B2AADC /* qicai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qicai.png; sourceTree = "<group>"; };
@@ -2037,6 +2062,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		0076F7E91C84364900AC412F /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		847D82991BEC5D4000893542 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -2181,6 +2213,43 @@
 			children = (
 			);
 			name = "账号关联";
+			sourceTree = "<group>";
+		};
+		0076F7E11C84209400AC412F /* 定时器工具 */ = {
+			isa = PBXGroup;
+			children = (
+				0076F7E21C8420BC00AC412F /* DJSView.h */,
+				0076F7E31C8420BC00AC412F /* DJSView.m */,
+				0076F7E41C8420BC00AC412F /* JGTimeView.h */,
+				0076F7E51C8420BC00AC412F /* JGTimeView.m */,
+			);
+			name = "定时器工具";
+			sourceTree = "<group>";
+		};
+		0076F7ED1C84364900AC412F /* TableView重用Play */ = {
+			isa = PBXGroup;
+			children = (
+				0076F7F11C84364900AC412F /* AppDelegate.h */,
+				0076F7F21C84364900AC412F /* AppDelegate.m */,
+				0076F7F41C84364900AC412F /* MasterViewController.h */,
+				0076F7F51C84364900AC412F /* MasterViewController.m */,
+				0076F7F71C84364900AC412F /* DetailViewController.h */,
+				0076F7F81C84364900AC412F /* DetailViewController.m */,
+				0076F7FA1C84364900AC412F /* Main.storyboard */,
+				0076F7FD1C84364900AC412F /* Assets.xcassets */,
+				0076F7FF1C84364900AC412F /* LaunchScreen.storyboard */,
+				0076F8021C84364900AC412F /* Info.plist */,
+				0076F7EE1C84364900AC412F /* Supporting Files */,
+			);
+			path = "TableView重用Play";
+			sourceTree = "<group>";
+		};
+		0076F7EE1C84364900AC412F /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				0076F7EF1C84364900AC412F /* main.m */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		00800B221C76B74000B2AADC /* 轮播图图片暂时使用 */ = {
@@ -2727,6 +2796,7 @@
 				00849D8A1C4DF05E00DFEA6B /* CFNetwork.framework */,
 				847D829E1BEC5D4000893542 /* MovieIndustry */,
 				847D82B81BEC5D4000893542 /* MovieIndustryTests */,
+				0076F7ED1C84364900AC412F /* TableView重用Play */,
 				847D829D1BEC5D4000893542 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -2736,6 +2806,7 @@
 			children = (
 				847D829C1BEC5D4000893542 /* MovieIndustry.app */,
 				847D82B51BEC5D4000893542 /* MovieIndustryTests.xctest */,
+				0076F7EC1C84364900AC412F /* TableView重用Play.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -3289,6 +3360,7 @@
 				848294D91C0E9AB700452BF9 /* MovieHistoryActiveCell.xib */,
 				848294DA1C0E9AB700452BF9 /* MovieTuesdayActiveFirstCell.h */,
 				848294DB1C0E9AB700452BF9 /* MovieTuesdayActiveFirstCell.m */,
+				0076F7E11C84209400AC412F /* 定时器工具 */,
 				848294DC1C0E9AB700452BF9 /* MovieTuesdayActiveFirstCell.xib */,
 				848294DD1C0E9AB700452BF9 /* MovieTuesdayActiveSecondCell.h */,
 				848294DE1C0E9AB700452BF9 /* MovieTuesdayActiveSecondCell.m */,
@@ -4638,6 +4710,23 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		0076F7EB1C84364900AC412F /* TableView重用Play */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 0076F8031C84364A00AC412F /* Build configuration list for PBXNativeTarget "TableView重用Play" */;
+			buildPhases = (
+				0076F7E81C84364900AC412F /* Sources */,
+				0076F7E91C84364900AC412F /* Frameworks */,
+				0076F7EA1C84364900AC412F /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "TableView重用Play";
+			productName = "TableView重用Play";
+			productReference = 0076F7EC1C84364900AC412F /* TableView重用Play.app */;
+			productType = "com.apple.product-type.application";
+		};
 		847D829B1BEC5D4000893542 /* MovieIndustry */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 847D82BF1BEC5D4000893542 /* Build configuration list for PBXNativeTarget "MovieIndustry" */;
@@ -4682,6 +4771,9 @@
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = MovieIndustry;
 				TargetAttributes = {
+					0076F7EB1C84364900AC412F = {
+						CreatedOnToolsVersion = 7.2;
+					};
 					847D829B1BEC5D4000893542 = {
 						CreatedOnToolsVersion = 6.3.2;
 						DevelopmentTeam = 4NZ4HEWQKL;
@@ -4711,11 +4803,22 @@
 			targets = (
 				847D829B1BEC5D4000893542 /* MovieIndustry */,
 				847D82B41BEC5D4000893542 /* MovieIndustryTests */,
+				0076F7EB1C84364900AC412F /* TableView重用Play */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		0076F7EA1C84364900AC412F /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0076F8011C84364900AC412F /* LaunchScreen.storyboard in Resources */,
+				0076F7FE1C84364900AC412F /* Assets.xcassets in Resources */,
+				0076F7FC1C84364900AC412F /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		847D829A1BEC5D4000893542 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5106,6 +5209,17 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		0076F7E81C84364900AC412F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0076F7F31C84364900AC412F /* AppDelegate.m in Sources */,
+				0076F7F61C84364900AC412F /* MasterViewController.m in Sources */,
+				0076F7F01C84364900AC412F /* main.m in Sources */,
+				0076F7F91C84364900AC412F /* DetailViewController.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		847D82981BEC5D4000893542 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -5356,6 +5470,7 @@
 				A264BD9B1C21147100841C18 /* MovieIncomeDetailCell.m in Sources */,
 				8482944A1C0E96C500452BF9 /* UIImageView+HighlightedWebCache.m in Sources */,
 				A2C8FBA21C0D6C5C00E90468 /* DiscoverBBSController.m in Sources */,
+				0076F7E61C8420BC00AC412F /* DJSView.m in Sources */,
 				A2FFC78B1C103CE70095E858 /* MWGridCell.m in Sources */,
 				A2C8FB6F1C0D404D00E90468 /* MovieDiscoveryArticleModel.m in Sources */,
 				849487D51C086C420070AD4C /* MyOrderShopModel.m in Sources */,
@@ -5431,6 +5546,7 @@
 				8482943D1C0E96C500452BF9 /* MKAnnotationView+WebCache.m in Sources */,
 				848294251C0E96C500452BF9 /* AFURLConnectionOperation.m in Sources */,
 				8482955B1C0E9AB700452BF9 /* ChooseCityController.m in Sources */,
+				0076F7E71C8420BC00AC412F /* JGTimeView.m in Sources */,
 				8482942B1C0E96C500452BF9 /* MJRefreshBackFooter.m in Sources */,
 				A2C8FBAC1C0D6C5C00E90468 /* FamousTeacherController.m in Sources */,
 				841B4CB31C0DB0F200DD51D9 /* MoviceTextFiledCell.m in Sources */,
@@ -5493,6 +5609,22 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
+		0076F7FA1C84364900AC412F /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0076F7FB1C84364900AC412F /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		0076F7FF1C84364900AC412F /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				0076F8001C84364900AC412F /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
 		847D82A91BEC5D4000893542 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -5521,6 +5653,34 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		0076F8041C84364A00AC412F /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_TESTABILITY = YES;
+				INFOPLIST_FILE = "TableView重用Play/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "impointVery.TableView--Play";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		0076F8051C84364A00AC412F /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				INFOPLIST_FILE = "TableView重用Play/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.2;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "impointVery.TableView--Play";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		847D82BD1BEC5D4000893542 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -5738,6 +5898,14 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		0076F8031C84364A00AC412F /* Build configuration list for PBXNativeTarget "TableView重用Play" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				0076F8041C84364A00AC412F /* Debug */,
+				0076F8051C84364A00AC412F /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
 		847D82971BEC5D4000893542 /* Build configuration list for PBXProject "MovieIndustry" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (

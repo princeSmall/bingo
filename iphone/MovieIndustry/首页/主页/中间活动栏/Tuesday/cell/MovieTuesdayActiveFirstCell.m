@@ -9,10 +9,13 @@
 #import "MovieTuesdayActiveFirstCell.h"
 #import "MovieTuesdayGoodModel.h"
 #import "MovieTuesdayGoodImageModel.h"
+#import "DJSView.h"
 
 @interface MovieTuesdayActiveFirstCell ()
+@property (weak, nonatomic) IBOutlet UILabel *kaLabel;
 
 @property (strong, nonatomic) IBOutlet UIImageView *goodsImage; //商品图片
+@property (weak, nonatomic) IBOutlet UIView *timeView;
 
 @property (strong, nonatomic) IBOutlet UILabel *goodsNumLab;//商品数量
 
@@ -31,6 +34,8 @@
 {
     _goodsModel = goodsModel;
     
+    
+    
     //图片
     NSArray *imageArray = goodsModel.imgs;
     MovieTuesdayGoodImageModel *imageModel = [imageArray lastObject];
@@ -48,13 +53,15 @@
     self.goodName.text = goodsModel.dealName;
     
     //咔么价
-    NSString *cPrice = [NSString stringWithFormat:@"%@元",self.goodsModel.currentPrice];
+    NSString *cPrice = [NSString stringWithFormat:@"%d元",[self.goodsModel.currentPrice intValue]];
+    
     NSMutableAttributedString *priceNow = [[NSMutableAttributedString alloc] initWithString:cPrice];
-    [priceNow addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:15.0f] range:NSMakeRange(0, cPrice.length-1)];
+    [priceNow addAttribute:NSFontAttributeName value:[UIFont boldSystemFontOfSize:20.0f] range:NSMakeRange(0, cPrice.length-1)];
+    [priceNow addAttribute:NSFontAttributeName value:[UIFont systemFontOfSize:12] range:NSMakeRange(cPrice.length-1,1)];
     self.currentPrice.attributedText = priceNow;
     
     //设置价格和下划线
-    NSString *oldPrice = [NSString stringWithFormat:@"￥%@",goodsModel.originPrice];
+    NSString *oldPrice = [NSString stringWithFormat:@"%d",[goodsModel.originPrice intValue]];
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
     [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0,oldPrice.length)];
     [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0,oldPrice.length)];
@@ -65,16 +72,19 @@
 
 - (void)setSubviewNewFrame:(MovieTuesdayGoodModel *)model
 {
-     NSString *cPrice = [NSString stringWithFormat:@"%@元",self.goodsModel.currentPrice];
-    CGFloat priceW = [DeliveryUtility caculateContentSizeWithContent:cPrice andHight:21.0f andWidth:(screenWidth-180)/2 andFont:[UIFont systemFontOfSize:15.0f]].width;
+     NSString *cPrice = [NSString stringWithFormat:@"%d元",[self.goodsModel.currentPrice intValue]];
+    CGFloat priceW = [DeliveryUtility caculateContentSizeWithContent:cPrice andHight:21.0f andWidth:(screenWidth-180)/2 andFont:[UIFont systemFontOfSize:20]].width;
     CGRect nowFrame = self.currentPrice.frame;
+    nowFrame.origin.x = CGRectGetMaxX(self.kaLabel.frame) - 5;
     nowFrame.size.width = priceW;
     self.currentPrice.frame = nowFrame;
     
     CGRect oldFrame = self.originPrice.frame;
-    oldFrame.origin.x = CGRectGetMaxX(nowFrame);
+    oldFrame.origin.x = CGRectGetMaxX(nowFrame) ;
     oldFrame.size.width = screenWidth-(CGRectGetMaxX(nowFrame));
     self.originPrice.frame = oldFrame;
+    
+    
 }
 
 
@@ -85,6 +95,10 @@
     
     self.goodsImage.layer.borderColor = RGBColor(212,212,212,0.5).CGColor;
     self.goodsImage.layer.borderWidth = 1.0f;
+    DJSView * djsView = [[DJSView alloc]initWithFrame:CGRectMake(0, 8, 375, 50) AndEndTime:@"2016-2-29-17:52:30" AndEndBlock:^{
+        NSLog(@"结束");
+    }];
+    [self.timeView addSubview:djsView];
     
 //    [self createScrollViewDatas];
 }

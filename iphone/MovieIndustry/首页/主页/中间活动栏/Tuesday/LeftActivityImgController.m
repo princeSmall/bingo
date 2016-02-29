@@ -168,7 +168,7 @@
     [self setNavTabBar:@"周二抢"];
     [self createTuesdayActiveView];
     [self createActiveInputeMaskView];
-//    [self requetTuesdayGoodsActivityDatas];
+    [self requetTuesdayGoodsActivityDatas];
     [self addTableViewFooterRefresh];
 }
 
@@ -676,16 +676,16 @@
 {
     if (_isCanRush) {
     
-        if (![self.mainModel.ren isEqualToString:@"1"]) {
-            
-            [DeliveryUtility showMessage:@"认证身份后才能抢购商品哦~" target:self];
-            return;
-        }
-    
-        if ([self.mainModel.qiang isEqualToString:@"0"]) {
-            [DeliveryUtility showMessage:@"每次活动每人限抢一件哦~" target:self];
-            return;
-        }
+//        if (![self.mainModel.ren isEqualToString:@"1"]) {
+//            
+//            [DeliveryUtility showMessage:@"认证身份后才能抢购商品哦~" target:self];
+//            return;
+//        }
+//    
+//        if ([self.mainModel.qiang isEqualToString:@"0"]) {
+//            [DeliveryUtility showMessage:@"每次活动每人限抢一件哦~" target:self];
+//            return;
+//        }
         NSLog(@"即将开始按钮被点击");
         
         NSString *goodId = self.mainModel.dealId;//商品Id
@@ -720,7 +720,6 @@
 #pragma mark - 查看历史抢购记录
 - (void)inspectHistoryActive:(UIButton *)button
 {
-    NSLog(@"历史抢购记录被点击");
     MovieTuestdayHistroyListViewController *historyRecordVC = [[MovieTuestdayHistroyListViewController alloc] init];
     historyRecordVC.goodId = self.mainModel.dealId;
     [self.navigationController pushViewController:historyRecordVC animated:YES];
