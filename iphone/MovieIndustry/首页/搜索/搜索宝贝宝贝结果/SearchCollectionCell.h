@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 @class  ShopGoodsModel;
 @interface SearchCollectionCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 @property (weak, nonatomic) IBOutlet UILabel *oldPriceLabel;
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImageView;

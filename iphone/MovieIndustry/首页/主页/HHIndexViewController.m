@@ -465,7 +465,8 @@
     
     
     if (indexPath.section == 0) {
-        return 45;
+//        return 45;
+        return 0;
     }
     if (indexPath.section == 1 )
         {
@@ -538,8 +539,9 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(0, 0, kViewWidth, 45);
         [btn addTarget:self action:@selector(searchVcAction) forControlEvents:UIControlEventTouchUpInside];
-        [cell.contentView addSubview:btn];
-        
+//        [cell.contentView addSubview:btn];
+//
+        cell.contentView.hidden = YES;
         
         return cell;
         
@@ -972,7 +974,6 @@
                             IndexHomeDealModel *model = [[IndexHomeDealModel alloc] initWithDic:goodDic];
                             [weakSelf.dealListArr addObject:model];
                         }
-                    
                         NSMutableArray *arr = [weakSelf.dealListArr mutableCopy];
                         [weakSelf.homeDealListArr addObject:arr];
 

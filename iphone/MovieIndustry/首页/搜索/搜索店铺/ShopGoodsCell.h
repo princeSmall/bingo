@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *sendLbl;
 @property (weak, nonatomic) IBOutlet UILabel *kamePriceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *maketPriceLbl;
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 -(void)config:(ShopGoodsModel*)model;
 

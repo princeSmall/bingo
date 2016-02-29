@@ -25,6 +25,7 @@
 
 @property (strong, nonatomic) IBOutlet UILabel *goodCount;//商品数量
 
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 - (void)config:(CartGood *)model;
 

@@ -183,7 +183,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="昵称" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="aJA-yJ-lUR">
-                                                    <rect key="frame" x="164.99999902946229" y="8" width="185" height="30"/>
+                                                    <rect key="frame" x="164.99999887959129" y="8" width="185" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -266,7 +266,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="手机号码" textAlignment="right" minimumFontSize="17" clearButtonMode="whileEditing" id="dlL-AI-BQ9">
-                                                    <rect key="frame" x="134" y="8" width="221.00000056098486" height="30"/>
+                                                    <rect key="frame" x="134.00000110280666" y="8" width="221" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -282,8 +282,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle="" id="uq0-5h-snW">
                                 <cells>
-                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="45" id="Htf-XC-rf7">
-                                        <rect key="frame" x="0.0" y="270" width="375" height="45"/>
+                                    <tableViewCell hidden="YES" contentMode="scaleToFill" selectionStyle="none" accessoryType="disclosureIndicator" indentationWidth="10" rowHeight="0.0" id="Htf-XC-rf7">
+                                        <rect key="frame" x="0.0" y="270" width="375" height="0.0"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="Htf-XC-rf7" id="kXp-y7-59h">
                                             <rect key="frame" x="0.0" y="0.0" width="342" height="44"/>
@@ -883,7 +883,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="N24-Zi-Web">
-                                                    <rect key="frame" x="119" y="7" width="241" height="30"/>
+                                                    <rect key="frame" x="118.99999994064271" y="7" width="241" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -909,7 +909,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="MI4-F9-n5h">
-                                                    <rect key="frame" x="91.000000922874889" y="7" width="269" height="30"/>
+                                                    <rect key="frame" x="91" y="7" width="269" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>
@@ -1002,7 +1002,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" clearButtonMode="whileEditing" id="muL-1P-E4x">
-                                                    <rect key="frame" x="93.000000328160354" y="7" width="267" height="30"/>
+                                                    <rect key="frame" x="93.000000502565285" y="7" width="267" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                                     <textInputTraits key="textInputTraits"/>

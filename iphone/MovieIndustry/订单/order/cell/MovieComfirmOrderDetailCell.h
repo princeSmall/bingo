@@ -25,6 +25,8 @@
 
 ///商品数量
 @property (weak, nonatomic) IBOutlet UILabel *goodsNumLabel;
+//押金label
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 ///配置参数
 - (void)config:(GoodDesModel *)model Andtype:(NSString *)type;

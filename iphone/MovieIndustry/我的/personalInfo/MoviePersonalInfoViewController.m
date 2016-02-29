@@ -291,7 +291,7 @@
     UIView *footerView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, 80)];
     footerView.backgroundColor = [UIColor clearColor];
     
-    UIButton *comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20,-30,kViewWidth-40,40) title:@"确认" andFont:[UIFont systemFontOfSize:17.0f] target:self action:@selector(comfirmSetingMineInfo:)];
+    UIButton *comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20,-30,kViewWidth-40,50) title:@"确认" andFont:[UIFont systemFontOfSize:17.0f] target:self action:@selector(comfirmSetingMineInfo:)];
     comfirmBtn.backgroundColor = [UIColor whiteColor];
     [comfirmBtn setTitleColor:RGBColor(38, 38, 38, 1) forState:UIControlStateNormal];
     comfirmBtn.clipsToBounds = YES;
@@ -299,6 +299,7 @@
     [footerView addSubview:comfirmBtn];
     
     self.tableView.tableFooterView = footerView;
+    self.tableView.tableFooterView.userInteractionEnabled = YES;
 }
 
 

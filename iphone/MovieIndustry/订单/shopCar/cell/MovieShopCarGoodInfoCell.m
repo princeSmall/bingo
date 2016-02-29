@@ -29,7 +29,7 @@
     self.goodName.text = model.goods_name;
     self.goodColor.text = [NSString stringWithFormat:@"%@",model.name_value_str];
     self.currentPrice.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_price floatValue]];
-    
+    self.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_deposit floatValue]];
     self.goodCount.text = [NSString stringWithFormat:@"x%@",model.goods_number];
     
     

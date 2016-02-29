@@ -47,8 +47,12 @@
             break;
     }
     self.sendLbl.text = str;
-    self.kamePriceLbl.text = [NSString stringWithFormat:@"¥%@",model.goods_price];
-    
+    self.kamePriceLbl.text = [NSString stringWithFormat:@"¥%.2f",[model.goods_price floatValue]];
+    if (model.goods_deposit) {
+         self.yajinLabel.text = model.goods_deposit;
+    }else{
+    self.yajinLabel.text = @"￥100.00";
+    }
     NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[model.market_price floatValue]];
     NSUInteger length = [oldPrice length];
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];

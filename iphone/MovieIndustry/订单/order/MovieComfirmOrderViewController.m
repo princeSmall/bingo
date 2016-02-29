@@ -372,7 +372,7 @@
                         
                                     price = self.goodsPrice;
                                 }
-                                NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%d",price]];
+                                NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2d",price]];
                                 [priceStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
                                 self.priceLab.attributedText = priceStr;
                             }
@@ -531,22 +531,27 @@
     if(self.model){
     
         footerView.totalGoodsLabel.text = [NSString stringWithFormat:@"共%@件商品",self.goodsCount];
-        CGFloat  price = [self.model.goods_price intValue] * [self.goodsCount intValue];
+        CGFloat  price = [self.model.goods_price intValue] * [self.goodsCount intValue] + [self.model.goods_deposit intValue] * [self.goodsCount intValue];
         footerView.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",price];
     
+        self.goodsPrice = price;
+        NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2f",price]];
+        [priceStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
+        self.priceLab.attributedText = priceStr;
+        
     }
     else{
         int count = 0;
         CGFloat price1;
         for (CartGood * good in self.goodsInfoArray) {
             count += [good.goods_number intValue];
-            price1 += [good.goods_price intValue] * [good.goods_number intValue];
+            price1 += [good.goods_price intValue] * [good.goods_number intValue] +[good.goods_deposit intValue] * [good.goods_number intValue];
         }
            footerView.totalGoodsLabel.text = [NSString stringWithFormat:@"共%d件商品",count];
       
       footerView.priceLabel.text = [NSString stringWithFormat:@"￥%.2f",price1];
         self.goodsPrice = price1;
-        NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%d",(int)price1]];
+        NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2f",price1]];
         [priceStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
         self.priceLab.attributedText = priceStr;
 

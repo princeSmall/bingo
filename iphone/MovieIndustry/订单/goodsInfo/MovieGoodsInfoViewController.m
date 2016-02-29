@@ -1049,7 +1049,7 @@
             //送货方式字段
             NSArray *arr = [NSArray arrayWithObjects:@"商家送货",@"顺丰",@"申通", nil];
             self.goodsTbHeaderView.businessPostTypeLabel.text = [WNController nullString:[ arr objectAtIndex: [dic[@"goods_express"]intValue]]];
-                self.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@",[WNController nullString:dic[@"goods_price"]]];
+                self.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_price"] floatValue]];
                 
                 ///设置下划线
                 NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[[WNController nullString:dic[@"market_price"]] floatValue]];
@@ -1060,6 +1060,9 @@
                 [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
                 self.goodsTbHeaderView.oldPriceLabel.attributedText = attri;
             //self.goodsTbHeaderView.goodsLocationLabel.text = dic[@"spare_address"];
+            //押金label 的展示
+#warning message
+            self.goodsTbHeaderView.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_deposit"] floatValue]];
             
             NSMutableArray *imgsArr = dic[@"imgs"];
 

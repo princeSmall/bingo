@@ -17,6 +17,22 @@
                     <view contentMode="scaleToFill" id="1oC-tT-REm">
                         <rect key="frame" x="0.0" y="0.0" width="374" height="100"/>
                         <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="QKW-n8-UYe">
+                                <rect key="frame" x="103" y="73" width="36" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥100.00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="SnE-JX-EOi">
+                                <rect key="frame" x="133" y="73" width="84" height="14"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="x1" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="ZCV-ep-FdT">
@@ -59,6 +75,7 @@
                 <outlet property="goodsNumLabel" destination="ZCV-ep-FdT" id="XpX-ez-GLn"/>
                 <outlet property="goodsTitleLabel" destination="ndx-rw-Mis" id="NcY-qS-uVA"/>
                 <outlet property="unitPriceLabel" destination="mTE-D9-I9k" id="RAD-zw-BlV"/>
+                <outlet property="yajinLabel" destination="SnE-JX-EOi" id="dwL-Vg-l8X"/>
             </connections>
             <point key="canvasLocation" x="428" y="385"/>
         </tableViewCell>

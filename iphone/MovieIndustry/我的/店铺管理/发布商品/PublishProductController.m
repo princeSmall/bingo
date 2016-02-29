@@ -590,7 +590,7 @@
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
     
     if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
-        
+       
         //如果选择的类型是图片
         if ([type isEqualToString:@"public.image"])
         {
@@ -598,34 +598,16 @@
             
 //            NSLog(@"已选图片 --> %zd",self.imageArray.count);
             [self uploadChooseImageWith:image];
-            
-            if (self.imageArray.count >= (_imageIndex+1))
-            {
-                [self.imageArray replaceObjectAtIndex:_imageIndex withObject:image];
-            }else{
-                [self.imageArray addObject:image];
-            }
-            
-            [self.collectionView reloadData];
-        }
+
     }
-    
+    }
     if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
         
         //如果选择的类型是图片
         if ([type isEqualToString:@"public.image"])
         {
             UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
-            
             [self uploadChooseImageWith:image];
-            
-            if (self.imageArray.count >= (_imageIndex+1))
-            {
-                [self.imageArray replaceObjectAtIndex:_imageIndex withObject:image];
-            }else{
-                [self.imageArray addObject:image];
-            }
-            [self.collectionView reloadData];
         }
     }
     
@@ -644,10 +626,19 @@
     [UserDesModel GetUploadImageDictWithData:imageData WithType:@"0" With:^(NSString *string) {
         if ([string isEqualToString:@"F"]) {
             HUD.labelText = @"添加失败";
-            [HUD hide:YES afterDelay:0.25];
+            [HUD hide:YES afterDelay:1.5];
         }else{
             HUD.labelText = @"添加成功";
-            [HUD hide:YES afterDelay:0.25];
+            
+            if (self.imageArray.count >= (_imageIndex+1))
+            {
+                [self.imageArray replaceObjectAtIndex:_imageIndex withObject:originImage];
+            }else{
+                [self.imageArray addObject:originImage];
+            }
+            [self.collectionView reloadData];
+            
+            [HUD hide:YES afterDelay:1.5];
             [self.imagePathArray replaceObjectAtIndex:_imageIndex withObject:string];
         }
     }];

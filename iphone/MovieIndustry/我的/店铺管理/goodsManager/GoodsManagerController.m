@@ -371,7 +371,8 @@
             break;
         default:
             return 0;
-        break;}
+        break;
+    }
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -392,7 +393,8 @@
 #warning 缺少送货方式
 #warning 缺少送货方式字段
        // cell.deliveryWay
-        cell.price.text = [NSString stringWithFormat:@"￥%@",good.goods_price];
+        cell.price.text = [NSString stringWithFormat:@"￥%.2f",[good.goods_price floatValue]];
+        cell.yajinLabel.text = @"￥100.00";
         cell.address.text = good.local_name;
         cell.typeLabel.hidden = YES;
         if ([good.type isEqual:@"0"]) {
@@ -419,6 +421,7 @@
         cell.address.text = good.spare_address;
         cell.rightBtn.hidden = NO;
         cell.rightBtn.tag = 666 + indexPath.row;
+          cell.yajinLabel.text = @"￥100.00";
         [cell.rightBtn addTarget:self action:@selector(ChangeGoodsDes:) forControlEvents:UIControlEventTouchUpInside];
     }
     else{
@@ -429,7 +432,7 @@
 #warning 缺少送货方式
 #warning 缺少送货方式字段
             // cell.deliveryWay
-            cell.price.text = [NSString stringWithFormat:@"￥%@",good.goods_price];
+     cell.price.text = [NSString stringWithFormat:@"￥%.2f",[good.goods_price floatValue]];
             cell.address.text = good.local_name;
             cell.typeLabel.hidden = YES;
             if ([good.type isEqual:@"0"]) {

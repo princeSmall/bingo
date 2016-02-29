@@ -269,6 +269,9 @@
     header.shopNameLabel.text = _orderListArray[section][@"shop_name"];
     header.orderStatusLabel.text = _orderListArray[section][@"shop_goods"][@"status_name"];
     
+#warning 这边需要传出事件  点击进入店铺
+#warning 这边需要传出事件  点击进入店铺
+#warning 这边需要传出事件  点击进入店铺
     return header;
 }
 
@@ -342,12 +345,12 @@
     int allAmount=0;
     //运费
     int freight = 0;
-
-    allAmount =[_orderListArray[section][@"shop_goods"][@"goods_price"] intValue]*[_orderListArray[section][@"shop_goods"][@"goods_number"] intValue] ;
+//_orderListArray[section][@"shop_goods"][@"goods_deposit"] = @"100";
+    allAmount =([_orderListArray[section][@"shop_goods"][@"goods_price"] intValue]+[@"100" intValue])*[_orderListArray[section][@"shop_goods"][@"goods_number"] intValue] ;
     
    
     //合计：￥380.00 （含运费￥10）
-    footer.goodsPriceTotalLabel.text = [NSString stringWithFormat:@"合计：￥%d （含运费￥%d）",allAmount,freight];
+    footer.goodsPriceTotalLabel.text = [NSString stringWithFormat:@"合计：￥%.2f （含运费￥%.2f）",(float)allAmount,(float)freight];
     
     
     return footer;

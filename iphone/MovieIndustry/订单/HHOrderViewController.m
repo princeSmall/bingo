@@ -232,7 +232,7 @@
                         goodsModel.shop_name = goodsDict[@"shop_name"];
                         goodsModel.shop_logo = goodsDict[@"shop_logo"];
                         goodsModel.shop_tel = goodsDict[@"shop_tel"];
-                   
+                        
                         
                         NSArray *arr = goodsDict[@"shop_goods"];
                         for(NSDictionary *goodsDetailDic in arr)
@@ -245,6 +245,11 @@
                             goodsDetailModel.goods_number = goodsDetailDic[@"goods_number"];
                             goodsDetailModel.goods_price = goodsDetailDic[@"goods_price"];
                             goodsDetailModel.name_value_str = goodsDetailDic[@"name_value_str"];
+#warning 后台没有返回 我前台写死数据
+#warning 后台没有返回 我前台写死数据
+#warning 后台没有返回 我前台写死数据
+                            goodsDetailModel.goods_deposit = @"100";
+                            
                             goodsDetailModel.img_path =goodsDetailDic[@"img_path"];
                              [self.goodsArray addObject:goodsDetailModel];
                         
@@ -488,8 +493,10 @@
      NSArray *array = ordersArr.order_shops;
      NSArray *goodsArray =[NSArray arrayWithArray:array[0][@"shop_goods"]];
     
-    NSDictionary *goodsModel= goodsArray[indexPath.row];
+    NSDictionary *goodsModel1= goodsArray[indexPath.row];
     
+    NSMutableDictionary * goodsModel = [NSMutableDictionary dictionaryWithDictionary:goodsModel1];
+      goodsModel[@"goods_deposit"] = @"100.00";
     AllOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"AllOrderCell" owner:nil options:nil]lastObject];
@@ -598,8 +605,9 @@
         int amount = 0;
         for(NSDictionary *goodsDict in arrGoods)
         {
+#warning 写死的数据
             number += [goodsDict[@"goods_number"] intValue];
-            amount += [goodsDict[@"goods_number"] intValue] *[goodsDict[@"goods_price"] intValue];
+            amount += [goodsDict[@"goods_number"] intValue] *([goodsDict[@"goods_price"] intValue] + 100);
         }
         
          ///设置订单按钮
@@ -607,7 +615,7 @@
 //         tbheaderView.shopNameLabel.text = array[0][@"shop_name"];
         
 
-        tbFooterView.goodsPriceTotalLabel.text = [NSString stringWithFormat:@"合计：￥%d （含运费￥0）",amount];
+        tbFooterView.goodsPriceTotalLabel.text = [NSString stringWithFormat:@"合计：￥%.2f （含运费￥0.00）",(float)amount];
         tbFooterView.goodsTotalLabel.text = [NSString stringWithFormat:@"共%d件商品",number];
         tbFooterView.leftBtn.tag = 10000+section;
         tbFooterView.rightBtn.tag = 20000+section;

@@ -36,6 +36,7 @@
     self.goodsAttributeLabel.text =[NSString stringWithFormat:@"颜色：%@,型号：%@",@"默认",@"默认"];
    self.currenPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_price floatValue]];
     NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[model.market_price floatValue]];
+        self.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_deposit floatValue]];
     NSUInteger length = [oldPrice length];
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
     [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
@@ -55,8 +56,7 @@
     self.goodsAttributeLabel.text = [NSString stringWithFormat:@"颜色：%@,型号：%@",@"默认",@"默认"];
     self.currenPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_price floatValue]];
 
-    
-    
+    self.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_deposit floatValue]];
     ///设置价格和下划线
     NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[model.market_price floatValue]];
     NSUInteger length = [oldPrice length];

@@ -39,7 +39,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥10500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Kpz-M9-JSS">
-                        <rect key="frame" x="135" y="80" width="120" height="21"/>
+                        <rect key="frame" x="135" y="80" width="83" height="21"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.94509803921568625" green="0.0" blue="0.039215686274509803" alpha="1" colorSpace="calibratedRGB"/>
@@ -77,6 +77,20 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="押金" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="B5D-g2-C8o">
+                        <rect key="frame" x="211" y="84" width="32" height="14"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥10500" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="MhY-Bx-voZ">
+                        <rect key="frame" x="235" y="81" width="66" height="21"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.94509803920000002" green="0.0" blue="0.039215686270000001" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
             </tableViewCellContentView>
             <connections>
@@ -87,6 +101,7 @@
                 <outlet property="price" destination="Kpz-M9-JSS" id="o6c-Sb-bS0"/>
                 <outlet property="rightBtn" destination="vDy-UY-qLa" id="tVN-3c-eTg"/>
                 <outlet property="typeLabel" destination="o8I-4p-n0E" id="CqL-kL-Uww"/>
+                <outlet property="yajinLabel" destination="MhY-Bx-voZ" id="fhT-Ye-spk"/>
             </connections>
             <point key="canvasLocation" x="428.5" y="400.5"/>
         </tableViewCell>

@@ -17,7 +17,7 @@
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,model.img_path]]];
     self.goodsCityLabel.text  = model.goods_city_name;
     self.goodsNameLabel.text = model.goods_name;
-    self.goodsPriceLabel.text = [NSString stringWithFormat:@"￥%@/天",model.goods_price];
+    self.goodsPriceLabel.text = [NSString stringWithFormat:@"￥%.2f/天",[model.goods_price floatValue]];
 }
 
 - (void)awakeFromNib {

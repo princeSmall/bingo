@@ -314,7 +314,7 @@
                     [orderStr appendString:@"-"];
                     [orderStr appendString:modelGood.goods_price];
                     [orderStr appendString:@""];
-                        orderMoney += [modelGood.goods_price intValue] * [modelGood.goods_number intValue];}
+                        orderMoney += ([modelGood.goods_price intValue]+[modelGood.goods_deposit intValue]) * [modelGood.goods_number intValue];}
             }
                 
             }
@@ -625,7 +625,7 @@
             if (model.selectState) {
                 int number = [model.goods_number intValue];
                 CGFloat price = [model.goods_price floatValue];
-                self.allPrice = self.allPrice+number*price;
+                self.allPrice = self.allPrice+number*(price + [model.goods_deposit floatValue]);
             }
             
         }

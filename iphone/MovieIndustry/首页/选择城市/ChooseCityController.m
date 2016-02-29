@@ -211,6 +211,28 @@
                 //                HHNSLog(@"hotarr %@, cityArr %@, suoyin%@",self.arrayHotCity,self.cityArray,self.suoyinArray);
                 
                 ///刷新数据
+                if (self.historyCityArray.count>0){
+                    CityModel * model = self.cityArray[23][1];
+                    
+                    NSMutableArray * cityArray1 = [NSMutableArray arrayWithArray:self.cityArray[23]];
+                    [cityArray1 removeObject:model];
+                    self.cityArray[23] = cityArray1;
+                    NSMutableArray * cityArray2 = [NSMutableArray arrayWithArray:self.cityArray[4]];
+                    [cityArray2 insertObject:model atIndex:0];
+                    self.cityArray[4] = cityArray2;
+                    
+                }else{
+                
+                    CityModel * model = self.cityArray[22][1];
+                    NSMutableArray * cityArray1 = [NSMutableArray arrayWithArray:self.cityArray[22]];
+                    [cityArray1 removeObject:model];
+                    self.cityArray[22] = cityArray1;
+                    NSMutableArray * cityArray2 = [NSMutableArray arrayWithArray:self.cityArray[3]];
+                    [cityArray2 insertObject:model atIndex:0];
+                    self.cityArray[3] = cityArray2;
+                
+                }
+                
                 [self.tableView reloadData];
                 [self.view endEditing:YES];
                 

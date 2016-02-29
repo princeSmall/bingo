@@ -1156,7 +1156,7 @@ static const NSString *MESSAGE = @"msg";
         [parameters setValue:@"6" forKey:@"user_id"];
         
     }
-    
+    //测试商品测试商品测试商品测试商品测试商品测试商品测试商品
     @catch (NSException *exception) {
         scallback(Network_Error);
         NSLog(@"商品管理列表数据错误1 --> %@",exception);

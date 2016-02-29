@@ -930,8 +930,8 @@
             self.goodsTbHeaderView.goodsNameLabel.text = [WNController nullString:dic[@"goods_name"]];
             self.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"goods_city_name"]];
  //      //缺失送货方式字段      self.goodsTbHeaderView.businessPostTypeLabel.text = [WNController nullString:dic[@"delivery"]];
-            self.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%@",[WNController nullString:dic[@"goods_price"]]];
-            
+            self.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_price"]floatValue]];
+            self.goodsTbHeaderView.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_deposit"]floatValue]];
             ///设置下划线
             NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[[WNController nullString:dic[@"market_price"]] floatValue]];
             NSUInteger length = [oldPrice length];
@@ -1046,14 +1046,5 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

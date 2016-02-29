@@ -27,6 +27,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *xiangqingButton;
 ///评论按钮
 @property (weak, nonatomic) IBOutlet UIButton *commentButton;
+//押金
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 ///红色线
 @property (weak, nonatomic) IBOutlet UIView *btnLine;

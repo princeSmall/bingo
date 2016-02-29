@@ -25,13 +25,23 @@
     self.goodsImageView.clipsToBounds = YES;
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,model.img_path]]];
     self.goodsNameLabel.text = model.goods_name;
+    
+    if (model.goods_deposit) {
+        self.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_deposit floatValue]];
+    }else{
+    self.yajinLabel.text = @"￥100.00";
+    }
+    
+    self.yajinLabel.text =
+    
     //    self.postFeeLabel.text = model
     //self.goodsCityLabel.text = model.goodsCity;
-    self.goodsCurrentPrice.text = model.goods_price;
+    self.goodsCurrentPrice.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_price floatValue]];
+    
     
     @try {
         ///设置价格和下划线
-        NSString *oldPrice = [NSString stringWithFormat:@"￥%@",model.market_price];
+        NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[model.market_price floatValue]];
         NSUInteger length = [oldPrice length];
         
         NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];

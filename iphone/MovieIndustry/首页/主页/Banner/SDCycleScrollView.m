@@ -416,11 +416,19 @@ NSString * const ID = @"cycleCell";
 {
     SDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
     long itemIndex = indexPath.item % self.imagesGroup.count;
-    UIImage *image = self.imagesGroup[itemIndex];
-    if (image.size.width == 0 && self.placeholderImage) {
-        image = self.placeholderImage;
+    
+    if ([self.imagesGroup[itemIndex] isKindOfClass:[UIImage class]]) {
+        UIImage *image = self.imagesGroup[itemIndex];
+        if (image.size.width == 0 && self.placeholderImage) {
+            image = self.placeholderImage;
+        }
+        cell.imageView.image = image;
+    }else{
+        NSString * iamgeStr = self.imagesGroup[itemIndex];
+        [cell.imageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,iamgeStr]]];
     }
-    cell.imageView.image = image;
+    
+
     if (_titlesGroup.count) {
         cell.title = _titlesGroup[itemIndex];
     }

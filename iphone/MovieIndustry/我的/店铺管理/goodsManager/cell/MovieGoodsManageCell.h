@@ -15,6 +15,7 @@
 @property (nonatomic,strong) MovieManagerGoodsModel *goodModel;
 @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
 
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 @property (strong, nonatomic) IBOutlet UIImageView *goodsImg;
 

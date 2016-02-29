@@ -557,13 +557,6 @@
             
             [self uploadIssuePersonImages:image];
             
-            if (self.imageArray.count >= (_imageIndex+1))
-            {
-                [self.imageArray replaceObjectAtIndex:_imageIndex withObject:image];
-            }else{
-                [self.imageArray addObject:image];
-            }
-            [self.collectionView reloadData];
         }
     }
     
@@ -575,15 +568,7 @@
             UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
             
             [self uploadIssuePersonImages:image];
-            
-            if (self.imageArray.count >= (_imageIndex+1))
-            {
-                [self.imageArray replaceObjectAtIndex:_imageIndex withObject:image];
-            }else{
-                [self.imageArray addObject:image];
-            }
-            
-            [self.collectionView reloadData];
+
         }
     }
     
@@ -600,15 +585,38 @@
     NSData * imageData = UIImagePNGRepresentation(postImage);
     [UserDesModel GetUploadImageDictWithData:imageData WithType:@"0" With:^(NSString *string) {
         if ([string isEqualToString:@"F"]) {
-            HUD.labelText = @"上传失败";
-            [HUD hide:YES];
+            
+            HUD.labelText = @"添加失败";
+            
+            [HUD hide:YES afterDelay:1.5];
+            
         }else{
-        
-            HUD.labelText = @"上传成功";
-            [HUD hide:YES];
+            
+            HUD.labelText = @"添加成功";
+            
+            
+            
+            if (self.imageArray.count >= (_imageIndex+1))
+                
+            {
+                
+                [self.imageArray replaceObjectAtIndex:_imageIndex withObject:originImage];
+                
+            }else{
+                
+                [self.imageArray addObject:originImage];
+                
+            }
+            
+            [self.collectionView reloadData];
+            
+            
+            
+            [HUD hide:YES afterDelay:1.5];
+            
             [self.imagePathArray replaceObjectAtIndex:_imageIndex withObject:string];
+            
         }
-        
     }];
 }
 

@@ -21,6 +21,7 @@
         self.goods_price = dict[@"goods_price"];
         self.img_path = dict[@"img_path"];
         self.market_price = dict[@"market_price"];
+        self.goods_deposit = dict[@"goods_deposit"];
         
     }
     return  self;

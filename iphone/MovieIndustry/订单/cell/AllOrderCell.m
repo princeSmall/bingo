@@ -32,6 +32,7 @@
     self.goodsNumLabel.text = [NSString stringWithFormat:@"x%@",model[@"goods_number" ]];
     self.unitPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[model[@"goods_price"] floatValue]];
     self.goodsAttrbuteLabel.text = [NSString stringWithFormat:@"%@",model[@"name_value_str"]];
+    self.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[model[@"goods_deposit"] floatValue]];
     
     
     
