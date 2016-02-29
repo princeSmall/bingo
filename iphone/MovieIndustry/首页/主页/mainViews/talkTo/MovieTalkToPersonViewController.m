@@ -150,7 +150,7 @@
         CGFloat change = [self keyboardEndingFrameHeight:[notification userInfo]];
         currentFrame.origin.y = self.commentView.frame.origin.y - change - currentFrame.size.height;
         self.commentView.frame = currentFrame;
-        NSLog(@"%@",NSStringFromCGRect(currentFrame));
+        NSLog(@"----\n%@\n------",NSStringFromCGRect(currentFrame));
     }];
 }
 

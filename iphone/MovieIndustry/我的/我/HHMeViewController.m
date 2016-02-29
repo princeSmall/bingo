@@ -68,8 +68,8 @@
     self.view.backgroundColor = kViewBackColor;
     [self setNavTabBar:@"我的"];
      self.headerImage.layer.borderColor = [UIColor whiteColor].CGColor;
-#warning 帮助
-//   [self setNavRightItem:@"帮助" rightAction:@selector(RightAction)];
+
+   [self setNavRightItem:@"帮助" rightAction:@selector(RightAction)];
     [self addTargetActionForButton];
     [self getMineInfoRequest];
 

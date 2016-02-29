@@ -10,6 +10,14 @@
 #ifndef MovieIndustry_MovieIndustry_pch
 #define MovieIndustry_MovieIndustry_pch
 
+// View 圆角和加边框
+#define ViewBorderRadius(View, Radius, Width, Color)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+
 #define RGBColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define kViewWidth ([UIScreen mainScreen].applicationFrame.size.width)
 #define kViewHeight ([UIScreen mainScreen].applicationFrame.size.height)

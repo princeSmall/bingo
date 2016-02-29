@@ -143,10 +143,13 @@
 
 - (void)createTableView
 {
+    
+    
     _tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, kViewHeight-94) style:UITableViewStyleGrouped];
     
     _tbView.delegate = self;
     _tbView.dataSource = self;
+    _tbView.tag = 2;
     UIView *view = [[UIView alloc] init];
     _tbView.tableFooterView = view;
     
@@ -168,7 +171,7 @@
     view.layer.cornerRadius = 15;
     view.layer.masksToBounds = YES;
 
-    self.textField = [WNController createTextFieldWithFrame:CGRectMake(20, 2, 168, 28) boreStyle:UITextBorderStyleNone font:15];
+    self.textField = [WNController createTextFieldWithFrame:CGRectMake(75, 2, 168, 28) boreStyle:UITextBorderStyleNone font:15];
     self.textField.placeholder = @"你想找的文章";
     self.textField.delegate = self;
     //添加监听变化
@@ -181,6 +184,36 @@
     [view addSubview:searchArticleBtn];
     
     [view addSubview:self.textField];
+    UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(14, 1, 40, 30) Font:16 Text:@"论坛" textAligment:NSTextAlignmentCenter];
+    _navLabel = navLabel;
+    UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(53, 8, 14, 14) ImageName:@"15-07"];
+    
+    UIButton *navBtn  = [WNController createButtonWithFrame:CGRectMake(0, 0, 70, 30) ImageName:@"" Target:self Action:@selector(selectTypeAction:) Title:@""];
+    
+    
+    
+    [view addSubview:navLabel];
+    [view addSubview:navImage];
+    [view addSubview:self.textField];
+    [view addSubview:navBtn];
+    
+    //设置头部的View
+    self.navigationItem.titleView = view;
+    
+    _popView = [[[NSBundle mainBundle] loadNibNamed:@"DiscoverPopView" owner:nil options:nil]lastObject];
+    _popView.frame = CGRectMake((kViewWidth-257)/2, 0, 132, 106);
+    
+    [_popView.forumButton addTarget:self action:@selector(forumButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    [_popView.courseButton addTarget:self action:@selector(courseButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    
+    //覆盖的大View不让干其他地方点击
+    _popBgView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _popBgView.userInteractionEnabled = YES;
+    UITapGestureRecognizer *tapGes1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removePopView:)];
+    [_popBgView addGestureRecognizer:tapGes1];
+    
+
+
     self.navigationItem.titleView = view;
 }
 
@@ -220,36 +253,7 @@
     [self requestArticleListDatas];
 }
 
-/*
-    UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(14, 1, 40, 30) Font:16 Text:@"论坛" textAligment:NSTextAlignmentCenter];
-        _navLabel = navLabel;
-    UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(53, 8, 14, 14) ImageName:@"15-07"];
 
-    UIButton *navBtn  = [WNController createButtonWithFrame:CGRectMake(0, 0, 70, 30) ImageName:@"" Target:self Action:@selector(selectTypeAction:) Title:@""];
-    
- 
-    
-    [view addSubview:navLabel];
-    [view addSubview:navImage];
-    [view addSubview:textField];
-    [view addSubview:navBtn];
- 
-    //设置头部的View
-    self.navigationItem.titleView = view;
-    
-    _popView = [[[NSBundle mainBundle] loadNibNamed:@"DiscoverPopView" owner:nil options:nil]lastObject];
-    _popView.frame = CGRectMake((kViewWidth-257)/2, 0, 132, 106);
-    
-    [_popView.forumButton addTarget:self action:@selector(forumButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    [_popView.courseButton addTarget:self action:@selector(courseButtonAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    //覆盖的大View不让干其他地方点击
-    _popBgView = [[UIView alloc] initWithFrame:self.view.bounds];
-    _popBgView.userInteractionEnabled = YES;
-    UITapGestureRecognizer *tapGes1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removePopView:)];
-    [_popBgView addGestureRecognizer:tapGes1];
-    
-}
 
 #pragma mark 选择论坛
 - (void)forumButtonAction:(UIButton *)btn
@@ -293,94 +297,91 @@
         [_popView removeFromSuperview];
     }
 }
-*/
+
 
 #pragma mark - UITableViewDataSource
-//- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
-//{
-//    return 4;
-//}
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+{
+    return 4;
+}
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-//    if (section == 1) {
-//        return 2;
-//    }
-//    
-//    if (section == 3) {
-//        return self.dataArray.count+1;
-//    }
-//    
-//    return 1;
+    if (section == 1) {
+        return 2;
+    }
     
-    return self.listArray.count+1;
+    if (section == 3) {
+        return self.listArray.count+1;
+    }
+    
+    return 1;
+    
+//    return self.listArray.count+1;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-//    if (indexPath.section == 3) {
+    if (indexPath.section == 3) {
         if (0 == indexPath.row) {
             return 140;
         }
         return 87;
-//    }
-//    return 44;
+    }
+    return 44;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    //    if (indexPath.section <3) {
-    //        static NSString *cellID = @"DiscoverNormalCell";
-    //        DiscoverNorCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    //        if (!cell) {
-    //            cell = [[[NSBundle mainBundle] loadNibNamed:@"DiscoverNorCell" owner:self options:nil] lastObject];
-    //
-    ////            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
-    //        }
-    //        //第一组
-    //        if (indexPath.section == 0) {
-    //            cell.setImageView.image = [UIImage imageNamed:@"discover_06"];
-    //            cell.typeLabel.text = @"电影圈";
-    //
-    //
-    //        }
-    //
-    //        _cellIconArray = @[@"discover_06",];
-    //        _cellTitleArray = @[@"电影圈",];
-    //
-    //        //第二组
-    //        if (indexPath.section == 1) {
-    //            if (indexPath.row == 0) {
-    //                cell.setImageView.image = [UIImage imageNamed:@"discover_09"];
-    //                cell.typeLabel.text = @"社区论坛";
-    //
-    //                if (indexPath.row == 0) {
-    //
-    //                    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 43, kViewWidth, 1)];
-    //                    line.backgroundColor = kViewBackColor;
-    //                    [cell.contentView addSubview:line];
-    //                }
-    //            }
-    //
-    //
-    //            if (indexPath.row == 1) {
-    //                cell.setImageView.image = [UIImage imageNamed:@"discover_12"];
-    //                cell.typeLabel.text = @"名师讲堂";
-    //            }
-    //
-    //        }
-    //        //第三组
-    //        if (indexPath.section == 2) {
-    //            cell.setImageView.image = [UIImage imageNamed:@"discover_14"];
-    //            cell.typeLabel.text = @"排行榜";
-    //        }
-    //        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-    //        return cell;
-    //
-    //    }else
-    //    {
+        if (indexPath.section <3) {
+            static NSString *cellID = @"DiscoverNormalCell";
+            DiscoverNorCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (!cell) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"DiscoverNorCell" owner:self options:nil] lastObject];
     
-    if (indexPath.row == 0) {
+    //            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
+            }
+            //第一组
+            if (indexPath.section == 0) {
+                cell.setImageView.image = [UIImage imageNamed:@"discover_06"];
+                cell.typeLabel.text = @"电影圈";
+    
+    
+            }
+    
+            _cellIconArray = @[@"discover_06",];
+            _cellTitleArray = @[@"电影圈",];
+    
+            //第二组
+            if (indexPath.section == 1) {
+                if (indexPath.row == 0) {
+                    cell.setImageView.image = [UIImage imageNamed:@"discover_09"];
+                    cell.typeLabel.text = @"社区论坛";
+    
+//                    if (indexPath.row == 0) {
+//    
+//                        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 43, kViewWidth, 1)];
+//                        line.backgroundColor = kViewBackColor;
+//                        [cell.contentView addSubview:line];
+//                    }
+                }
+    
+    
+                if (indexPath.row == 1) {
+                    cell.setImageView.image = [UIImage imageNamed:@"discover_12"];
+                    cell.typeLabel.text = @"名师讲堂";
+                }
+    
+            }
+            //第三组
+            if (indexPath.section == 2) {
+                cell.setImageView.image = [UIImage imageNamed:@"discover_14"];
+                cell.typeLabel.text = @"排行榜";
+            }
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            return cell;
+    
+        }if (indexPath.row == 0) {
         static NSString *cellID = @"FilmBannerCellID";
         FilmBannerCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
@@ -410,7 +411,7 @@
         return cell;
         
     }
-    //    }
+    
 }
 
 
@@ -435,20 +436,20 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
 {
-//    if (section<3) {
-//        return 5;
-//    }
-//    
-//    if (section == 3) {
-//        return 26;
-//    }
-//    
-//    return 1;
+    if (section<3) {
+        return 5;
+    }
     
-    return 26.0f;
+    if (section == 3) {
+        return 26;
+    }
+    
+    return 1;
+    
+//    return 26.0f;
 }
 
-/*
+
 - (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section
 {
     if (section == 2) {
@@ -456,21 +457,25 @@
     }
     return 5.0f;
 }
-*/
+
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
-    UIView *hView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 26)];
-    hView.backgroundColor = kViewBackColor;
-    UILabel *label = [WNController createLabelWithFrame:CGRectMake(6,3,128, 21) Font:15 Text:@"趣味电影" textAligment:NSTextAlignmentLeft];
-    label.textColor = [UIColor colorWithRed:0.67 green:0.67 blue:0.67 alpha:1];
-    [hView addSubview:label];
-    return hView;
+    if (section == 3) {
+        UIView *hView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 26)];
+        hView.backgroundColor = kViewBackColor;
+        UILabel *label = [WNController createLabelWithFrame:CGRectMake(6,3,128, 21) Font:15 Text:@"趣味电影" textAligment:NSTextAlignmentLeft];
+        label.textColor = [UIColor colorWithRed:0.67 green:0.67 blue:0.67 alpha:1];
+        [hView addSubview:label];
+        return hView;
+    }
+    return  nil;
+    
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    /*
+   
     if (indexPath.section == 0) {
         FilmTimeLineController *filmVc = [[FilmTimeLineController alloc] init];
         [filmVc setHidesBottomBarWhenPushed:YES];
@@ -498,22 +503,20 @@
         }
         
     }
-     */
+   
     
-//    if (indexPath.section == 3) {
-//        MovieTalkToPersonViewController *talkVc = [[MovieTalkToPersonViewController alloc] init];
-//        [talkVc setHidesBottomBarWhenPushed:YES];
-//        [self.navigationController pushViewController:talkVc animated:YES];
-//    }
+    if (indexPath.section == 3) {
+        [self.textField resignFirstResponder];
+        
+        MovieTalkToPersonViewController *talkVc = [[MovieTalkToPersonViewController alloc] init];
+        MovieDiscoveryArticleModel *model = _listArray[indexPath.row-1];
+        talkVc.articleId = model.articleId;
+        talkVc.delegate = self;
+        [talkVc setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:talkVc animated:YES];
+    }
     
-    [self.textField resignFirstResponder];
     
-    MovieTalkToPersonViewController *talkVc = [[MovieTalkToPersonViewController alloc] init];
-    MovieDiscoveryArticleModel *model = _listArray[indexPath.row-1];
-    talkVc.articleId = model.articleId;
-    talkVc.delegate = self;
-    [talkVc setHidesBottomBarWhenPushed:YES];
-    [self.navigationController pushViewController:talkVc animated:YES];
 }
 
 #pragma mark - 趣味电影图片点击事件
@@ -545,23 +548,23 @@
     return YES;
 }
 
-//- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
-//{
-//    if ([textField.text isEqualToString:@""]) {
-//        self.keyword = @"";
-//        [self requestArticleListDatas];
-//    }
-//    
-//    return YES;
-//}
-//
-//- (void)textFieldDidEndEditing:(UITextField *)textField
-//{
-//    if ([textField.text isEqualToString:@""]) {
-//        self.keyword = @"";
-//        [self requestArticleListDatas];
-//    }
-//}
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string
+{
+    if ([textField.text isEqualToString:@""]) {
+        self.keyword = @"";
+        [self requestArticleListDatas];
+    }
+    
+    return YES;
+}
+
+- (void)textFieldDidEndEditing:(UITextField *)textField
+{
+    if ([textField.text isEqualToString:@""]) {
+        self.keyword = @"";
+        [self requestArticleListDatas];
+    }
+}
 
 
 #pragma mark - 判断输入时的变化
