@@ -10,8 +10,8 @@
 #import "PublishTimeLineController.h"
 #import "FilmTimeLineCell.h"
 #import "MyPhotosHeader.h"
-
-@interface FilmTimeLineController ()<UITableViewDataSource,UITableViewDelegate>
+#import "NewMessageCell.h"
+@interface FilmTimeLineController ()<UITableViewDataSource,UITableViewDelegate,NewMessageCellDelegate>
 {
     UITableView *_tbView;
 }
@@ -65,17 +65,29 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 168;
+    if (indexPath.row == 0) {
+        return 80;
+    } 
+    return 158;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellID = @"FilmTimeLineCell";
-    FilmTimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-    if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"FilmTimeLineCell" owner:nil options:nil]lastObject];
-    }
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
+    if (!cell) {
+        if (indexPath.row == 0) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMessageCell" owner:nil options:nil]lastObject];
+            NewMessageCell *newMsgCell = (NewMessageCell *) cell;
+            newMsgCell.delegate = self;
+        } else {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"FilmTimeLineCell" owner:nil options:nil]lastObject];
+            FilmTimeLineCell *filmTimeCell = (FilmTimeLineCell *) cell;
+        }
+
+        }
+        
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
@@ -103,7 +115,9 @@
     }
 }
 
-
+- (void) NewMessageCell:(NewMessageCell *)newMsgCell btn:(UIButton *)btn {
+    [PromptLabel custemAlertPromAddView:self.view text:@"新消息"];
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
