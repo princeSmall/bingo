@@ -14,4 +14,8 @@
 
 @interface LeftActivityImgController : BaseViewController<MWPhotoBrowserDelegate>
 
+
+
+
+
 @end
