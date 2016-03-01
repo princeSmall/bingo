@@ -8,7 +8,6 @@
 #define UploadImage_Url [NSString stringWithFormat:@"%@index.php/Home/ApiUsers/photo",PREFIX]
 #import "LeftActivityImgController.h"
 #import "MovieTuesdayActiveFirstCell.h"
-//#import "MovieTuesdayActiveSecondCell.h"
 #import "MovieTuestdayHistroyListViewController.h"
 #import "MovieTuesdayGoodModel.h"
 #import "MovieComfirmOrderViewController.h"
@@ -17,6 +16,8 @@
 #import "MovieCommetView.h"
 #import "MWCommon.h"
 #import "MWPhoto.h"
+#import "TuestdayHistroyViewController.h"
+#import "CartGood.h"
 
 
 @interface LeftActivityImgController ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate,MovieComfirmOrderViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
@@ -133,7 +134,7 @@
         self.commentView.frame = currentFrame;
         
         CGFloat change = [self keyboardEndingFrameHeight:[notification userInfo]];
-        currentFrame.origin.y = self.commentView.frame.origin.y - change ;
+        currentFrame.origin.y = self.commentView.frame.origin.y - change - 120 ;
         self.commentView.frame = currentFrame;
     }];
 }
@@ -168,7 +169,7 @@
     [self setNavTabBar:@"周二抢"];
     [self createTuesdayActiveView];
     [self createActiveInputeMaskView];
-    [self requetTuesdayGoodsActivityDatas];
+//    [self requetTuesdayGoodsActivityDatas];
     [self addTableViewFooterRefresh];
 }
 
@@ -244,6 +245,7 @@
 
 - (void)justCommentTuesdayActive
 {
+    
     [self.commentDict setObject:@"" forKey:@"contentId"];
     [self popCommentTextView];
 }
@@ -296,47 +298,54 @@
     }
 }
 
+#warning 这边是发表评论的地方
+#warning 这边是发表评论的地方
+#warning 这边是发表评论的地方
 #pragma mark - 请求发表我的评论
 - (void)requestSendActiveComment
 {
-    NSString *commtentStr = [self.commentView.textView.text asTrim];
+            [self talkViewKeyboardDown];
+            self.commentView.textView.text = @"";
+            [self delectCommentImage:nil];
     
-    [self.commentDict setObject:self.mainModel.dealId forKey:@"deal_id"];
-    [self.commentDict setObject:commtentStr forKey:@"content"];
-    
-    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:window animated:YES];
-    HUD.labelText = @"正在发表";
-    [HUD show:YES];
-    
-    [MovieHttpRequest createTuesdaySendCommentWithCommentDict:self.commentDict CallBack:^(id obj) {
-        HUD.labelText = @"发表成功";
-        [HUD hide:YES];
-        
-        [window makeToastCenter:@"发表成功"];
-        [self talkViewKeyboardDown];
-        self.commentView.textView.text = @"";
-        [self delectCommentImage:nil];
-        
-        [self requestTuesdayActiveCommentDatas];
-        
-        _segmentIndex = 1;
-        [self activeSegmentBtnClickedAction:self.headerView.rightSegmentBtn];
-////        UIView *line = [self.headerView viewWithTag:200];
-//        self.headerView.rightSegmentBtn.selected
-//        [UIView animateWithDuration:0.3 animations:^{
-//            
-//            CGRect lineFrame = line.frame;
-//            lineFrame.origin.x = (viewW+20);
-//            line.frame = lineFrame;
-//        }];
-        
-    } andSCallBack:^(id obj) {
-        
-        [HUD hide:YES];
-        [DeliveryUtility showMessage:obj target:self];
-    }];
+//    NSString *commtentStr = [self.commentView.textView.text asTrim];
+//    
+//    [self.commentDict setObject:self.mainModel.dealId forKey:@"deal_id"];
+//    [self.commentDict setObject:commtentStr forKey:@"content"];
+//    
+//    UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+//    
+//    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:window animated:YES];
+//    HUD.labelText = @"正在发表";
+//    [HUD show:YES];
+//    
+//    [MovieHttpRequest createTuesdaySendCommentWithCommentDict:self.commentDict CallBack:^(id obj) {
+//        HUD.labelText = @"发表成功";
+//        [HUD hide:YES];
+//        
+//        [window makeToastCenter:@"发表成功"];
+//        [self talkViewKeyboardDown];
+//        self.commentView.textView.text = @"";
+//        [self delectCommentImage:nil];
+//        
+//        [self requestTuesdayActiveCommentDatas];
+//        
+//        _segmentIndex = 1;
+//        [self activeSegmentBtnClickedAction:self.headerView.rightSegmentBtn];
+//////        UIView *line = [self.headerView viewWithTag:200];
+////        self.headerView.rightSegmentBtn.selected
+////        [UIView animateWithDuration:0.3 animations:^{
+////            
+////            CGRect lineFrame = line.frame;
+////            lineFrame.origin.x = (viewW+20);
+////            line.frame = lineFrame;
+////        }];
+//        
+//    } andSCallBack:^(id obj) {
+//        
+//        [HUD hide:YES];
+//        [DeliveryUtility showMessage:obj target:self];
+//    }];
 }
 
 
@@ -393,27 +402,8 @@
 #pragma mark - 请求周二抢页面数据
 - (void)requetTuesdayGoodsActivityDatas
 {
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.labelText = @"正在加载";
-    [HUD show:YES];
     
-    [MovieHttpRequest createTuesdayGoodSellActivityCallBack:^(id obj) {
-        
-        HUD.labelText = @"加载成功";
-        [HUD hide:YES];
-        
-        self.mainModel = (MovieTuesdayGoodModel *)obj;
-        [self.headerView setGoodsModel:self.mainModel];
-        [self judementCurrentTimeWhetherActiveTime];
-        [self.mainTableView reloadData];
-        
-        [self requestTuesdayActiveCommentDatas];
-        
-    } andSCallBack:^(id obj) {
-        
-        [HUD hide:YES];
-        [DeliveryUtility showMessage:obj target:self];
-    }];
+    
 }
 
 
@@ -685,30 +675,13 @@
 //        if ([self.mainModel.qiang isEqualToString:@"0"]) {
 //            [DeliveryUtility showMessage:@"每次活动每人限抢一件哦~" target:self];
 //            return;
-//        }
-        NSLog(@"即将开始按钮被点击");
-        
-        NSString *goodId = self.mainModel.dealId;//商品Id
-        NSString *goodNum = @"1";   //商品数量
-        NSString *shopId = self.mainModel.locationId;//店铺Id
-        NSString *goodColor = @"商家随机"; //商品颜色
-        NSString *goodSize = @"商家随机";  //商品型号
-        
-        NSMutableArray *infoArray = [NSMutableArray new];
-        [infoArray addObject:goodId];
-        [infoArray addObject:goodNum];
-        [infoArray addObject:shopId];
-        [infoArray addObject:goodColor];
-        [infoArray addObject:goodSize];
-        
-        NSArray *infoA = [NSArray arrayWithObjects:[infoArray componentsJoinedByString:@","],nil];
+       }
+
         
         MovieComfirmOrderViewController *comfirmOrderVC = [[MovieComfirmOrderViewController alloc] init];
-        comfirmOrderVC.delegate = self;
-        comfirmOrderVC.tebie = @"39";
-        comfirmOrderVC.goodsInfoArray = infoA;
+
         [self.navigationController pushViewController:comfirmOrderVC animated:YES];
-    }
+    
 }
 
 - (void)payMineOrderSuccess:(BOOL)isSuccess
@@ -720,9 +693,8 @@
 #pragma mark - 查看历史抢购记录
 - (void)inspectHistoryActive:(UIButton *)button
 {
-    MovieTuestdayHistroyListViewController *historyRecordVC = [[MovieTuestdayHistroyListViewController alloc] init];
-    historyRecordVC.goodId = self.mainModel.dealId;
-    [self.navigationController pushViewController:historyRecordVC animated:YES];
+    TuestdayHistroyViewController * tues = [[TuestdayHistroyViewController alloc]init];
+    [self.navigationController pushViewController:tues animated:YES];
 }
 
 
@@ -798,7 +770,7 @@
         if (isiOS8) {
             
             self.modalPresentationStyle = UIModalPresentationCurrentContext;
-            //            self.imagePicker.modalPresentationStyle = UIModalPresentationCurrentContext;
+
         }
         [self presentViewController:self.imagePicker animated:YES completion:nil];
     }
@@ -916,8 +888,8 @@
 {
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
     [window addSubview:self.maskView];
-    [window addSubview:self.commentView];
-    [window bringSubviewToFront:self.commentView];
+    [self.maskView addSubview:self.commentView];
+
     [self.commentView.textView becomeFirstResponder];
 }
 

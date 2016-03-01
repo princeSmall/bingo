@@ -42,7 +42,10 @@
         labelDJS.textColor = color;
         labelDJS.text = @"倒计时 :";
         [self addSubview:labelDJS];
-         NSArray * timeArray = [self getTimeStringArray];
+        NSArray * timeArray = [self getTimeStringArray];
+        if([timeArray[0] isEqualToString:@"00"]&&[timeArray[1] isEqualToString:@"00"]&&[timeArray[2] isEqualToString:@"00"]){
+            color = [UIColor lightGrayColor];
+        }
         //小时View
         CGFloat hourX = CGRectGetMaxX(labelDJS.frame)+2;
         CGFloat hourY = 0;
@@ -89,6 +92,9 @@
         JGTimeView * timeView3 = [[JGTimeView alloc]initWithFrame:CGRectMake(secondX, secondY, secondW, secondH) AndTimeString:timeArray[2]];
         self.timeView3 = timeView3;
         [self addSubview:timeView3];
+        self.timeView1.changeColor = color;
+        self.timeView2.changeColor = color;
+        self.timeView3.changeColor = color;
         self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0f target:self selector:@selector(UpDataTimeLabel) userInfo:nil repeats:YES];
     }
     return self;
@@ -100,10 +106,10 @@
 }
 //获取当前时间
 - (NSString *)GetCurrentTime{
-NSDate * date = [NSDate date];
-NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
-[dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
-[dateFormatter setDateFormat:DateFormatType];
+    NSDate * date = [NSDate date];
+    NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    [dateFormatter setDateFormat:DateFormatType];
     NSString * localTime = [dateFormatter stringFromDate:date];
     return localTime;
 }
@@ -137,9 +143,6 @@ NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
 //更新时分秒label的展示
 - (void)UpDataTimeLabel{
     NSArray * timeArray = [self getTimeStringArray];
-    self.timeView1.timeString = timeArray[0];
-    self.timeView2.timeString = timeArray[1];
-    self.timeView3.timeString = timeArray[2];
     //当时间为0的时候，需要传出事件，关闭定时器
     if([timeArray[0] isEqualToString:@"00"]&&[timeArray[1] isEqualToString:@"00"]&&[timeArray[2] isEqualToString:@"00"]){
         [self.timer invalidate];
@@ -151,6 +154,9 @@ NSDateFormatter * dateFormatter = [[NSDateFormatter alloc]init];
         self.timeView3.changeColor = [UIColor lightGrayColor];
         self.block();
     }
+    self.timeView1.timeString = timeArray[0];
+    self.timeView2.timeString = timeArray[1];
+    self.timeView3.timeString = timeArray[2];
 }
 
 

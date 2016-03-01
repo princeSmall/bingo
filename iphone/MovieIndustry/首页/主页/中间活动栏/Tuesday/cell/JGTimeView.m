@@ -27,20 +27,19 @@
     CGContextStrokePath(ctx);
 }
 //初始化方法
-- (instancetype)initWithFrame:(CGRect)frame AndTimeString:(NSString *)timeString{
+- (instancetype)initWithFrame:(CGRect)frame AndTimeString:(NSString *)timeString {
     if (self = [super initWithFrame:frame]) {
         self.backgroundColor = [UIColor whiteColor];
         NSArray * timeArray = [self getArrayFormStr:timeString];
         UILabel * label1 = [[UILabel alloc]initWithFrame:CGRectMake(1, 0, 12,20)];
-        UIColor * color = [[UIColor alloc]initWithRed:200/255.0 green:0 blue:0 alpha:1.0];
-        label1.textColor = color;
+     
          label1.font = [UIFont systemFontOfSize:15];
         [self addSubview:label1];
         label1.text = timeArray[0];
         label1.textAlignment = 1;
         self.label1 = label1;
         UILabel * label2 = [[UILabel alloc]initWithFrame:CGRectMake(13, 0, 12,20)];
-        label2.textColor = color;
+ 
         label2.font = [UIFont systemFontOfSize:15];
 //        label2.font = [UIFont fontWithName:@"Helvetica-BoldOblique" size:20.f];
         [self addSubview:label2];
@@ -67,10 +66,10 @@
 }
 
 - (void)setChangeColor:(UIColor *)changeColor{
-
+    
     self.label1.textColor = changeColor;
     self.label2.textColor = changeColor;
-
+    
 }
 
 @end
