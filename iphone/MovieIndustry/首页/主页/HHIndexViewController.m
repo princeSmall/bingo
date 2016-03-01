@@ -26,7 +26,7 @@
 #import "MovieMainDisplayViewController.h"
 #import "CollectionHeadView.h"
 #import "DealDetailViewController.h"
-#import "BusinessBuyingController.h"
+#import "RentGoodsChooseController.h"
 
 
 
@@ -359,8 +359,8 @@
         [self presentViewController:navC animated:YES completion:nil];
     }else
     {
-//        BusinessBuyingController *lightingVc = [[BusinessBuyingController alloc]init];
-        LightningRentController *lightingVc = [[LightningRentController alloc] init];
+        RentGoodsChooseController *lightingVc = [[RentGoodsChooseController alloc]init];
+//        LightningRentController *lightingVc = [[LightningRentController alloc] init];
         [lightingVc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:lightingVc animated:YES];
     }

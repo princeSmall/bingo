@@ -791,6 +791,13 @@
 		D382D2BA1C7C52C800B699D2 /* MyCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D382D2B51C7C52C800B699D2 /* MyCollectionController.m */; };
 		D382D2BB1C7C52C800B699D2 /* shop_collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D382D2B61C7C52C800B699D2 /* shop_collect.png */; };
 		D39E2AAC1C57691700C656B5 /* MovieGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E2AAB1C57691700C656B5 /* MovieGoodsDetailViewController.m */; };
+		D3D972921C852C470004AE8B /* RentGoodsChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D972911C852C470004AE8B /* RentGoodsChooseController.m */; };
+		D3D9729C1C852C990004AE8B /* RentGoodsChooseCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D972941C852C990004AE8B /* RentGoodsChooseCell.m */; };
+		D3D9729D1C852C990004AE8B /* RentGoodsChooseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D972951C852C990004AE8B /* RentGoodsChooseCell.xib */; };
+		D3D9729E1C852C990004AE8B /* RentGoodsFootCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D972971C852C990004AE8B /* RentGoodsFootCell.m */; };
+		D3D9729F1C852C990004AE8B /* RentGoodsFootCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D972981C852C990004AE8B /* RentGoodsFootCell.xib */; };
+		D3D972A01C852C990004AE8B /* RentGoodsHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3D9729A1C852C990004AE8B /* RentGoodsHeadCell.m */; };
+		D3D972A11C852C990004AE8B /* RentGoodsHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3D9729B1C852C990004AE8B /* RentGoodsHeadCell.xib */; };
 		D3ED30D01C51C2C300C10387 /* CertificationScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ED30C91C51C2C300C10387 /* CertificationScrollView.m */; };
 		D3ED30D11C51C2C300C10387 /* CompanyCertificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ED30CB1C51C2C300C10387 /* CompanyCertificationViewController.m */; };
 		D3ED30D21C51C2C300C10387 /* MerchantCertificationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ED30CD1C51C2C300C10387 /* MerchantCertificationViewController.m */; };
@@ -2068,6 +2075,17 @@
 		D382D2B61C7C52C800B699D2 /* shop_collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_collect.png; sourceTree = SOURCE_ROOT; };
 		D39E2AAA1C57691700C656B5 /* MovieGoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieGoodsDetailViewController.h; sourceTree = "<group>"; };
 		D39E2AAB1C57691700C656B5 /* MovieGoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieGoodsDetailViewController.m; sourceTree = "<group>"; };
+		D3D972901C852C470004AE8B /* RentGoodsChooseController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = RentGoodsChooseController.h; path = cell/RentGoodsChooseController.h; sourceTree = "<group>"; };
+		D3D972911C852C470004AE8B /* RentGoodsChooseController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = RentGoodsChooseController.m; path = cell/RentGoodsChooseController.m; sourceTree = "<group>"; };
+		D3D972931C852C990004AE8B /* RentGoodsChooseCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentGoodsChooseCell.h; sourceTree = "<group>"; };
+		D3D972941C852C990004AE8B /* RentGoodsChooseCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentGoodsChooseCell.m; sourceTree = "<group>"; };
+		D3D972951C852C990004AE8B /* RentGoodsChooseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentGoodsChooseCell.xib; sourceTree = "<group>"; };
+		D3D972961C852C990004AE8B /* RentGoodsFootCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentGoodsFootCell.h; sourceTree = "<group>"; };
+		D3D972971C852C990004AE8B /* RentGoodsFootCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentGoodsFootCell.m; sourceTree = "<group>"; };
+		D3D972981C852C990004AE8B /* RentGoodsFootCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentGoodsFootCell.xib; sourceTree = "<group>"; };
+		D3D972991C852C990004AE8B /* RentGoodsHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RentGoodsHeadCell.h; sourceTree = "<group>"; };
+		D3D9729A1C852C990004AE8B /* RentGoodsHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RentGoodsHeadCell.m; sourceTree = "<group>"; };
+		D3D9729B1C852C990004AE8B /* RentGoodsHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RentGoodsHeadCell.xib; sourceTree = "<group>"; };
 		D3ED30C81C51C2C300C10387 /* CertificationScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CertificationScrollView.h; sourceTree = "<group>"; };
 		D3ED30C91C51C2C300C10387 /* CertificationScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CertificationScrollView.m; sourceTree = "<group>"; };
 		D3ED30CA1C51C2C300C10387 /* CompanyCertificationViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CompanyCertificationViewController.h; sourceTree = "<group>"; };
@@ -3544,6 +3562,8 @@
 				8482951B1C0E9AB700452BF9 /* PushSuccessViewController.h */,
 				8482951C1C0E9AB700452BF9 /* PushSuccessViewController.m */,
 				8482951D1C0E9AB700452BF9 /* PushSuccessViewController.xib */,
+				D3D972901C852C470004AE8B /* RentGoodsChooseController.h */,
+				D3D972911C852C470004AE8B /* RentGoodsChooseController.m */,
 				00B1F3BE1C5B3AE70027672A /* icon_tscg.png */,
 			);
 			path = "闪电租";
@@ -3552,6 +3572,15 @@
 		8482950B1C0E9AB700452BF9 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				D3D972931C852C990004AE8B /* RentGoodsChooseCell.h */,
+				D3D972941C852C990004AE8B /* RentGoodsChooseCell.m */,
+				D3D972951C852C990004AE8B /* RentGoodsChooseCell.xib */,
+				D3D972961C852C990004AE8B /* RentGoodsFootCell.h */,
+				D3D972971C852C990004AE8B /* RentGoodsFootCell.m */,
+				D3D972981C852C990004AE8B /* RentGoodsFootCell.xib */,
+				D3D972991C852C990004AE8B /* RentGoodsHeadCell.h */,
+				D3D9729A1C852C990004AE8B /* RentGoodsHeadCell.m */,
+				D3D9729B1C852C990004AE8B /* RentGoodsHeadCell.xib */,
 				8482950C1C0E9AB700452BF9 /* CustomDatePickView.h */,
 				8482950D1C0E9AB700452BF9 /* CustomDatePickView.m */,
 				8482950E1C0E9AB700452BF9 /* CustomDatePickView.xib */,
@@ -4907,6 +4936,7 @@
 				8482969D1C0EC9E700452BF9 /* OrderDetailTableCell.xib in Resources */,
 				843327AD1C0EF58300E80FF1 /* UAV.png in Resources */,
 				846164ED1BFF3A8E003B656B /* flim_07@2x.png in Resources */,
+				D3D972A11C852C990004AE8B /* RentGoodsHeadCell.xib in Resources */,
 				849991001C1EB2B000C24C68 /* screeningDown@2x.png in Resources */,
 				A25BB2FA1BFC3DCA00E52ED8 /* AllOrderCell.xib in Resources */,
 				848CA73D1C12CE750090E075 /* city.plist in Resources */,
@@ -4967,6 +4997,7 @@
 				846165101BFF3A8E003B656B /* me_selected.png in Resources */,
 				848AA87C1C0454EB00FAD995 /* shop_cancel.png in Resources */,
 				846165781BFF3A8E003B656B /* sysMes@3x.png in Resources */,
+				D3D9729D1C852C990004AE8B /* RentGoodsChooseCell.xib in Resources */,
 				006042A21C58570300FBAFB9 /* testImage.jpg in Resources */,
 				846164FF1BFF3A8E003B656B /* lightning@3x.png in Resources */,
 				846165771BFF3A8E003B656B /* sysMes@2x.png in Resources */,
@@ -4991,6 +5022,7 @@
 				00800B291C76B76000B2AADC /* qicai.png in Resources */,
 				846165681BFF3A8E003B656B /* site1@2x.png in Resources */,
 				846164F71BFF3A8E003B656B /* index_normal@3x.png in Resources */,
+				D3D9729F1C852C990004AE8B /* RentGoodsFootCell.xib in Resources */,
 				A2C8FBA91C0D6C5C00E90468 /* PublishTimeLineController.xib in Resources */,
 				849991011C1EB2B000C24C68 /* screeningDown@3x.png in Resources */,
 				8461657B1BFF3A8E003B656B /* timeLineCamera@3x.png in Resources */,
@@ -5312,6 +5344,7 @@
 				848295721C0E9CC200452BF9 /* HelpCommitSuccessController.m in Sources */,
 				848293761C0E968200452BF9 /* HHLocationService.m in Sources */,
 				A25EAB891C057CDF001E62F6 /* MovieLightRentSimpleModel.m in Sources */,
+				D3D972A01C852C990004AE8B /* RentGoodsHeadCell.m in Sources */,
 				848294531C0E96C500452BF9 /* UIRefreshControl+AFNetworking.m in Sources */,
 				8482952C1C0E9AB700452BF9 /* MovieTopicTitleCell.m in Sources */,
 				848294201C0E96C500452BF9 /* AFHTTPRequestOperation.m in Sources */,
@@ -5442,6 +5475,7 @@
 				A26D69191C17D76A004763B9 /* MovieHistoryViewController.m in Sources */,
 				A2BF29CB1C08554600753753 /* MovieMineReceiveNeedsModel.m in Sources */,
 				8499910A1C1ED1CA00C24C68 /* ChooseCityTableView.m in Sources */,
+				D3D9729C1C852C990004AE8B /* RentGoodsChooseCell.m in Sources */,
 				848293791C0E968200452BF9 /* UserInfo.m in Sources */,
 				A26D69111C17D76A004763B9 /* FriendsMesCell.m in Sources */,
 				A2A149081C16C8A200D57969 /* MovieRushRequestCollectionCell.m in Sources */,
@@ -5511,6 +5545,7 @@
 				D36C38E41C589FF100E42CFD /* TradeHeadCell.m in Sources */,
 				00A22F4E1C60A26E000F11DB /* ShopMainModel.m in Sources */,
 				A2C8FBA41C0D6C5C00E90468 /* HHDiscoverController.m in Sources */,
+				D3D9729E1C852C990004AE8B /* RentGoodsFootCell.m in Sources */,
 				A2FFC7901C103CE70095E858 /* MWTapDetectingView.m in Sources */,
 				8482944E1C0E96C500452BF9 /* UIActivityIndicatorView+AFNetworking.m in Sources */,
 				848294801C0E975E00452BF9 /* HHTableView.m in Sources */,
@@ -5591,6 +5626,7 @@
 				848293771C0E968200452BF9 /* NSUserManager.m in Sources */,
 				0055FC131C858D5B00CB320D /* PayOrderTypeViewController.m in Sources */,
 				00200A361C7C65D600DD8084 /* SDCollectionViewCell.m in Sources */,
+				D3D972921C852C470004AE8B /* RentGoodsChooseController.m in Sources */,
 				84AAF3261C215B680069F528 /* StarView.m in Sources */,
 				A2C8FBAA1C0D6C5C00E90468 /* BestLikeRankingController.m in Sources */,
 				00849D9A1C4DFC3200DFEA6B /* ApiXml.mm in Sources */,
