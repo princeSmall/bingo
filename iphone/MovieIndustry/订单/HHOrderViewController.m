@@ -103,14 +103,12 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kViewBackColor;
-    
-    self.Order = @"DS";
-    
-    [self setNavTabBar:@"我的订单"];
-    
     if(self.Order){
     
         [self setNavTabBar1:@"交易管理"];
+    }else{
+    [self setNavTabBar:@"我的订单"];
+    self.Order = @"DSA";
     }
     
     [self createUI];

@@ -13,6 +13,8 @@ typedef void (^endBlock)();
 
 @interface DJSView : UIView
 
+@property (nonatomic,strong)NSString * endString;
+
 - (instancetype)initWithFrame:(CGRect)frame AndEndTime:(NSString *)endTime AndEndBlock:(endBlock)block;
 
 @end

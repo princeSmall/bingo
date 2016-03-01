@@ -196,7 +196,6 @@
 //    [self setupCommentListRefresh]
 //    [self requestRelatedArticlesData];
     self.commentViewFrame =CGRectMake(0, self.view.frame.size.height-self.commentView.frame.size.height, self.view.frame.size.width, self.commentView.frame.size.height);
-
 }
 #pragma mark - 弹出分享框
 - (void)shareAction:(UIButton *)btn
@@ -438,6 +437,7 @@
     UITextField *textField = [[UITextField alloc] initWithFrame:CGRectMake(50,10, kViewWidth-130, 30)];
     textField.userInteractionEnabled = NO;
     textField.borderStyle = UITextBorderStyleRoundedRect;
+    textField.placeholder = @"我要说两句";
     [bottomView addSubview:textField];
     
     //原文/浏览数量按钮
