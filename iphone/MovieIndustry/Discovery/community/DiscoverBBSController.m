@@ -10,7 +10,7 @@
 #import "MovieTalkToPersonViewController.h"
 #import "CollectPostCell.h"
 #import "NotisMesCell.h"
-
+#import "ClassifyPostController.h"
 @interface DiscoverBBSController ()<UITableViewDelegate,UITableViewDataSource>
 {
     ///选中的按钮
@@ -25,12 +25,12 @@
     
     // 标签容器
     UIView *_tagContentV;
-    
+    NSInteger msgType;
 }
 @end
 
 @implementation DiscoverBBSController
-static CGFloat *tbViewY;
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTabBar:@"社区"];
@@ -41,7 +41,7 @@ static CGFloat *tbViewY;
 {
     UIView *btnView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 45)];
     [self.view addSubview:btnView];
-    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(kViewWidth/5, 44, kViewWidth/5, 1)];
+    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(kViewWidth/5, 44, kViewWidth/5 + 40, 2)];
     _btnLine.backgroundColor = [UIColor redColor];
     [btnView addSubview:_btnLine];
     
@@ -84,7 +84,7 @@ static CGFloat *tbViewY;
 #pragma mark - 我的帖子
 - (void)myBBSAction:(UIButton *)btn
 {
-    [self setBtnType:@"0" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 1)];
+    [self setBtnType:@"0" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 2)];
     [self.view addSubview:_tagContentV];
     _tbView.frame = CGRectMake(0, 150, kViewWidth, kViewHeight-150-44);
 }
@@ -92,9 +92,9 @@ static CGFloat *tbViewY;
 #pragma mark - 我的消息
 - (void)myMesAction:(UIButton *)btn
 {
-    [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 1)];
+    [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 2)];
     [_tagContentV removeFromSuperview];
-        _tbView.frame = CGRectMake(0, 45, kViewWidth, kViewHeight-45-44);
+    _tbView.frame = CGRectMake(0, 45, kViewWidth, kViewHeight-45-44);
 }
 - (void) addTagToConentV:(UIView *) v{
     CGFloat margin = 10;
@@ -102,7 +102,7 @@ static CGFloat *tbViewY;
     CGFloat btnH = 40;
     CGFloat btnX;
     CGFloat btnY;
-    NSArray *tagArray = [NSArray arrayWithObjects:@"摄影",@"科技",@"艺术",@"其他",@"其他",@"其他",@"其他", nil];
+    NSArray *tagArray = [NSArray arrayWithObjects:@"摄影",@"科技",@"艺术",@"其他",@"其他",@"其他", nil];
     for (int i = 0; i < tagArray.count; i ++ ) {
         UIButton *tagbtn = [[UIButton alloc] init];
         [v addSubview:tagbtn];
@@ -117,15 +117,27 @@ static CGFloat *tbViewY;
         tagbtn.backgroundColor = [UIColor whiteColor];
         [tagbtn setTitle:tagArray[i] forState:UIControlStateNormal];
         [tagbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        tagbtn.titleLabel.font = [UIFont fontWithName:@"AmericanTypewriter-Light" size:15];
+        tagbtn.tag = i;
+        [tagbtn addTarget:self action:@selector(tagBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
-
+- (void) tagBtnClicked:(UIButton *) btn {
+    ClassifyPostController *controller = [[ClassifyPostController alloc] init];
+    controller.classifyTitle = btn.titleLabel.text;
+    [self.navigationController pushViewController:controller animated:YES];
+}
 ///返回cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([_btnType isEqualToString:@"1"]) {
-        return 113+1;
-//        return 200;
+        
+        if (msgType == 0) {
+            return 114;
+        } else {
+            return 132;
+        }
+        
     }
     
     return 68;
@@ -148,12 +160,21 @@ static CGFloat *tbViewY;
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-    }else if ([_btnType isEqualToString:@"1"])
+    }else if ([_btnType isEqualToString:@"1"]) // 消息
     {
+        // 需区分是系统消息还是其他消息
         static NSString *cellID = @"NotisMesCellID";
-        NotisMesCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"NotisMesCell" owner:nil options:nil] lastObject];
+
+            if (indexPath.row %2 == 0) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"NotisMesCell" owner:nil options:nil] lastObject];
+                msgType = 0;
+            } else {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"FriendsMesCell" owner:nil options:nil] lastObject];
+                msgType = 1;
+            }
+            
         }
         
         cell.backgroundColor = [UIColor clearColor];
@@ -218,14 +239,6 @@ static CGFloat *tbViewY;
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

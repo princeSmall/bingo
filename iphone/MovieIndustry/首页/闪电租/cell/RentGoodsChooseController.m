@@ -85,7 +85,9 @@
         for(RentGoodsChooseCell *cell in self.cellArray)
         {
             cell.chooseBtn.selected =YES;
+            [self.buttonArray addObject:cell.chooseBtn];
         }
+        
     }
     else
     {
@@ -93,7 +95,7 @@
         {
             cell.chooseBtn.selected =NO;
         }
-
+        [self.buttonArray removeAllObjects];
     }
 }
 /**
@@ -155,6 +157,7 @@
     {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"RentGoodsChooseCell" owner:self options:nil]lastObject];;
     }
+    //判断是否被选中,防止重用时数据紊乱
     for(UIButton *button in self.buttonArray)
     {
         if(button.tag==indexPath.row)
@@ -174,7 +177,19 @@
 
         NSLog(@"%ld",(long)indexPath.row);
     [self.cellArray addObject:cell];
+    //设置下划线
+    NSString *marketPrice = [NSString stringWithFormat:@"¥%.2f",15320.0];
+    NSUInteger length = marketPrice.length;
+    NSMutableAttributedString *attri = [[NSMutableAttributedString alloc]initWithString:marketPrice];
+    [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid|NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
+    [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
+    cell.marketPriceLbl.attributedText = attri;
+    
     return cell;
+    
+}
+-(void)tableView:(UITableView *)tableView didDeselectRowAtIndexPath:(NSIndexPath *)indexPath
+{
     
 }
 /**
@@ -202,6 +217,7 @@
         }
     }
 }
+
 /*
 #pragma mark - Navigation
 

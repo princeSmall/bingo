@@ -171,16 +171,14 @@
     view.layer.cornerRadius = 15;
     view.layer.masksToBounds = YES;
 
-    self.textField = [WNController createTextFieldWithFrame:CGRectMake(75, 2, 168, 28) boreStyle:UITextBorderStyleNone font:15];
-    self.textField.placeholder = @"你想找的文章";
+    self.textField = [WNController createTextFieldWithFrame:CGRectMake(75, 0, 140, 28) boreStyle:UITextBorderStyleNone font:15];
+    self.textField.placeholder = @"你想找什么?";
     self.textField.delegate = self;
     //添加监听变化
     [self.textField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     self.textField.returnKeyType = UIReturnKeySearch;
     
     UIButton *searchArticleBtn = [DeliveryUtility createBtnFrame:CGRectMake(218, 5, 20, 20)  image:@"search_index" selectedImage:nil target:self action:@selector(searchMineKeyArticle:)];
-    
-//    UIImageView *searchImage = [WNController createImageViewWithFrame:CGRectMake(218, 5, 20, 20) ImageName:@"search_index"];
     [view addSubview:searchArticleBtn];
     
     [view addSubview:self.textField];
@@ -211,10 +209,7 @@
     _popBgView.userInteractionEnabled = YES;
     UITapGestureRecognizer *tapGes1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removePopView:)];
     [_popBgView addGestureRecognizer:tapGes1];
-    
 
-
-    self.navigationItem.titleView = view;
 }
 
 #pragma mark - 添加刷新
@@ -248,6 +243,7 @@
 #pragma mark - 搜索文章
 - (void)searchMineKeyArticle:(UIButton *)button
 {
+    HHNSLog(@"搜索文章");
     [self.textField resignFirstResponder];
     self.keyword = [self.textField.text asTrim];
     [self requestArticleListDatas];
@@ -338,8 +334,6 @@
             DiscoverNorCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
             if (!cell) {
                 cell = [[[NSBundle mainBundle] loadNibNamed:@"DiscoverNorCell" owner:self options:nil] lastObject];
-    
-    //            cell.accessoryType = UITableViewCellAccessoryDisclosureIndicator;
             }
             //第一组
             if (indexPath.section == 0) {
@@ -357,13 +351,11 @@
                 if (indexPath.row == 0) {
                     cell.setImageView.image = [UIImage imageNamed:@"discover_09"];
                     cell.typeLabel.text = @"社区论坛";
-    
-//                    if (indexPath.row == 0) {
-//    
-//                        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 43, kViewWidth, 1)];
-//                        line.backgroundColor = kViewBackColor;
-//                        [cell.contentView addSubview:line];
-//                    }
+                     tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+                    UIView *line = [[UIView alloc] initWithFrame:CGRectMake(40, 44, kViewWidth - 40, 1)];
+                    line.backgroundColor = kViewBackColor;
+                    [cell.contentView addSubview:line];
+                  
                 }
     
     
@@ -403,8 +395,9 @@
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"IndexCell" owner:self options:nil] lastObject];
         }
-        
-        
+        UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0, 87, kViewWidth, 1)];
+        line.backgroundColor = kViewBackColor;
+        [cell.contentView addSubview:line];
         MovieDiscoveryArticleModel *model = _listArray[indexPath.row-1];
         [cell setArticleModel:model];
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -475,7 +468,7 @@
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
-   
+    [self.textField resignFirstResponder];
     if (indexPath.section == 0) {
         FilmTimeLineController *filmVc = [[FilmTimeLineController alloc] init];
         [filmVc setHidesBottomBarWhenPushed:YES];
@@ -522,6 +515,7 @@
 #pragma mark - 趣味电影图片点击事件
 - (void)leftImageBtnAction
 {
+    [self.textField resignFirstResponder];
     MovieTalkToPersonViewController *talkVc = [[MovieTalkToPersonViewController alloc] init];
     MovieDiscoveryArticleModel *model = [_displayArray lastObject];
     talkVc.articleId = model.articleId;
@@ -532,6 +526,7 @@
 #pragma mark - 趣味电影右边的图片
 - (void)rightImageBtnAction
 {
+    [self.textField resignFirstResponder];
     MovieTalkToPersonViewController *talkVc = [[MovieTalkToPersonViewController alloc] init];
     MovieDiscoveryArticleModel *model = [_displayArray firstObject];
     talkVc.articleId = model.articleId;
