@@ -79,6 +79,7 @@
     [cell.selectBtn addTarget:self action:@selector(actionChoose:) forControlEvents:UIControlEventTouchUpInside];
     cell.bounds = CGRectMake(0, 0,self.centerView.frame.size.width,64);
     [self.buttonArray addObject:cell.selectBtn];
+    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
     return cell;
 }
 
