@@ -10,8 +10,7 @@
 #import "PublishTimeLineController.h"
 #import "FilmTimeLineCell.h"
 #import "MyPhotosHeader.h"
-#import "NewMessageCell.h"
-@interface FilmTimeLineController ()<UITableViewDataSource,UITableViewDelegate,NewMessageCellDelegate>
+@interface FilmTimeLineController ()<UITableViewDataSource,UITableViewDelegate>
 {
     UITableView *_tbView;
 }
@@ -77,14 +76,14 @@
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     
     if (!cell) {
-        if (indexPath.row == 0) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMessageCell" owner:nil options:nil]lastObject];
-            NewMessageCell *newMsgCell = (NewMessageCell *) cell;
-            newMsgCell.delegate = self;
-        } else {
+//        if (indexPath.row == 0) {
+//            cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMessageCell" owner:nil options:nil]lastObject];
+//            NewMessageCell *newMsgCell = (NewMessageCell *) cell;
+//            newMsgCell.delegate = self;
+//        } else {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"FilmTimeLineCell" owner:nil options:nil]lastObject];
             FilmTimeLineCell *filmTimeCell = (FilmTimeLineCell *) cell;
-        }
+//        }
 
         }
         
@@ -115,9 +114,7 @@
     }
 }
 
-- (void) NewMessageCell:(NewMessageCell *)newMsgCell btn:(UIButton *)btn {
-    [PromptLabel custemAlertPromAddView:self.view text:@"新消息"];
-}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

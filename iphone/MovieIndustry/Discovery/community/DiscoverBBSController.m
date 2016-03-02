@@ -10,7 +10,6 @@
 #import "MovieTalkToPersonViewController.h"
 #import "CollectPostCell.h"
 #import "NotisMesCell.h"
-#import "ClassifyPostController.h"
 @interface DiscoverBBSController ()<UITableViewDelegate,UITableViewDataSource>
 {
     ///选中的按钮
@@ -123,9 +122,7 @@
     }
 }
 - (void) tagBtnClicked:(UIButton *) btn {
-    ClassifyPostController *controller = [[ClassifyPostController alloc] init];
-    controller.classifyTitle = btn.titleLabel.text;
-    [self.navigationController pushViewController:controller animated:YES];
+    
 }
 ///返回cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
