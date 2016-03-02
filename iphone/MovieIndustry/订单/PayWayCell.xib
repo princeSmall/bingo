@@ -25,11 +25,6 @@
                         <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wGI-Rq-ykZ">
-                        <rect key="frame" x="343" y="13" width="43" height="46"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                        <state key="normal" image="unchecked_"/>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="推荐有支付宝账号的用户使用" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="bgP-Eu-zkL">
                         <rect key="frame" x="77" y="38" width="250" height="21"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
@@ -37,8 +32,19 @@
                         <color key="textColor" red="0.57647058819999997" green="0.57647058819999997" blue="0.57647058819999997" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="wGI-Rq-ykZ">
+                        <rect key="frame" x="362" y="13" width="43" height="46"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMinY="YES"/>
+                        <state key="normal" image="unchecked_"/>
+                    </button>
                 </subviews>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="payBottomLbl" destination="bgP-Eu-zkL" id="lwW-xa-uDu"/>
+                <outlet property="payImageView" destination="UNg-q1-SBy" id="tmS-gS-xSY"/>
+                <outlet property="payWayLbl" destination="CV7-nx-DaX" id="oWs-QB-w1H"/>
+                <outlet property="selectBtn" destination="wGI-Rq-ykZ" id="3M2-N4-vtK"/>
+            </connections>
             <point key="canvasLocation" x="364.5" y="302"/>
         </tableViewCell>
     </objects>

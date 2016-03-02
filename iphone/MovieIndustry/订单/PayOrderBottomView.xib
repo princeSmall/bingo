@@ -112,6 +112,7 @@
                 <constraint firstItem="8kV-xH-DyV" firstAttribute="top" secondItem="rf0-Tn-QZg" secondAttribute="bottom" constant="8" id="oLx-y2-5aP"/>
             </constraints>
             <connections>
+                <outlet property="centerView" destination="8kV-xH-DyV" id="5za-EA-mpj"/>
                 <outlet property="dealPriceLbl" destination="PgF-Sj-FXU" id="2AD-ux-4rx"/>
                 <outlet property="payBtn" destination="XPi-gt-Ko6" id="rps-mI-efB"/>
                 <outlet property="phoneNumberLbl" destination="3tz-89-yNt" id="x4R-a0-k1H"/>
