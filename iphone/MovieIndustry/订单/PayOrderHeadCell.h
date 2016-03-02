@@ -13,5 +13,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *goodsNameLbl;
 @property (weak, nonatomic) IBOutlet UILabel *goodsPriceLbl;
 @property (weak, nonatomic) IBOutlet UILabel *goodsNumebrLbl;
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 @end

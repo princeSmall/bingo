@@ -16,6 +16,7 @@
  *
  *  @param title 标题
  */
+
 - (void)setNavTabBar:(NSString *)title;
 ///设置导航栏右边的按钮
 - (void)setNavRightItem:(NSString *)rightTitle rightAction:(SEL)rightAction;

@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
+typedef void (^EndBlock)(NSString *type);
 
 @interface PayOrderBottomView : UIView
 @property (weak, nonatomic) IBOutlet UILabel *userNameLbl;
@@ -20,5 +21,7 @@
 /**
  *  创建tableview
  */
--(void)createMyTableView;
+@property (nonatomic,strong)NSDictionary * addressDic;
+
+-(void)createMyTableViewAndEndBlock:(EndBlock)block;
 @end
