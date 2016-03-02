@@ -90,11 +90,11 @@
 #warning 银联支付方法调用  需要订单id
     
     //在要调起的位置 执行如下语句即可   over
-    [[UPPaymentControl defaultControl] startPay:@"201603011229196401538"fromScheme:@"UPPayDemo" mode:@"00" viewController:self];
+//    [[UPPaymentControl defaultControl] startPay:@"201603011229196401538"fromScheme:@"UPPayDemo" mode:@"00" viewController:self];
     //微信接入
-    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+//    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(5.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        [self WXpayDemo:@"201601191229196401538"];
-    });
+//    });
 }
 
 - (void)WXpayDemo:(NSString *)orderid{
