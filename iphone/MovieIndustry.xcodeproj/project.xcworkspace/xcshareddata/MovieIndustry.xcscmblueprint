@@ -1,0 +1,35 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "621f47df-520e-a74b-9a61-de415d0a38ae++1505",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "621f47df-520e-a74b-9a61-de415d0a38ae++1505" : {
+
+    },
+    "515bb1cb-0d99-1644-a704-2e988f16f42d++6541" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "621f47df-520e-a74b-9a61-de415d0a38ae++1505" : 0,
+    "515bb1cb-0d99-1644-a704-2e988f16f42d++6541" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8D790908-2F60-4D9A-A481-C848059DD324",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "621f47df-520e-a74b-9a61-de415d0a38ae++1505" : "MovieIndustryPJG0125\/",
+    "515bb1cb-0d99-1644-a704-2e988f16f42d++6541" : "MovieIndustry\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MovieIndustry",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "MovieIndustry.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/114.215.181.75:8099\/svn\/Kamefilm",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "515bb1cb-0d99-1644-a704-2e988f16f42d++6541"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.1.12\/svn\/sgsb",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "621f47df-520e-a74b-9a61-de415d0a38ae++1505"
+    }
+  ]
+}

@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="IndexGoodsCollectionCell">
+            <rect key="frame" x="0.0" y="0.0" width="180" height="193"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="180" height="193"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sne-03-kQM">
+                        <rect key="frame" x="0.0" y="0.0" width="180" height="180"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="LED面光灯板灯 LED1000 LED10000" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ql9-yD-dis">
+                                <rect key="frame" x="0.0" y="131" width="180" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                                <color key="textColor" red="0.29411764709999999" green="0.29411764709999999" blue="0.29411764709999999" alpha="1" colorSpace="calibratedRGB"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="LED.png" translatesAutoresizingMaskIntoConstraints="NO" id="1su-kM-ISC">
+                                <rect key="frame" x="0.0" y="0.0" width="180" height="131"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="ql9-yD-dis" firstAttribute="centerX" secondItem="sne-03-kQM" secondAttribute="centerX" id="2Vo-KB-tUe"/>
+                            <constraint firstItem="1su-kM-ISC" firstAttribute="centerY" secondItem="sne-03-kQM" secondAttribute="centerY" multiplier="0.72" id="Gi9-zC-CvV"/>
+                            <constraint firstItem="ql9-yD-dis" firstAttribute="width" secondItem="sne-03-kQM" secondAttribute="width" id="NHo-48-jRk"/>
+                            <constraint firstItem="1su-kM-ISC" firstAttribute="height" secondItem="sne-03-kQM" secondAttribute="height" multiplier="0.725" id="ZWa-KU-fWc"/>
+                            <constraint firstItem="ql9-yD-dis" firstAttribute="centerY" secondItem="sne-03-kQM" secondAttribute="centerY" multiplier="1.64" constant="3.9000000000000057" id="gri-83-Sqy"/>
+                            <constraint firstItem="ql9-yD-dis" firstAttribute="height" secondItem="sne-03-kQM" secondAttribute="height" multiplier="0.19" constant="6.7999999999999972" id="k72-Js-Y8M"/>
+                            <constraint firstItem="1su-kM-ISC" firstAttribute="width" secondItem="sne-03-kQM" secondAttribute="width" id="n80-FO-3oa"/>
+                            <constraint firstItem="1su-kM-ISC" firstAttribute="centerX" secondItem="sne-03-kQM" secondAttribute="centerX" id="ucH-vJ-YUy"/>
+                        </constraints>
+                    </view>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥50.00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7S-7K-5xA">
+                        <rect key="frame" x="0.0" y="173" width="102" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.95294117649999999" green="0.0" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="上海" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hi0-7P-mca">
+                        <rect key="frame" x="90" y="173" width="82" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.65098039220000004" green="0.65098039220000004" blue="0.65098039220000004" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            </view>
+            <constraints>
+                <constraint firstItem="f7S-7K-5xA" firstAttribute="width" secondItem="sne-03-kQM" secondAttribute="width" multiplier="0.5" constant="12" id="0CN-N6-s5r"/>
+                <constraint firstItem="f7S-7K-5xA" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="1.88" constant="1.5800000000000125" id="446-MB-7xI"/>
+                <constraint firstItem="hi0-7P-mca" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" multiplier="1.9" id="4TF-fB-yeu"/>
+                <constraint firstAttribute="bottom" secondItem="sne-03-kQM" secondAttribute="bottom" constant="13" id="BLn-Kn-hIy"/>
+                <constraint firstAttribute="trailing" secondItem="sne-03-kQM" secondAttribute="trailing" id="C6w-vl-r7a"/>
+                <constraint firstItem="hi0-7P-mca" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" multiplier="1.46" id="Clb-iY-mEC"/>
+                <constraint firstItem="sne-03-kQM" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="GwO-Xf-D56"/>
+                <constraint firstItem="f7S-7K-5xA" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" multiplier="0.5" constant="6" id="PZd-qJ-Nmu"/>
+                <constraint firstItem="hi0-7P-mca" firstAttribute="height" secondItem="sne-03-kQM" secondAttribute="height" multiplier="0.11" id="Qxs-8S-r2x"/>
+                <constraint firstItem="sne-03-kQM" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Z24-Eu-F9l"/>
+                <constraint firstItem="f7S-7K-5xA" firstAttribute="height" secondItem="sne-03-kQM" secondAttribute="height" multiplier="0.11" id="bZw-Fj-o4q"/>
+                <constraint firstItem="hi0-7P-mca" firstAttribute="width" secondItem="gTV-IL-0wX" secondAttribute="width" multiplier="0.451" id="coZ-ce-2T3"/>
+            </constraints>
+            <size key="customSize" width="189" height="212"/>
+            <connections>
+                <outlet property="goodsCityLabel" destination="hi0-7P-mca" id="6oP-kl-3Ky"/>
+                <outlet property="goodsImageView" destination="1su-kM-ISC" id="SBs-NU-uEc"/>
+                <outlet property="goodsNameLabel" destination="ql9-yD-dis" id="Egg-dh-bxY"/>
+                <outlet property="goodsPriceLabel" destination="f7S-7K-5xA" id="cC9-1U-VJH"/>
+            </connections>
+            <point key="canvasLocation" x="453" y="320.5"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="LED.png" width="104" height="82"/>
+    </resources>
+</document>

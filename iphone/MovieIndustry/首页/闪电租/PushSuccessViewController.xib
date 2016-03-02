@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="PushSuccessViewController">
+            <connections>
+                <outlet property="successView" destination="Lgw-eH-0pd" id="28V-qK-ALH"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="A80-fp-7SG">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="128"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="推送成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jkn-c4-Ruf">
+                            <rect key="frame" x="155" y="33" width="183" height="52"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="52" id="8qz-XM-Rwr"/>
+                                <constraint firstAttribute="width" constant="183" id="TWL-FG-oZ5"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                            <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="icon_tscg.png" translatesAutoresizingMaskIntoConstraints="NO" id="YmJ-p3-0p1">
+                            <rect key="frame" x="107" y="39" width="40" height="40"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="40" id="Zl2-Qo-UsS"/>
+                                <constraint firstAttribute="width" constant="40" id="d9V-yQ-brr"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="YmJ-p3-0p1" firstAttribute="centerY" secondItem="A80-fp-7SG" secondAttribute="centerY" id="3BT-E0-GWo"/>
+                        <constraint firstItem="jkn-c4-Ruf" firstAttribute="centerX" secondItem="A80-fp-7SG" secondAttribute="centerX" multiplier="1.31" id="MyI-9Q-ycN"/>
+                        <constraint firstItem="jkn-c4-Ruf" firstAttribute="centerY" secondItem="A80-fp-7SG" secondAttribute="centerY" id="aY0-Av-onA"/>
+                        <constraint firstItem="YmJ-p3-0p1" firstAttribute="centerX" secondItem="A80-fp-7SG" secondAttribute="centerX" multiplier="0.68" id="xqQ-zD-CJQ"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lgw-eH-0pd">
+                    <rect key="frame" x="8" y="165" width="359" height="53"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7PD-r0-0tI">
+                            <rect key="frame" x="31" y="0.0" width="302" height="53"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <state key="normal" title="完成">
+                                <color key="titleColor" red="0.98823529409999999" green="0.30980392159999998" blue="0.27450980390000002" alpha="1" colorSpace="calibratedRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="successBtnClick:" destination="-1" eventType="touchUpInside" id="3hg-9r-3AF"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="7PD-r0-0tI" firstAttribute="centerX" secondItem="Lgw-eH-0pd" secondAttribute="centerX" multiplier="1.01" id="cFR-0r-DSX"/>
+                        <constraint firstItem="7PD-r0-0tI" firstAttribute="centerY" secondItem="Lgw-eH-0pd" secondAttribute="centerY" id="dbm-bX-BJ5"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.91764705882352937" green="0.91764705882352937" blue="0.91764705882352937" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="A80-fp-7SG" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.192" id="4pa-Ml-t58"/>
+                <constraint firstItem="Lgw-eH-0pd" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.575" id="M75-hd-mwZ"/>
+                <constraint firstItem="A80-fp-7SG" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="P3H-ms-Yu5"/>
+                <constraint firstItem="A80-fp-7SG" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="QZl-l8-fYB"/>
+                <constraint firstItem="7PD-r0-0tI" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.805" id="Qfa-i5-H81"/>
+                <constraint firstItem="7PD-r0-0tI" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.08" id="XKf-TL-oAX"/>
+                <constraint firstItem="Lgw-eH-0pd" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="d7r-A9-IEi"/>
+                <constraint firstItem="Lgw-eH-0pd" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.955" id="fAU-gS-Qg5"/>
+                <constraint firstItem="A80-fp-7SG" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.19" id="kFC-Au-S29"/>
+                <constraint firstItem="Lgw-eH-0pd" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.08" id="pHo-pr-kIL"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+            <point key="canvasLocation" x="76.5" y="191.5"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="icon_tscg.png" width="104" height="104"/>
+    </resources>
+</document>

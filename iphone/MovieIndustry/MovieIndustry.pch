@@ -1,0 +1,68 @@
+
+//
+//  MovieIndustry.pch
+//  MovieIndustry
+//
+//  Created by Pinocchio on 15/11/6.
+//  Copyright (c) 2015年 MovieIndustry. All rights reserved.
+//
+
+#ifndef MovieIndustry_MovieIndustry_pch
+#define MovieIndustry_MovieIndustry_pch
+
+// View 圆角和加边框
+#define ViewBorderRadius(View, Radius, Width, Color)\
+\
+[View.layer setCornerRadius:(Radius)];\
+[View.layer setMasksToBounds:YES];\
+[View.layer setBorderWidth:(Width)];\
+[View.layer setBorderColor:[Color CGColor]]
+
+#define RGBColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
+#define kViewWidth ([UIScreen mainScreen].applicationFrame.size.width)
+#define kViewHeight ([UIScreen mainScreen].applicationFrame.size.height)
+#define kViewBackColor [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1]
+#define kNavBarColor [UIColor colorWithRed:0.22 green:0.22 blue:0.24 alpha:1]
+#define kNetWork_ERROR @"请检查网络"
+
+#define BigBigFont 19.0f
+#define BigFont 16.0f
+#define NormalFont 14.0f
+#define SmallFont 12.0f
+#define Status_Success @"f99"
+
+#import "AFHTTPRequestOperationManager.h"
+#import "UIImageView+WebCache.h"
+#import "UIButton+WebCache.h"
+#import "MJRefresh.h"
+#import "BaseViewController.h"
+#import "MBHudManager.h"
+#import "WNController.h"
+#import "HttpRequestServers.h"
+#import "PromptLabel.h"
+#import "FilmInterface.h"
+#import "FilmInterfaceNew.h"
+#import "OBJCProMark.h"
+#import "UserInfo.h"
+#import "BaseTableViewController.h"
+#import "FilmInterfaceNew.h"
+#import "MovieHttpRequest.h"
+#import "UIView+Toast.h"
+#import "NSString+StringExtend.h"
+#import "Const.h"
+#import "DeliveryUtility.h"
+#import "StarView.h"
+#import "NSString+StringSize.h"
+#import "UserDesModel.h"
+#import "UserLoginModel.h"
+#import "AppDelegate.h"
+#import "ProvinceModel.h"
+
+///自定义打印函数名称
+#ifndef __OPTIMIZE__
+#define HHNSLog(...) NSLog(__VA_ARGS__)
+#else
+# define HHNSLog(...) {}
+#endif
+
+#endif
