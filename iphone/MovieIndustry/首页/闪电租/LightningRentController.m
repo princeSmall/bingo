@@ -46,6 +46,10 @@
 @property (nonatomic,strong) NSMutableArray *historyCityArray;
 ////历史搜索的城市ID
 @property (nonatomic,strong) NSMutableArray *historyCityIDArray;
+/**
+ *  本地城市label
+ */
+@property (nonatomic,strong) UILabel *localCityLbl;
 
 //备注输入框
 @property (nonatomic,strong) UITextView *textView;
@@ -89,6 +93,11 @@
 
 //选中的值 用于显示四个按钮
 @property (nonatomic,assign) NSUInteger btnframeindex;
+
+//定位的时候在转动
+@property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
+
+//当地的
 @end
 
 @implementation LightningRentController
@@ -174,6 +183,16 @@
     return _typeArray;
 }
 
+-(UIActivityIndicatorView *)indicatorView
+{
+    if(!_indicatorView)
+    {
+        _indicatorView = [[UIActivityIndicatorView alloc]initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+        _indicatorView .frame = CGRectMake(5, 5, 30, 30);
+    }
+    return _indicatorView;
+}
+
 - (NSMutableDictionary *)requestDict
 {
     if (nil == _requestDict) {
@@ -194,6 +213,24 @@
         _mainTableView.sectionIndexBackgroundColor = [UIColor clearColor];
         _mainTableView.backgroundColor = kViewBackColor;
         
+        //设置headerview
+        UIView *headerView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 40)];
+        UILabel *locationLabel =  [WNController createLabelWithFrame:CGRectMake(15, 0, 150, 40) Font:15 Text:@"" textAligment:NSTextAlignmentLeft];
+        //定位的城市
+        UILabel *gpsLabel = [WNController createLabelWithFrame:CGRectMake(kViewWidth-100, 0, 90, 40) Font:13 Text:@"GPS定位" textAligment:NSTextAlignmentRight];
+        gpsLabel.textColor = [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:1];
+        //菊花
+        [self.indicatorView startAnimating];
+        
+        [headerView addSubview:gpsLabel];
+        [headerView addSubview:locationLabel];
+        [headerView addSubview:self.indicatorView];
+        self.localCityLbl  = locationLabel;
+        _mainTableView.tableHeaderView = headerView;
+        
+        
+        
+        
     }
     return _mainTableView;
 }
@@ -201,6 +238,8 @@
 #pragma mark - 初始化方法
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self.view removeGestureRecognizer:self.panGes];
+    
     
     [self setNavTabBar:@"闪电租"];//设置导航栏按钮以及标题
     
@@ -283,7 +322,7 @@
             {
 //                [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
             }
-            
+
             
         }
         @catch (NSException *exception) {
@@ -361,7 +400,9 @@
     [self createInputeView];
 }
 
-///重新设置TableView的frame，输入备注框的frame
+/**
+ *  重新设置TableView的frame，输入备注框的frame
+ */
 - (void)resetTbViewAndInputViewFrame
 {
     self.mainTableView.frame =  CGRectMake(0,91 + 10+55, kViewWidth, kViewHeight-44-101-55);
@@ -660,7 +701,9 @@
     
     return YES;
 }
-
+/**
+ *  获取价格区间
+ */
 - (void)requestPriceAndCatelogueDatas
 {
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
