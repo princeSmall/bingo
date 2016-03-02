@@ -79,6 +79,13 @@
 		00E588821C7449960012B8E8 /* gallerymal_fullselect.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887C1C7449960012B8E8 /* gallerymal_fullselect.png */; };
 		00E588831C7449960012B8E8 /* gallerymal_fullselect@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887D1C7449960012B8E8 /* gallerymal_fullselect@2x.png */; };
 		00E588841C7449960012B8E8 /* gallerymal_fullselect@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 00E5887E1C7449960012B8E8 /* gallerymal_fullselect@3x.png */; };
+		252C4F731C867ED60081972A /* NewMessageCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4F711C867ED60081972A /* NewMessageCell.m */; };
+		252C4F741C867ED60081972A /* NewMessageCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4F721C867ED60081972A /* NewMessageCell.xib */; };
+		252C4F7D1C867EF20081972A /* ClassifyHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4F761C867EF20081972A /* ClassifyHeadCell.m */; };
+		252C4F7E1C867EF20081972A /* ClassifyHeadCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4F771C867EF20081972A /* ClassifyHeadCell.xib */; };
+		252C4F7F1C867EF20081972A /* ClassifyPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4F791C867EF20081972A /* ClassifyPostCell.m */; };
+		252C4F801C867EF20081972A /* ClassifyPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4F7A1C867EF20081972A /* ClassifyPostCell.xib */; };
+		252C4F811C867EF20081972A /* ClassifyPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4F7C1C867EF20081972A /* ClassifyPostController.m */; };
 		257A8BD71C7E98E3009FF0B8 /* NSArray+Log.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A8BD61C7E98E3009FF0B8 /* NSArray+Log.m */; };
 		257A8BEF1C842781009FF0B8 /* BestLikeRankingCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 257A8BED1C842781009FF0B8 /* BestLikeRankingCell.m */; };
 		257A8BF01C842781009FF0B8 /* BestLikeRankingCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 257A8BEE1C842781009FF0B8 /* BestLikeRankingCell.xib */; };
@@ -944,6 +951,17 @@
 		00E5887C1C7449960012B8E8 /* gallerymal_fullselect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = gallerymal_fullselect.png; sourceTree = "<group>"; };
 		00E5887D1C7449960012B8E8 /* gallerymal_fullselect@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallerymal_fullselect@2x.png"; sourceTree = "<group>"; };
 		00E5887E1C7449960012B8E8 /* gallerymal_fullselect@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "gallerymal_fullselect@3x.png"; sourceTree = "<group>"; };
+		252C4F701C867ED60081972A /* NewMessageCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewMessageCell.h; sourceTree = "<group>"; };
+		252C4F711C867ED60081972A /* NewMessageCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewMessageCell.m; sourceTree = "<group>"; };
+		252C4F721C867ED60081972A /* NewMessageCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewMessageCell.xib; sourceTree = "<group>"; };
+		252C4F751C867EF20081972A /* ClassifyHeadCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyHeadCell.h; sourceTree = "<group>"; };
+		252C4F761C867EF20081972A /* ClassifyHeadCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyHeadCell.m; sourceTree = "<group>"; };
+		252C4F771C867EF20081972A /* ClassifyHeadCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyHeadCell.xib; sourceTree = "<group>"; };
+		252C4F781C867EF20081972A /* ClassifyPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyPostCell.h; sourceTree = "<group>"; };
+		252C4F791C867EF20081972A /* ClassifyPostCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyPostCell.m; sourceTree = "<group>"; };
+		252C4F7A1C867EF20081972A /* ClassifyPostCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyPostCell.xib; sourceTree = "<group>"; };
+		252C4F7B1C867EF20081972A /* ClassifyPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyPostController.h; sourceTree = "<group>"; };
+		252C4F7C1C867EF20081972A /* ClassifyPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyPostController.m; sourceTree = "<group>"; };
 		257A8BD51C7E98E3009FF0B8 /* NSArray+Log.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Log.h"; sourceTree = "<group>"; };
 		257A8BD61C7E98E3009FF0B8 /* NSArray+Log.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Log.m"; sourceTree = "<group>"; };
 		257A8BEC1C842781009FF0B8 /* BestLikeRankingCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestLikeRankingCell.h; sourceTree = "<group>"; };
@@ -4578,6 +4596,14 @@
 		A2C8FB7B1C0D6C5C00E90468 /* 社区论坛 */ = {
 			isa = PBXGroup;
 			children = (
+				252C4F751C867EF20081972A /* ClassifyHeadCell.h */,
+				252C4F761C867EF20081972A /* ClassifyHeadCell.m */,
+				252C4F771C867EF20081972A /* ClassifyHeadCell.xib */,
+				252C4F781C867EF20081972A /* ClassifyPostCell.h */,
+				252C4F791C867EF20081972A /* ClassifyPostCell.m */,
+				252C4F7A1C867EF20081972A /* ClassifyPostCell.xib */,
+				252C4F7B1C867EF20081972A /* ClassifyPostController.h */,
+				252C4F7C1C867EF20081972A /* ClassifyPostController.m */,
 				A2C8FB7C1C0D6C5C00E90468 /* DiscoverBBSController.h */,
 				A2C8FB7D1C0D6C5C00E90468 /* DiscoverBBSController.m */,
 			);
@@ -4612,6 +4638,9 @@
 		A2C8FB841C0D6C5C00E90468 /* cell */ = {
 			isa = PBXGroup;
 			children = (
+				252C4F701C867ED60081972A /* NewMessageCell.h */,
+				252C4F711C867ED60081972A /* NewMessageCell.m */,
+				252C4F721C867ED60081972A /* NewMessageCell.xib */,
 				A2C8FB851C0D6C5C00E90468 /* FilmTimeLineCell.h */,
 				A2C8FB861C0D6C5C00E90468 /* FilmTimeLineCell.m */,
 				A2C8FB871C0D6C5C00E90468 /* FilmTimeLineCell.xib */,
@@ -5242,6 +5271,7 @@
 				846164E31BFF3A8E003B656B /* discover_selected.png in Resources */,
 				84FA1CB71C0D9F4E008B4000 /* ReceiveAddressView.xib in Resources */,
 				846164D61BFF3A8E003B656B /* discover_06@3x.png in Resources */,
+				252C4F741C867ED60081972A /* NewMessageCell.xib in Resources */,
 				846165181BFF3A8E003B656B /* myOrder_05@3x.png in Resources */,
 				846165561BFF3A8E003B656B /* share_03@2x.png in Resources */,
 				848295381C0E9AB700452BF9 /* MovieTalkPersonFirstCell.xib in Resources */,
@@ -5274,11 +5304,13 @@
 				D36C38EA1C58A00900E42CFD /* TradeFootCell.xib in Resources */,
 				D372F1A61C59FCA100FA363B /* HistoryBuyingHeadCell.xib in Resources */,
 				846164D51BFF3A8E003B656B /* discover_06@2x.png in Resources */,
+				252C4F801C867EF20081972A /* ClassifyPostCell.xib in Resources */,
 				00B1F3BF1C5B3AE70027672A /* icon_tscg.png in Resources */,
 				D372F1B11C5A150200FA363B /* BusinessHeadCell.xib in Resources */,
 				D3D972B31C8576EA0004AE8B /* MyRushOrdelCell.xib in Resources */,
 				848295491C0E9AB700452BF9 /* MovieTuesdayActiveSecondCell.xib in Resources */,
 				846165231BFF3A8E003B656B /* page_selected@2x.png in Resources */,
+				252C4F7E1C867EF20081972A /* ClassifyHeadCell.xib in Resources */,
 				D372F19E1C59F53F00FA363B /* HistoryBuyingCell.xib in Resources */,
 				846165201BFF3A8E003B656B /* page_normal@2x.png in Resources */,
 				846165521BFF3A8E003B656B /* share_03-09.png in Resources */,
@@ -5555,6 +5587,7 @@
 				8432110D1C10815700E3026F /* openssl_wrapper.m in Sources */,
 				A2E5A4F31C1186EA0044DE6F /* MovieOccupationModel.m in Sources */,
 				8482943E1C0E96C500452BF9 /* NSData+ImageContentType.m in Sources */,
+				252C4F7F1C867EF20081972A /* ClassifyPostCell.m in Sources */,
 				848294301C0E96C500452BF9 /* MJRefreshAutoNormalFooter.m in Sources */,
 				8482943C1C0E96C500452BF9 /* UIView+MJExtension.m in Sources */,
 				848295421C0E9AB700452BF9 /* RightBottomImgController.m in Sources */,
@@ -5627,6 +5660,7 @@
 				D3D972D01C85A0EB0004AE8B /* PayOrderBottomView.m in Sources */,
 				A2C8FB6F1C0D404D00E90468 /* MovieDiscoveryArticleModel.m in Sources */,
 				849487D51C086C420070AD4C /* MyOrderShopModel.m in Sources */,
+				252C4F731C867ED60081972A /* NewMessageCell.m in Sources */,
 				00200A351C7C65D600DD8084 /* TAPageControl.m in Sources */,
 				848293781C0E968200452BF9 /* SelectCertificationView.m in Sources */,
 				00580DCA1C7D84CB008012F0 /* VerificationUserController.m in Sources */,
@@ -5662,6 +5696,7 @@
 				D3D972921C852C470004AE8B /* RentGoodsChooseController.m in Sources */,
 				84AAF3261C215B680069F528 /* StarView.m in Sources */,
 				A2C8FBAA1C0D6C5C00E90468 /* BestLikeRankingController.m in Sources */,
+				252C4F811C867EF20081972A /* ClassifyPostController.m in Sources */,
 				D3D972B21C8576EA0004AE8B /* MyRushOrdelCell.m in Sources */,
 				00849D9A1C4DFC3200DFEA6B /* ApiXml.mm in Sources */,
 				84C6426E1C03334B00323F28 /* ShippingAddressModel.m in Sources */,
@@ -5723,6 +5758,7 @@
 				848295761C0E9CC200452BF9 /* LoginInController.m in Sources */,
 				D382D2B71C7C52C800B699D2 /* CollectGoodsModel.m in Sources */,
 				D372F1A51C59FCA100FA363B /* HistoryBuyingHeadCell.m in Sources */,
+				252C4F7D1C867EF20081972A /* ClassifyHeadCell.m in Sources */,
 				A2BF29E41C08723500753753 /* GoodCollectionInfo.m in Sources */,
 				8482969C1C0EC9E700452BF9 /* OrderDetailTableCell.m in Sources */,
 				A2B9FBC91C0BFE68008EFD1B /* MovieManagerGoodsModel.m in Sources */,
