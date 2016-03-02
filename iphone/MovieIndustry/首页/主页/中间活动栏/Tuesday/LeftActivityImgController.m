@@ -19,6 +19,9 @@
 #import "TuestdayHistroyViewController.h"
 #import "CartGood.h"
 
+//测试的评论页面
+#import "CommitCell.h"
+#import "CommitFrame.h"
 
 @interface LeftActivityImgController ()<UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate,MovieComfirmOrderViewDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate>
 
@@ -169,6 +172,8 @@
     [self setNavTabBar:@"周二抢"];
     [self createTuesdayActiveView];
     [self createActiveInputeMaskView];
+    
+    self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;
 //    [self requetTuesdayGoodsActivityDatas];
     [self addTableViewFooterRefresh];
 }
@@ -442,7 +447,8 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return (0 == _segmentIndex)?1:self.commentArray.count;
+//    return (0 == _segmentIndex)?1:self.commentArray.count;
+    return (0 == _segmentIndex)?1:5;
 }
 
 
@@ -459,21 +465,29 @@
     else
     {
         static NSString *cellID = @"commentCellID";
-        MovieNewCommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (nil == commentCell) {
-            commentCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieNewCommentCell" owner:self options:nil] lastObject];
+        
+        CommitCell * commentCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        if (commentCell == nil) {
+            commentCell = [[CommitCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
-        
-        commentCell.tag = indexPath.row;
-        commentCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        commentCell.blessBtn.tag = indexPath.row;
-        [commentCell.blessBtn addTarget:self action:@selector(blessActiveCommentBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
-        
-        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActiveCommentImageView:)];
-        [commentCell.commentImage addGestureRecognizer:tapGes];
-        
-        MovieTuesdayCommentModel *model = _commentArray[indexPath.row];
-        [commentCell setActiveModel:model];
+        CommitFrame * frame = [[CommitFrame alloc]init];
+        frame.content = @"这样真的合理么?这样好么？这样真的合理么?这样好么？这样真的合理么?这样好么？这样真的合理么?这样好么？";
+        commentCell.commitFrame = frame;
+//        MovieNewCommentCell *commentCell = [tableView dequeueReusableCellWithIdentifier:cellID];
+//        if (nil == commentCell) {
+//            commentCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieNewCommentCell" owner:self options:nil] lastObject];
+//        }
+//        
+//        commentCell.tag = indexPath.row;
+//        commentCell.selectionStyle = UITableViewCellSelectionStyleNone;
+//        commentCell.blessBtn.tag = indexPath.row;
+//        [commentCell.blessBtn addTarget:self action:@selector(blessActiveCommentBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
+//        
+//        UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapActiveCommentImageView:)];
+//        [commentCell.commentImage addGestureRecognizer:tapGes];
+//        
+//        MovieTuesdayCommentModel *model = _commentArray[indexPath.row];
+//        [commentCell setActiveModel:model];
         
         return commentCell;
     }
@@ -499,8 +513,11 @@
         return self.infoWebView.frame.size.height;
     }
     else{
-        MovieTuesdayCommentModel *model = _commentArray[indexPath.row];
-        return [self cacaluteCellHeight:model];
+//        MovieTuesdayCommentModel *model = _commentArray[indexPath.row];
+//        return [self cacaluteCellHeight:model];
+        CommitFrame * frame = [[CommitFrame alloc]init];
+        frame.content = @"这样真的合理么?这样好么？这样真的合理么?这样好么？这样真的合理么?这样好么？这样真的合理么?这样好么？";
+        return frame.cellHigth;
     }
 }
 

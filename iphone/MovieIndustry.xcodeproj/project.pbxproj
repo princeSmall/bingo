@@ -32,6 +32,8 @@
 		0055FBE81C853D7700CB320D /* MyBuyTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0055FBE61C853D7700CB320D /* MyBuyTableViewCell.m */; };
 		0055FBE91C853D7700CB320D /* MyBuyTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055FBE71C853D7700CB320D /* MyBuyTableViewCell.xib */; };
 		0055FC131C858D5B00CB320D /* PayOrderTypeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0055FC121C858D5B00CB320D /* PayOrderTypeViewController.m */; };
+		0055FCBD1C869E9800CB320D /* CommitHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0055FCBB1C869E9800CB320D /* CommitHeadView.m */; };
+		0055FCBE1C869E9800CB320D /* CommitHeadView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 0055FCBC1C869E9800CB320D /* CommitHeadView.xib */; };
 		005683AB1C4F659C0066D17A /* line_red.png in Resources */ = {isa = PBXBuildFile; fileRef = 005683AA1C4F659C0066D17A /* line_red.png */; };
 		00580DCA1C7D84CB008012F0 /* VerificationUserController.m in Sources */ = {isa = PBXBuildFile; fileRef = 00580DC81C7D84CB008012F0 /* VerificationUserController.m */; };
 		00580DCB1C7D84CB008012F0 /* VerificationUserController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00580DC91C7D84CB008012F0 /* VerificationUserController.xib */; };
@@ -79,6 +81,8 @@
 		00B1F3BC1C5B02100027672A /* ProvinceModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1F3B21C5B02100027672A /* ProvinceModel.m */; };
 		00B1F3BD1C5B02100027672A /* CitysModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1F3B41C5B02100027672A /* CitysModel.m */; };
 		00B1F3BF1C5B3AE70027672A /* icon_tscg.png in Resources */ = {isa = PBXBuildFile; fileRef = 00B1F3BE1C5B3AE70027672A /* icon_tscg.png */; };
+		00B98FEF1C86AFDF0071ABF6 /* CommitFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B98FEE1C86AFDF0071ABF6 /* CommitFrame.m */; };
+		00B98FF21C86B0040071ABF6 /* CommitCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B98FF11C86B0040071ABF6 /* CommitCell.m */; };
 		00BB0B411C5F16C7008400A3 /* CartGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB0B401C5F16C7008400A3 /* CartGoodsModel.m */; };
 		00BB0B441C5F16D7008400A3 /* CartGood.m in Sources */ = {isa = PBXBuildFile; fileRef = 00BB0B431C5F16D7008400A3 /* CartGood.m */; };
 		00D638D11C61E91E00F32A77 /* UserLoginModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00D638D01C61E91E00F32A77 /* UserLoginModel.m */; };
@@ -857,6 +861,9 @@
 		0055FBE71C853D7700CB320D /* MyBuyTableViewCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MyBuyTableViewCell.xib; sourceTree = "<group>"; };
 		0055FC111C858D5B00CB320D /* PayOrderTypeViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PayOrderTypeViewController.h; sourceTree = "<group>"; };
 		0055FC121C858D5B00CB320D /* PayOrderTypeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PayOrderTypeViewController.m; sourceTree = "<group>"; };
+		0055FCBA1C869E9800CB320D /* CommitHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitHeadView.h; sourceTree = "<group>"; };
+		0055FCBB1C869E9800CB320D /* CommitHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitHeadView.m; sourceTree = "<group>"; };
+		0055FCBC1C869E9800CB320D /* CommitHeadView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CommitHeadView.xib; sourceTree = "<group>"; };
 		005683AA1C4F659C0066D17A /* line_red.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = line_red.png; sourceTree = "<group>"; };
 		00580DC71C7D84CB008012F0 /* VerificationUserController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VerificationUserController.h; sourceTree = "<group>"; };
 		00580DC81C7D84CB008012F0 /* VerificationUserController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VerificationUserController.m; sourceTree = "<group>"; };
@@ -931,6 +938,10 @@
 		00B1F3B31C5B02100027672A /* CitysModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CitysModel.h; sourceTree = "<group>"; };
 		00B1F3B41C5B02100027672A /* CitysModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CitysModel.m; sourceTree = "<group>"; };
 		00B1F3BE1C5B3AE70027672A /* icon_tscg.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon_tscg.png; sourceTree = "<group>"; };
+		00B98FED1C86AFDF0071ABF6 /* CommitFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitFrame.h; sourceTree = "<group>"; };
+		00B98FEE1C86AFDF0071ABF6 /* CommitFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitFrame.m; sourceTree = "<group>"; };
+		00B98FF01C86B0040071ABF6 /* CommitCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommitCell.h; sourceTree = "<group>"; };
+		00B98FF11C86B0040071ABF6 /* CommitCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommitCell.m; sourceTree = "<group>"; };
 		00BB0B3F1C5F16C7008400A3 /* CartGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartGoodsModel.h; sourceTree = "<group>"; };
 		00BB0B401C5F16C7008400A3 /* CartGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CartGoodsModel.m; sourceTree = "<group>"; };
 		00BB0B421C5F16D7008400A3 /* CartGood.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CartGood.h; sourceTree = "<group>"; };
@@ -2247,6 +2258,20 @@
 			name = "支付页面";
 			sourceTree = "<group>";
 		};
+		0055FCB01C869AFF00CB320D /* 评论页面cell */ = {
+			isa = PBXGroup;
+			children = (
+				0055FCBA1C869E9800CB320D /* CommitHeadView.h */,
+				0055FCBB1C869E9800CB320D /* CommitHeadView.m */,
+				0055FCBC1C869E9800CB320D /* CommitHeadView.xib */,
+				00B98FED1C86AFDF0071ABF6 /* CommitFrame.h */,
+				00B98FEE1C86AFDF0071ABF6 /* CommitFrame.m */,
+				00B98FF01C86B0040071ABF6 /* CommitCell.h */,
+				00B98FF11C86B0040071ABF6 /* CommitCell.m */,
+			);
+			name = "评论页面cell";
+			sourceTree = "<group>";
+		};
 		005A88631C573F3A0093F93C /* 送货选择View */ = {
 			isa = PBXGroup;
 			children = (
@@ -3421,6 +3446,7 @@
 				0055FBE41C853D4600CB320D /* 我的抢购cell */,
 				A23965E21C1520E20042F7B7 /* MovieTuestdayHistroyListViewController.h */,
 				A23965E31C1520E20042F7B7 /* MovieTuestdayHistroyListViewController.m */,
+				0055FCB01C869AFF00CB320D /* 评论页面cell */,
 				848294D61C0E9AB700452BF9 /* cell */,
 			);
 			name = "周二抢";
@@ -5241,6 +5267,7 @@
 				848296311C0EA02C00452BF9 /* MovieGoodsManageCell.xib in Resources */,
 				846164F91BFF3A8E003B656B /* index_selected@2x.png in Resources */,
 				0055FBE91C853D7700CB320D /* MyBuyTableViewCell.xib in Resources */,
+				0055FCBE1C869E9800CB320D /* CommitHeadView.xib in Resources */,
 				846165281BFF3A8E003B656B /* rankingList_02.png in Resources */,
 				846164F01BFF3A8E003B656B /* help_right@2x.png in Resources */,
 				8461653C1BFF3A8E003B656B /* search_normal@3x.png in Resources */,
@@ -5414,6 +5441,7 @@
 				848295741C0E9CC200452BF9 /* HelpViewController.m in Sources */,
 				848296261C0EA02C00452BF9 /* MoviePrivacyViewController.m in Sources */,
 				A2E8A8D01C112C3500D73999 /* MoviePictureCollectionCell.m in Sources */,
+				00B98FF21C86B0040071ABF6 /* CommitCell.m in Sources */,
 				848295251C0E9AB700452BF9 /* IndexFirstCell.m in Sources */,
 				A23965ED1C1521E50042F7B7 /* MovieTuesdayHistoryContentCell.m in Sources */,
 				848295611C0E9AB700452BF9 /* MovieDefaultTableViewCell.m in Sources */,
@@ -5584,6 +5612,7 @@
 				8482944C1C0E96C500452BF9 /* UIView+WebCacheOperation.m in Sources */,
 				A2EC3A811C22529E00E38129 /* MovieTradeRecordModel.m in Sources */,
 				847DB7811C23A40400337887 /* FeedbackViewController.m in Sources */,
+				00B98FEF1C86AFDF0071ABF6 /* CommitFrame.m in Sources */,
 				847D82A21BEC5D4000893542 /* main.m in Sources */,
 				D3ED30D31C51C2C300C10387 /* PersonCertificationViewController.m in Sources */,
 				8482954D1C0E9AB700452BF9 /* BabySearchModel.m in Sources */,
@@ -5599,6 +5628,7 @@
 				D36C38DE1C589B0200E42CFD /* TradeAllCell.m in Sources */,
 				848295411C0E9AB700452BF9 /* LeftBottomImgController.m in Sources */,
 				A26D69171C17D76A004763B9 /* ReciveMesCell.m in Sources */,
+				0055FCBD1C869E9800CB320D /* CommitHeadView.m in Sources */,
 				A2645A621C0431B800BAB995 /* BaseTableViewController.m in Sources */,
 				A2C8FBAB1C0D6C5C00E90468 /* RankingListController.m in Sources */,
 				848294421C0E96C500452BF9 /* SDWebImageDownloader.m in Sources */,
