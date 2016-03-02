@@ -10,6 +10,8 @@
 #import "PayWayCell.h"
 @interface PayOrderBottomView()<UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong)NSMutableArray *buttonArray;
+@property (nonatomic,strong)NSString * type;
+@property (nonatomic,strong)EndBlock block;
 
 @end
 @implementation PayOrderBottomView
@@ -19,7 +21,6 @@
     if(!_buttonArray)
     {
         _buttonArray = [NSMutableArray array];
-        
     }
     return _buttonArray;
 }
@@ -34,9 +35,18 @@
 /**
 *  创建tableView
 */
--(void)createMyTableView
+
+- (void)setAddressDic:(NSDictionary *)addressDic{
+    _addressDic = addressDic;
+    self.userNameLbl.text = addressDic[@"name"];
+    self.shipAddressLbl.text = addressDic[@"address"];
+    self.phoneNumberLbl.text = addressDic[@"phone"];
+}
+
+-(void)createMyTableViewAndEndBlock:(EndBlock)block
 {
     //CGRect rect =CGRectMake(0, 0, self.frame.size.width, 128);
+    self.block = block;
     self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 128) style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
@@ -67,13 +77,14 @@
     
     if(indexPath.row==0)
     {
-        
+        cell.selectBtn.tag = 7771;
     }
     else if(indexPath.row==1)
     {
         cell.payImageView.image = [UIImage imageNamed:@"银联_"];
         cell.payWayLbl.text= @"银联支付";
         cell.payBottomLbl.text = @"支持储蓄卡,无需开通网银";
+        cell.selectBtn.tag = 7772;
     }
     [cell.selectBtn setImage:[UIImage imageNamed:@"checked_"] forState:UIControlStateSelected];
     [cell.selectBtn addTarget:self action:@selector(actionChoose:) forControlEvents:UIControlEventTouchUpInside];
@@ -82,9 +93,19 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone ;
     return cell;
 }
+- (IBAction)payAction:(id)sender {
+    
+    if ([self.type isEqualToString: @""]) {
+        self.type = @"0";
+    }
+    
+    self.block(self.type);
+    
+}
 
 -(void)actionChoose:(UIButton *)btn
 {
+    self.type = [NSString stringWithFormat:@"%d",(int)btn.tag - 7771];
     btn.selected = !btn.selected;
     if(btn.selected==YES)
     {

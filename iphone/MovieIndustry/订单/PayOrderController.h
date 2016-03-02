@@ -7,7 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "GoodDesModel.h"
 
 @interface PayOrderController : BaseViewController
+
+@property (nonatomic,strong)NSDictionary * payDict;
+@property (nonatomic,strong) GoodDesModel * model;
+@property (nonatomic,strong) NSArray * goodsInfoArray;
+@property (nonatomic,strong)NSString * goodsCount;
+
+@property (nonatomic,strong)NSDictionary * addressDic;
 
 @end

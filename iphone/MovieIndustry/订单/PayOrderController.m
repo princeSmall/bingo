@@ -9,6 +9,7 @@
 #import "PayOrderController.h"
 #import "PayOrderBottomView.h"
 #import "PayOrderHeadCell.h"
+#import "CartGood.h"
 
 @interface PayOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
@@ -22,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTabBar:@"支付订单"];
+    //创建地址
+    [self createAddress];
     [self createTableView];
     [self loadData];
     // Do any additional setup after loading the view.
@@ -29,6 +32,12 @@
 /**
  *  加载数据
  */
+- (void)createAddress{
+
+
+
+}
+
 -(void)loadData
 {
     
@@ -48,7 +57,16 @@
 
     PayOrderBottomView *bottomView = [[[NSBundle mainBundle]loadNibNamed:@"PayOrderBottomView" owner:self options:nil]lastObject];
     
-    [bottomView  createMyTableView];
+    [bottomView  createMyTableViewAndEndBlock:^(NSString *type) {
+        if ([type isEqualToString:@"0"]) {
+            //支付宝
+            NSLog(@"支付宝");
+        }
+        if ([type isEqualToString:@"1"]){
+            //银联
+            NSLog(@"银联");
+        }
+    }];
     CGSize size =CGSizeMake(self.view.frame.size.width, 103*3+400+100);
     bottomView.tableView.frame = CGRectMake(0, 0,  self.view.frame.size.width, 128);
     self.tableView.contentSize = size;
@@ -65,7 +83,11 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    if (self.model) {
+        return 1;
+    }else{
+        return self.goodsInfoArray.count;
+    }
 }
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
@@ -90,8 +112,26 @@
     {
         cell = [[[NSBundle mainBundle]loadNibNamed:@"PayOrderHeadCell" owner:self options:nil]lastObject];
     }
-    cell.selectionStyle = UITableViewCellSelectionStyleNone ;
-    
+    if (self.model) {
+        [cell.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.model.imgs[0]]]];
+        cell.goodsNameLbl.text = self.model.goods_name;
+        cell.goodsPriceLbl.text = [NSString stringWithFormat:@"￥%@",self.model.goods_price];
+        cell.goodsNumebrLbl.text = [NSString stringWithFormat:@"X%@",self.goodsCount];
+        
+        if (!self.model.goods_deposit) {
+            self.model.goods_deposit = @"0";
+        }
+        
+        cell.yajinLabel.text = [NSString stringWithFormat:@"￥%@",self.model.goods_deposit];
+    }else{
+        CartGood * good = self.goodsInfoArray[indexPath.row];
+        [cell.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,good.img_path]]];
+        cell.goodsNameLbl.text = good.goods_name;
+        cell.goodsPriceLbl.text = [NSString stringWithFormat:@"￥%@",good.goods_price];
+        cell.goodsNumebrLbl.text = [NSString stringWithFormat:@"X%@",good.goods_number];
+        cell.yajinLabel.text = [NSString stringWithFormat:@"￥%@",good.goods_deposit];
+    }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
 
