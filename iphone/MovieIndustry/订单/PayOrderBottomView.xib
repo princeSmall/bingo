@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -27,7 +28,7 @@
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="上海市浦东新区上南路234号" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dn1-FW-pOV">
-                            <rect key="frame" x="8" y="43" width="421" height="21"/>
+                            <rect key="frame" x="8" y="43" width="320" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -38,8 +39,8 @@
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="张晓丽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3n-Zs-8hV">
-                            <rect key="frame" x="8" y="14" width="220" height="21"/>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张晓丽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3n-Zs-8hV">
+                            <rect key="frame" x="8" y="14" width="289" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
                             <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
@@ -53,6 +54,10 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
+                        <constraint firstItem="a3n-Zs-8hV" firstAttribute="centerX" secondItem="HX1-dW-ES8" secondAttribute="centerX" multiplier="0.395" constant="34" id="DKx-3T-Yma"/>
+                        <constraint firstItem="a3n-Zs-8hV" firstAttribute="width" secondItem="HX1-dW-ES8" secondAttribute="width" multiplier="0.367" constant="68.800000000000011" id="TT9-B9-Xqc"/>
+                        <constraint firstItem="a3n-Zs-8hV" firstAttribute="centerY" secondItem="HX1-dW-ES8" secondAttribute="centerY" multiplier="0.38" id="Wqr-rb-ei9"/>
+                        <constraint firstItem="a3n-Zs-8hV" firstAttribute="height" secondItem="HX1-dW-ES8" secondAttribute="height" multiplier="0.16" id="fbc-zO-jkT"/>
                         <constraint firstAttribute="height" constant="130" id="iUv-Qp-BYQ"/>
                     </constraints>
                 </view>
@@ -110,6 +115,7 @@
                 <outlet property="shipAddressLbl" destination="dn1-FW-pOV" id="zox-xS-aih"/>
                 <outlet property="userNameLbl" destination="a3n-Zs-8hV" id="aOY-zs-AYV"/>
             </connections>
+            <point key="canvasLocation" x="286" y="176"/>
         </view>
     </objects>
 </document>

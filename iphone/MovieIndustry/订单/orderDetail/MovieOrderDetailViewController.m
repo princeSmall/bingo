@@ -18,6 +18,7 @@
 #import "PaySuccessViewController.h"
 #import "OrderGoodsModel.h"
 #import "OrderShopModel.h"
+#import "PayOrderController.h"
 
 #define BTN_TAG_START 300
 
@@ -38,10 +39,15 @@
 @property (nonatomic,copy) NSString *totalPrice;
 ///订单ID
 
+//支付的字典
+@property (nonatomic,strong)NSDictionary * orderPayDic;
 //地址数组
 @property (nonatomic,strong)NSMutableArray * addressArray;
 
 @property (nonatomic,strong)OrderShopModel * shopModel;
+//价格
+@property (nonatomic,strong)NSString * sendPrice;
+
 
 @end
 
@@ -85,7 +91,6 @@
     [self setNavTabBar:@"订单详情"];
     self.dataString = @"";
     [self createOrderDetailView];
-    
     [self loadData];
 }
 
@@ -93,10 +98,6 @@
 - (void)loadData
 {
     MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
-    
-    
-    
-//    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.order_id,@"order_id",@"6",@"user_id", nil];
     NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.order_id,@"order_id",APP_DELEGATE.user_id,@"user_id", nil];
 
     [HttpRequestServers requestBaseUrl:TIOrder_OrderDetail withParams:userDict withRequestFinishBlock:^(id result) {
@@ -137,6 +138,7 @@
                     self.tbHeaderView.phoneLabel.text = [WNController nullString:shopModel.contact_phone];
                     self.tbHeaderView.shouhuorenLabel.text =[WNController nullString:shopModel.consignee_name];
                     self.tbFooterView.price.text = [NSString stringWithFormat:@"￥%@",[WNController nullString:shopModel.order_amount]];
+                self.sendPrice = shopModel.order_amount;
                 NSString * typePoss = @"";
 #warning 这边需要判断送货类型
                 if ([shopModel.method isEqualToString:@"0"]) {
@@ -329,65 +331,19 @@
 {
     HHNSLog(@"付款按钮被点击");
     //订单号
-    
+   
     
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"user_id"] = APP_DELEGATE.user_id;
     dict[@"pay_status"] = @"1";
     dict[@"pay_id"] = @"1";
     dict[@"order_id"] = self.order_id;
-    MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
-    hud.labelText = @"正在付款";
-
-   [HttpRequestServers sendAlipayWithOrderSn:self.order_id orderName:@"咖么测试" orderDescription:@"1分钱测试" orderPrice:@"0.01" andScallback:^(id obj)
-     {
-         
-         NSDictionary *aliDict = obj;
-         HHNSLog(@"支付回调参数 aliDict %@",aliDict);
-         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-         if ([aliDict[@"resultStatus"] isEqualToString:@"9000"])
-         {
-             [HttpRequestServers requestBaseUrl:TIPay_CallBack withParams:dict withRequestFinishBlock:^(id result) {
-                 
-                 if ([result[@"code"] intValue] == 0) {
-                     hud.labelText = @"付款成功！";
-                     [hud hide:YES];
-                     PaySuccessViewController *paySucVc = [[PaySuccessViewController alloc] init];
-                     paySucVc.order_SN = self.order_id;
-                     paySucVc.order_id = self.order_id;
-                     [self.navigationController pushViewController:paySucVc animated:YES];
-
-                 }else{
-                     hud.labelText = @"付款失败！";
-                     [hud hide:YES];
-                 }
-             } withFieldBlock:^{
-                 hud.labelText = @"付款失败！";
-                 [hud hide:YES];
-             }];
-             
-
-         }
-         
-         if ([aliDict[@"resultStatus"] isEqualToString:@"8000"]) {
-             
-             [DeliveryUtility showMessage:@"正在处理中" target:nil];
-             
-         }
-         if ([aliDict[@"resultStatus"] isEqualToString:@"4000"]) {
-             [DeliveryUtility showMessage:@"订单支付失败" target:nil];
-         }
-         if ([aliDict[@"resultStatus"] isEqualToString:@"6001"]) {
-             [DeliveryUtility showMessage:@"用户中途取消付款" target:nil];
-         }
-         if ([aliDict[@"resultStatus"] isEqualToString:@"6002"]) {
-             
-             [DeliveryUtility showMessage:@"网络连接出错" target:nil];
-         }
-     }];
+    dict[@"price"] = self.sendPrice;
     
-    
-}
+    PayOrderController * payOrder = [[PayOrderController alloc]init];
+    payOrder.orderPayDic = dict;
+    [self.navigationController pushViewController:payOrder animated:YES];
+   }
 
 
 #pragma mark - 取消订单按钮被点击

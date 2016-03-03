@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *goodsNumLabel;
 ///根据状态变化的按钮
 @property (weak, nonatomic) IBOutlet UIButton *statusButton;
+@property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 - (void)config:(OrderGoodsModel *)model;
 
