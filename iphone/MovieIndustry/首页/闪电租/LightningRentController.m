@@ -15,6 +15,7 @@
 #import "NSUserManager.h"
 #import "TimeSelectView.h"
 #import "CityModel.h"
+#import "HHLocationService.h"
 
 #define DEFAULT_PLACEHOLD @"请输入备注信息(限5~100字)"
 #define PLACEHOLD_COLOR   RGBColor(187, 187, 190, 1)
@@ -23,7 +24,7 @@
 #define BTN_START_TAG 100
 #define btnBgColor [UIColor colorWithRed:0.91 green:0.91 blue:0.95 alpha:1]
 
-@interface LightningRentController ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate>
+@interface LightningRentController ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate,UITextViewDelegate,HHLocationServiceDelegate>
 
 @property (nonatomic,retain) UITableView *mainTableView;
 
@@ -97,7 +98,8 @@
 //定位的时候在转动
 @property (nonatomic,strong) UIActivityIndicatorView *indicatorView;
 
-//当地的
+//位置管理器
+@property (nonatomic,strong) HHLocationService *locationManager;
 @end
 
 @implementation LightningRentController
@@ -222,9 +224,15 @@
         //菊花
         [self.indicatorView startAnimating];
         
+        //点击按钮定位
+        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+        btn.frame = CGRectMake(0, 0, kViewWidth, 40);
+        [btn addTarget:self action:@selector(chooseLocationAction) forControlEvents:UIControlEventTouchUpInside];
+        
         [headerView addSubview:gpsLabel];
         [headerView addSubview:locationLabel];
         [headerView addSubview:self.indicatorView];
+        [headerView addSubview:btn];
         self.localCityLbl  = locationLabel;
         _mainTableView.tableHeaderView = headerView;
         
@@ -234,7 +242,13 @@
     }
     return _mainTableView;
 }
-
+/**
+ *  刷新定位
+ */
+-(void)chooseLocationAction
+{
+    
+}
 #pragma mark - 初始化方法
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -260,6 +274,10 @@
     [self loadCityData];
     
     [self createMainViews];
+    
+    self.locationManager = [[HHLocationService alloc]init];
+    self.locationManager.delegate = self;
+    [self.locationManager openLocationService];
     
 //    [self requestPriceAndCatelogueDatas];
 }

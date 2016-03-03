@@ -777,7 +777,11 @@
                     }else{
                         payOrder.goodsInfoArray = self.goodsInfoArray;
                         }
+
+//                        payOrder.addressID = self.addressID;
+
                         payOrder.addressDic = self.addressDic;
+
                     [self.navigationController pushViewController:payOrder animated:YES];
     }
   }
