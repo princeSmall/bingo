@@ -8,6 +8,7 @@
 
 #import "TeacherDetialMsgController.h"
 #import "CollectCourseCell.h"
+#import "BottomInputView.h"
 @interface TeacherDetialMsgController () <UITableViewDelegate,UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UIImageView *iconV;
 @property (weak, nonatomic) IBOutlet UIButton *levelBtn;
@@ -43,6 +44,9 @@
         make.top.equalTo(self.msgContentV.mas_bottom);
         make.bottom.equalTo(self.view.mas_bottom).offset(50);
     }];
+    
+    BottomInputView *bottomInputV = [[BottomInputView alloc] init];
+    [self.view addSubview:bottomInputV];
 }
 #pragma mark tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
@@ -54,6 +58,7 @@
     if (cell == nil) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CollectCourseCell" owner:nil options:nil] lastObject];
     }
+    cell.statusLbl.hidden = NO;
     return cell;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {

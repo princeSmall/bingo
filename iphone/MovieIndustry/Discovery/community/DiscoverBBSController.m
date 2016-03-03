@@ -12,6 +12,7 @@
 #import "NotisMesCell.h"
 #import "ClassifyPostController.h"
 #import "BBSFriendMsgCell.h"
+#import "MyPostController.h"
 @interface DiscoverBBSController ()<UITableViewDelegate,UITableViewDataSource>
 {
     ///选中的按钮
@@ -84,7 +85,7 @@
 #pragma mark - 我的帖子
 - (void)myBBSAction:(UIButton *)btn
 {
-    [self setBtnType:@"0" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 1)];
+    [self setBtnType:@"0" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 2)];
     [self.view addSubview:_tagContentV];
     _tbView.frame = CGRectMake(0, 150, kViewWidth, kViewHeight-150-44);
 }
@@ -92,7 +93,7 @@
 #pragma mark - 我的消息
 - (void)myMesAction:(UIButton *)btn
 {
-    [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 1)];
+    [self setBtnType:@"1" selectBtn:btn btnLineFrame:CGRectMake(0, 44, kViewWidth/5, 2)];
     [_tagContentV removeFromSuperview];
         _tbView.frame = CGRectMake(0, 45, kViewWidth, kViewHeight-45-44);
 }
@@ -117,13 +118,34 @@
         tagbtn.backgroundColor = [UIColor whiteColor];
         [tagbtn setTitle:tagArray[i] forState:UIControlStateNormal];
         [tagbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        tagbtn.tag = i;
         [tagbtn addTarget:self action:@selector(tagBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
 - (void) tagBtnClicked:(UIButton *) btn{
-    ClassifyPostController *controller = [[ClassifyPostController alloc] init];
-    controller.navTitle = btn.titleLabel.text;
-    [self.navigationController pushViewController:controller animated:YES];
+    
+    switch (btn.tag) {
+        case 0: {
+            MyPostController *controller = [[MyPostController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            
+            break;
+        case 1: {
+            ClassifyPostController *controller = [[ClassifyPostController alloc] init];
+            controller.navTitle = btn.titleLabel.text;
+            [self.navigationController pushViewController:controller animated:YES];
+        }
+            
+            break;
+        case 2:
+            
+            break;
+       
+        default:
+            break;
+    }
+    
 }
 ///返回cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath

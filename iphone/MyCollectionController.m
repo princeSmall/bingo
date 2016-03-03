@@ -325,10 +325,11 @@
     {
         static NSString *cellID = @"CollectCourseCellID";
         CollectCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+       
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"CollectCourseCell" owner:self options:nil]lastObject];
         }
-        
+        cell.statusLbl.hidden = YES;
         
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;

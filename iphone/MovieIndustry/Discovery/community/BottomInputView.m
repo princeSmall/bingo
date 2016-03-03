@@ -13,6 +13,8 @@
 @implementation BottomInputView
 - (instancetype) initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
+        self.frame = CGRectMake(0,kViewHeight-50-44, kViewWidth,50);
+        self.backgroundColor = [UIColor whiteColor];
         
         UIView *line = [[UIView alloc] initWithFrame:CGRectMake(0,0,kViewWidth,1)];
         line.backgroundColor=RGBColor(212,212,212,0.5);

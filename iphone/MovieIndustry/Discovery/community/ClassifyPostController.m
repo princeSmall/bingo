@@ -12,12 +12,20 @@
 #import "CreatPostController.h"
 @interface ClassifyPostController () <ClassifyHeadCellDelegate,UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic, strong) UITableView *tableView;
-
+@property (nonatomic, strong) NSMutableArray *imageArray;
 
 @end
 
 @implementation ClassifyPostController
-
+- (NSMutableArray *)imageArray {
+    if (_imageArray == nil) {
+        _imageArray = [NSMutableArray array];
+        for (int i = 0; i < 4; i ++ ) {
+            [_imageArray addObject:@"dog.png"];
+        }
+    }
+    return _imageArray;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.view.backgroundColor = kViewBackColor;
@@ -62,7 +70,7 @@
         ClassifyPostCell *cell = [tableView dequeueReusableCellWithIdentifier:@"postCell"];
         if (cell == nil) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassifyPostCell" owner:nil options:nil] lastObject];
-            
+            cell.imageArray =  self.imageArray;
         }
         return cell;
     }
