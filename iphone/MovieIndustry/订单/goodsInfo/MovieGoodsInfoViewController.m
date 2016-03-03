@@ -263,9 +263,9 @@
     
     ///设置状态栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
-    
-    [self loadGoodsAttribute];
     [self loadGoodsData];
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -626,23 +626,24 @@
         [userDict setValue:@"" forKey:@"user_id"];
     }
     
+    __weak typeof(self)weakSelf = self;
     [HttpRequestServers requestBaseUrl:TIGoods_GoodsAttributes withParams:userDict withRequestFinishBlock:^(id result) {
         
         @try {
             
             NSDictionary *dict = result;
             HHNSLog(@"presece------>%@",dict);
-            [self createUI];
+            
             if ([dict[@"code"]intValue] == 0) {
                 NSDictionary * infoDict = dict[@"data"];
                 
-                self.model = [[GoodDesModel alloc]initWithDict:infoDict];
+                weakSelf.model = [[GoodDesModel alloc]initWithDict:infoDict];
                 
-                    self.curretPrice = [WNController nullString:infoDict[@"goods_price"]];
-                    self.goodsMaxBought = [WNController nullString:infoDict[@"goods_number"]];
-                    self.goodsCarImg = [WNController nullString:infoDict[@"img_path"]];
+                weakSelf.curretPrice = [WNController nullString:infoDict[@"goods_price"]];
+                weakSelf.goodsMaxBought = [WNController nullString:infoDict[@"goods_number"]];
+                weakSelf.goodsCarImg = [WNController nullString:infoDict[@"img_path"]];
              
-                [self setNavBack];
+                [weakSelf setNavBack];
                 hud.labelText = @"加载成功";
                 [MBHudManager removeHud:hud scallBack:^(id obj) {
                     
@@ -650,11 +651,12 @@
             }
             else
             {
-                [self setNavBack];
+                [weakSelf setNavBack];
                 [MBHudManager removeHud:hud scallBack:^(id obj) {
                     
                 }];
             }
+            [weakSelf createUI];
             
         }
         @catch (NSException *exception) {
@@ -696,9 +698,7 @@
     [btn1 setImageEdgeInsets:UIEdgeInsetsMake(0,12, 0, -12)];
     [self.bottomView addSubview:btn1];
     
-//    UIButton *btn2  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/4, 0, kViewWidth/4, 50) ImageName:@"goodInfo_shop" Target:self Action:@selector(enterGoodMainShop:) Title:@""];
-//    [btn2 setImageEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 15)];
-//    [self.bottomView addSubview:btn2];
+
     
     UIButton *btn2  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/4, 0, kViewWidth/4, 50) ImageName:@"goodInfo_shop" Target:self Action:@selector(enterGoodMainShop:) Title:@""];
     [btn2 setImageEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 12)];
@@ -942,7 +942,9 @@
     }
     
 }
-///选择之后立即租 生成订单
+/**
+ *  选择之后立即租 生成订单
+ */
 - (void)nextRentAction
 {
     
@@ -956,42 +958,48 @@
     attributesDic[@"attribute_value"] = @"默认";
     userDict[@"attributes"] = attributesDic;
      userDict[@"cart_type"] = @"1";
+    
+    __weak typeof(self)weakSelf = self;
     [HttpRequestServers requestBaseUrl:TICart_AddCart withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
         HHNSLog(@"%@",dict);
         
         if ([dict[@"code"] intValue] == 0) {
-            self.dataStr = dict[@"data"];
-            if ([[self.selectedColorBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
+            weakSelf.dataStr = dict[@"data"];
+            if ([[weakSelf.selectedColorBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
 //                [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
                  [DeliveryUtility showMessage:@"请选择颜色" target:nil];
                 
             }else
             {
-                if ([[self.selectedXinhaoBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
+                if ([[weakSelf.selectedXinhaoBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
 //                    [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
                      [DeliveryUtility showMessage:@"请选择型号" target:nil];
                 }else
                 {
                     
-                    [self removeCarView];
+                    [weakSelf removeCarView];
                     MovieComfirmOrderViewController *confirmVc = [[MovieComfirmOrderViewController alloc] init];
-                    confirmVc.model = self.model;
-                    confirmVc.goodsCount = self.shopingCarView.goodsCountLabel.titleLabel.text;
-                    NSString *goodsString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.goodsId,[self.shopingCarView.goodsCountLabel titleForState:UIControlStateNormal],self.shopID,[self.selectedColorBtn titleForState:UIControlStateNormal],[self.selectedXinhaoBtn titleForState:UIControlStateNormal]];
+                    confirmVc.model = weakSelf.model;
+                    if(weakSelf.model.imgs ==nil)
+                    {
+                        NSLog(@"model is nil ");
+                    }
+                    confirmVc.goodsCount = weakSelf.shopingCarView.goodsCountLabel.titleLabel.text;
+                    NSString *goodsString = [NSString stringWithFormat:@"%@,%@,%@,%@,%@",self.goodsId,[weakSelf.shopingCarView.goodsCountLabel titleForState:UIControlStateNormal],self.shopID,[weakSelf.selectedColorBtn titleForState:UIControlStateNormal],[weakSelf.selectedXinhaoBtn titleForState:UIControlStateNormal]];
                     
                     NSArray *array = [NSArray arrayWithObjects:goodsString, nil];
-                    confirmVc.dataStr = self.dataStr;
-                    confirmVc.goodsID = self.goodsId;
-                    confirmVc.shopID = self.shopID;
+                    confirmVc.dataStr = weakSelf.dataStr;
+                    confirmVc.goodsID = weakSelf.goodsId;
+                    confirmVc.shopID = weakSelf.shopID;
 //                    confirmVc.goodsInfoArray = array;
-                    [self.navigationController pushViewController:confirmVc animated:YES];}}
+                    [weakSelf.navigationController pushViewController:confirmVc animated:YES];}}
             
         }else
         {
 //            [PromptLabel custemAlertPromAddView:self.view text:@"获取cartid失败"];
              [DeliveryUtility showMessage:@"获取cartid失败" target:nil];
-            [self  removeTapGesViewConfirm];
+            [weakSelf  removeTapGesViewConfirm];
         }
         
         
@@ -1034,6 +1042,7 @@
 
     }
 //    [userDict setObject:@"1" forKey:@"goods_id"];
+    __weak typeof(self)weakSelf = self;
     [HttpRequestServers requestBaseUrl:TIGoods_Details withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
         HHNSLog(@"------->%@,%@",TIGoods_Details,dict);
@@ -1042,48 +1051,49 @@
             NSDictionary *dic =  dict[@"data"];
             
            GoodDesModel * model = [[GoodDesModel alloc]initWithDict:dic];
-            self.model = model;
-                self.goodsTbHeaderView.goodsNameLabel.text = [WNController nullString:dic[@"goods_name"]];
+            weakSelf.model = model;
+                weakSelf.goodsTbHeaderView.goodsNameLabel.text = [WNController nullString:dic[@"goods_name"]];
             NSLog(@"%@",dic[@"goods_city_name"]);
-                self.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"goods_city_name"]];
+                weakSelf.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"goods_city_name"]];
             //送货方式字段
             NSArray *arr = [NSArray arrayWithObjects:@"商家送货",@"顺丰",@"申通", nil];
-            self.goodsTbHeaderView.businessPostTypeLabel.text = [WNController nullString:[ arr objectAtIndex: [dic[@"goods_express"]intValue]]];
-                self.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_price"] floatValue]];
+            weakSelf.goodsTbHeaderView.businessPostTypeLabel.text = [WNController nullString:[ arr objectAtIndex: [dic[@"goods_express"]intValue]]];
+            weakSelf.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_price"] floatValue]];
                 
                 ///设置下划线
-                NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[[WNController nullString:dic[@"market_price"]] floatValue]];
-                NSUInteger length = [oldPrice length];
-                
-                NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
-                [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
-                [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
-                self.goodsTbHeaderView.oldPriceLabel.attributedText = attri;
+            NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[[WNController nullString:dic[@"market_price"]] floatValue]];
+            NSUInteger length = [oldPrice length];
+            
+            NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
+            [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
+            [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
+            weakSelf.goodsTbHeaderView.oldPriceLabel.attributedText = attri;
             //self.goodsTbHeaderView.goodsLocationLabel.text = dic[@"spare_address"];
             //押金label 的展示
 #warning message
-            self.goodsTbHeaderView.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_deposit"] floatValue]];
+            weakSelf.goodsTbHeaderView.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_deposit"] floatValue]];
             
             NSMutableArray *imgsArr = dic[@"imgs"];
 
-            self.imgsArray = imgsArr;
+            weakSelf.imgsArray = imgsArr;
             
             
             
-            if (self.imgsArray.count>0) {
+            if (weakSelf.imgsArray.count>0) {
                 NSMutableArray * imageArray = [NSMutableArray array];
-                for (int i = 0; i < self.imgsArray.count; i ++) {
-                    NSString * iamge = [NSString stringWithFormat:@"%@%@",TIBIGImage,self.imgsArray[i]];
+                for (int i = 0; i < weakSelf.imgsArray.count; i ++) {
+                    NSString * iamge = [NSString stringWithFormat:@"%@%@",TIBIGImage,weakSelf.imgsArray[i]];
                     [imageArray addObject:iamge];
                 }
                 
                 
-                self.goodsTbHeaderView.goodsScrollView.imageURLStringsGroup = imageArray;
-                self.goodsTbHeaderView.goodsScrollView.dotColor = [UIColor lightGrayColor];
+                weakSelf.goodsTbHeaderView.goodsScrollView.imageURLStringsGroup = imageArray;
+                weakSelf.goodsTbHeaderView.goodsScrollView.dotColor = [UIColor lightGrayColor];
                 
             }
+            [weakSelf createUI];
+            [weakSelf setNavBack];
 
-            
         }
         @catch (NSException *exception) {
             

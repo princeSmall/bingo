@@ -48,7 +48,6 @@
 
 - (void)config:(GoodDesModel *)model Andtype:(NSString *)type
 {
-
     
     [self.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,model.imgs[0]]]];
     

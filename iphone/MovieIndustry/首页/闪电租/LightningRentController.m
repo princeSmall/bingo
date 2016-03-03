@@ -247,7 +247,7 @@
  */
 -(void)chooseLocationAction
 {
-    
+    NSLog(@"刷新定位");
 }
 #pragma mark - 初始化方法
 - (void)viewDidLoad {
@@ -748,15 +748,16 @@
 - (void)createTimeSelectView
 {
    
-        self.customPickView = [[[NSBundle mainBundle] loadNibNamed:@"CustomDatePickView" owner:self options:nil]lastObject];
-        self.customPickView.backgroundColor = [UIColor whiteColor];
-        self.customPickView.frame = CGRectMake(0, 112, kViewWidth, 254);
-        //    self.customPickView.datePickView.datePickerMode
+    self.customPickView = [[[NSBundle mainBundle] loadNibNamed:@"CustomDatePickView" owner:self options:nil]lastObject];
+    self.customPickView.backgroundColor = [UIColor whiteColor];
+    self.customPickView.frame = CGRectMake(0, 112, kViewWidth, 254);
+    //    self.customPickView.datePickView.datePickerMode
     if (self.mainTableView.frame.origin.y == 156) {
         self.customPickView.frame = CGRectMake(0, 112+45, kViewWidth, 254);;
     }
-    
-        [self.view addSubview:self.customPickView];
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    self.customPickView.datePickView.locale =locale;
+    [self.view addSubview:self.customPickView];
 
     
     

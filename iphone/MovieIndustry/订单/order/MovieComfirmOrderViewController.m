@@ -496,6 +496,7 @@
             cell.goodsNumLabel.text = [NSString stringWithFormat:@"x%@",good.goods_number];
         
     }
+    cell.selectionStyle = UITableViewCellSelectionStyleNone;
  
     return cell;
 }
