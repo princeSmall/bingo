@@ -313,11 +313,11 @@
     btn.enabled = NO;
     self.locationButton = btn;
     [locationView addSubview:btn];
-    
+    //    UIActivity
     [self.indicatorView startAnimating];
     [locationView addSubview:self.indicatorView];
     
-    //    UIActivity
+    
     
     //
     [tbHeaderView addSubview:locationView];
