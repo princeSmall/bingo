@@ -10,6 +10,8 @@
 #import "PayOrderBottomView.h"
 #import "PayOrderHeadCell.h"
 #import "CartGood.h"
+#import "PaySuccessViewController.h"
+#import "UPPaymentControl.h"
 
 @interface PayOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
@@ -19,6 +21,10 @@
 @end
 
 @implementation PayOrderController
+
+- (void)viewWillAppear:(BOOL)animated{
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -33,15 +39,46 @@
  *  加载数据
  */
 - (void)createAddress{
-
     self.bottomView.addressDic = self.addressDic;
-
 }
 
 -(void)loadData
 {
-    
-
+    if(self.orderPayDic){
+   
+           NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.orderPayDic[@"order_id"],@"order_id",APP_DELEGATE.user_id,@"user_id", nil];
+        [HttpRequestServers requestBaseUrl:TIOrder_OrderDetail withParams:userDict withRequestFinishBlock:^(id result) {
+            @try {
+                NSLog(@"%@",result);
+                NSDictionary * dic = result[@"data"];
+                NSArray * goodArray = dic[@"order_goods"][0][@"shop_goods"];
+                NSMutableDictionary * addressDic = [NSMutableDictionary dictionary];
+                addressDic[@"name"] = dic[@"consignee_name"];
+                addressDic[@"address"] = [NSString stringWithFormat:@"收货地址：%@%@%@%@",dic[@"province_name"],dic[@"city_name"],dic[@"district_name"],dic[@"address"]];
+                addressDic[@"phone"] = dic[@"contact_phone"];
+                addressDic[@"price"] = self.orderPayDic[@"price"];
+                self.addressDic = addressDic;
+                self.bottomView.addressDic = self.addressDic;
+                NSMutableArray * orderArray = [NSMutableArray array];
+                for (int i = 0; i<goodArray.count; i ++) {
+                    CartGood * good = [[CartGood alloc]initWithDict:goodArray[i]];
+                    good.goods_deposit = @"100";
+                    [orderArray addObject:good];
+                }
+                self.goodsInfoArray = orderArray;
+                [self.tableView reloadData];
+                
+            }
+            @catch (NSException *exception) {
+            }
+            @finally {
+            }
+            
+            
+        } withFieldBlock:^{
+            
+        }];
+    }
 }
 /**
  *  创建tableview视图
@@ -53,18 +90,166 @@
     self.tableView.dataSource = self;
     [self.view addSubview:self.tableView];
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
-    
-
     PayOrderBottomView *bottomView = [[[NSBundle mainBundle]loadNibNamed:@"PayOrderBottomView" owner:self options:nil]lastObject];
     self.bottomView = bottomView;
     [bottomView  createMyTableViewAndEndBlock:^(NSString *type) {
         if ([type isEqualToString:@"0"]) {
             //支付宝
             NSLog(@"支付宝");
+            
+            if (!self.payDict) {
+                [HttpRequestServers sendAlipayWithOrderSn:self.orderPayDic[@"order_id"] orderName:@"咖么支付测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%f",0.01] andScallback:^(id obj)
+                 {
+                     
+                     NSDictionary *aliDict = obj;
+                     HHNSLog(@"支付回调参数 aliDict %@",aliDict);
+                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                     if ([aliDict[@"resultStatus"] isEqualToString:@"9000"])
+                     {
+                         
+                         NSMutableDictionary * orderDic = [NSMutableDictionary dictionaryWithDictionary:self.orderPayDic];
+                         
+                         [HttpRequestServers requestBaseUrl:TIPay_CallBack withParams:orderDic withRequestFinishBlock:^(id result) {
+                             
+                             if ([result[@"code"] intValue] == 0) {
+                                 PaySuccessViewController *paySucVc = [[PaySuccessViewController alloc] init];
+                                 paySucVc.order_SN = self.orderPayDic[@"order_id"];
+                                 paySucVc.order_id = self.orderPayDic[@"order_id"];
+                                 [self.navigationController pushViewController:paySucVc animated:YES];
+                                 
+                             }else{
+                             }
+                         } withFieldBlock:^{
+                         }];
+                     }
+                     
+                     if ([aliDict[@"resultStatus"] isEqualToString:@"8000"]) {
+                         
+                         [DeliveryUtility showMessage:@"正在处理中" target:nil];
+                     }
+                     if ([aliDict[@"resultStatus"] isEqualToString:@"4000"]) {
+                         [DeliveryUtility showMessage:@"订单支付失败" target:nil];
+                     }
+                     if ([aliDict[@"resultStatus"] isEqualToString:@"6001"]) {
+                         [DeliveryUtility showMessage:@"用户中途取消付款" target:nil];
+                         
+                     }
+                     if ([aliDict[@"resultStatus"] isEqualToString:@"6002"]) {
+                         
+                         [DeliveryUtility showMessage:@"网络连接出错" target:nil];
+                     }
+                 }];
+
+            }else {
+            NSMutableDictionary * mutDic = [NSMutableDictionary dictionaryWithDictionary:self.payDict];
+                [HttpRequestServers requestBaseUrl:TIOrder_AddOrder withParams:mutDic withRequestFinishBlock:^(id result) {
+                    NSDictionary *dict = result;
+                    HHNSLog(@"---------->> %@",dict);
+                    @try {
+                        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                        if ([dict[@"code"] intValue]==0)
+                        {
+                            ///开始调用支付接口
+                                [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                                NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
+                                dict1[@"user_id"] = APP_DELEGATE.user_id;
+                                dict1[@"pay_status"] = @"1";
+                                dict1[@"pay_id"] = @"1";
+                            dict1[@"order_id"]= dict[@"data"];
+                            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                                [HttpRequestServers sendAlipayWithOrderSn:dict[@"data"] orderName:@"咖么测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%.2f",0.01] andScallback:^(id obj) {
+                                    
+                                    NSDictionary *aliDict = obj;
+                                    HHNSLog(@"支付回调参数 aliDict %@",aliDict);
+                                    
+                                    if ([aliDict[@"resultStatus"] isEqualToString:@"9000"])
+                                    {
+                                        PaySuccessViewController *paySucVc = [[PaySuccessViewController alloc] init];
+                                        paySucVc.order_SN = dict[@"data"];
+                                        paySucVc.order_id = dict[@"data"];
+                                        [HttpRequestServers requestBaseUrl:TIPay_CallBack withParams:dict1 withRequestFinishBlock:^(id result) {
+                                            //                                    [DeliveryUtility showMessage:@"支付成功" target:self];
+                                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                                            
+                                            [self.navigationController pushViewController:paySucVc animated:YES];
+                                        } withFieldBlock:^{
+                                            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                                        }];
+                                        
+                                    }
+                                    
+                                    if ([aliDict[@"resultStatus"] isEqualToString:@"8000"]) {
+                                        
+                                        [DeliveryUtility showMessage:@"正在处理中" target:nil];
+                                        [self.navigationController popViewControllerAnimated:YES];
+                                    }
+                                    if ([aliDict[@"resultStatus"] isEqualToString:@"4000"]) {
+                                        [DeliveryUtility showMessage:@"订单支付失败" target:nil];
+                                        [self.navigationController popViewControllerAnimated:YES];
+                                        
+                                    }
+                                    if ([aliDict[@"resultStatus"] isEqualToString:@"6001"]) {
+                                        [DeliveryUtility showMessage:@"用户中途取消付款" target:nil];
+                                        [self.navigationController popViewControllerAnimated:YES];
+                                        
+                                    }
+                                    if ([aliDict[@"resultStatus"] isEqualToString:@"6002"]) {
+                                        
+                                        [DeliveryUtility showMessage:@"网络连接出错" target:nil];
+                                        [self.navigationController popViewControllerAnimated:YES];
+                                    }
+                                    
+                                }];
+                                
+                            }];
+                        }
+            
+                    }
+                    @catch (NSException *exception) {
+                        
+                    }
+                    @finally {
+                        
+                   }
+   
+                } withFieldBlock:^{
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                }];
+        }
         }
         if ([type isEqualToString:@"1"]){
             //银联
             NSLog(@"银联");
+            NSMutableDictionary * mutDic = [NSMutableDictionary dictionaryWithDictionary:self.payDict];
+            [HttpRequestServers requestBaseUrl:TIOrder_AddOrder withParams:mutDic withRequestFinishBlock:^(id result) {
+                NSDictionary *dict = result;
+                HHNSLog(@"---------->> %@",dict);
+                @try {
+                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                    if ([dict[@"code"] intValue]==0)
+                    {
+                        ///开始调用支付接口
+                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                        NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
+                        dict1[@"user_id"] = APP_DELEGATE.user_id;
+                        dict1[@"pay_status"] = @"1";
+                        dict1[@"pay_id"] = @"1";
+                        dict1[@"order_id"]= dict[@"data"];
+                        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                        [[UPPaymentControl defaultControl] startPay:dict1[@"order_id"]fromScheme:@"UPPayDemo" mode:@"00" viewController:self];
+                        }];
+                    }
+                }
+                @catch (NSException *exception) {
+                    
+                }
+                @finally {
+                    
+                }
+                
+            } withFieldBlock:^{
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+            }];
         }
     }];
     CGSize size =CGSizeMake(self.view.frame.size.width, 103*3+400+100);
@@ -74,11 +259,6 @@
     [bottomView.payBtn addTarget:self action:@selector(actionPay) forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableFooterView = bottomView;
     
-}
-
--(void)viewWillAppear:(BOOL)animated
-{
-    [self.view setNeedsDisplay];
 }
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
@@ -100,9 +280,6 @@
 {
     return 103;
 }
-
-
-
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"PayHeadCell";
@@ -134,12 +311,7 @@
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
-
-
--(void)actionPay
-{
-    NSLog(@"支付订单支付");
-}
+-(void)actionPay{}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

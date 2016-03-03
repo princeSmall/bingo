@@ -784,48 +784,6 @@
                         payOrder.addressDic = self.addressDic;
 
                     [self.navigationController pushViewController:payOrder animated:YES];
-
-    
-//    [HttpRequestServers requestBaseUrl:TIOrder_AddOrder withParams:userDict withRequestFinishBlock:^(id result) {
-//        NSDictionary *dict = result;
-//        HHNSLog(@"---------->> %@",dict);
-//        @try {
-//            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//            if ([dict[@"code"] intValue]==0)
-//            {
-//                ///开始调用支付接口
-//                    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//                    
-//                    NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
-//                    dict1[@"user_id"] = APP_DELEGATE.user_id;
-//                    dict1[@"pay_status"] = @"1";
-//                    dict1[@"pay_id"] = @"1";
-//                    dict1[@"order_id"]= dict[@"data"];
-//                    
-//                PayOrderController * payOrder = [[PayOrderController alloc]init];
-//                payOrder.payDict = dict1;
-//                if (self.model) {
-//                    payOrder.model = self.model;
-//                    payOrder.goodsCount = self.goodsCount;
-//                }else{
-//                    payOrder.goodsInfoArray = self.goodsInfoArray;
-//                }
-//                payOrder.addressID = self.addressID;
-//                [self.navigationController pushViewController:payOrder animated:YES];
-//            }
-//
-//        }
-//        @catch (NSException *exception) {
-//            
-//        }
-//        @finally {
-//            
-//       }
-////        
-////        
-//    } withFieldBlock:^{
-//        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//   }];
     }
   }
  }

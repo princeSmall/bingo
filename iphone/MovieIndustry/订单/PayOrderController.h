@@ -15,7 +15,7 @@
 @property (nonatomic,strong) GoodDesModel * model;
 @property (nonatomic,strong) NSArray * goodsInfoArray;
 @property (nonatomic,strong)NSString * goodsCount;
-
+@property (nonatomic,strong)NSDictionary * orderPayDic;
 @property (nonatomic,strong)NSDictionary * addressDic;
 
 @end
