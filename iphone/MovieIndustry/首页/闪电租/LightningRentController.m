@@ -100,6 +100,8 @@
 
 //位置管理器
 @property (nonatomic,strong) HHLocationService *locationManager;
+
+
 @end
 
 @implementation LightningRentController
@@ -215,32 +217,44 @@
         _mainTableView.sectionIndexBackgroundColor = [UIColor clearColor];
         _mainTableView.backgroundColor = kViewBackColor;
         
-        //设置headerview
-        UIView *headerView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 40)];
-        UILabel *locationLabel =  [WNController createLabelWithFrame:CGRectMake(15, 0, 150, 40) Font:15 Text:@"" textAligment:NSTextAlignmentLeft];
-        //定位的城市
-        UILabel *gpsLabel = [WNController createLabelWithFrame:CGRectMake(kViewWidth-100, 0, 90, 40) Font:13 Text:@"GPS定位" textAligment:NSTextAlignmentRight];
-        gpsLabel.textColor = [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:1];
-        //菊花
-        [self.indicatorView startAnimating];
-        
-        //点击按钮定位
-        UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
-        btn.frame = CGRectMake(0, 0, kViewWidth, 40);
-        [btn addTarget:self action:@selector(chooseLocationAction) forControlEvents:UIControlEventTouchUpInside];
-        
-        [headerView addSubview:gpsLabel];
-        [headerView addSubview:locationLabel];
-        [headerView addSubview:self.indicatorView];
-        [headerView addSubview:btn];
-        self.localCityLbl  = locationLabel;
-        _mainTableView.tableHeaderView = headerView;
-        
-        
-        
-        
     }
     return _mainTableView;
+}
+/**
+ *  增加headview
+ */
+-(void)addHeaderView
+{
+    //设置headerview
+    UIView *headerView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 40)];
+    UILabel *locationLabel =  [WNController createLabelWithFrame:CGRectMake(15, 0, 150, 40) Font:15 Text:@"" textAligment:NSTextAlignmentLeft];
+    //定位的城市
+    UILabel *gpsLabel = [WNController createLabelWithFrame:CGRectMake(kViewWidth-100, 0, 90, 40) Font:13 Text:@"GPS定位" textAligment:NSTextAlignmentRight];
+    gpsLabel.textColor = [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:1];
+    //菊花
+    [self.indicatorView startAnimating];
+    
+    //点击按钮定位
+    UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
+    btn.frame = CGRectMake(0, 0, kViewWidth, 40);
+    [btn addTarget:self action:@selector(chooseLocationAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    [headerView addSubview:gpsLabel];
+    [headerView addSubview:locationLabel];
+    [headerView addSubview:self.indicatorView];
+    [headerView addSubview:btn];
+    self.localCityLbl  = locationLabel;
+    _mainTableView.tableHeaderView = headerView;
+    //_mainTableView.tableHeaderView.hidden =YES;
+
+}
+/**
+ *  移除headview
+ */
+-(void)dismissHeadView
+{
+    [_mainTableView setTableHeaderView:[[UIView alloc]init]];
+
 }
 /**
  *  刷新定位
@@ -460,7 +474,15 @@
     [self.selectedBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     self.selectedBtn = btn;
     [self.selectedBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-    
+    //设置gps定位的view
+    if(_chooseIndex==0)
+    {
+        [self addHeaderView];
+    }
+    else
+    {
+        [self dismissHeadView];
+    }
     
     if (_chooseIndex == 1) {
         
@@ -755,9 +777,9 @@
     if (self.mainTableView.frame.origin.y == 156) {
         self.customPickView.frame = CGRectMake(0, 112+45, kViewWidth, 254);;
     }
-    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
-    self.customPickView.datePickView.locale =locale;
+   
     [self.view addSubview:self.customPickView];
+    
 
     
     
@@ -768,19 +790,26 @@
     self.dateTimeType = @"0";
     
     //把开始的时间格式变一下
-        NSDate *myDate = [NSDate date];
-        NSDateFormatter *fm = [[NSDateFormatter alloc] init];
-        [fm setDateFormat:@"yy-MM-dd HH:mm:00"];
-        NSString *curDateStr = [fm stringFromDate:myDate];
-        NSDate *curDate = [fm dateFromString:curDateStr];
+    NSDate *myDate = [NSDate date];
+    NSDateFormatter *fm = [[NSDateFormatter alloc] init];
+    NSDateFormatter *ymd =[[NSDateFormatter alloc] init];
+    [ymd setDateFormat:@"yyyy-MM-dd"];
+    [fm setDateFormat:@"yy-MM-dd HH:mm:00"];
+    NSString *curDateStr = [fm stringFromDate:myDate];
+    NSDate *curDate = [fm dateFromString:curDateStr];
     self.customPickView.datePickView.minimumDate = curDate;
 //        NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"ch"];
     [self.customPickView.datePickView setLocale:[NSLocale currentLocale]];
     
-    self.customPickView.datePickView.datePickerMode = UIDatePickerModeDate;
     
+    self.customPickView.datePickView.datePickerMode = UIDatePickerModeDate;
+    //设置起始时间label为当前时间
+    self.customPickView.startTimeLabel.text = [ymd stringFromDate:myDate];
     ////设置时间的方法
     [self.customPickView.datePickView addTarget:self action:@selector(datePickViewAction:) forControlEvents:UIControlEventValueChanged];
+    //设置成中文年月
+    NSLocale *locale = [[NSLocale alloc] initWithLocaleIdentifier:@"zh_CN"];
+    self.customPickView.datePickView.locale =locale;
     
     [self.customPickView.startTimeButton addTarget:self action:@selector(startTimeButtonAction) forControlEvents:UIControlEventTouchUpInside];
     [self.customPickView.endTimeButton addTarget:self action:@selector(endTimeButtonAction) forControlEvents:UIControlEventTouchUpInside];
@@ -825,6 +854,8 @@
             self.timesButton.layer.cornerRadius = 5;
             self.timesButton.layer.masksToBounds = YES;
             
+           
+            
             [self.timesButton setTitleColor:[UIColor colorWithRed:0.61 green:0.61 blue:0.61 alpha:1] forState:UIControlStateNormal];
             [self.view addSubview:self.timesButton];
             
@@ -847,6 +878,9 @@
             zhiLabel.text = [NSString stringWithFormat:@"止%@",self.customPickView.endTimeLabel.text];
         }
         
+        //增加按钮方法
+        [self.timesButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+        [self.timesButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
         
         [self.customPickView removeFromSuperview];
         self.clickDatePickCount = 1;
@@ -854,11 +888,32 @@
         [self resetTbViewAndInputViewFrame];
         
     }
-    
+}
+/**
+ *  选择条件的按钮
+ *
+ *  @param btn 按钮对象
+ */
+-(void)actionSelect:(UIButton *)btn
+{
+    btn.selected = !btn.selected;
+    if(btn.selected==YES)
+    {
+        UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(kViewWidth/4-15, 0, 15, 30)];
+        [btn addSubview:button];
+        [button addTarget:self action:@selector(actionCancel:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
 }
-
-
+/**
+ *  取消按钮
+ *
+ *  @param btn 按钮对象
+ */
+-(void)actionCancel:(UIButton *)btn
+{
+    NSLog(@"取消");
+}
 #pragma mark - 时间选择器
 - (void)datePickViewAction:(UIDatePicker *)pick
 {
@@ -872,12 +927,24 @@
         
         self.startDate = pick.date;
         self.customPickView.startTimeLabel.text = dateStr;
+        
+        //判断起始时间是否大于结束时间
+        NSComparisonResult result = [self.startDate compare:self.endDate];
+        if(result ==NSOrderedDescending)
+        {
+            NSLog(@"Date1  is in the future");
+            self.endDate = self.startDate;
+            self.customPickView.endTimeLabel.text = dateStr;
+
+        }
+
     }else
     {
+        pick.minimumDate = self.startDate;
         self.endDate = pick.date;
         self.customPickView.endTimeLabel.text = dateStr;
     }
-    
+    NSLog(@"startDate:%@ \\d endDate:%@",self.startDate,self.endDate);
 }
 
 #pragma mark - startTimeButtonAction
@@ -1114,7 +1181,8 @@
         self.cityButton.backgroundColor = btnBgColor;
         self.cityButton.layer.cornerRadius = 5;
         self.cityButton.layer.masksToBounds = YES;
-        
+        [self.cityButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+        [self.cityButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
         [self.cityButton setTitleColor:[UIColor colorWithRed:0.61 green:0.61 blue:0.61 alpha:1] forState:UIControlStateNormal];
         [self.view addSubview:self.cityButton];
         self.btnframeindex++;
@@ -1148,7 +1216,8 @@
         self.cityButton.backgroundColor = btnBgColor;
         self.cityButton.layer.cornerRadius = 5;
         self.cityButton.layer.masksToBounds = YES;
-        
+        [self.cityButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+        [self.cityButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
         [self.cityButton setTitleColor:[UIColor colorWithRed:0.61 green:0.61 blue:0.61 alpha:1] forState:UIControlStateNormal];
         [self.view addSubview:self.cityButton];
         self.btnframeindex++;
@@ -1455,7 +1524,29 @@
                 break;
         }
     }
+    //增加删除功能
     
+    //类型
+    
+    if(self.rentTypeButton)
+    {
+    [self.rentTypeButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+    [self.rentTypeButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    //价格
+    
+    if(self.rentPriceButton)
+    {
+    [self.rentPriceButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+    [self.rentPriceButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+    }
+    //城市
+    
+    if(self.cityButton)
+    {
+    [self.cityButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+    [self.cityButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+    }
     
 }
 
