@@ -26,9 +26,9 @@
     self.view.backgroundColor = kViewBackColor;
     
     id target = self.navigationController.interactivePopGestureRecognizer.delegate;
-    UIPanGestureRecognizer *panGes = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(handleNavigationTransition:)];
-    panGes.delegate = self;
-    [self.view addGestureRecognizer:panGes];
+    self.panGes = [[UIPanGestureRecognizer alloc] initWithTarget:target action:@selector(handleNavigationTransition:)];
+    self.panGes.delegate = self;
+    [self.view addGestureRecognizer:self.panGes];
     self.navigationController.interactivePopGestureRecognizer.enabled = NO;
     
 }

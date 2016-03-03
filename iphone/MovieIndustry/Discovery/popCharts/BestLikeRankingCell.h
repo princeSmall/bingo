@@ -10,6 +10,7 @@
 
 @interface BestLikeRankingCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *rankingImagV;
+@property (weak, nonatomic) IBOutlet UIImageView *levelImgV;
 
 
 @end

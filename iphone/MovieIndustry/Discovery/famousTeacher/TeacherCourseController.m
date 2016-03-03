@@ -8,7 +8,7 @@
 
 #import "TeacherCourseController.h"
 #import "CollectCourseCell.h"
-
+#import "TeachCourseDetailController.h"
 @interface TeacherCourseController ()<UITableViewDataSource,UITableViewDelegate>
 {
     ///选中的按钮
@@ -36,7 +36,7 @@
 {
     UIView *btnView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 45)];
     [self.view addSubview:btnView];
-    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(kViewWidth/5, 44, kViewWidth/5, 1)];
+    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(kViewWidth/5, 44, kViewWidth/5 + 40, 2)];
     _btnLine.backgroundColor = [UIColor redColor];
     [btnView addSubview:_btnLine];
     
@@ -159,7 +159,10 @@
     }
     
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    TeachCourseDetailController *controller = [[TeachCourseDetailController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 -(void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPat{
     if ([cell respondsToSelector:@selector(setLayoutMargins:)]) {
         [cell setLayoutMargins:UIEdgeInsetsZero];

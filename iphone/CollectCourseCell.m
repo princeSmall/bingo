@@ -11,7 +11,7 @@
 @implementation CollectCourseCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    ViewBorderRadius(self.statusLbl, 8, 0.8, [UIColor redColor]);
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

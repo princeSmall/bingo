@@ -10,8 +10,8 @@
 #import "PublishTimeLineController.h"
 #import "FilmTimeLineCell.h"
 #import "MyPhotosHeader.h"
-
-@interface FilmTimeLineController ()<UITableViewDataSource,UITableViewDelegate>
+#import "TeacherDetialMsgController.h"
+@interface FilmTimeLineController ()<UITableViewDataSource,UITableViewDelegate,MyPhotosHeaderDelegate>
 {
     UITableView *_tbView;
 }
@@ -39,6 +39,7 @@
     
     
     MyPhotosHeader *headerView = [[[NSBundle mainBundle] loadNibNamed:@"MyPhotosHeader" owner:self options:nil]lastObject];
+    headerView.delegate = self;
     headerView.headerImageView.layer.borderWidth = 2;
     headerView.headerImageView.layer.borderColor = [UIColor whiteColor].CGColor;
     _tbView.tableHeaderView = headerView;
@@ -65,15 +66,23 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
+    if (indexPath.row == 0) {
+        return 46;
+    }
     return 168;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellID = @"FilmTimeLineCell";
-    FilmTimeLineCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"FilmTimeLineCell" owner:nil options:nil]lastObject];
+        if (indexPath.row == 0) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"NewMessageCell" owner:nil options:nil]lastObject];
+        } else {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"FilmTimeLineCell" owner:nil options:nil]lastObject];
+        }
+        
     }
     
     
@@ -104,7 +113,10 @@
 }
 
 
-
+- (void) MyPhotosHeader:(MyPhotosHeader *)header headBtn:(UIButton *)btn {
+    TeacherDetialMsgController *controller = [[TeacherDetialMsgController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

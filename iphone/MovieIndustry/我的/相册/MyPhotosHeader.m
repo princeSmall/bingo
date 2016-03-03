@@ -10,5 +10,8 @@
 
 @implementation MyPhotosHeader
 
+- (IBAction)headBtnClicked:(UIButton *)sender {
+    [self.delegate MyPhotosHeader:self headBtn:sender];
+}
 
 @end

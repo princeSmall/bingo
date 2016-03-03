@@ -41,7 +41,7 @@
     self.userNameLbl.text = addressDic[@"name"];
     self.shipAddressLbl.text = addressDic[@"address"];
     self.phoneNumberLbl.text = addressDic[@"phone"];
-    self.dealPriceLbl.text = addressDic[@"price"];
+    self.dealPriceLbl.text = [NSString stringWithFormat:@"￥%@",addressDic[@"price"]];
 }
 
 -(void)createMyTableViewAndEndBlock:(EndBlock)block

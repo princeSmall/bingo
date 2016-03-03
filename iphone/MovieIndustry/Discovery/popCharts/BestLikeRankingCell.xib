@@ -116,6 +116,7 @@
                 </variation>
             </tableViewCellContentView>
             <connections>
+                <outlet property="levelImgV" destination="Mjy-Jk-RqG" id="sga-Uh-gVb"/>
                 <outlet property="rankingImagV" destination="UHJ-Z3-jgN" id="inM-jp-GS5"/>
             </connections>
             <point key="canvasLocation" x="350" y="273"/>

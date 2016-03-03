@@ -10,7 +10,7 @@
 #import <Foundation/Foundation.h>
 
 @interface BaseViewController : UIViewController
-
+@property (nonatomic,strong)UIPanGestureRecognizer *panGes;
 /**
  *  设置标题
  *
