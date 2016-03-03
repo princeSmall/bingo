@@ -774,7 +774,7 @@
                     }else{
                         payOrder.goodsInfoArray = self.goodsInfoArray;
                         }
-                        payOrder.addressID = self.addressID;
+//                        payOrder.addressID = self.addressID;
                     [self.navigationController pushViewController:payOrder animated:YES];
 
     
