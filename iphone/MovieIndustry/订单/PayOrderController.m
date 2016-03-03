@@ -14,7 +14,7 @@
 @interface PayOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
 
-
+@property (nonatomic,strong)PayOrderBottomView * bottomView;
 
 @end
 
@@ -24,8 +24,8 @@
     [super viewDidLoad];
     [self setNavTabBar:@"支付订单"];
     //创建地址
-    [self createAddress];
     [self createTableView];
+    [self createAddress];
     [self loadData];
     // Do any additional setup after loading the view.
 }
@@ -34,7 +34,7 @@
  */
 - (void)createAddress{
 
-
+    self.bottomView.addressDic = self.addressDic;
 
 }
 
@@ -56,7 +56,7 @@
     
 
     PayOrderBottomView *bottomView = [[[NSBundle mainBundle]loadNibNamed:@"PayOrderBottomView" owner:self options:nil]lastObject];
-    
+    self.bottomView = bottomView;
     [bottomView  createMyTableViewAndEndBlock:^(NSString *type) {
         if ([type isEqualToString:@"0"]) {
             //支付宝

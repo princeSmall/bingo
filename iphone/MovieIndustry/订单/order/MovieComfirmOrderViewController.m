@@ -84,6 +84,8 @@
 @property (nonatomic,strong)ShopSendView * shop;
 @property (nonatomic,strong)UIView * bgView;
 
+@property (nonatomic,strong)NSMutableDictionary * addressDic;
+
 @end
 
 @implementation MovieComfirmOrderViewController
@@ -269,7 +271,7 @@
 - (void)viewDidLoad{
 
     [super viewDidLoad];
-    
+    self.addressDic = [NSMutableDictionary dictionary];
     ShopSendView * shop = [[ShopSendView alloc]initWithFrame:CGRectMake(0,kViewHeight, kViewWidth, 180) AndClickBlock:^(NSString *possType) {
         NSLog(@"%@",possType);
         self.expressLabel.text = possType;
@@ -355,16 +357,16 @@
                                 self.addressID = dic[@"shipping_address_id"];
                                 self.addressView.consigneeLabel.text = consigneeStr;
 
-
+                                self.addressDic[@"name"] = consigneeStr;
                                 NSString * addressStr = [NSString stringWithFormat:@"收货地址：%@%@%@",dic[@"province_name"],dic[@"city_name"],dic[@"district_name"]];
-                   
+                               
                                 NSMutableString * addStr = [NSMutableString string];
                                 [addStr appendString:addressStr];
                                 [addStr appendString:dic[@"addr_detail"]];
                                 self.addressView.addressLabel.text = addStr;
                                 self.addressView.phoneNumber.text = dic[@"mobile"];
-                        
-                        
+                                self.addressDic[@"address"] = addStr;
+                                self.addressDic[@"phone"] = dic[@"mobile"];
                         
                                 ///默认地址ID
                                 self.morenAddressID = dic[@"shipping_address_id"];
@@ -381,6 +383,7 @@
                                 NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2d",price]];
                                 [priceStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
                                 self.priceLab.attributedText = priceStr;
+                                self.addressDic[@"price"] = [NSString stringWithFormat:@"%d",price];
                             }
                         }
                     }
@@ -774,7 +777,7 @@
                     }else{
                         payOrder.goodsInfoArray = self.goodsInfoArray;
                         }
-                        payOrder.addressID = self.addressID;
+                        payOrder.addressDic = self.addressDic;
                     [self.navigationController pushViewController:payOrder animated:YES];
 
     
