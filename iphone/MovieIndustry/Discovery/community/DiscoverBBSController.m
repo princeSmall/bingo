@@ -10,7 +10,8 @@
 #import "MovieTalkToPersonViewController.h"
 #import "CollectPostCell.h"
 #import "NotisMesCell.h"
-
+#import "ClassifyPostController.h"
+#import "BBSFriendMsgCell.h"
 @interface DiscoverBBSController ()<UITableViewDelegate,UITableViewDataSource>
 {
     ///选中的按钮
@@ -30,7 +31,6 @@
 @end
 
 @implementation DiscoverBBSController
-static CGFloat *tbViewY;
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTabBar:@"社区"];
@@ -41,7 +41,7 @@ static CGFloat *tbViewY;
 {
     UIView *btnView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 45)];
     [self.view addSubview:btnView];
-    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(kViewWidth/5, 44, kViewWidth/5, 1)];
+    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(kViewWidth/5, 43, kViewWidth/5  + 40, 2)];
     _btnLine.backgroundColor = [UIColor redColor];
     [btnView addSubview:_btnLine];
     
@@ -117,15 +117,22 @@ static CGFloat *tbViewY;
         tagbtn.backgroundColor = [UIColor whiteColor];
         [tagbtn setTitle:tagArray[i] forState:UIControlStateNormal];
         [tagbtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [tagbtn addTarget:self action:@selector(tagBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     }
 }
-
+- (void) tagBtnClicked:(UIButton *) btn{
+    ClassifyPostController *controller = [[ClassifyPostController alloc] init];
+    controller.navTitle = btn.titleLabel.text;
+    [self.navigationController pushViewController:controller animated:YES];
+}
 ///返回cell的高度
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([_btnType isEqualToString:@"1"]) {
-        return 113+1;
-//        return 200;
+        if (self.msgType == BBSMsgTypeFromSystem) {
+            return 113+1;
+        }
+        return 130;
     }
     
     return 68;
@@ -134,7 +141,7 @@ static CGFloat *tbViewY;
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 6;
+    return 10;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -150,15 +157,30 @@ static CGFloat *tbViewY;
         return cell;
     }else if ([_btnType isEqualToString:@"1"])
     {
-        static NSString *cellID = @"NotisMesCellID";
-        NotisMesCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
-        if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"NotisMesCell" owner:nil options:nil] lastObject];
+        
+        if (indexPath.row %2 == 0) {
+            static NSString *cellID = @"NotisMesCellID";
+            NotisMesCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (!cell) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"NotisMesCell" owner:nil options:nil] lastObject];
+            }
+            cell.backgroundColor = [UIColor clearColor];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            self.msgType = BBSMsgTypeFromSystem;
+            return cell;
+        } else {
+            static NSString *cellID = @"friendCell";
+            NotisMesCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+            if (!cell) {
+                cell = [[[NSBundle mainBundle] loadNibNamed:@"BBSFriendMsgCell" owner:nil options:nil] lastObject];
+            }
+            cell.backgroundColor = [UIColor clearColor];
+            cell.selectionStyle = UITableViewCellSelectionStyleNone;
+            self.msgType = BBSMsgTypeFromFriend;
+
+            return cell;
         }
         
-        cell.backgroundColor = [UIColor clearColor];
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
-        return cell;
     }
     
     static NSString *cellID = @"teacherCellID";

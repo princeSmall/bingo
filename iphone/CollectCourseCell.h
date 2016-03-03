@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface CollectCourseCell : UITableViewCell
+@property (weak, nonatomic) IBOutlet UILabel *statusLbl;
 
 @end

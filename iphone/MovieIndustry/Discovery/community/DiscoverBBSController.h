@@ -7,7 +7,11 @@
 //
 
 #import "BaseViewController.h"
-
+typedef enum {
+    BBSMsgTypeFromFriend, // 朋友消息
+    BBSMsgTypeFromSystem // 系统消息
+} BBSMsgType;
 @interface DiscoverBBSController : BaseViewController
+@property (nonatomic, assign) BBSMsgType msgType;
 
 @end

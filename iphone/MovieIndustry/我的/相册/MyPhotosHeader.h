@@ -7,7 +7,12 @@
 //
 
 #import <UIKit/UIKit.h>
+@class MyPhotosHeader;
+@protocol MyPhotosHeaderDelegate <NSObject>
 
+- (void) MyPhotosHeader:(MyPhotosHeader *) header headBtn:(UIButton *) btn;
+
+@end
 @interface MyPhotosHeader : UIView
 //头像
 @property (weak, nonatomic) IBOutlet UIButton *headerImageView;
@@ -17,5 +22,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *professionLabel;
 //姓名
 @property (weak, nonatomic) IBOutlet UILabel *nameLabel;
+@property (nonatomic, weak) id <MyPhotosHeaderDelegate> delegate;
+
 
 @end
