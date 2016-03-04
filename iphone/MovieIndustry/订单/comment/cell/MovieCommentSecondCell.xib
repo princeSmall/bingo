@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -14,17 +15,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="259"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Syo-0D-gWH">
+                    <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Syo-0D-gWH">
                         <rect key="frame" x="18" y="20" width="20" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="DKQ-F4-s9X"/>
+                            <constraint firstAttribute="width" constant="20" id="UJa-sG-mkX"/>
+                        </constraints>
                         <state key="normal" image="choose_no">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="choose_yes"/>
                     </button>
-                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="fYc-cm-h4c">
+                    <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="fYc-cm-h4c">
                         <rect key="frame" x="46" y="15" width="65" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="Uw7-8W-dTi"/>
+                            <constraint firstAttribute="width" constant="65" id="Zsc-aC-TQW"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="45" maxY="5"/>
                         <state key="normal" title="好评" image="evaluation_good">
@@ -32,17 +39,23 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ZMb-OQ-oOq">
+                    <button opaque="NO" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ZMb-OQ-oOq">
                         <rect key="frame" x="140" y="20" width="20" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="9hi-GI-glX"/>
+                            <constraint firstAttribute="height" constant="20" id="JaD-aT-agA"/>
+                        </constraints>
                         <state key="normal" image="choose_no">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="choose_yes"/>
                     </button>
-                    <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Eay-8F-ViK">
+                    <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Eay-8F-ViK">
                         <rect key="frame" x="168" y="15" width="65" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="65" id="LLY-kp-5Ua"/>
+                            <constraint firstAttribute="height" constant="30" id="wI1-ka-97l"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="45" maxY="5"/>
                         <state key="normal" title="中评" image="evaluation_medium">
@@ -50,17 +63,23 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <button opaque="NO" tag="300" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="UNu-zJ-Xkj">
+                    <button opaque="NO" tag="300" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UNu-zJ-Xkj">
                         <rect key="frame" x="262" y="20" width="20" height="20"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="Erc-Fn-I80"/>
+                            <constraint firstAttribute="height" constant="20" id="ocL-O3-MvE"/>
+                        </constraints>
                         <state key="normal" image="choose_no">
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                         <state key="selected" image="choose_yes"/>
                     </button>
-                    <button opaque="NO" tag="301" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="Gif-kQ-QmI">
-                        <rect key="frame" x="285" y="15" width="65" height="30"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
+                    <button opaque="NO" tag="301" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Gif-kQ-QmI">
+                        <rect key="frame" x="285" y="15" width="70" height="30"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="70" id="AUF-YF-N4G"/>
+                            <constraint firstAttribute="height" constant="30" id="XUU-CH-3Yd"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <inset key="imageEdgeInsets" minX="0.0" minY="5" maxX="40" maxY="5"/>
                         <state key="normal" title="差评" image="evaluation_barely">
@@ -68,67 +87,56 @@
                             <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                         </state>
                     </button>
-                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" id="1bC-m4-TGA">
-                        <rect key="frame" x="20" y="60" width="191" height="102"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1bC-m4-TGA">
+                        <rect key="frame" x="20" y="60" width="229" height="102"/>
                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                     </textView>
-                    <view hidden="YES" tag="400" contentMode="scaleToFill" id="Zzc-u2-Wb7">
+                    <view hidden="YES" tag="400" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Zzc-u2-Wb7">
                         <rect key="frame" x="20" y="170" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="RGp-kz-jpR">
+                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RGp-kz-jpR">
                                 <rect key="frame" x="5" y="5" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.0" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="yKd-j2-3Q1">
+                            <button opaque="NO" alpha="0.0" tag="200" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yKd-j2-3Q1">
                                 <rect key="frame" x="60" y="0.0" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="choose_yes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                     </view>
-                    <view hidden="YES" tag="401" contentMode="scaleToFill" id="tgg-d5-fEi">
+                    <view hidden="YES" tag="401" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tgg-d5-fEi">
                         <rect key="frame" x="110" y="170" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="C9C-H1-TX6">
+                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="C9C-H1-TX6">
                                 <rect key="frame" x="5" y="5" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.0" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="nrv-pL-bRQ">
+                            <button opaque="NO" alpha="0.0" tag="200" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nrv-pL-bRQ">
                                 <rect key="frame" x="60" y="0.0" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="choose_yes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                     </view>
-                    <view hidden="YES" tag="402" contentMode="scaleToFill" id="Flz-C2-iFM">
+                    <view hidden="YES" tag="402" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Flz-C2-iFM">
                         <rect key="frame" x="200" y="170" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="t9f-Za-gmh">
+                            <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="t9f-Za-gmh">
                                 <rect key="frame" x="5" y="5" width="70" height="70"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
-                            <button opaque="NO" alpha="0.0" tag="200" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="kdC-Uo-FFC">
+                            <button opaque="NO" alpha="0.0" tag="200" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kdC-Uo-FFC">
                                 <rect key="frame" x="60" y="0.0" width="20" height="20"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="choose_yes">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                             </button>
                         </subviews>
                     </view>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="vBG-5m-Owf">
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vBG-5m-Owf">
                         <rect key="frame" x="262" y="60" width="105" height="102"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                         <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                         <inset key="imageEdgeInsets" minX="15" minY="20" maxX="15" maxY="20"/>
                         <state key="normal" image="evaluation_camera">
@@ -136,6 +144,28 @@
                         </state>
                     </button>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="Eay-8F-ViK" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.23" id="5lr-ZE-wsa"/>
+                    <constraint firstItem="1bC-m4-TGA" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.61" id="9Vk-fn-5TG"/>
+                    <constraint firstItem="fYc-cm-h4c" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.42" id="Bl9-qV-Nwy"/>
+                    <constraint firstItem="Gif-kQ-QmI" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.71" id="KbW-PC-FLK"/>
+                    <constraint firstItem="Syo-0D-gWH" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.15" id="QG1-vE-gvH"/>
+                    <constraint firstItem="vBG-5m-Owf" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.86" id="R76-ly-t0b"/>
+                    <constraint firstItem="1bC-m4-TGA" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.39" id="TEa-TU-hyz"/>
+                    <constraint firstItem="UNu-zJ-Xkj" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.23" id="TTT-vX-M79"/>
+                    <constraint firstItem="Gif-kQ-QmI" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.23" id="VOr-30-xhp"/>
+                    <constraint firstItem="ZMb-OQ-oOq" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.8" id="VeY-U5-nHh"/>
+                    <constraint firstItem="UNu-zJ-Xkj" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.45" id="bjY-Tj-X4i"/>
+                    <constraint firstItem="vBG-5m-Owf" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.68" id="ctv-h0-g0c"/>
+                    <constraint firstItem="1bC-m4-TGA" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.72" id="dDa-5a-nbb"/>
+                    <constraint firstItem="fYc-cm-h4c" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.23" id="hLi-W5-HqQ"/>
+                    <constraint firstItem="Eay-8F-ViK" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.07" id="iok-aQ-Yqj"/>
+                    <constraint firstItem="1bC-m4-TGA" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.86" id="jsg-9T-yZt"/>
+                    <constraint firstItem="ZMb-OQ-oOq" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.23" id="kWa-H1-G8e"/>
+                    <constraint firstItem="Syo-0D-gWH" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.23" id="ltd-cR-hII"/>
+                    <constraint firstItem="vBG-5m-Owf" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.39" id="riu-B6-eld"/>
+                    <constraint firstItem="vBG-5m-Owf" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.28" id="urG-EB-Kqa"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="barelyBtn1" destination="UNu-zJ-Xkj" id="sTh-7E-MCz"/>

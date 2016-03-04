@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="7706" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -13,25 +15,38 @@
                 <rect key="frame" x="0.0" y="0.0" width="375" height="99"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="came.png" id="FcL-2V-bBz">
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="came.png" translatesAutoresizingMaskIntoConstraints="NO" id="FcL-2V-bBz">
                         <rect key="frame" x="10" y="10" width="80" height="80"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="80" id="Ub7-Ox-WoX"/>
+                            <constraint firstAttribute="width" constant="80" id="qmY-MZ-9vJ"/>
+                        </constraints>
                     </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="意美捷/EMAGEG3D三脚架" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="gLo-p8-fzW">
-                        <rect key="frame" x="110" y="10" width="257" height="51"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="意美捷/EMAGEG3D三脚架" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gLo-p8-fzW">
+                        <rect key="frame" x="98" y="8" width="269" height="51"/>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥1250" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="nGg-11-XTB">
-                        <rect key="frame" x="110" y="69" width="129" height="21"/>
-                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥1250" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGg-11-XTB">
+                        <rect key="frame" x="98" y="67" width="197" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.83921568627450982" green="0.0" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
+                <constraints>
+                    <constraint firstItem="gLo-p8-fzW" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.51" id="4ka-es-D6a"/>
+                    <constraint firstItem="nGg-11-XTB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.05" id="72L-Tq-p19"/>
+                    <constraint firstItem="gLo-p8-fzW" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.715" id="7mp-xa-eas"/>
+                    <constraint firstItem="nGg-11-XTB" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.525" id="CDm-rZ-pl0"/>
+                    <constraint firstItem="nGg-11-XTB" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.21" id="IlT-c2-1wT"/>
+                    <constraint firstItem="gLo-p8-fzW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.24" id="Tsp-xS-Kbq"/>
+                    <constraint firstItem="nGg-11-XTB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="1.55" id="d7u-LB-mG4"/>
+                    <constraint firstItem="gLo-p8-fzW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.66" id="fHM-zU-h3P"/>
+                    <constraint firstItem="FcL-2V-bBz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.27" id="iQ9-xu-5CQ"/>
+                    <constraint firstItem="FcL-2V-bBz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uWp-Pw-W29"/>
+                </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="goodImg" destination="FcL-2V-bBz" id="1mY-pw-BPX"/>
@@ -44,9 +59,4 @@
     <resources>
         <image name="came.png" width="132" height="137"/>
     </resources>
-    <simulatedMetricsContainer key="defaultSimulatedMetrics">
-        <simulatedStatusBarMetrics key="statusBar"/>
-        <simulatedOrientationMetrics key="orientation"/>
-        <simulatedScreenMetrics key="destination" type="retina4"/>
-    </simulatedMetricsContainer>
 </document>

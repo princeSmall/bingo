@@ -647,8 +647,9 @@
         case 1:
         {
             [view.leftBtn setTitle:@"取消订单" forState:UIControlStateNormal];
-            [view.leftBtn addTarget:self action:@selector(cancelMineOrderAction:) forControlEvents:UIControlEventTouchUpInside];
-            
+//            [view.leftBtn addTarget:self action:@selector(cancelMineOrderAction:) forControlEvents:UIControlEventTouchUpInside];
+               [view.leftBtn addTarget:self action:@selector(applyRefundAction:) forControlEvents:UIControlEventTouchUpInside];
+//            applyRefundAction:
             UIColor *btnColor = RGBColor(251, 0, 6, 1);
             [view.rightBtn setTitle:@"付款" forState:UIControlStateNormal];
 //            [view.rightBtn setTitleColor:btnColor forState:UIControlStateNormal];
@@ -779,13 +780,14 @@
 //    [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
      [DeliveryUtility showMessage:@"二期开发中" target:nil];
     
-//    MyOrderShopModel *shopsModel = self.shopArray[sender.tag - 20000];
+//   MyOrderShopModel *shopsModel = self.shopArray[sender.tag - 20000];
 //    NSArray *array = self.dataArray[sender.tag - 20000];
-//    MovieCommentViewController *commentVC = [[MovieCommentViewController alloc] init];
+
+   MovieCommentViewController *commentVC = [[MovieCommentViewController alloc] init];
 //    commentVC.shopModel = shopsModel;
 //    commentVC.goodsModelArray = array;
-//    [commentVC setHidesBottomBarWhenPushed:YES];
-//    [self.navigationController pushViewController:commentVC animated:YES];
+    [commentVC setHidesBottomBarWhenPushed:YES];
+   [self.navigationController pushViewController:commentVC animated:YES];
 }
 
 

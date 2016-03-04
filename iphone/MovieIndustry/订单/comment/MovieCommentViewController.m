@@ -131,7 +131,7 @@
                     }
                 }
                 
-                NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys: nil];
+                NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
                 HHNSLog(@"%@",userDict);
                 
                 
