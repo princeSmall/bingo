@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface FilmTimeLineCell : UITableViewCell
-
++ (instancetype) cellWithTable:(UITableView *) tableView;
 @end

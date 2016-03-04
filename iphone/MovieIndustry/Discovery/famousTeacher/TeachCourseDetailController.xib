@@ -5,7 +5,7 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TeachCourseDetailController">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner">
             <connections>
                 <outlet property="mediaPlayerContentV" destination="avP-ph-kS1" id="lFA-mq-OXt"/>
                 <outlet property="mediaPlayerImageV" destination="d8r-Gc-U8z" id="zRK-Ry-Ncb"/>

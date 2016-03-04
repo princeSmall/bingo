@@ -1,18 +1,17 @@
 //
-//  NewMessageCell.m
+//  ClassifyPostDetailHeadCell.m
 //  MovieIndustry
 //
-//  Created by 石冬冬 on 16/3/2.
+//  Created by 石冬冬 on 16/3/4.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 
-#import "NewMessageCell.h"
+#import "ClassifyPostDetailHeadCell.h"
 
-@implementation NewMessageCell
+@implementation ClassifyPostDetailHeadCell
 
 - (void)awakeFromNib {
-    ViewBorderRadius(self.msgContentV, 23, 0, [UIColor blackColor]);
-    ViewBorderRadius(self.msgIconV, 21, 0.5, [UIColor whiteColor]);
+    // Initialization code
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

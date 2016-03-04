@@ -13,6 +13,7 @@
 #import "ClassifyPostController.h"
 #import "BBSFriendMsgCell.h"
 #import "MyPostController.h"
+#import "CreatingNewClassController.h"
 @interface DiscoverBBSController ()<UITableViewDelegate,UITableViewDataSource>
 {
     ///选中的按钮
@@ -138,7 +139,10 @@
         }
             
             break;
-        case 2:
+        case 2: {
+            CreatingNewClassController *controller = [[CreatingNewClassController alloc] init];
+            [self.navigationController pushViewController:controller animated:YES];
+        }
             
             break;
        

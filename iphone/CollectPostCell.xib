@@ -15,7 +15,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="想租一台Industrial camera!" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aiS-lQ-Sb8">
-                        <rect key="frame" x="46" y="6" width="321" height="21"/>
+                        <rect key="frame" x="46" y="5" width="321" height="21"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="21" id="fME-yV-abT"/>
                         </constraints>
@@ -39,11 +39,11 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="精华" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dEu-7S-44T">
-                        <rect key="frame" x="8" y="8" width="30" height="17"/>
+                        <rect key="frame" x="8" y="8" width="30" height="15"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="30" id="vjB-fB-he9"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <fontDescription key="fontDescription" type="system" weight="light" pointSize="12"/>
                         <color key="textColor" red="1" green="0.0056100399749999998" blue="0.1069157119" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>

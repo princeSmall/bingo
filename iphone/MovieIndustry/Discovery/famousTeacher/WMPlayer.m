@@ -78,8 +78,8 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         self.playOrPauseBtn = [UIButton buttonWithType:UIButtonTypeCustom];
         self.playOrPauseBtn.showsTouchWhenHighlighted = YES;
         [self.playOrPauseBtn addTarget:self action:@selector(PlayOrPause:) forControlEvents:UIControlEventTouchUpInside];
-        [self.playOrPauseBtn setImage:[UIImage imageNamed:@"pause"] forState:UIControlStateNormal];
-        [self.playOrPauseBtn setImage:[UIImage imageNamed:@"play"]  forState:UIControlStateSelected];
+        [self.playOrPauseBtn setImage:[UIImage imageNamed:@"pause"]  forState:UIControlStateNormal];
+        [self.playOrPauseBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateSelected];
         [self.bottomView addSubview:self.playOrPauseBtn];
         //autoLayout _playOrPauseBtn
         [self.playOrPauseBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -125,7 +125,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         //slider
         self.progressSlider = [[UISlider alloc]init];
         self.progressSlider.minimumValue = 0.0;
-        [self.progressSlider setThumbImage:[UIImage imageNamed:@"dot"] forState:UIControlStateNormal];
+        [self.progressSlider setThumbImage:[UIImage imageNamed:@"dot"]   forState:UIControlStateNormal];
         self.progressSlider.minimumTrackTintColor = [UIColor greenColor];
         self.progressSlider.value = 0.0;//指定初始值
         [self.progressSlider addTarget:self action:@selector(updateProgress:) forControlEvents:UIControlEventTouchUpInside];
@@ -144,7 +144,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         self.fullScreenBtn.showsTouchWhenHighlighted = YES;
         [self.fullScreenBtn addTarget:self action:@selector(fullScreenAction:) forControlEvents:UIControlEventTouchUpInside];
         [self.fullScreenBtn setImage:[UIImage imageNamed:@"fullscreen"] forState:UIControlStateNormal];
-        [self.fullScreenBtn setImage:[UIImage imageNamed:@"nonfullscreen"] forState:UIControlStateSelected];
+        [self.fullScreenBtn setImage:[UIImage imageNamed:@"nonfullscreen"]  forState:UIControlStateSelected];
         [self.bottomView addSubview:self.fullScreenBtn];
         //autoLayout fullScreenBtn
         [self.fullScreenBtn mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -181,7 +181,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
         _closeBtn.showsTouchWhenHighlighted = YES;
         [_closeBtn addTarget:self action:@selector(colseTheVideo:) forControlEvents:UIControlEventTouchUpInside];
         [_closeBtn setImage:[UIImage imageNamed:@"close"]  forState:UIControlStateNormal];
-        [_closeBtn setImage:[UIImage imageNamed:@"close"]  forState:UIControlStateSelected];
+        [_closeBtn setImage:[UIImage imageNamed:@"close"] forState:UIControlStateSelected];
         _closeBtn.layer.cornerRadius = 30/2;
         [self addSubview:_closeBtn];
         
