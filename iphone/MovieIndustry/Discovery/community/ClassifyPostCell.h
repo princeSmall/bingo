@@ -12,5 +12,5 @@
 @property (weak, nonatomic) IBOutlet UIView *imageContentV;
 @property (weak, nonatomic) IBOutlet UIImageView *iconImageV;
 @property (weak, nonatomic) IBOutlet UIButton *levelBtn;
-
+@property (nonatomic, strong) NSMutableArray *imageArray;
 @end

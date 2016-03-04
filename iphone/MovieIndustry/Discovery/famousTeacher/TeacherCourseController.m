@@ -100,20 +100,22 @@
     if ([_btnType isEqualToString:@"0"]) {
         static NSString *cellID = @"teacherCellID";
         CollectCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"CollectCourseCell" owner:nil options:nil] lastObject];
         }
-        
+        cell.statusLbl.hidden = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }else if ([_btnType isEqualToString:@"1"])
     {
         static NSString *cellID = @"teacherCellID";
         CollectCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+        
         if (!cell) {
             cell = [[[NSBundle mainBundle] loadNibNamed:@"CollectCourseCell" owner:nil options:nil] lastObject];
         }
-        
+        cell.statusLbl.hidden = YES;
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -123,10 +125,11 @@
     
     static NSString *cellID = @"teacherCellID";
     CollectCourseCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
+    
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"CollectCourseCell" owner:nil options:nil] lastObject];
     }
-    
+    cell.statusLbl.hidden = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
     

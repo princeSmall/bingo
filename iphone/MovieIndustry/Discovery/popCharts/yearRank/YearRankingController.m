@@ -76,7 +76,7 @@
         
         [cell.contentView addSubview:imageView];
     }
-    
+    cell.statusLbl.hidden = YES;
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
