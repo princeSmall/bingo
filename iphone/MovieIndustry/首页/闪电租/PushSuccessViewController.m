@@ -17,7 +17,7 @@
 @implementation PushSuccessViewController
 - (IBAction)successBtnClick:(id)sender {
     
-    [self.navigationController popViewControllerAnimated:YES];
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)viewDidLoad {

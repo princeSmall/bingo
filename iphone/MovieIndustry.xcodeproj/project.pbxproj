@@ -807,6 +807,7 @@
 		D30019BC1C60AF490090A0DD /* OrderDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D30019BB1C60AF490090A0DD /* OrderDataModel.m */; };
 		D3332F831C5F5D7400FA7CFB /* OrderGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3332F821C5F5D7400FA7CFB /* OrderGoodsModel.m */; };
 		D3332F861C5F5E6400FA7CFB /* OrderShopModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D3332F851C5F5E6400FA7CFB /* OrderShopModel.m */; };
+		D35E24231C895F070091C4E5 /* LightRentContentModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D35E24221C895F070091C4E5 /* LightRentContentModel.m */; };
 		D368E42F1C7419E200A87532 /* ShopGoodsModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D368E42E1C7419E200A87532 /* ShopGoodsModel.m */; };
 		D368E4341C741E5200A87532 /* ShopGoodsCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D368E4321C741E5200A87532 /* ShopGoodsCell.m */; };
 		D368E4351C741E5200A87532 /* ShopGoodsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D368E4331C741E5200A87532 /* ShopGoodsCell.xib */; };
@@ -2172,6 +2173,8 @@
 		D3332F821C5F5D7400FA7CFB /* OrderGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderGoodsModel.m; sourceTree = "<group>"; };
 		D3332F841C5F5E6400FA7CFB /* OrderShopModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OrderShopModel.h; sourceTree = "<group>"; };
 		D3332F851C5F5E6400FA7CFB /* OrderShopModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = OrderShopModel.m; sourceTree = "<group>"; };
+		D35E24211C895F070091C4E5 /* LightRentContentModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LightRentContentModel.h; sourceTree = "<group>"; };
+		D35E24221C895F070091C4E5 /* LightRentContentModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LightRentContentModel.m; sourceTree = "<group>"; };
 		D368E42D1C7419E200A87532 /* ShopGoodsModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopGoodsModel.h; sourceTree = "<group>"; };
 		D368E42E1C7419E200A87532 /* ShopGoodsModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopGoodsModel.m; sourceTree = "<group>"; };
 		D368E4311C741E5200A87532 /* ShopGoodsCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopGoodsCell.h; sourceTree = "<group>"; };
@@ -3855,6 +3858,7 @@
 		8482950A1C0E9AB700452BF9 /* 闪电租 */ = {
 			isa = PBXGroup;
 			children = (
+				D35E24201C895EAD0091C4E5 /* model */,
 				D372F1961C59F45B00FA363B /* 抢购记录 */,
 				8482950B1C0E9AB700452BF9 /* cell */,
 				848295161C0E9AB700452BF9 /* LightningRentController.h */,
@@ -5078,6 +5082,15 @@
 			name = model;
 			sourceTree = "<group>";
 		};
+		D35E24201C895EAD0091C4E5 /* model */ = {
+			isa = PBXGroup;
+			children = (
+				D35E24211C895F070091C4E5 /* LightRentContentModel.h */,
+				D35E24221C895F070091C4E5 /* LightRentContentModel.m */,
+			);
+			name = model;
+			sourceTree = "<group>";
+		};
 		D368E4301C741E3300A87532 /* cell */ = {
 			isa = PBXGroup;
 			children = (
@@ -6085,6 +6098,7 @@
 				252C4FF51C86DFB80081972A /* TeacherDetialMsgController.m in Sources */,
 				252C4F8F1C868BBF0081972A /* ClassifyPostController.m in Sources */,
 				8482942D1C0E96C500452BF9 /* MJRefreshFooter.m in Sources */,
+				D35E24231C895F070091C4E5 /* LightRentContentModel.m in Sources */,
 				00A34F381C7D9E7600707673 /* ShopSendView.m in Sources */,
 				A26BF2B11BFD906A009D65C4 /* MovieRefundMoneyViewController.m in Sources */,
 				8482954E1C0E9AB700452BF9 /* SearchCollectionCell.m in Sources */,

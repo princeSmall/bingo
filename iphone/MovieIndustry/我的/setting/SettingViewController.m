@@ -18,7 +18,10 @@
 
 
 @interface SettingViewController ()<UIAlertViewDelegate>
-
+/**
+ *  是否点击退出登录  是 为yes; 否  为no
+ */
+@property (nonatomic,assign)BOOL existFlag;
 @end
 
 @implementation SettingViewController
@@ -29,7 +32,6 @@
     NSUInteger intg = [[SDImageCache sharedImageCache] getSize];
     NSString * currentVolum = [NSString stringWithFormat:@"%@",[self fileSizeWithInterge:intg]];
     self.clearCacheLabel.text = [NSString stringWithFormat:@"%@",currentVolum];
-    
     [self setNavTabBar:@"设置"];
 }
 - (void)backAction
@@ -38,7 +40,13 @@
 }
 
 
-
+-(void)viewDidAppear:(BOOL)animated
+{
+    if(self.existFlag==YES)
+    {
+        [self.navigationController popToRootViewControllerAnimated:YES];
+    }
+}
 
 #pragma mark - 我要开店
 - (IBAction)createMineShopAction:(UIButton *)sender {
@@ -119,19 +127,14 @@
 #pragma mark - 退出登录
 - (IBAction)quietLoginAction:(UIButton *)sender {
     
-
+    self.existFlag = YES;
     LoginInController *loginVc = [[LoginInController alloc] init];
     UINavigationController *navLogin = [[UINavigationController alloc] initWithRootViewController:loginVc];
     [self.navigationController presentViewController:navLogin animated:YES completion:^{
-          APP_DELEGATE.user_id = nil;
+        APP_DELEGATE.user_id = nil;
         [UserLoginModel ArchiveUser:nil];
     }];
-//    [self presentViewController:loginVc animated:YES completion:^{
-//        UINavigationController *navLogin = [[UINavigationController alloc] initWithRootViewController:loginVc];
-//    
-  
-//    [UIApplication sharedApplication].keyWindow.rootViewController = navLogin;
-//    }];
+;
 }
 
 - (void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex
