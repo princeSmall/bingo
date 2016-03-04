@@ -14,4 +14,6 @@
 ///店铺ID
 @property (nonatomic,copy) NSString *shopID;
 
+@property (nonatomic,strong)NSString * isShop;
+
 @end

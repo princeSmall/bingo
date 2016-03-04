@@ -10,4 +10,7 @@
 
 @interface SearchShopResultController : BaseViewController
 @property (nonatomic,copy) NSString *shopId;
+
+@property (nonatomic,strong)NSString * isShop;
+
 @end

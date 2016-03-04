@@ -509,9 +509,9 @@ typedef void (^babyClassify)(void);
             self.searchHeaderView.shopNameLabel.text = shopModel.shop_name;
             
             UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.searchHeaderView.shopNameLabel.frame)-50,self.searchHeaderView.shopNameLabel.frame.origin.y-10 , 30, 30)];
-//            imageView.image = [UIImage imageNamed:@"shop_03"];
+            imageView.image = [UIImage imageNamed:@"shop_03"];
 //            
-//            [self.searchHeaderView addSubview:imageView];
+           [self.searchHeaderView addSubview:imageView];
             
             self.searchHeaderView.shopAddressLabel.text = shopModel.shop_addr_detail;
             self.searchHeaderView.shopPhoneLabel.text = shopModel.shop_tel;
@@ -827,11 +827,10 @@ typedef void (^babyClassify)(void);
     [view addSubview:navLabel];
     [view addSubview:navImage];
     [view addSubview:textField];
-    //    [view addSubview:navBtn];
     [view addSubview:searchArticleBtn];
     //设置头部的View
 #warning 搜索暂时隐藏
-//    self.navigationItem.titleView = view;
+    self.navigationItem.titleView = view;
 }
 
 #pragma mark - 搜索店铺内的宝贝
@@ -875,7 +874,15 @@ typedef void (^babyClassify)(void);
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ShopGoodsModel *model = self.dataArray[indexPath.row];
+    
+
+    
     MovieGoodsInfoViewController *goodsDescVc = [[MovieGoodsInfoViewController alloc] init];
+    
+    if (!self.isShop) {
+        goodsDescVc.isShop = @"ture";
+
+    }
     goodsDescVc.shopID = self.shopId;
     goodsDescVc.goodsId = model.goods_id;
     [self.navigationController pushViewController:goodsDescVc animated:YES];

@@ -24,7 +24,7 @@
 //押金label
 @property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
-
 - (void)config:(NSDictionary *)model;
+
 
 @end

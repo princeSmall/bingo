@@ -53,7 +53,7 @@
                 NSDictionary * dic = result[@"data"];
                 NSArray * goodArray = dic[@"order_goods"][0][@"shop_goods"];
                 NSMutableDictionary * addressDic = [NSMutableDictionary dictionary];
-                addressDic[@"name"] = dic[@"consignee_name"];
+                addressDic[@"name"] = [NSString stringWithFormat:@"收货人：%@",dic[@"consignee_name"]];
                 addressDic[@"address"] = [NSString stringWithFormat:@"收货地址：%@%@%@%@",dic[@"province_name"],dic[@"city_name"],dic[@"district_name"],dic[@"address"]];
                 addressDic[@"phone"] = dic[@"contact_phone"];
                 addressDic[@"price"] = self.orderPayDic[@"price"];

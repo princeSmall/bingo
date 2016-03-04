@@ -633,11 +633,6 @@
     self.bottomView = [WNController createViewFrame:CGRectMake(0, kViewHeight-50+20, kViewWidth, 50)];
     //    UIButton *btn1  = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth/4, 50) ImageName:@"goodInfo_message" Target:self Action:@selector(sendMessageToCustomerService:) Title:@""];
     //    [self.bottomView addSubview:btn1];
-    
-    //    UIButton *btn2  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/4, 0, kViewWidth/4, 50) ImageName:@"goodInfo_shop" Target:self Action:@selector(enterGoodMainShop:) Title:@""];
-    //    [btn2 setImageEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 15)];
-    //    [self.bottomView addSubview:btn2];
-    
     UIButton *btn2  = [WNController createButtonWithFrame:CGRectMake(40, 0, 50, 50) ImageName:@"goodInfo_shop" Target:self Action:@selector(enterGoodMainShop:) Title:@""];
     [btn2 setImageEdgeInsets:UIEdgeInsetsMake(0, -15, 0, 15)];
     [self.bottomView addSubview:btn2];
@@ -670,6 +665,7 @@
 {
     SearchShopResultController *shopVc = [[SearchShopResultController alloc] init];
     shopVc.shopId = self.shopID;
+    shopVc.isShop = @"ture";
     [self.navigationController pushViewController:shopVc animated:YES];
     NSLog(@"商品所在店铺被点击");
 }
@@ -860,12 +856,12 @@
     HHNSLog(@"立即租用此商品被点击");
     //显示选择分类
     
-    if ([self.goodsMaxBought isEqualToString:@"0"]) {
-//        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
-          [DeliveryUtility showMessage:@"亲，没有库存啦" target:nil];
+    if ([self.goodsMaxBought isEqualToString:@"0"])
+    {
+    [DeliveryUtility showMessage:@"亲，没有库存啦" target:nil];
     }else
     {
-        [self showSelectGoodsAttr:@"1"];
+    [self showSelectGoodsAttr:@"1"];
     }
     
 }

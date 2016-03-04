@@ -315,7 +315,7 @@
         return self.commentArray.count;
     }
     if ([self.btnType isEqualToString:@"0"]) {
-        return 1;
+        return 0;
     }
     return 0;
 }
@@ -351,8 +351,8 @@
         }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         
-        GoodsCommentModel *goodsModel = self.commentArray[indexPath.row];
-        [cell config:goodsModel];
+//        GoodsCommentModel *goodsModel = self.commentArray[indexPath.row];
+//        [cell config:goodsModel];
         return cell;
     }
     
@@ -612,7 +612,7 @@
     #warning 这边的分享 被干掉了  记得打开
     #warning 这边的分享 被干掉了  记得打开
     
-//    [self.view addSubview:rightBtn];
+    [self.view addSubview:rightBtn];
 }
 
 #pragma mark - 商品分类选择信息
@@ -699,10 +699,13 @@
     [self.bottomView addSubview:btn1];
     
 
-    
-    UIButton *btn2  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/4, 0, kViewWidth/4, 50) ImageName:@"goodInfo_shop" Target:self Action:@selector(enterGoodMainShop:) Title:@""];
-    [btn2 setImageEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 12)];
-    [self.bottomView addSubview:btn2];
+        if (self.isShop) {
+            
+        }else{
+            UIButton *btn2  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/4, 0, kViewWidth/4, 50) ImageName:@"goodInfo_shop" Target:self Action:@selector(enterGoodMainShop:) Title:@""];
+            [btn2 setImageEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 12)];
+            [self.bottomView addSubview:btn2];
+        }
     
     UIButton *btn3  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/2, 0, kViewWidth/4, 50) ImageName:@"" Target:self Action:@selector(addGoodInMineShopCar:) Title:@"加入购物车" fontSize:(kViewWidth<375?14:16)];
     
@@ -1189,14 +1192,5 @@
 
 
 
-/*
- #pragma mark - Navigation
- 
- // In a storyboard-based application, you will often want to do a little preparation before navigation
- - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
- // Get the new view controller using [segue destinationViewController].
- // Pass the selected object to the new view controller.
- }
- */
 
 @end

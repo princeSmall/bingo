@@ -410,29 +410,6 @@
 {
 //    [PromptLabel custemAlertPromAddView:self.view text:@"已支付订单，如要取消须联系商家"];
      [DeliveryUtility showMessage:@"已支付订单，如要取消须联系商家" target:nil];
-    
-//    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:APP_DELEGATE.user_id,@"user_id",self.order_id,@"order_id", @"0",@"status", nil];
-//    [HttpRequestServers requestBaseUrl:TIOrder_ConfirmOrder withParams:userDict withRequestFinishBlock:^(id result) {
-//        NSDictionary *dict = result;
-//        HHNSLog(@"%@",dict);
-//        @try {
-//            if ([dict[@"code"] intValue] == 0) {
-//                
-//                [PromptLabel custemAlertPromAddView:self.view text:@"取消订单成功"];
-//                [self.navigationController popViewControllerAnimated:YES];
-//            }
-//        }
-//        @catch (NSException *exception) {
-//            
-//        }
-//        @finally {
-//            
-//        }
-//        
-//        
-//    } withFieldBlock:^{
-//        
-//    }];
 }
 
 #pragma mark - 查看订单物流按钮被点击

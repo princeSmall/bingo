@@ -56,18 +56,15 @@
 
 - (void)setNavRightImage:(NSString *)rightImage rightAction:(SEL)rightAction
 {
-#warning 这边分享
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 30, 30)];
+    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
+    [rightBtn setImage:[UIImage imageNamed:rightImage] forState:UIControlStateNormal];
+    //添加点击事件
+    [rightBtn addTarget:self action:rightAction forControlEvents:UIControlEventTouchUpInside];
     
-#warning 干掉分享
-//    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 30, 30)];
-//    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
-//    [rightBtn setImage:[UIImage imageNamed:rightImage] forState:UIControlStateNormal];
-//    //添加点击事件
-//    [rightBtn addTarget:self action:rightAction forControlEvents:UIControlEventTouchUpInside];
-//    
-//    //设置TabBar右边的按钮
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-//    [self.navigationItem setRightBarButtonItem:rightItem];
+    //设置TabBar右边的按钮
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [self.navigationItem setRightBarButtonItem:rightItem];
 
 }
 
@@ -75,16 +72,16 @@
 #pragma mark - 设置导航栏右边的按钮
 - (void)setNavRightItem:(NSString *)rightTitle rightAction:(SEL)rightAction
 {
-//    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 45, 25)];
-//    [rightBtn setTitle:rightTitle forState:UIControlStateNormal];
-//    rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
-//    //添加点击事件
-//    [rightBtn addTarget:self action:rightAction forControlEvents:UIControlEventTouchUpInside];
-//    [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -12)];
-//    
-//    //设置TabBar左边的按钮
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-//    [self.navigationItem setRightBarButtonItem:rightItem];
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 45, 25)];
+    [rightBtn setTitle:rightTitle forState:UIControlStateNormal];
+    rightBtn.titleLabel.font = [UIFont systemFontOfSize:15];
+    //添加点击事件
+    [rightBtn addTarget:self action:rightAction forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -12)];
+    
+    //设置TabBar左边的按钮
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [self.navigationItem setRightBarButtonItem:rightItem];
 }
 
 //返回上一层
@@ -114,7 +111,7 @@
         return NO;
     }
     
-    return YES;
+    return NO;
 }
 
 

@@ -871,12 +871,27 @@
     dict[@"pay_id"] = @"1";
     OrderDataModel * dataModel = self.dataArray[a];
     dict[@"order_id"] = dataModel.order_id;
-    dict[@"price"] = self.priceLabelText;
+    
+    OrderDataModel *order = self.dataArray[a];
+    NSArray *array =  order.order_shops;
+    NSArray *arrGoods = array[0][@"shop_goods"];
+    int number =0;
+    int amount = 0;
+    if (arrGoods.count>0) {
+
+        for(NSDictionary *goodsDict in arrGoods)
+        {
+#warning 写死的数据
+            number += [goodsDict[@"goods_number"] intValue];
+            amount += [goodsDict[@"goods_number"] intValue] *([goodsDict[@"goods_price"] intValue] + 100);
+        }
+    dict[@"price"] = [NSString stringWithFormat:@"%.2f",(float)amount];
+    
     PayOrderController * order = [[PayOrderController alloc]init];
     order.orderPayDic = dict;
     [self.navigationController pushViewController:order animated:YES];
 }
-
+}
 #pragma mark - 取消订单
 - (void)warnSenderMineOrder:(UIButton *)button
 {

@@ -124,7 +124,7 @@
     
     [self setNavTabBar];
     
-    [self createUI];
+    [self.view addSubview:self.tbView];
     
     [self loadHotWord];
     
@@ -139,15 +139,12 @@
         NSDictionary *dict = result;
         HHNSLog(@"%@",dict);
         if ([dict[@"status"] isEqualToString:@"f99"]) {
-            
             NSArray *listArray = dict[@"list"];
             for (NSDictionary *infoDict in listArray) {
                 [self.hotWordArray addObject:infoDict[@"value"]];
             }
             [_tbView reloadData];
         }
-        
-        
     } withFieldBlock:^{
         
     }];
@@ -238,9 +235,7 @@
         if (![self.searchTextField.text isEqualToString:@""]) {
             [NSUserManager SetSearchText:self.searchTextField.text andKey:@"babySearchHistory"];
         }
-        
-        
-        
+
         SearchResultController *searchResultVc = [[SearchResultController alloc] init];
         searchResultVc.searchWords = self.searchTextField.text;
         [self.navigationController pushViewController:searchResultVc animated:YES];

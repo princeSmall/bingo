@@ -285,7 +285,32 @@
     bgView.alpha = 0.3;
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeTapGesAction)];
     [bgView addGestureRecognizer:tapGes];
+    
 }
+
+- (void)setBottmPrice{
+
+    if(self.model){
+        CGFloat  price = [self.model.goods_price intValue] * [self.goodsCount intValue] + [self.model.goods_deposit intValue] * [self.goodsCount intValue];
+        self.addressDic[@"price"] = [NSString stringWithFormat:@"%.2f",price];
+        NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2f",price]];
+        [priceStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
+        self.priceLab.attributedText = priceStr;
+    }else{
+        int count = 0;
+        CGFloat price1;
+        for (CartGood * good in self.goodsInfoArray) {
+            count += [good.goods_number intValue];
+            price1 += [good.goods_price intValue] * [good.goods_number intValue] +[good.goods_deposit intValue] * [good.goods_number intValue];
+        }
+        self.addressDic[@"price"] = [NSString stringWithFormat:@"%.2f",price1];
+        NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2f",price1]];
+        [priceStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
+        self.priceLab.attributedText = priceStr;
+    }
+}
+
+
 
 #pragma mark - 选择收货地址
 - (void)chooseAddressButtonAction
@@ -383,7 +408,6 @@
                                 NSMutableAttributedString *priceStr = [[NSMutableAttributedString alloc] initWithString:[NSString stringWithFormat:@"合计:￥%.2d",price]];
                                 [priceStr addAttribute:NSForegroundColorAttributeName value:[UIColor blackColor] range:NSMakeRange(0, 3)];
                                 self.priceLab.attributedText = priceStr;
-                                self.addressDic[@"price"] = [NSString stringWithFormat:@"%d",price];
                             }
                         }
                     }
@@ -425,7 +449,7 @@
     self.mainTableView.tableFooterView.frame = CGRectMake(0, 0, kViewWidth, 60);
     
 #warning 积分管理页面
-//    self.mainTableView.tableFooterView = [self CreateScoreView];
+    self.mainTableView.tableFooterView = [self CreateScoreView];
     if (self.isHaveAddress==YES) {
         self.mainTableView.tableHeaderView = self.addressView;
     }else if(self.isHaveAddress == NO){
@@ -460,6 +484,7 @@
     [bottomView addSubview:self.priceLab];
     //
     [self.view addSubview:bottomView];
+    [self setBottmPrice];
 }
 
 
@@ -709,6 +734,7 @@
             PayOrderController * payOrder = [[PayOrderController alloc]init];
             payOrder.payDict = dict;
             payOrder.goodsInfoArray = self.goodsInfoArray;
+            payOrder.addressDic = self.addressDic;
             [self.navigationController pushViewController:payOrder animated:YES];
 
             }else{

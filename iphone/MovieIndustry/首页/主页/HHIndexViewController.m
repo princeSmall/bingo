@@ -465,8 +465,7 @@
     
     
     if (indexPath.section == 0) {
-//        return 45;
-        return 0;
+       return 45;
     }
     if (indexPath.section == 1 )
         {
@@ -539,10 +538,7 @@
         UIButton *btn = [UIButton buttonWithType:UIButtonTypeCustom];
         btn.frame = CGRectMake(0, 0, kViewWidth, 45);
         [btn addTarget:self action:@selector(searchVcAction) forControlEvents:UIControlEventTouchUpInside];
-//        [cell.contentView addSubview:btn];
-//
-        cell.contentView.hidden = YES;
-        
+        [cell.contentView addSubview:btn];
         return cell;
         
     }else if (indexPath.section == 1) {
