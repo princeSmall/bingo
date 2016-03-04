@@ -34,7 +34,7 @@
     indexVc.tabBarItem.selectedImage = [[UIImage imageNamed:@"index_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     indexVc.tabBarItem.imageInsets = UIEdgeInsetsMake(-2, 0, 2, 0);
     UINavigationController *nc1 = [[UINavigationController alloc] initWithRootViewController:indexVc];
-    
+    APP_DELEGATE.tbbC = self;
     HHOrderViewController *orderVc = [[HHOrderViewController alloc] init];
     orderVc.tabBarItem.title = @"订单";
     orderVc.tabBarItem.image = [[UIImage imageNamed:@"order_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
@@ -58,7 +58,7 @@
     UINavigationController *nc4 = [[UINavigationController alloc] initWithRootViewController:meVc];
     
     
-    ////设置了avigationbar 会使self.automaticallyAdjustsScrollViewInsets = NO失效
+    ////设置了navigationbar 会使self.automaticallyAdjustsScrollViewInsets = NO失效
     nc1.navigationBar.barTintColor=kNavBarColor;
     nc1.navigationBar.translucent=NO;
     nc2.navigationBar.barTintColor=kNavBarColor;

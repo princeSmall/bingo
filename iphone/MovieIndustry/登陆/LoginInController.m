@@ -11,6 +11,7 @@
 #import "MainTabBarController.h"
 #import "CustomDatePickView.h"
 #import "MovieHelperDetailViewController.h"
+#import "HHIndexViewController.h"
 
 @interface LoginInController ()<UITextFieldDelegate>
 @property (nonatomic,copy) NSString *codeString;
@@ -172,9 +173,12 @@
                                 model.phoneNumber = self.phoneTextField.text;
                                 APP_DELEGATE.user_id = model.user_id;
                                 [UserLoginModel ArchiveUser:model];
+                                
                                 [self.view endEditing:YES];
-//                                        [PromptLabel custemAlertPromAddView:self.view text:@"登陆成功！"];
                                  [DeliveryUtility showMessage:@"登陆成功！" target:nil];
+                                
+                                [self dismissViewControllerAnimated:YES completion:nil];
+                                APP_DELEGATE.tbbC .selectedViewController = APP_DELEGATE.tbbC.viewControllers[0];
                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     [self dismissViewControllerAnimated:YES completion:nil];
                                 });
@@ -310,9 +314,12 @@
 
 - (void)backAction
 {
-     [self.view endEditing:YES];
-//    [self.navigationController popViewControllerAnimated:YES];
+    [self.view endEditing:YES];
+
     [self dismissViewControllerAnimated:YES completion:nil];
+    APP_DELEGATE.tbbC .selectedViewController = APP_DELEGATE.tbbC.viewControllers[0];
+
+
 }
 
 //跳转到帮助页面

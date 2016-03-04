@@ -17,7 +17,7 @@
 //收货地址单类
 @property (nonatomic,strong) NSString * addressPalce;
 
-
+@property (nonatomic,strong) UITabBarController *tbbC;
 
 @end
 

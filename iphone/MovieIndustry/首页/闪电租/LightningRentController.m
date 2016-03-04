@@ -16,6 +16,7 @@
 #import "TimeSelectView.h"
 #import "CityModel.h"
 #import "HHLocationService.h"
+#import "LightRentContentModel.h"
 
 #define DEFAULT_PLACEHOLD @"请输入备注信息(限5~100字)"
 #define PLACEHOLD_COLOR   RGBColor(187, 187, 190, 1)
@@ -100,12 +101,22 @@
 
 //位置管理器
 @property (nonatomic,strong) HHLocationService *locationManager;
-
-
+/**
+ *  发布详情模型
+ */
+@property (nonatomic,strong) LightRentContentModel *rentModel;
 @end
 
 @implementation LightningRentController
 
+-(LightRentContentModel *)rentModel
+{
+    if(!_rentModel)
+    {
+        _rentModel = [[LightRentContentModel alloc]init];
+    }
+    return _rentModel;
+}
 //历史记录数组  本地文件存储
 - (NSMutableArray *)historyCityArray
 {
@@ -548,39 +559,39 @@
     NSLog(@"确定发布闪电租需求");
     [self.view endEditing:YES];
     //移除键盘的时候弹出框的问题
-//    [self performSelector:@selector(waittingEdting) withObject:nil afterDelay:0.5];
+    [self performSelector:@selector(waittingEdting) withObject:nil afterDelay:0.5];
 }
 
 - (void)waittingEdting
 {
     if ([self checkRentInfomationValid]) {
         
-        NSString *keyword = [self.textField.text asTrim];
-        //        NSString *cityId = [self.requestDict objectForKey:@"city_id"];
-        NSString *catalague = [self.requestDict objectForKey:@"cate_id"];
-        NSString *priceId = [self.requestDict objectForKey:@"price_id"];
-        //        NSString *timeStr = [self.requestDict objectForKey:@"time_str"];
-        NSString *remark = [self.textView.text asTrim];
+//        NSString *keyword = [self.textField.text asTrim];
+//        //        NSString *cityId = [self.requestDict objectForKey:@"city_id"];
+//        NSString *catalague = [self.requestDict objectForKey:@"cate_id"];
+//        NSString *priceId = [self.requestDict objectForKey:@"price_id"];
+//        //        NSString *timeStr = [self.requestDict objectForKey:@"time_str"];
+//        NSString *remark = [self.textView.text asTrim];
         
         
         
         self.lightRentPubView = [[[NSBundle mainBundle] loadNibNamed:@"LightRentPublishView" owner:self options:nil] lastObject];
         [self.lightRentPubView.publishButton addTarget:self action:@selector(publishButtonAction) forControlEvents:UIControlEventTouchUpInside];
         
-        self.lightRentPubView.keyWordsLabel.text = [NSString stringWithFormat:@"关键字：%@",keyword];
+        self.lightRentPubView.keyWordsLabel.text = [NSString stringWithFormat:@"关键字：%@",_rentModel.keyWord];
         self.lightRentPubView.areaLabel.text = [NSString stringWithFormat:@"地区：%@",self.selectedCity];
         
         
         NSDateFormatter *format = [[NSDateFormatter alloc] init];
-        [format setDateFormat:@"MM/dd HH:mm"];
+        [format setDateFormat:@"YYYY/MM/dd "];
         
         self.lightRentPubView.startTimelabel.text = [NSString stringWithFormat:@"时间：%@起",[format stringFromDate:self.startDate]];
         
         self.lightRentPubView.endTimeLabel.text = [NSString stringWithFormat:@"%@止",[format stringFromDate:self.endDate]];
         
-        self.lightRentPubView.typeLabel.text = [NSString stringWithFormat:@"类型：%@",[self cateList:catalague]];
-        self.lightRentPubView.priceLabel.text = [NSString stringWithFormat:@"价格：%@",[self PriceList:priceId]];
-        self.lightRentPubView.noteLabel.text = [NSString stringWithFormat:@"%@",remark];
+        self.lightRentPubView.typeLabel.text = [NSString stringWithFormat:@"类型：%@",self.rentModel.type];
+        self.lightRentPubView.priceLabel.text = [NSString stringWithFormat:@"价格：%@",self.rentModel.price];
+        self.lightRentPubView.noteLabel.text = [NSString stringWithFormat:@"%@",self.rentModel.remarks];
         
         [self.lightRentPubView show];
         
@@ -603,20 +614,26 @@
     [HUD show:YES];
     
     HHNSLog(@"requestDict %@",self.requestDict);
+
+    #warning 缺少发布接口 
+    #warning 缺少发布接口 
+    #warning 返回推送成功页面
     
-    [MovieHttpRequest createMakeMineLightingRentWithRequestInfo:self.requestDict CallBack:^(id obj) {
-        
-        HUD.labelText = @"发布成功";
-        [HUD hide:YES];
-        
-        [self.view makeToast:@"发布成功"];
-        [self performSelector:@selector(lightRentGoback) withObject:nil afterDelay:0.25];
-        
-    } andSCallBack:^(id obj) {
-        
-        [DeliveryUtility showMessage:obj target:self];
-        [HUD hide:YES];
-    }];
+    //
+    [self performSelector:@selector(lightRentGoback) withObject:nil afterDelay:0.25];
+    //    [MovieHttpRequest createMakeMineLightingRentWithRequestInfo:self.requestDict CallBack:^(id obj) {
+//        
+//        HUD.labelText = @"发布成功";
+//        [HUD hide:YES];
+//        
+//        [self.view makeToast:@"发布成功"];
+//        [self performSelector:@selector(lightRentGoback) withObject:nil afterDelay:0.25];
+//        
+//    } andSCallBack:^(id obj) {
+//        
+//        [DeliveryUtility showMessage:obj target:self];
+//        [HUD hide:YES];
+//    }];
 }
 
 - (NSString *)PriceList:(NSString *)priceID
@@ -685,12 +702,18 @@
 - (BOOL)checkRentInfomationValid
 {
     NSString *keyword = [self.textField.text asTrim];
-    NSString *cityId = [self.requestDict objectForKey:@"city_id"];
-    NSString *catalague = [self.requestDict objectForKey:@"cate_id"];
-    NSString *priceId = [self.requestDict objectForKey:@"price_id"];
-    NSString *timeStr = [self.requestDict objectForKey:@"time_str"];
+    NSString *cityId = [self.cityButton.titleLabel.text asTrim];
+    NSString *catalague = [self.rentTypeButton.titleLabel.text asTrim];
+    NSString *priceId = [self.rentPriceButton.titleLabel.text asTrim];
+    NSString *timeStr = [NSString stringWithFormat:@"%@起\n%@止", self.customPickView.startTimeLabel.text,self.customPickView.endTimeLabel.text];
     NSString *remark = [self.textView.text asTrim];
     
+    self.rentModel.keyWord = keyword;
+    self.rentModel.address = cityId;
+    self.rentModel.times = timeStr;
+    self.rentModel.type = catalague;
+    self.rentModel.price = priceId;
+    self.rentModel.remarks = remark;
     //判断关键字
     if ([keyword isEqualToString:@""]) {
         [DeliveryUtility showMessage:@"请输入关键字" target:self];
@@ -805,6 +828,7 @@
     self.customPickView.datePickView.datePickerMode = UIDatePickerModeDate;
     //设置起始时间label为当前时间
     self.customPickView.startTimeLabel.text = [ymd stringFromDate:myDate];
+    self.startDate = myDate;
     ////设置时间的方法
     [self.customPickView.datePickView addTarget:self action:@selector(datePickViewAction:) forControlEvents:UIControlEventValueChanged];
     //设置成中文年月
@@ -1680,7 +1704,7 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
     textView.textColor = [UIColor blackColor];
-    textView.text = @"";
+    //textView.text = @"";
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
