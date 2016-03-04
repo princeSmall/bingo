@@ -881,6 +881,7 @@
         //增加按钮方法
         [self.timesButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
         [self.timesButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        self.timesButton.tag = 301;
         
         [self.customPickView removeFromSuperview];
         self.clickDatePickCount = 1;
@@ -897,22 +898,123 @@
 -(void)actionSelect:(UIButton *)btn
 {
     btn.selected = !btn.selected;
-    if(btn.selected==YES)
+
+    
+    UIButton *button = (UIButton *)[btn viewWithTag:btn.tag-200];
+    if(button ==nil)
     {
         UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(kViewWidth/4-15, 0, 15, 30)];
         [btn addSubview:button];
         [button addTarget:self action:@selector(actionCancel:) forControlEvents:UIControlEventTouchUpInside];
+        button.tag = btn.tag-200;
     }
+    else
+    {
+        if(btn.selected ==NO)
+        {
+            button .hidden = YES;
+        }
+        else
+        {
+            button.hidden = NO;
+        }
+
+    }
+        
     
 }
 /**
- *  取消按钮
+ *  删除按钮
  *
  *  @param btn 按钮对象
  */
 -(void)actionCancel:(UIButton *)btn
 {
+    UIButton *button = (UIButton *)[self.view viewWithTag:btn.tag+200];
+    if(self.cityButton==button)
+    {
+        [self changeButtonFrame:self.cityButton];
+        [self.cityButton removeFromSuperview];
+        self.cityButton = nil;
+        self.btnframeindex--;
+        
+    }
+    if(self.timesButton==button)
+    {
+        [self changeButtonFrame:self.timesButton];
+        [self.timesButton removeFromSuperview];
+        self.timesButton = nil;
+        self.btnframeindex--;
+        
+    }
+
+    if(self.rentTypeButton==button)
+    {
+        [self changeButtonFrame:self.rentTypeButton];
+        [self.rentTypeButton removeFromSuperview];
+        self.rentTypeButton = nil;
+        self.btnframeindex--;
+        
+    }
+
+    if(self.rentPriceButton==button)
+    {
+        
+        [self changeButtonFrame:self.rentPriceButton];
+        [self.rentPriceButton removeFromSuperview];
+        self.rentPriceButton = nil;
+        self.btnframeindex--;
+    }
+
+    
     NSLog(@"取消");
+}
+/**
+ *  刷新button的frame
+ *
+ *  @param btn 选中的按钮
+ */
+-(void)changeButtonFrame:(UIButton *)btn
+{
+    CGRect btnRect = btn.frame;
+    if(self.cityButton)
+    {
+        
+        CGRect rect = self.cityButton.frame;
+        if(rect.origin.x>btn.frame.origin.x)
+        {
+            self.cityButton.frame = CGRectMake(rect.origin.x-kViewWidth/4, 114,kViewWidth/4-5, 30);
+        }
+    }
+    if(self.timesButton)
+    {
+        
+        CGRect rect = self.timesButton.frame;
+        if(rect.origin.x>btn.frame.origin.x)
+        {
+            self.timesButton.frame = CGRectMake(rect.origin.x-kViewWidth/4, 114,kViewWidth/4-5, 30);
+        }
+    }
+
+    if(self.rentTypeButton)
+    {
+        CGRect rect = self.rentTypeButton.frame;
+        if(rect.origin.x>btn.frame.origin.x)
+        {
+            self.rentTypeButton.frame = CGRectMake(rect.origin.x-kViewWidth/4, 114,kViewWidth/4-5, 30);
+        }
+    }
+
+    if(self.rentPriceButton)
+    {
+        CGRect rect = self.rentPriceButton.frame;
+        if(rect.origin.x>btn.frame.origin.x)
+        {
+            self.rentPriceButton.frame = CGRectMake(rect.origin.x-kViewWidth/4, 114,kViewWidth/4-5, 30);
+        }
+    }
+
+    
 }
 #pragma mark - 时间选择器
 - (void)datePickViewAction:(UIDatePicker *)pick
@@ -1183,6 +1285,7 @@
         self.cityButton.layer.masksToBounds = YES;
         [self.cityButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
         [self.cityButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        self.cityButton.tag = 300;
         [self.cityButton setTitleColor:[UIColor colorWithRed:0.61 green:0.61 blue:0.61 alpha:1] forState:UIControlStateNormal];
         [self.view addSubview:self.cityButton];
         self.btnframeindex++;
@@ -1218,6 +1321,7 @@
         self.cityButton.layer.masksToBounds = YES;
         [self.cityButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
         [self.cityButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        self.cityButton.tag = 300;
         [self.cityButton setTitleColor:[UIColor colorWithRed:0.61 green:0.61 blue:0.61 alpha:1] forState:UIControlStateNormal];
         [self.view addSubview:self.cityButton];
         self.btnframeindex++;
@@ -1416,6 +1520,7 @@
                     
                     [self.rentPriceButton setTitleColor:[UIColor colorWithRed:0.61 green:0.61 blue:0.61 alpha:1] forState:UIControlStateNormal];
                     [self.view addSubview:self.rentPriceButton];
+                    self.rentPriceButton.tag = 303;
                     self.btnframeindex++;
                 }else
                 {
@@ -1530,22 +1635,25 @@
     
     if(self.rentTypeButton)
     {
-    [self.rentTypeButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
-    [self.rentTypeButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [self.rentTypeButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+        [self.rentTypeButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        self.rentTypeButton.tag =302;
     }
     //价格
     
     if(self.rentPriceButton)
     {
-    [self.rentPriceButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
-    [self.rentPriceButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [self.rentPriceButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+        [self.rentPriceButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        self.rentPriceButton.tag = 303;
     }
     //城市
     
     if(self.cityButton)
     {
-    [self.cityButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
-    [self.cityButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        [self.cityButton setBackgroundImage:[UIImage imageNamed:@"tag_s"] forState:UIControlStateSelected];
+        [self.cityButton addTarget:self action:@selector(actionSelect:) forControlEvents:UIControlEventTouchUpInside];
+        self.cityButton.tag = 300;
     }
     
 }
