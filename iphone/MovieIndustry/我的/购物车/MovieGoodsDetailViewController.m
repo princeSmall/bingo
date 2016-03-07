@@ -429,10 +429,10 @@
     } andSCallBack:^(id obj) {
         NSString *infoDict = obj;
         //        HHNSLog(@"%@",infoDict);
-        if([infoDict isEqualToString:@"thing_id has been in collection table"])
+        if([infoDict isEqualToString:@"此商品已收藏"])
         {
 //            [PromptLabel custemAlertPromAddView:self.view text:@"该商品已被收藏"];
-              [DeliveryUtility showMessage:@"该商品已经被收藏" target:nil];
+              [DeliveryUtility showMessage:@"该商品已被收藏" target:nil];
         }
         else
         {

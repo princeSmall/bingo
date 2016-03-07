@@ -323,7 +323,7 @@ typedef void (^babyClassify)(void);
     [MovieHttpRequest createCollectMyFavourableStoreWithStoreId:self.shopId CallBack:^(id obj) {
         
         
-//        [PromptLabel custemAlertPromAddView:self.view text:@"收藏成功"];
+
          [DeliveryUtility showMessage:@"收藏成功" target:nil];
         
         
@@ -332,14 +332,14 @@ typedef void (^babyClassify)(void);
         
         NSString *infoDict = obj;
         //        HHNSLog(@"%@",infoDict);
-        if([infoDict isEqualToString:@"thing_id has been in collection table"])
+        if([infoDict isEqualToString:@"此商品已收藏"])
         {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"该店铺已被收藏"];
-             [DeliveryUtility showMessage:@"该店铺已经被收藏" target:nil];
+
+             [DeliveryUtility showMessage:@"该店铺已被收藏" target:nil];
         }
         else
         {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"收藏失败"];
+
              [DeliveryUtility showMessage:@"收藏失败" target:nil];
         }
 
@@ -508,14 +508,16 @@ typedef void (^babyClassify)(void);
             
             self.searchHeaderView.shopNameLabel.text = shopModel.shop_name;
             
-            UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMaxX(self.searchHeaderView.shopNameLabel.frame)-50,self.searchHeaderView.shopNameLabel.frame.origin.y-10 , 30, 30)];
-            imageView.image = [UIImage imageNamed:@"shop_03"];
-//            
-           [self.searchHeaderView addSubview:imageView];
-            
             self.searchHeaderView.shopAddressLabel.text = shopModel.shop_addr_detail;
             self.searchHeaderView.shopPhoneLabel.text = shopModel.shop_tel;
-            StarView *startView = [[StarView alloc] initWithFrame:CGRectMake(kViewWidth-90, 20, 80, 20) score:0 canscore:@"0"];
+            StarView *startView = [[StarView alloc] initWithFrame:CGRectMake(kViewWidth-75, 20, 80, 20) score:0 canscore:@"0"];
+            
+            //皇冠图标
+            CGRect rect = CGRectMake(CGRectGetMinX(startView.frame)-50,self.searchHeaderView.shopNameLabel.frame.origin.y , 30, 30);
+            UIImageView * imageView = [[UIImageView alloc]initWithFrame:CGRectMake(CGRectGetMinX(startView.frame)-30,self.searchHeaderView.shopNameLabel.frame.origin.y-5 , 30, 30)];
+            imageView.image = [UIImage imageNamed:@"shop_03"];
+            [self.searchHeaderView addSubview:imageView];
+
         
             if ([[WNController nullString:shopModel.status] isEqualToString:@""]) {
                 [self.searchHeaderView addSubview:startView];

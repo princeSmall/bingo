@@ -922,7 +922,24 @@ static const NSString *MESSAGE = @"msg";
             
             if ([dict[@"code"] intValue] ==0) {
             
-                callback(RequestSuccess);
+                id data = dict[@"data"];
+                if([[data superclass]isSubclassOfClass:[NSString class]])
+                {
+                    if([dict[@"data"] isEqualToString:@"此商品已收藏"])
+                    {
+                        scallback([self objectOrNilForKey:@"data" fromDictionary:dict]);
+                    }
+                }
+                else
+                {
+                    if([dict[@"data"] intValue]==1)
+                    {
+                        callback(RequestSuccess);
+                        
+                    }
+
+                    
+                }
             }
             else
             {
@@ -1043,9 +1060,26 @@ static const NSString *MESSAGE = @"msg";
         NSDictionary *dict = (NSDictionary *)result;
         @try {
             
-            if ([dict[@"code"]intValue]==0) {
+            if ([dict[@"code"] intValue] ==0) {
                 
-                callback(RequestSuccess);
+                id data = dict[@"data"];
+                if([[data superclass]isSubclassOfClass:[NSString class]])
+                {
+                    if([dict[@"data"] isEqualToString:@"此商品已收藏"])
+                    {
+                        scallback([self objectOrNilForKey:@"data" fromDictionary:dict]);
+                    }
+                }
+                else
+                {
+                    if([dict[@"data"] intValue]==1)
+                    {
+                        callback(RequestSuccess);
+                        
+                    }
+                    
+                    
+                }
             }
             else
             {

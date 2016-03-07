@@ -131,7 +131,6 @@
         //通过Nib生成cell，然后注册 Nib的view需要继承 UICollectionViewCell
         [_collectView registerNib:[UINib nibWithNibName:@"IndexGoodsCollectionCell" bundle:nil] forCellWithReuseIdentifier:@"IndexGoodsCollectionCellID"];
         [_collectView registerClass:[CollectionHeadView class] forSupplementaryViewOfKind:UICollectionElementKindSectionHeader withReuseIdentifier:@"headview"];
-        
         [flowLayout setHeaderReferenceSize:CGSizeMake(self.view.frame.size.width, 40)];
     }
     
@@ -997,7 +996,7 @@
 {
     MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
     
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",self.page],@"p", nil];
+    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",(unsigned long)self.page],@"p", nil];
     
     [HttpRequestServers requestBaseUrl:Article_list withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;

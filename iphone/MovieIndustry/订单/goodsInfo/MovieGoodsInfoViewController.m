@@ -484,10 +484,10 @@
     } andSCallBack:^(id obj) {
         NSString *infoDict = obj;
 //        HHNSLog(@"%@",infoDict);
-        if([infoDict isEqualToString:@"thing_id has been in collection table"])
+        if([infoDict isEqualToString:@"此商品已收藏"])
         {
 //            [PromptLabel custemAlertPromAddView:self.view text:@"该商品已被收藏"];
-             [DeliveryUtility showMessage:@"该商品已经被收藏" target:nil];
+             [DeliveryUtility showMessage:@"该商品已被收藏" target:nil];
         }
         else
         {
@@ -596,14 +596,14 @@
     [self.view addSubview:leftBtn];
     
 
-//    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40) ImageName:@"point_info"];
-//    [self setNavRightImage:@"point_info" rightAction:@selector(shareAction)];
+    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40) ImageName:@"point_info"];
+    [self setNavRightImage:@"point_info" rightAction:@selector(shareAction)];
 
-//    [self.view addSubview:rightImage];
+    [self.view addSubview:rightImage];
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40)];
-    //    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
+        [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
     [rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-//    [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
+    [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.alpha = 1;
 //    if ([self.goodsMaxBought isEqualToString:@""]) {
 //        rightBtn.enabled = NO;

@@ -69,6 +69,7 @@
     CorrelationTableViewController * correlation = [self.storyboard instantiateViewControllerWithIdentifier:@"CorrelationTableViewController"];
     [self.navigationController pushViewController:correlation animated:YES];
     
+    
 }
 
 - (NSMutableDictionary *)infoDict
@@ -171,6 +172,7 @@
 //        self.txtCareer.text = profession;
 //        self.txtAddress.text = address;
         self.txtPhoneNum.text = phoneNum;
+        self.txtPhoneNum.userInteractionEnabled = NO;
 //        self.txtSchoolName.text = comeFrom;
         
         //等级
@@ -464,19 +466,21 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     [self personalInfoKeyboardDown];
-    
-     if (3 == indexPath.section) {
-         
-         if ([self.mineModel.verify isEqualToString:@"1"]) {
-             [DeliveryUtility showMessage:@"您的身份已经认证啦~" target:self];
-             return;
-         }
-         else{
-             MerchantCertificationViewController *certifyVC = [[MerchantCertificationViewController alloc] init];
-             //certifyVC.viewTitle = @"认证会员";
-             [self.navigationController pushViewController:certifyVC animated:YES];
-         }
-    }
+    #warning 认证
+    #warning 认证
+    #warning 认证
+//     if (3 == indexPath.section) {
+//         
+//         if ([self.mineModel.verify isEqualToString:@"1"]) {
+//             [DeliveryUtility showMessage:@"您的身份已经认证啦~" target:self];
+//             return;
+//         }
+//         else{
+//             MerchantCertificationViewController *certifyVC = [[MerchantCertificationViewController alloc] init];
+//             //certifyVC.viewTitle = @"认证会员";
+//             [self.navigationController pushViewController:certifyVC animated:YES];
+//         }
+//    }
 }
 
 

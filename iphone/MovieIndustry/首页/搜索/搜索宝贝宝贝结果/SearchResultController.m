@@ -591,7 +591,8 @@
     
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     //BabySearchModel *model = self.dataArray[indexPath.row];
-    
+#warning 需赋值
+#warning 需赋值
     //[cell config:model];
     
     return cell;
@@ -613,8 +614,8 @@
 {
     static NSString * CellIdentifier = @"babYSearchCollectionCell";
     SearchCollectionCell * cell = [collectionView dequeueReusableCellWithReuseIdentifier:CellIdentifier forIndexPath:indexPath];
-    BabySearchModel *model = self.dataArray[indexPath.row];
-    [cell config:model];
+    ShopGoodsModel *model = self.dataArray[indexPath.row];
+    //[cell config:model];
     return cell;
 }
 

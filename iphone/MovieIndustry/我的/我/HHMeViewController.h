@@ -26,7 +26,7 @@
 
 //交易记录
 @property (weak, nonatomic) IBOutlet UIButton *tradeButton;
-
+//设置
 @property (weak, nonatomic) IBOutlet UIButton *settingButton;
 
 //购物车
