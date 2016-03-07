@@ -9,14 +9,14 @@
 #import "TeacherDetialMsgController.h"
 #import "CollectCourseCell.h"
 #import "BottomInputView.h"
-@interface TeacherDetialMsgController () <UITableViewDelegate,UITableViewDataSource>
-@property (weak, nonatomic) IBOutlet UIImageView *iconV;
-@property (weak, nonatomic) IBOutlet UIButton *levelBtn;
-@property (weak, nonatomic) IBOutlet UIButton *attentionBtn;
-@property (weak, nonatomic) IBOutlet UIButton *privaBtn;
-@property (nonatomic, strong) UITableView *tableView;
-@property (weak, nonatomic) IBOutlet UIView *msgContentV;
+#import "TeacherDetialMsgHead.h"
+#import "UIScrollView+VGParallaxHeader.h"
+#import "UIColor+CrossFade.h"
+#import "TeachCourseDetailController.h"
+@interface TeacherDetialMsgController () <UITableViewDelegate,UITableViewDataSource,TeacherDetialMsgHeadDelegate>
 
+@property (nonatomic, strong) UITableView *tableView;
+@property (nonatomic, strong) TeacherDetialMsgHead *detialHead;
 
 @end
 
@@ -25,11 +25,6 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTabBar:@"王佳佳"];
-    
-    ViewBorderRadius(self.iconV, 35, 2, [UIColor whiteColor]);
-    ViewBorderRadius(self.levelBtn, 9, 0, [UIColor whiteColor]);
-    ViewBorderRadius(self.attentionBtn, 5, 1, [UIColor whiteColor]);
-    ViewBorderRadius(self.privaBtn, 5, 1, [UIColor whiteColor]);
     [self creatTableView];
 }
 
@@ -41,16 +36,29 @@
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.msgContentV.mas_bottom);
+        make.top.equalTo(self.view.mas_top);
         make.bottom.equalTo(self.view.mas_bottom).offset(50);
     }];
     
+    TeacherDetialMsgHead *detailHead = [TeacherDetialMsgHead teacherDetialMsgHead];
+    detailHead.delegate = self;
+    ViewBorderRadius(detailHead.privaBtn, 5, 1.0, [UIColor whiteColor]);
+    ViewBorderRadius(detailHead.attentionBtn, 5, 1.0, [UIColor whiteColor]);
+    self.detialHead = detailHead;
+    [_tableView setParallaxHeaderView:self.detialHead
+                                     mode:VGParallaxHeaderModeTopFill
+                                   height:205];
     BottomInputView *bottomInputV = [[BottomInputView alloc] init];
     [self.view addSubview:bottomInputV];
 }
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView
+{
+    [self.tableView shouldPositionParallaxHeader];
+   
+}
 #pragma mark tableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 5;
+    return 15;
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     static NSString *ID = @"detailMsgCell";
@@ -70,6 +78,11 @@
     }
     return 0;
 }
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    TeachCourseDetailController *controller = [[TeachCourseDetailController alloc] init];
+    [self.navigationController pushViewController:controller animated:YES];
+}
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section
 {
     
@@ -81,5 +94,13 @@
     return hView;
     
     
+}
+// 私信
+- (void)TeacherDetialMsgHead:(TeacherDetialMsgHead *)head privateBtnClicked:(UIButton *)btn {
+    HHNSLog(@"私信");
+}
+// 加关注
+- (void)TeacherDetialMsgHead:(TeacherDetialMsgHead *)head attentionBtnClicked:(UIButton *)btn {
+    HHNSLog(@"加关注");
 }
 @end

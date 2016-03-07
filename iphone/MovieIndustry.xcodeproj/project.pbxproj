@@ -108,7 +108,6 @@
 		252C4F9F1C8693410081972A /* BBSFriendMsgCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4F9D1C8693410081972A /* BBSFriendMsgCell.xib */; };
 		252C4FA31C869B3B0081972A /* CreatPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4FA11C869B3B0081972A /* CreatPostController.m */; };
 		252C4FA41C869B3B0081972A /* CreatPostController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4FA21C869B3B0081972A /* CreatPostController.xib */; };
-		252C4FAE1C86B9120081972A /* TeachCourseDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4FAC1C86B9120081972A /* TeachCourseDetailController.m */; };
 		252C4FB31C86BD310081972A /* TeacherCoures_AboutArticleCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4FB11C86BD310081972A /* TeacherCoures_AboutArticleCell.m */; };
 		252C4FB41C86BD310081972A /* TeacherCoures_AboutArticleCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4FB21C86BD310081972A /* TeacherCoures_AboutArticleCell.xib */; };
 		252C4FCF1C86BFC00081972A /* MASCompositeConstraint.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4FB71C86BFC00081972A /* MASCompositeConstraint.m */; };
@@ -123,8 +122,15 @@
 		252C4FD81C86BFC00081972A /* ViewController+MASAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4FCE1C86BFC00081972A /* ViewController+MASAdditions.m */; };
 		252C4FDE1C86C83E0081972A /* BottomInputView.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4FDD1C86C83E0081972A /* BottomInputView.m */; };
 		252C4FF51C86DFB80081972A /* TeacherDetialMsgController.m in Sources */ = {isa = PBXBuildFile; fileRef = 252C4FF31C86DFB80081972A /* TeacherDetialMsgController.m */; };
-		252C4FF61C86DFB80081972A /* TeacherDetialMsgController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4FF41C86DFB80081972A /* TeacherDetialMsgController.xib */; };
+		252C4FF61C86DFB80081972A /* TeacherDetialMsgHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 252C4FF41C86DFB80081972A /* TeacherDetialMsgHead.xib */; };
 		254D65F71C89926C001DD1BE /* TeacherCourseDetailHead.xib in Resources */ = {isa = PBXBuildFile; fileRef = 254D65F61C89926C001DD1BE /* TeacherCourseDetailHead.xib */; };
+		254D65F91C8AB769001DD1BE /* TeachCourseDetailController.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D65F81C8AB769001DD1BE /* TeachCourseDetailController.m */; };
+		254D66021C8D12B7001DD1BE /* TeacherDetialMsgHead.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D66011C8D12B7001DD1BE /* TeacherDetialMsgHead.m */; };
+		254D66061C8D24A4001DD1BE /* UIScrollView+VGParallaxHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D66051C8D24A4001DD1BE /* UIScrollView+VGParallaxHeader.m */; };
+		254D66091C8D24B3001DD1BE /* UIColor+CrossFade.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D66081C8D24B3001DD1BE /* UIColor+CrossFade.m */; };
+		254D66141C8D265D001DD1BE /* ALView+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D660C1C8D265D001DD1BE /* ALView+PureLayout.m */; };
+		254D66151C8D265D001DD1BE /* NSArray+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D660E1C8D265D001DD1BE /* NSArray+PureLayout.m */; };
+		254D66161C8D265D001DD1BE /* NSLayoutConstraint+PureLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = 254D66101C8D265D001DD1BE /* NSLayoutConstraint+PureLayout.m */; };
 		2578B8611C880AF000EB129D /* MyPostController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2578B8601C880AF000EB129D /* MyPostController.m */; };
 		2578B8651C880CF700EB129D /* MyPostCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2578B8631C880CF700EB129D /* MyPostCell.m */; };
 		2578B8661C880CF700EB129D /* MyPostCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2578B8641C880CF700EB129D /* MyPostCell.xib */; };
@@ -132,7 +138,6 @@
 		2578B86B1C8815D300EB129D /* NewEvaluateController.m in Sources */ = {isa = PBXBuildFile; fileRef = 2578B86A1C8815D300EB129D /* NewEvaluateController.m */; };
 		2578B86F1C88163F00EB129D /* NewEvaluateCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 2578B86D1C88163F00EB129D /* NewEvaluateCell.m */; };
 		2578B8701C88163F00EB129D /* NewEvaluateCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2578B86E1C88163F00EB129D /* NewEvaluateCell.xib */; };
-		2578B8771C88391900EB129D /* TeachCourseDetailController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2578B8761C88391900EB129D /* TeachCourseDetailController.xib */; };
 		2578B87C1C891C7300EB129D /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = 2578B87A1C891C7300EB129D /* WMPlayer.m */; };
 		2578B8871C891D6700EB129D /* close@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2578B87D1C891D6700EB129D /* close@2x.png */; };
 		2578B8881C891D6700EB129D /* close@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2578B87E1C891D6700EB129D /* close@3x.png */; };
@@ -1065,7 +1070,6 @@
 		252C4FA11C869B3B0081972A /* CreatPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CreatPostController.m; sourceTree = "<group>"; };
 		252C4FA21C869B3B0081972A /* CreatPostController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CreatPostController.xib; sourceTree = "<group>"; };
 		252C4FAB1C86B9120081972A /* TeachCourseDetailController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeachCourseDetailController.h; sourceTree = "<group>"; };
-		252C4FAC1C86B9120081972A /* TeachCourseDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachCourseDetailController.m; sourceTree = "<group>"; };
 		252C4FB01C86BD310081972A /* TeacherCoures_AboutArticleCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherCoures_AboutArticleCell.h; sourceTree = "<group>"; };
 		252C4FB11C86BD310081972A /* TeacherCoures_AboutArticleCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherCoures_AboutArticleCell.m; sourceTree = "<group>"; };
 		252C4FB21C86BD310081972A /* TeacherCoures_AboutArticleCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherCoures_AboutArticleCell.xib; sourceTree = "<group>"; };
@@ -1098,8 +1102,24 @@
 		252C4FDD1C86C83E0081972A /* BottomInputView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BottomInputView.m; sourceTree = "<group>"; };
 		252C4FF21C86DFB80081972A /* TeacherDetialMsgController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherDetialMsgController.h; sourceTree = "<group>"; };
 		252C4FF31C86DFB80081972A /* TeacherDetialMsgController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherDetialMsgController.m; sourceTree = "<group>"; };
-		252C4FF41C86DFB80081972A /* TeacherDetialMsgController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherDetialMsgController.xib; sourceTree = "<group>"; };
+		252C4FF41C86DFB80081972A /* TeacherDetialMsgHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherDetialMsgHead.xib; sourceTree = "<group>"; };
 		254D65F61C89926C001DD1BE /* TeacherCourseDetailHead.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeacherCourseDetailHead.xib; sourceTree = "<group>"; };
+		254D65F81C8AB769001DD1BE /* TeachCourseDetailController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeachCourseDetailController.m; sourceTree = "<group>"; };
+		254D66001C8D12B7001DD1BE /* TeacherDetialMsgHead.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TeacherDetialMsgHead.h; sourceTree = "<group>"; };
+		254D66011C8D12B7001DD1BE /* TeacherDetialMsgHead.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TeacherDetialMsgHead.m; sourceTree = "<group>"; };
+		254D66041C8D24A4001DD1BE /* UIScrollView+VGParallaxHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIScrollView+VGParallaxHeader.h"; sourceTree = "<group>"; };
+		254D66051C8D24A4001DD1BE /* UIScrollView+VGParallaxHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIScrollView+VGParallaxHeader.m"; sourceTree = "<group>"; };
+		254D66071C8D24B3001DD1BE /* UIColor+CrossFade.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+CrossFade.h"; sourceTree = "<group>"; };
+		254D66081C8D24B3001DD1BE /* UIColor+CrossFade.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+CrossFade.m"; sourceTree = "<group>"; };
+		254D660B1C8D265D001DD1BE /* ALView+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "ALView+PureLayout.h"; sourceTree = "<group>"; };
+		254D660C1C8D265D001DD1BE /* ALView+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "ALView+PureLayout.m"; sourceTree = "<group>"; };
+		254D660D1C8D265D001DD1BE /* NSArray+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+PureLayout.h"; sourceTree = "<group>"; };
+		254D660E1C8D265D001DD1BE /* NSArray+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+PureLayout.m"; sourceTree = "<group>"; };
+		254D660F1C8D265D001DD1BE /* NSLayoutConstraint+PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSLayoutConstraint+PureLayout.h"; sourceTree = "<group>"; };
+		254D66101C8D265D001DD1BE /* NSLayoutConstraint+PureLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSLayoutConstraint+PureLayout.m"; sourceTree = "<group>"; };
+		254D66111C8D265D001DD1BE /* PureLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayout.h; sourceTree = "<group>"; };
+		254D66121C8D265D001DD1BE /* PureLayout+Internal.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "PureLayout+Internal.h"; sourceTree = "<group>"; };
+		254D66131C8D265D001DD1BE /* PureLayoutDefines.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PureLayoutDefines.h; sourceTree = "<group>"; };
 		2578B85F1C880AF000EB129D /* MyPostController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostController.h; sourceTree = "<group>"; };
 		2578B8601C880AF000EB129D /* MyPostController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyPostController.m; sourceTree = "<group>"; };
 		2578B8621C880CF700EB129D /* MyPostCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyPostCell.h; sourceTree = "<group>"; };
@@ -1111,7 +1131,6 @@
 		2578B86C1C88163F00EB129D /* NewEvaluateCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NewEvaluateCell.h; sourceTree = "<group>"; };
 		2578B86D1C88163F00EB129D /* NewEvaluateCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NewEvaluateCell.m; sourceTree = "<group>"; };
 		2578B86E1C88163F00EB129D /* NewEvaluateCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NewEvaluateCell.xib; sourceTree = "<group>"; };
-		2578B8761C88391900EB129D /* TeachCourseDetailController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = TeachCourseDetailController.xib; sourceTree = "<group>"; };
 		2578B8791C891C7300EB129D /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
 		2578B87A1C891C7300EB129D /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		2578B87D1C891D6700EB129D /* close@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "close@2x.png"; sourceTree = "<group>"; };
@@ -2724,6 +2743,9 @@
 				2578B8B11C8991E200EB129D /* TeacherCourseDetailHead.h */,
 				2578B8B21C8991E200EB129D /* TeacherCourseDetailHead.m */,
 				254D65F61C89926C001DD1BE /* TeacherCourseDetailHead.xib */,
+				254D66001C8D12B7001DD1BE /* TeacherDetialMsgHead.h */,
+				254D66011C8D12B7001DD1BE /* TeacherDetialMsgHead.m */,
+				252C4FF41C86DFB80081972A /* TeacherDetialMsgHead.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2767,6 +2789,34 @@
 				252C4FDD1C86C83E0081972A /* BottomInputView.m */,
 			);
 			name = view;
+			sourceTree = "<group>";
+		};
+		254D66031C8D2469001DD1BE /* VGParallaxHeader */ = {
+			isa = PBXGroup;
+			children = (
+				254D660A1C8D264E001DD1BE /* PureLayout */,
+				254D66071C8D24B3001DD1BE /* UIColor+CrossFade.h */,
+				254D66081C8D24B3001DD1BE /* UIColor+CrossFade.m */,
+				254D66041C8D24A4001DD1BE /* UIScrollView+VGParallaxHeader.h */,
+				254D66051C8D24A4001DD1BE /* UIScrollView+VGParallaxHeader.m */,
+			);
+			name = VGParallaxHeader;
+			sourceTree = "<group>";
+		};
+		254D660A1C8D264E001DD1BE /* PureLayout */ = {
+			isa = PBXGroup;
+			children = (
+				254D660B1C8D265D001DD1BE /* ALView+PureLayout.h */,
+				254D660C1C8D265D001DD1BE /* ALView+PureLayout.m */,
+				254D660D1C8D265D001DD1BE /* NSArray+PureLayout.h */,
+				254D660E1C8D265D001DD1BE /* NSArray+PureLayout.m */,
+				254D660F1C8D265D001DD1BE /* NSLayoutConstraint+PureLayout.h */,
+				254D66101C8D265D001DD1BE /* NSLayoutConstraint+PureLayout.m */,
+				254D66111C8D265D001DD1BE /* PureLayout.h */,
+				254D66121C8D265D001DD1BE /* PureLayout+Internal.h */,
+				254D66131C8D265D001DD1BE /* PureLayoutDefines.h */,
+			);
+			name = PureLayout;
 			sourceTree = "<group>";
 		};
 		2578B7DF1C87D7CB00EB129D /* videoPlayer */ = {
@@ -4982,16 +5032,15 @@
 		A2C8FB7E1C0D6C5C00E90468 /* 名师讲堂 */ = {
 			isa = PBXGroup;
 			children = (
+				254D66031C8D2469001DD1BE /* VGParallaxHeader */,
 				2578B7DF1C87D7CB00EB129D /* videoPlayer */,
 				252C4FA51C86B3720081972A /* cell */,
 				A2C8FB7F1C0D6C5C00E90468 /* TeacherCourseController.h */,
 				A2C8FB801C0D6C5C00E90468 /* TeacherCourseController.m */,
 				252C4FAB1C86B9120081972A /* TeachCourseDetailController.h */,
-				252C4FAC1C86B9120081972A /* TeachCourseDetailController.m */,
-				2578B8761C88391900EB129D /* TeachCourseDetailController.xib */,
+				254D65F81C8AB769001DD1BE /* TeachCourseDetailController.m */,
 				252C4FF21C86DFB80081972A /* TeacherDetialMsgController.h */,
 				252C4FF31C86DFB80081972A /* TeacherDetialMsgController.m */,
-				252C4FF41C86DFB80081972A /* TeacherDetialMsgController.xib */,
 				2578B8AC1C897AB000EB129D /* CreatingNewClassController.h */,
 				2578B8AD1C897AB000EB129D /* CreatingNewClassController.m */,
 				2578B8AE1C897AB000EB129D /* CreatingNewClassController.xib */,
@@ -5465,7 +5514,6 @@
 				8461653A1BFF3A8E003B656B /* search_normal.png in Resources */,
 				8461650A1BFF3A8E003B656B /* loginLock@2x.png in Resources */,
 				848296731C0EA02C00452BF9 /* MyPhotosHeader.xib in Resources */,
-				2578B8771C88391900EB129D /* TeachCourseDetailController.xib in Resources */,
 				846164F31BFF3A8E003B656B /* index_03-03@2x.png in Resources */,
 				848296351C0EA02C00452BF9 /* MovieWalletFirstCell.xib in Resources */,
 				8461656D1BFF3A8E003B656B /* site3.png in Resources */,
@@ -5657,7 +5705,7 @@
 				846164DC1BFF3A8E003B656B /* discover_12@3x.png in Resources */,
 				846164C81BFF3A8E003B656B /* 15-07.png in Resources */,
 				846164D01BFF3A8E003B656B /* came.png in Resources */,
-				252C4FF61C86DFB80081972A /* TeacherDetialMsgController.xib in Resources */,
+				252C4FF61C86DFB80081972A /* TeacherDetialMsgHead.xib in Resources */,
 				8461655E1BFF3A8E003B656B /* shop_chat.png in Resources */,
 				846165251BFF3A8E003B656B /* play.png in Resources */,
 				846165651BFF3A8E003B656B /* shop_phone@2x.png in Resources */,
@@ -5954,6 +6002,7 @@
 				8432110B1C10815700E3026F /* MD5DataSigner.m in Sources */,
 				D372F1A91C5A09E600FA363B /* DidBuyingController.m in Sources */,
 				847D84231BECB77B00893542 /* ViewController.m in Sources */,
+				254D66141C8D265D001DD1BE /* ALView+PureLayout.m in Sources */,
 				2578B8AF1C897AB000EB129D /* CreatingNewClassController.m in Sources */,
 				A25EAB8C1C05BDF1001E62F6 /* MovieStoreSetingViewModel.m in Sources */,
 				846B1AAF1C19277600926705 /* PaySuccessViewController.m in Sources */,
@@ -5965,6 +6014,7 @@
 				A25BB2F91BFC3DCA00E52ED8 /* AllOrderCell.m in Sources */,
 				A2FFC7951C103CE70095E858 /* LICENSE.md in Sources */,
 				A2C8FBBC1C0D883000E90468 /* MovieArticleDetailModel.m in Sources */,
+				254D66061C8D24A4001DD1BE /* UIScrollView+VGParallaxHeader.m in Sources */,
 				848294361C0E96C500452BF9 /* MJRefreshNormalHeader.m in Sources */,
 				8482963B1C0EA02C00452BF9 /* PublishPersonnelController.m in Sources */,
 				84FA1CB51C0D9F39008B4000 /* ReceiveAddressView.m in Sources */,
@@ -5999,6 +6049,7 @@
 				006042A61C58626300FBAFB9 /* CorrelationTableViewController.m in Sources */,
 				848294411C0E96C500452BF9 /* SDWebImageDecoder.m in Sources */,
 				A2FFC7911C103CE70095E858 /* MWZoomingScrollView.m in Sources */,
+				254D66091C8D24B3001DD1BE /* UIColor+CrossFade.m in Sources */,
 				848294281C0E96C500452BF9 /* AFURLSessionManager.m in Sources */,
 				A2682D181C1E503A00FFA1EE /* MovieHelperListModel.m in Sources */,
 				847D82A51BEC5D4000893542 /* AppDelegate.m in Sources */,
@@ -6048,7 +6099,6 @@
 				252C4FD41C86BFC00081972A /* MASViewConstraint.m in Sources */,
 				A2C8FBA51C0D6C5C00E90468 /* FilmTimeLineCell.m in Sources */,
 				D36C38E41C589FF100E42CFD /* TradeHeadCell.m in Sources */,
-				252C4FAE1C86B9120081972A /* TeachCourseDetailController.m in Sources */,
 				00A22F4E1C60A26E000F11DB /* ShopMainModel.m in Sources */,
 				A2C8FBA41C0D6C5C00E90468 /* HHDiscoverController.m in Sources */,
 				A2FFC7901C103CE70095E858 /* MWTapDetectingView.m in Sources */,
@@ -6080,6 +6130,7 @@
 				D3ED30DF1C51F5BB00C10387 /* ReturnAppayViewController.m in Sources */,
 				A278388B1C213DD900AD3B48 /* MovieIncomeDetailModel.m in Sources */,
 				A228D9A21C156A8200C9289B /* Attributes.m in Sources */,
+				254D66021C8D12B7001DD1BE /* TeacherDetialMsgHead.m in Sources */,
 				A25BB30D1BFC4AEC00E52ED8 /* MovieCommentThirdCell.m in Sources */,
 				848295391C0E9AB700452BF9 /* MovieTalkPersonSecondCell.m in Sources */,
 				00200A341C7C65D600DD8084 /* TADotView.m in Sources */,
@@ -6122,6 +6173,7 @@
 				848294861C0E975E00452BF9 /* WNController.m in Sources */,
 				841B4CA81C0DA2D900DD51D9 /* ShopTableViewHeader.m in Sources */,
 				00BB0B411C5F16C7008400A3 /* CartGoodsModel.m in Sources */,
+				254D66151C8D265D001DD1BE /* NSArray+PureLayout.m in Sources */,
 				841C78B81C09AB7E00D0E074 /* ShopCarShopModel.m in Sources */,
 				A29A66E01C1FB9E20009A03F /* MovieTuesdayCommentModel.m in Sources */,
 				848295211C0E9AB700452BF9 /* SearchView.m in Sources */,
@@ -6139,6 +6191,7 @@
 				D3ED30D31C51C2C300C10387 /* PersonCertificationViewController.m in Sources */,
 				8482954D1C0E9AB700452BF9 /* BabySearchModel.m in Sources */,
 				A26BF2B61BFD90C1009D65C4 /* MovieChooseRefundTypeCell.m in Sources */,
+				254D65F91C8AB769001DD1BE /* TeachCourseDetailController.m in Sources */,
 				848293771C0E968200452BF9 /* NSUserManager.m in Sources */,
 				0055FC131C858D5B00CB320D /* PayOrderTypeViewController.m in Sources */,
 				00200A361C7C65D600DD8084 /* SDCollectionViewCell.m in Sources */,
@@ -6235,6 +6288,7 @@
 				848295521C0E9AB700452BF9 /* SearchShopController.m in Sources */,
 				2578B89D1C8932D100EB129D /* FilmTimeLineToolBar.m in Sources */,
 				D382D2A71C7C526000B699D2 /* CollectCourseCell.m in Sources */,
+				254D66161C8D265D001DD1BE /* NSLayoutConstraint+PureLayout.m in Sources */,
 				A270D45B1C06D49400BED0C1 /* MovieMineStoreInfoModel.m in Sources */,
 				8467DC481C11BA4300A0FF0C /* ShippingAddressListController.m in Sources */,
 				8482963A1C0EA02C00452BF9 /* TradingManagerController.m in Sources */,

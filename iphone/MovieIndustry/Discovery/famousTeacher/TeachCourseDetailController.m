@@ -10,24 +10,20 @@
 #import "TeacherCoures_AboutArticleCell.h"
 #import "WMPlayer.h"
 #import "BottomInputView.h"
+#import "TeacherCourseDetailHead.h"
 @interface TeachCourseDetailController () <UITableViewDelegate,UITableViewDataSource>{
     UITableView *_tableView;
     WMPlayer *wmPlayer;
     CGRect playerFrame;
 }
 
-@property (weak, nonatomic) IBOutlet UIView *mediaPlayerContentV;
-/**视屏封面*/
-@property (weak, nonatomic) IBOutlet UIImageView *mediaPlayerImageV;
 @property (nonatomic,strong) UIView *bottomView;
 /**视屏播放按钮*/
 @property (nonatomic, strong) UIButton *playBtn;
 /**视屏时间长度*/
 @property (nonatomic, strong) UILabel *timeLbl;
 
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *videoContentVCT;
-@property (weak, nonatomic) IBOutlet UIView *videoContentV;
-
+@property (nonatomic, strong) TeacherCourseDetailHead *detailHead;
 @end
 //最后一行分隔线顶头显示
 static void setLastCellSeperatorToLeft(UITableViewCell* cell)
@@ -90,9 +86,9 @@ static void setLastCellSeperatorToLeft(UITableViewCell* cell)
     [wmPlayer removeFromSuperview];
     [UIView animateWithDuration:0.5f animations:^{
         wmPlayer.transform = CGAffineTransformIdentity;
-        wmPlayer.frame = self.mediaPlayerContentV.bounds;
+        wmPlayer.frame = self.detailHead.mediaPlayerContenV.bounds;
         wmPlayer.playerLayer.frame =  wmPlayer.bounds;
-        [self.mediaPlayerContentV addSubview:wmPlayer];
+        [self.detailHead.mediaPlayerContenV addSubview:wmPlayer];
         [wmPlayer.bottomView mas_remakeConstraints:^(MASConstraintMaker *make) {
             make.left.equalTo(wmPlayer).with.offset(0);
             make.right.equalTo(wmPlayer).with.offset(0);
@@ -182,42 +178,43 @@ static void setLastCellSeperatorToLeft(UITableViewCell* cell)
     [_tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
-        make.top.equalTo(self.mediaPlayerContentV.mas_bottom).offset(10);
+        make.top.equalTo(self.view.mas_top);
         make.bottom.equalTo(self.view.mas_bottom).offset(50);
     }];
     
+    TeacherCourseDetailHead *detailHead = [TeacherCourseDetailHead teacherCourseDetailHead];
+    self.detailHead = detailHead;
+    _tableView.tableHeaderView = detailHead;
     _playBtn = [[UIButton alloc] init];
-    [_mediaPlayerImageV addSubview:_playBtn];
+    [detailHead.mediaPlayerImageV addSubview:_playBtn];
     [_playBtn mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.centerX.equalTo(_mediaPlayerImageV.mas_centerX);
-        make.centerY.equalTo(_mediaPlayerImageV.mas_centerY);
+        make.centerX.equalTo(detailHead.mediaPlayerImageV.mas_centerX);
+        make.centerY.equalTo(detailHead.mediaPlayerImageV.mas_centerY);
         make.height.mas_equalTo(80);
         make.width.mas_equalTo(80);
     }];
     [_playBtn setImage:[UIImage imageNamed:@"play"] forState:UIControlStateNormal];
     [_playBtn addTarget:self action:@selector(playMovie) forControlEvents:UIControlEventTouchUpInside];
     _timeLbl = [[UILabel alloc] init];
-    [_mediaPlayerImageV addSubview:_timeLbl];
+    [detailHead.mediaPlayerImageV addSubview:_timeLbl];
     [_timeLbl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.right.equalTo(_mediaPlayerImageV.mas_right).offset(-15);
-        make.bottom.equalTo(_mediaPlayerImageV.mas_bottom).offset(-10);
+        make.right.equalTo(detailHead.mediaPlayerImageV.mas_right).offset(-15);
+        make.bottom.equalTo(detailHead.mediaPlayerImageV.mas_bottom).offset(-10);
     }];
     _timeLbl.text = @"10:12";
     _timeLbl.textColor = [UIColor whiteColor];
     _timeLbl.font = [UIFont systemFontOfSize:15];
-    
-    
     BottomInputView *bottomInputV = [[BottomInputView alloc] init];
     [self.view addSubview:bottomInputV];
 }
 
 
 -(void)playMovie{
-    [self.mediaPlayerImageV removeFromSuperview];
-    playerFrame = self.mediaPlayerContentV.bounds;
+    [self.detailHead.mediaPlayerImageV removeFromSuperview];
+    playerFrame = self.detailHead.mediaPlayerContenV.bounds;
     wmPlayer = [[WMPlayer alloc]initWithFrame:playerFrame videoURLStr:@"http://baobab.cdn.wandoujia.com/14468618701471.mp4"];
     wmPlayer.closeBtn.hidden = YES;
-    [self.mediaPlayerContentV addSubview:wmPlayer];
+    [self.detailHead.mediaPlayerContenV addSubview:wmPlayer];
     [wmPlayer.player play];
 }
 -(void)releaseWMPlayer{
@@ -282,29 +279,7 @@ static void setLastCellSeperatorToLeft(UITableViewCell* cell)
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
-float lastContentOffset;
-- (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    lastContentOffset = scrollView.contentOffset.y;
-}
 
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView{
-    if (lastContentOffset < scrollView.contentOffset.y) {
-       
-        [UIView animateWithDuration:0.5 animations:^{
-            self.videoContentVCT.constant = 0;
-            [self.videoContentV layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            
-        }];
-        
-    }else{
-        [UIView animateWithDuration:0.5 animations:^{
-            self.videoContentVCT.constant = 363;
-            [self.videoContentV layoutIfNeeded];
-        } completion:^(BOOL finished) {
-            
-        }];
-    }
-}
+
 
 @end

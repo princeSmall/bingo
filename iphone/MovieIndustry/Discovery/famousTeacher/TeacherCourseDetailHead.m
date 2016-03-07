@@ -7,15 +7,22 @@
 //
 
 #import "TeacherCourseDetailHead.h"
-
+@interface TeacherCourseDetailHead ()
+/**视屏播放按钮*/
+@property (nonatomic, strong) UIButton *playBtn;
+/**视屏时间长度*/
+@property (nonatomic, strong) UILabel *timeLbl;
+@end
 @implementation TeacherCourseDetailHead
-
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
++ (instancetype) teacherCourseDetailHead {
+    return [[[NSBundle mainBundle] loadNibNamed:@"TeacherCourseDetailHead" owner:nil options:nil] lastObject];
 }
-*/
+- (instancetype) initWithFrame:(CGRect)frame {
+    if (self = [super initWithFrame:frame]) {
+        
+        
+    }
+    return self;
+}
 
 @end

@@ -108,7 +108,7 @@
     }
 }
 - (void) creatNewAddPicBtn {
-    UIButton *newAddPicBtn = [[UIButton alloc] init];
+    
     
 }
 

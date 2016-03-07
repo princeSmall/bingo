@@ -5,25 +5,16 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="TeacherDetialMsgController">
-            <connections>
-                <outlet property="attentionBtn" destination="3gb-OE-6cb" id="LE9-M0-ffq"/>
-                <outlet property="iconV" destination="LSN-Lm-pCk" id="S4t-59-awS"/>
-                <outlet property="levelBtn" destination="CRu-iV-r2B" id="PT2-Ei-OSD"/>
-                <outlet property="msgContentV" destination="9Ir-Pf-1lb" id="qlf-U0-3BM"/>
-                <outlet property="privaBtn" destination="wmn-Q8-UcP" id="ksk-QJ-W1R"/>
-                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
-            </connections>
-        </placeholder>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
-            <rect key="frame" x="0.0" y="0.0" width="600" height="600"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="TeacherDetialMsgHead">
+            <rect key="frame" x="0.0" y="0.0" width="600" height="205"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Ir-Pf-1lb">
                     <rect key="frame" x="0.0" y="0.0" width="600" height="205"/>
                     <subviews>
-                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my.png" translatesAutoresizingMaskIntoConstraints="NO" id="05e-5s-r44">
+                        <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="my.png" translatesAutoresizingMaskIntoConstraints="NO" id="05e-5s-r44">
                             <rect key="frame" x="0.0" y="0.0" width="600" height="205"/>
                         </imageView>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="WOMAN.png" translatesAutoresizingMaskIntoConstraints="NO" id="LSN-Lm-pCk">
@@ -32,6 +23,12 @@
                                 <constraint firstAttribute="height" constant="70" id="gHt-Zl-WgI"/>
                                 <constraint firstAttribute="width" constant="70" id="qTS-OD-ZGS"/>
                             </constraints>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="35"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                         </imageView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="CRu-iV-r2B">
                             <rect key="frame" x="60" y="70" width="40" height="18"/>
@@ -46,6 +43,12 @@
                             <state key="normal" title="V13">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="9"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <variation key="default">
                                 <mask key="constraints">
                                     <exclude reference="Nyz-2L-ci7"/>
@@ -111,12 +114,30 @@
                             <state key="normal" title="+关注">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="attentionBtnClicked:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="2jD-rg-ELm"/>
+                            </connections>
                         </button>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wmn-Q8-UcP">
                             <rect key="frame" x="185" y="111" width="60" height="25"/>
                             <state key="normal" title="私信">
                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                             </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="boolean" keyPath="layer.masksToBounds" value="YES"/>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="5"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="privateBtnClicked:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="JQL-Dp-ghZ"/>
+                            </connections>
                         </button>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MdK-Ub-WcG">
                             <rect key="frame" x="0.0" y="145" width="600" height="60"/>
@@ -205,7 +226,15 @@
                 <constraint firstItem="9Ir-Pf-1lb" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="LF8-p6-5Om"/>
                 <constraint firstAttribute="trailing" secondItem="9Ir-Pf-1lb" secondAttribute="trailing" id="oNf-DT-ZhS"/>
             </constraints>
-            <point key="canvasLocation" x="307" y="296"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="attentionBtn" destination="3gb-OE-6cb" id="oLk-pm-MX8"/>
+                <outlet property="iconV" destination="LSN-Lm-pCk" id="WVC-0Q-NOG"/>
+                <outlet property="levelBtn" destination="CRu-iV-r2B" id="wv4-qH-KYo"/>
+                <outlet property="msgContentV" destination="9Ir-Pf-1lb" id="lSA-xo-elT"/>
+                <outlet property="privaBtn" destination="wmn-Q8-UcP" id="jDB-M2-uMY"/>
+            </connections>
+            <point key="canvasLocation" x="307" y="98.5"/>
         </view>
     </objects>
     <resources>

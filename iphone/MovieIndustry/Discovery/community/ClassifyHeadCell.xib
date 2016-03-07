@@ -14,17 +14,10 @@
                 <rect key="frame" x="0.0" y="0.0" width="377" height="98"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Xs-S6-vzi">
-                        <rect key="frame" x="15" y="8" width="80" height="80"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="80" id="7OO-7H-ySf"/>
-                            <constraint firstAttribute="height" constant="80" id="VlL-oI-fcK"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="镜头" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rpe-66-0o0">
                         <rect key="frame" x="103" y="15" width="40" height="24"/>
                         <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                        <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总帖数:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dSh-mf-O7A">
@@ -53,6 +46,13 @@
                             <action selector="postingBtnClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="29m-5d-FGK"/>
                         </connections>
                     </button>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog.png" translatesAutoresizingMaskIntoConstraints="NO" id="1Xs-S6-vzi">
+                        <rect key="frame" x="15" y="8" width="80" height="80"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="7OO-7H-ySf"/>
+                            <constraint firstAttribute="height" constant="80" id="VlL-oI-fcK"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="1jU-DJ-mIj" firstAttribute="centerY" secondItem="dSh-mf-O7A" secondAttribute="centerY" id="0BK-zh-U7m"/>

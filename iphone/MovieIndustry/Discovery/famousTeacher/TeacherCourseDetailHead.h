@@ -9,5 +9,7 @@
 #import <UIKit/UIKit.h>
 
 @interface TeacherCourseDetailHead : UIView
-
+@property (weak, nonatomic) IBOutlet UIView *mediaPlayerContenV;
+@property (weak, nonatomic) IBOutlet UIImageView *mediaPlayerImageV;
++ (instancetype) teacherCourseDetailHead;
 @end
