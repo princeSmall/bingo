@@ -1,14 +1,14 @@
 //
-//  DiscoverNorCell.m
+//  MovieNewsCell.m
 //  MovieIndustry
 //
-//  Created by Pinocchio on 15/11/12.
-//  Copyright (c) 2015年 MovieIndustry. All rights reserved.
+//  Created by 石冬冬 on 16/3/9.
+//  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 
-#import "DiscoverNorCell.h"
+#import "MovieNewsCell.h"
 
-@implementation DiscoverNorCell
+@implementation MovieNewsCell
 
 - (void)awakeFromNib {
     // Initialization code
