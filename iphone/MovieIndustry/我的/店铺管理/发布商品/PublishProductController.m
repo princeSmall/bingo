@@ -179,6 +179,8 @@
     }];
     [self.myOpenCell.contentView addSubview:viewSend];
     self.sendView = viewSend;
+    self.sendView.hidden = YES;
+    self.isOpen = NO;
 }
 
 - (void)initIssueProductView
@@ -328,12 +330,12 @@
     NSString *kamePrice = [self.txtKamePrice.text asTrim];
     NSString *address = [self.address.text asTrim];
  NSString *deliveryId ;
-    //0:商家 1:顺丰 2:申通
+    //0:商家 1:快递  2:自提
     if ([self.deliveryMethod.text isEqualToString:@"商家送货"]) {
         deliveryId = @"0";
-    }else if([self.deliveryMethod.text isEqualToString:@"顺丰快递"]){
+    }else if([self.deliveryMethod.text isEqualToString:@"快递"]){
     deliveryId = @"1";
-    }else if([self.deliveryMethod.text isEqualToString:@"申通快递"]){
+    }else if([self.deliveryMethod.text isEqualToString:@"自提"]){
     deliveryId = @"2";
     }
     NSString *isDeposit = [NSString stringWithFormat:@"%zd",self.depositSwBtn.on];
@@ -798,7 +800,6 @@
 - (void)finishChooseDeliveryWay
 {
     [self removeMaskViewAction];
-    
     NSInteger index = (self.selecteBtn.superview.tag - VIEW_START_TAG);
     MovieDeliveryMethodModel *model = _deliveryArray[index];
     self.deliveryMethod.text = model.name;
