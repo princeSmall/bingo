@@ -241,7 +241,7 @@ constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
     order.showUrl = @"m.alipay.com";
     
     //应用注册scheme,在AlixPayDemo-Info.plist定义URL types
-    NSString *appScheme = @"YH.CFSH";
+    NSString *appScheme = @"YH.CFSHKM";
     
     //将商品信息拼接成字符串
     NSString *orderSpec = [order description];

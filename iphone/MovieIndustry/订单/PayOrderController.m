@@ -18,6 +18,8 @@
 
 @property (nonatomic,strong)PayOrderBottomView * bottomView;
 
+@property (nonatomic,strong)NSString * orderId;
+
 @end
 
 @implementation PayOrderController
@@ -124,18 +126,20 @@
                      }
                      
                      if ([aliDict[@"resultStatus"] isEqualToString:@"8000"]) {
-                         
+                          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                          [DeliveryUtility showMessage:@"正在处理中" target:nil];
                      }
                      if ([aliDict[@"resultStatus"] isEqualToString:@"4000"]) {
+                          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                          [DeliveryUtility showMessage:@"订单支付失败" target:nil];
                      }
                      if ([aliDict[@"resultStatus"] isEqualToString:@"6001"]) {
+                          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                          [DeliveryUtility showMessage:@"用户中途取消付款" target:nil];
                          
                      }
                      if ([aliDict[@"resultStatus"] isEqualToString:@"6002"]) {
-                         
+                          [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                          [DeliveryUtility showMessage:@"网络连接出错" target:nil];
                      }
                  }];
@@ -145,10 +149,13 @@
                 [HttpRequestServers requestBaseUrl:TIOrder_AddOrder withParams:mutDic withRequestFinishBlock:^(id result) {
                     NSDictionary *dict = result;
                     HHNSLog(@"---------->> %@",dict);
+                    
+                    
+                    
+                    
                     @try {
                         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                        if ([dict[@"code"] intValue]==0)
-                        {
+                     
                             ///开始调用支付接口
                                 [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                                 NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
@@ -156,9 +163,12 @@
                                 dict1[@"pay_status"] = @"1";
                                 dict1[@"pay_id"] = @"1";
                             dict1[@"order_id"]= dict[@"data"];
+                            if (!self.orderId) {
+                                self.orderId =dict[@"data"];
+                            }
                             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                                [HttpRequestServers sendAlipayWithOrderSn:dict[@"data"] orderName:@"咖么测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%.2f",0.01] andScallback:^(id obj) {
-                                    
+                                [HttpRequestServers sendAlipayWithOrderSn:self.orderId orderName:@"咖么测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%.2f",0.01] andScallback:^(id obj) {
+                                     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
                                     NSDictionary *aliDict = obj;
                                     HHNSLog(@"支付回调参数 aliDict %@",aliDict);
                                     
@@ -181,28 +191,28 @@
                                     if ([aliDict[@"resultStatus"] isEqualToString:@"8000"]) {
                                         
                                         [DeliveryUtility showMessage:@"正在处理中" target:nil];
-                                        [self.navigationController popViewControllerAnimated:YES];
+                              
                                     }
                                     if ([aliDict[@"resultStatus"] isEqualToString:@"4000"]) {
                                         [DeliveryUtility showMessage:@"订单支付失败" target:nil];
-                                        [self.navigationController popViewControllerAnimated:YES];
+                                     
                                         
                                     }
                                     if ([aliDict[@"resultStatus"] isEqualToString:@"6001"]) {
                                         [DeliveryUtility showMessage:@"用户中途取消付款" target:nil];
-                                        [self.navigationController popViewControllerAnimated:YES];
+                                 
                                         
                                     }
                                     if ([aliDict[@"resultStatus"] isEqualToString:@"6002"]) {
                                         
                                         [DeliveryUtility showMessage:@"网络连接出错" target:nil];
-                                        [self.navigationController popViewControllerAnimated:YES];
+                                   
                                     }
                                     
                                 }];
                                 
                             }];
-                        }
+                      
             
                     }
                     @catch (NSException *exception) {
@@ -220,36 +230,39 @@
         if ([type isEqualToString:@"1"]){
             //银联
             NSLog(@"银联");
+            [[UPPaymentControl defaultControl] startPay:@"12324564875434721"fromScheme:@"UPPayDemokM" mode:@"00" viewController:self];
+
+            
             NSMutableDictionary * mutDic = [NSMutableDictionary dictionaryWithDictionary:self.payDict];
-            [HttpRequestServers requestBaseUrl:TIOrder_AddOrder withParams:mutDic withRequestFinishBlock:^(id result) {
-                NSDictionary *dict = result;
-                HHNSLog(@"---------->> %@",dict);
-                @try {
-                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-                    if ([dict[@"code"] intValue]==0)
-                    {
-                        ///开始调用支付接口
-                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-                        NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
-                        dict1[@"user_id"] = APP_DELEGATE.user_id;
-                        dict1[@"pay_status"] = @"1";
-                        dict1[@"pay_id"] = @"1";
-                        dict1[@"order_id"]= dict[@"data"];
-                        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
-                        [[UPPaymentControl defaultControl] startPay:dict1[@"order_id"]fromScheme:@"UPPayDemo" mode:@"00" viewController:self];
-                        }];
-                    }
-                }
-                @catch (NSException *exception) {
-                    
-                }
-                @finally {
-                    
-                }
-                
-            } withFieldBlock:^{
-                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-            }];
+//            [HttpRequestServers requestBaseUrl:TIOrder_AddOrder withParams:mutDic withRequestFinishBlock:^(id result) {
+//                NSDictionary *dict = result;
+//                HHNSLog(@"---------->> %@",dict);
+//                @try {
+//                    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//                    if ([dict[@"code"] intValue]==0)
+//                    {
+//                        ///开始调用支付接口
+//                        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//                        NSMutableDictionary * dict1 = [NSMutableDictionary dictionary];
+//                        dict1[@"user_id"] = APP_DELEGATE.user_id;
+//                        dict1[@"pay_status"] = @"1";
+//                        dict1[@"pay_id"] = @"1";
+//                        dict1[@"order_id"]= dict[@"data"];
+//                        [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+//                        [[UPPaymentControl defaultControl] startPay:dict1[@"order_id"]fromScheme:@"UPPayDemokM" mode:@"00" viewController:self];
+//                        }];
+//                    }
+//                }
+//                @catch (NSException *exception) {
+//                    
+//                }
+//                @finally {
+//                    
+//                }
+//                
+//            } withFieldBlock:^{
+//                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+//            }];
         }
     }];
     CGSize size =CGSizeMake(self.view.frame.size.width, 103*3+400+100);

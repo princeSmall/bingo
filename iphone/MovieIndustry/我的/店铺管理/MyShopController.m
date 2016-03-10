@@ -88,8 +88,8 @@
     _shopImageView.maskView.clipsToBounds = YES;
     _shopImageView.layer.borderWidth = 1.0f;
     _shopImageView.layer.borderColor = [UIColor colorWithRed:0.88 green:0.88 blue:0.87 alpha:1].CGColor;
-    [_shopImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.storeModel.shop_logo]] placeholderImage:[UIImage imageNamed:@"changShop_logo"]];
-    [_shopImageView sizeToFit];
+    [_shopImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.storeModel.shop_logo]] placeholderImage:[UIImage imageNamed:@"changShop_logo"]];
+    _shopImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     [myView1 addSubview:_shopImageView];
     UIImageView *smImageView = [WNController createImageViewWithFrame:CGRectMake(CGRectGetMaxX(_shopImageView.frame)-15, CGRectGetMaxY(_shopImageView.frame)-15, 30, 30) ImageName:@"shop_03-02"];

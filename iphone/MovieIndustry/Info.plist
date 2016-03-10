@@ -31,7 +31,7 @@
 			<string>YH.CFSH</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>YH.CFSH</string>
+				<string>YH.CFSHKM</string>
 			</array>
 		</dict>
 		<dict>
@@ -60,7 +60,7 @@
 			<string>Editor</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>UPPayDemo</string>
+				<string>UPPayDemokM</string>
 			</array>
 		</dict>
 		<dict>

@@ -792,10 +792,8 @@
         NSString * string = [NSString stringWithFormat:@"%@-%@-%@-%@",self.dataStr,self.model.goods_id,self.goodsCount,priceStr];
         [userDict setObject:string forKey:@"goods"];
         
-//        if ([self.textFiledFoot.text isEqualToString:@""]) {
-//            [DeliveryUtility showMessage:@"留言没有填写" target:nil];
-//            return;
-//        }else{
+        if ([self.textFiledFoot.text isEqualToString:@""]) {
+            self.textFiledFoot.text = @" ";}
             PayOrderController * payOrder = [[PayOrderController alloc]init];
                 payOrder.payDict = userDict;
                     if (self.model) {
@@ -810,7 +808,7 @@
                         payOrder.addressDic = self.addressDic;
 
                     [self.navigationController pushViewController:payOrder animated:YES];
-//    }
+    
   }
  }
 }
