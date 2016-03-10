@@ -89,23 +89,35 @@
     _shopImageView.layer.borderWidth = 1.0f;
     _shopImageView.layer.borderColor = [UIColor colorWithRed:0.88 green:0.88 blue:0.87 alpha:1].CGColor;
     [_shopImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.storeModel.shop_logo]] placeholderImage:[UIImage imageNamed:@"changShop_logo"]];
+    [_shopImageView sizeToFit];
+    
     [myView1 addSubview:_shopImageView];
-    UIImageView *smImageView = [WNController createImageViewWithFrame:CGRectMake(116, 88, 30, 30) ImageName:@"shop_03-02"];
+    UIImageView *smImageView = [WNController createImageViewWithFrame:CGRectMake(CGRectGetMaxX(_shopImageView.frame)-15, CGRectGetMaxY(_shopImageView.frame)-15, 30, 30) ImageName:@"shop_03-02"];
     [myView1 addSubview:smImageView];
-    CGFloat nameW = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-190 andFont:DefaultFont].width;
-    CGRect nameFrame = CGRectMake(160, 18, nameW, 21);
     //店铺名称
+    
+     CGSize size = [shopName sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
+    CGFloat nameW = screenWidth-255;
+    CGFloat nameH = size.width/(int)nameW * size.height;
+    //CGFloat nameW = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-230 andFont:DefaultFont].width;
+    // CGFloat nameH = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-130 andFont:DefaultFont].height;
+    CGRect nameFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+15, CGRectGetMinY(_shopImageView.frame)+10 , nameW, nameH);
     self.shopNameLabel = [WNController createLabelWithFrame:nameFrame Font:16.0f Text:shopName textAligment:NSTextAlignmentLeft];
     self.shopNameLabel.textColor = [UIColor colorWithRed:0.22 green:0.22 blue:0.22 alpha:1];
     [myView1 addSubview:self.shopNameLabel];
     
-    UIImageView *levelImage = [WNController createImageViewWithFrame:CGRectMake(CGRectGetMaxX(nameFrame)+5,14, 25, 25) ImageName:@"shop_03.png"];
-    [myView1 addSubview:levelImage];
     
-     StarView * starView = [[StarView alloc] initWithFrame:CGRectMake(kViewWidth - 100, 18, 88, 16) score:0 canscore:@"0"];
+    //打分星星
+     StarView * starView = [[StarView alloc] initWithFrame:CGRectMake(kViewWidth - 88, 18, 88, 16) score:0 canscore:@"0"];
     [myView1 addSubview:starView];
+    
+    //星星前面的标志
+    UIImageView *levelImage = [WNController createImageViewWithFrame:CGRectMake(CGRectGetMinX(starView.frame)-30,14, 25, 25) ImageName:@"shop_03.png"];
+    [myView1 addSubview:levelImage];
+
     //店铺简介
-    CGRect brifyFrame = CGRectMake(160, 45, screenWidth-170, 80);
+    CGFloat brifyH =[DeliveryUtility caculateContentSizeWithContent:shopBrify andHight:21.0f andWidth:screenWidth-170 andFont:DefaultFont].height;
+    CGRect brifyFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+20, CGRectGetMaxY(self.shopNameLabel.frame)+10, screenWidth-170, brifyH);
     
     self.shopDescLabel = [WNController createLabelWithFrame:brifyFrame Font:13 Text:shopBrify textAligment:NSTextAlignmentLeft];
     self.shopDescLabel.textColor = [UIColor colorWithRed:0.62 green:0.62 blue:0.62 alpha:1];

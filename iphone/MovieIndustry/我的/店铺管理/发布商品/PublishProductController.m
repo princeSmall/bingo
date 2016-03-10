@@ -353,14 +353,16 @@
     }
     //判断图片
     NSString * imageAllStr ;
+    int imageNum=0;
     for (int i = 0; i < self.imagePathArray.count; i ++) {
         if ([_imagePathArray[i] isEqual:@""]) {
             imageAllStr = @"1";
-            break;
+            imageNum++;
+          
         }
     }
-    if ([imageAllStr isEqualToString:@"1"]) {
-        [DeliveryUtility showMessage:@"请上传5张商品图片" target:self];
+    if (imageNum >= 5) {
+        [DeliveryUtility showMessage:@"请上传至少1张商品图片" target:self];
         return NO;
     }
     if (0 == originPrice.length) {
@@ -551,7 +553,7 @@
         self.imagePicker.delegate = self;
         self.imagePicker.sourceType = sourceType;
         self.imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-        self.imagePicker.allowsEditing = NO;
+        self.imagePicker.allowsEditing = YES;
         
         [self.imagePicker.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
         if (isiOS8) {
@@ -619,7 +621,7 @@
 
 - (void)uploadChooseImageWith:(UIImage *)originImage
 {
-    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(700, 700)];
+    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(800, 800)];
     
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"添加图片...";
@@ -690,6 +692,7 @@
     else
     {
         cell.pcImage.image = _imageArray[indexPath.item];
+        [cell.pcImage sizeThatFits:cell.pcImage.frame.size];
 //        cell.delectBtn.hidden = NO;
     }
     
