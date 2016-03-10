@@ -1,19 +1,17 @@
 //
-//  NewMessageCell.m
+//  MovieSchool_ClassesCell.m
 //  MovieIndustry
 //
-//  Created by 石冬冬 on 16/3/2.
+//  Created by 石冬冬 on 16/3/9.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 
-#import "NewMessageCell.h"
+#import "MovieSchool_ClassesCell.h"
 
-@implementation NewMessageCell
+@implementation MovieSchool_ClassesCell
 
 - (void)awakeFromNib {
-    ViewBorderRadius(self.msgContentV, 23, 0, [UIColor blackColor]);
-    ViewBorderRadius(self.msgIconV, 21, 0.5, [UIColor whiteColor]);
-}
+ViewBorderRadius(self.imagV, 3, 0, [UIColor whiteColor]);}
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];

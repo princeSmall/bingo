@@ -299,6 +299,9 @@
         cell.connectBtn.layer.borderWidth=1;
         cell.connectBtn.layer.borderColor = RGBColor(234,234, 234, 1).CGColor;
         cell.connectBtn.layer.cornerRadius = 5;
+#warning 联系商家按钮被隐藏
+        cell.connectBtn.hidden = YES;
+        
         return cell;
         
     }else if ([_btnType isEqualToString:@"1"])

@@ -335,6 +335,8 @@
     //店铺背景
     [self.shopCoverImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PREFIX,self.storeModel.shop_logo]]];
     
+    [self.shopCoverImage sizeToFit];
+    
     //店铺logo
     [self.shopLogoImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.storeModel.shop_logo]] placeholderImage:[UIImage imageNamed:@"changShop_logo"]];
     self.imageName = self.storeModel.shop_logo;
@@ -480,7 +482,7 @@
     self.imagePicker.delegate = self;
     self.imagePicker.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     self.imagePicker.modalTransitionStyle = UIModalTransitionStyleCoverVertical;
-    self.imagePicker.allowsEditing = NO;
+    self.imagePicker.allowsEditing = YES;
     
     [self.imagePicker.navigationBar setBackgroundImage:[UIImage imageNamed:@"nav_bg"] forBarMetrics:UIBarMetricsDefault];
     [self presentViewController:_imagePicker animated:YES completion:nil];
@@ -528,7 +530,7 @@
 {
     UIImage *postImage;
     if (_isLogo) {
-        postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(200, 150)];
+        postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(1000, 1000)];
     }
     else{
         

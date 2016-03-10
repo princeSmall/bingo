@@ -598,8 +598,9 @@
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"正在上传头像";
     [HUD show:YES];
-       UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(700,700)];
+       UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(800,800)];
     self.headerImg.image = postImage;
+    [self.headerImg sizeThatFits:self.headerImg.frame.size];
     NSData * imageData = UIImagePNGRepresentation(postImage);
     [UserDesModel GetUploadImageDictWithData:imageData WithType:@"1" With:^(NSString *string) {
         if ([string isEqualToString:@"F"]) {

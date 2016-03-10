@@ -15,7 +15,6 @@
                 <outlet property="postCodeLabel" destination="V2R-OT-79E" id="jaH-Ib-mhJ"/>
                 <outlet property="provinceStr" destination="mpm-c3-uL1" id="L9d-eb-ODg"/>
                 <outlet property="rightView" destination="E3u-ns-wdl" id="Wu2-pf-SKx"/>
-                <outlet property="telPhone" destination="2S5-iK-N8f" id="QlE-aj-cXC"/>
                 <outlet property="view" destination="nl2-c2-rdC" id="o1c-YW-kW0"/>
             </connections>
         </placeholder>
@@ -37,7 +36,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" id="1T7-WS-5hk">
-                    <rect key="frame" x="0.0" y="374" width="375" height="42"/>
+                    <rect key="frame" x="0.0" y="328" width="375" height="42"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="邮政编码" minimumFontSize="17" id="V2R-OT-79E">
@@ -63,7 +62,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" id="nJ3-jO-QCM">
-                    <rect key="frame" x="0.0" y="266" width="375" height="106"/>
+                    <rect key="frame" x="0.0" y="221" width="375" height="106"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" text="详细地址" id="jHy-Uo-IFZ">
@@ -72,7 +71,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                             <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="next"/>
                         </textView>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -90,21 +89,8 @@
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
-                <view contentMode="scaleToFill" id="rMA-w4-shO">
-                    <rect key="frame" x="0.0" y="86" width="375" height="42"/>
-                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                    <subviews>
-                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="固话： 手机号码、固话二选一" minimumFontSize="17" id="2S5-iK-N8f">
-                            <rect key="frame" x="12" y="8" width="340" height="30"/>
-                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                        </textField>
-                    </subviews>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                </view>
                 <view contentMode="scaleToFill" id="eWu-tB-zZe">
-                    <rect key="frame" x="0.0" y="175" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="131" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help_right.png" id="ui8-ky-HBc">
@@ -139,7 +125,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" id="nMc-ty-6KG">
-                    <rect key="frame" x="0.0" y="129" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="86" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help_right.png" id="TP1-lU-vcz">
@@ -174,7 +160,7 @@
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
                 <view contentMode="scaleToFill" id="9Vr-tE-JUx">
-                    <rect key="frame" x="0.0" y="220" width="375" height="44"/>
+                    <rect key="frame" x="0.0" y="176" width="375" height="44"/>
                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help_right.png" id="BgZ-Bi-nWh">

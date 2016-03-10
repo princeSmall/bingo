@@ -9,7 +9,7 @@
 #import "ShopDetailController.h"
 #import "SearchShopHeaderView.h"
 #import "ShopDetailView.h"
-
+#import "CallPhoneController.h"
 @interface ShopDetailController ()
 @property (nonatomic,strong) SearchShopHeaderView *searchHeaderView;
 @property (nonatomic,strong) ShopDetailView *detailView;
@@ -26,15 +26,17 @@
     }
     return _searchHeaderView;
 }
-
+// 拨打店家电话
 - (void)callPhoneButtonAction
 {
-    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_searchHeaderView.shopPhoneLabel.text];
-    UIWebView * callWebview = [[UIWebView alloc] init];
-    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [self.view addSubview:callWebview];
+    [CallPhoneController call:_searchHeaderView.shopPhoneLabel.text inViewController:self failBlock:^{
+        NSLog(@"真机运行  模拟器不能打电话");
+    }];
+//    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_searchHeaderView.shopPhoneLabel.text];
+//    UIWebView * callWebview = [[UIWebView alloc] init];
+//    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+//    [self.view addSubview:callWebview];
 }
-
 - (ShopDetailView *)detailView
 {
     if (!_detailView) {

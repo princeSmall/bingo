@@ -402,7 +402,7 @@
                 cell.deliveryWay.text = @"商家送货";
             }
             if ([good.goods_express isEqual:@"1"]) {
-                cell.deliveryWay.text = @"顺丰快递";
+                cell.deliveryWay.text = @"快递";
             }
             if ([good.goods_express isEqual:@"2"]) {
                 cell.deliveryWay.text = @"圆通快递";
@@ -440,7 +440,7 @@
                     cell.deliveryWay.text = @"商家送货";
                 }
                 if ([good.goods_express isEqual:@"1"]) {
-                    cell.deliveryWay.text = @"顺丰快递";
+                    cell.deliveryWay.text = @"快递";
                 }
                 if ([good.goods_express isEqual:@"2"]) {
                     cell.deliveryWay.text = @"圆通快递";
