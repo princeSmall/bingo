@@ -133,11 +133,11 @@
     label.text = @"   可用200咖么积分";
     [view addSubview:label];
     label.font = [UIFont systemFontOfSize:15];
-    UILabel * label1 = [[UILabel alloc]initWithFrame:CGRectMake(kViewWidth/2+30, 15, kViewWidth-30-kViewWidth/2, 20)];
-    label1.text = @"100咖么积分＝1元";
-    label1.font = [UIFont systemFontOfSize:14];
-    label1.textColor = [UIColor lightGrayColor];
-    [view addSubview:label1];
+    UITextField * tf = [[UITextField alloc]initWithFrame:CGRectMake(kViewWidth/2+30, 15, kViewWidth-30-kViewWidth/2, 20)];
+    tf.placeholder = @"100咖么积分＝1元";
+    tf.font = [UIFont systemFontOfSize:14];
+    tf.textColor = [UIColor lightGrayColor];
+    [view addSubview:tf];
     return view;
     
 }
@@ -689,10 +689,10 @@
     if([self.delegate respondsToSelector:@selector(payMineOrderSuccess:)])
     {}
       
-    if ([self.textFiledFoot.text isEqualToString:@""]) {
-            [DeliveryUtility showMessage:@"留言没有填写" target:nil];
-            return;
-        }
+//    if ([self.textFiledFoot.text isEqualToString:@""]) {
+//            [DeliveryUtility showMessage:@"留言没有填写" target:nil];
+//            return;
+//        }
    
         
         if (self.goodsInfoArray) {
@@ -792,10 +792,10 @@
         NSString * string = [NSString stringWithFormat:@"%@-%@-%@-%@",self.dataStr,self.model.goods_id,self.goodsCount,priceStr];
         [userDict setObject:string forKey:@"goods"];
         
-        if ([self.textFiledFoot.text isEqualToString:@""]) {
-            [DeliveryUtility showMessage:@"留言没有填写" target:nil];
-            return;
-        }else{
+//        if ([self.textFiledFoot.text isEqualToString:@""]) {
+//            [DeliveryUtility showMessage:@"留言没有填写" target:nil];
+//            return;
+//        }else{
             PayOrderController * payOrder = [[PayOrderController alloc]init];
                 payOrder.payDict = userDict;
                     if (self.model) {
@@ -810,7 +810,7 @@
                         payOrder.addressDic = self.addressDic;
 
                     [self.navigationController pushViewController:payOrder animated:YES];
-    }
+//    }
   }
  }
 }

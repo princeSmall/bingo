@@ -158,7 +158,6 @@
     [self setNavTabBar:@"新建收货地址"];
     self.areaView = [[JGButtonAreaView alloc]initWithFrame:self.view.frame WithController:self];
     self.addressDetailTextView.delegate = self;
-    self.addressDetailTextView.returnKeyType = UIReturnKeyDone;
     //从本地读取plist文件
     self.postCodeLabel.delegate = self;
     NSBundle *bundle = [NSBundle mainBundle];
@@ -303,9 +302,9 @@
 //                        [PromptLabel custemAlertPromAddView:self.view text:@"请输入详细地址"];
                  [DeliveryUtility showMessage:@"请输入详细地址" target:nil];
                 
-            }else
-                
-            {
+            }else if ([self.postCodeLabel.text isEqualToString:@""]) {
+                [DeliveryUtility showMessage:@"请输入邮编" target:nil];
+            } else {
                         
                         MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
                         
@@ -528,7 +527,18 @@
         textView.textColor = [UIColor lightGrayColor];
     }
 }
-
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text
+{
+    
+    if ([text isEqualToString:@"\n"]) {
+        
+        [textView resignFirstResponder];
+        [self.postCodeLabel becomeFirstResponder];
+        return NO;
+    }
+    
+    return YES;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
