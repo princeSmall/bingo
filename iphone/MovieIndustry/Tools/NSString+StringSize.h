@@ -31,4 +31,6 @@
 
 - (CGSize) sizeWithFont:(UIFont *) font maxW:(CGFloat) maxW;
 - (CGSize) sizeWithFont:(UIFont *) font;
+
++ (float) heightForString:(NSString *)value fontSize:(float)fontSize andWidth:(float)width;
 @end

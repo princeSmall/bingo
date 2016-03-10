@@ -20,7 +20,7 @@
         UIButton *btn = [[UIButton alloc] init];
         [self.movieCoverImage addSubview:btn];
         [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-        [btn setTitle:@"30小时" forState:UIControlStateNormal];
+        [btn setTitle:@"30课时" forState:UIControlStateNormal];
         btn.titleLabel.font =[UIFont systemFontOfSize:10];
         [btn setBackgroundImage:[UIImage imageNamed:@"Highqualitycourses_classTime"] forState:UIControlStateNormal];
         btn.frame = CGRectMake(-4, 10, 35, 15);
