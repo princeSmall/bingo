@@ -333,12 +333,34 @@
 - (void)refreshSetingShopView
 {
     //店铺背景
-    [self.shopCoverImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",IMAGE_PREFIX,self.storeModel.shop_logo]]];
+    [self.shopCoverImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.storeModel.shop_logo]]];
     
-    [self.shopCoverImage sizeToFit];
     
-    //店铺logo
-    [self.shopLogoImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.storeModel.shop_logo]] placeholderImage:[UIImage imageNamed:@"changShop_logo"]];
+    NSString * string22 =[NSString stringWithFormat:@"%@%@",TIBIGImage,self.storeModel.shop_logo];
+    
+    NSURLRequest * req = [NSURLRequest requestWithURL:[NSURL URLWithString:string22]];
+    
+
+    
+   UIImage * imageShop =[UIImage imageWithData:[NSURLConnection sendSynchronousRequest:req returningResponse:nil error:nil]];
+    
+    CGFloat imageW = imageShop.size.width;
+    CGFloat imageH = imageShop.size.height;
+    CGFloat count;
+    CGFloat W,H;
+    if (imageW > imageH) {
+        count = imageW/imageH;
+        W = 88*count;
+        H = 88;
+    }else{
+        count = imageH/imageW;
+        W = 88;
+        H = 88*count;
+    }
+  self.shopLogoImage.image = [DeliveryUtility image:imageShop scaledToSize:CGSizeMake(W, H)];
+    self.shopLogoImage.contentMode = UIViewContentModeScaleAspectFill;
+//    [self.shopLogoImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.storeModel.shop_logo]] placeholderImage:[UIImage imageNamed:@"changShop_logo"]];
+ 
     self.imageName = self.storeModel.shop_logo;
     self.txtShopName.text = self.storeModel.shop_name;
     self.txtBossName.text = self.storeModel.shop_contact_person;
@@ -505,7 +527,7 @@
         //如果选择的类型是图片
         if ([type isEqualToString:@"public.image"])
         {
-            UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+            UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
             [self requestSettingMineShopLogo:image];            
         }
     }
@@ -515,7 +537,7 @@
         //如果选择的类型是图片
         if ([type isEqualToString:@"public.image"])
         {
-            UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
+            UIImage *image = [info objectForKey:@"UIImagePickerControllerEditedImage"];
             [self requestSettingMineShopLogo:image];
         }
     }
@@ -530,7 +552,8 @@
 {
     UIImage *postImage;
     if (_isLogo) {
-        postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(1000, 1000)];
+        CGFloat i = originImage.size.width/800;
+        postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     }
     else{
         
@@ -553,7 +576,22 @@
         }else{
             HUD.labelText = @"上传成功";
             self.imageName = string;
+            
+            CGFloat imageW = postImage.size.width;
+            CGFloat imageH = postImage.size.height;
+            CGFloat count;
+            CGFloat W,H;
+            if (imageW > imageH) {
+                count = imageW/imageH;
+                W = 88*count;
+                H = 88;
+            }else{
+                count = imageH/imageW;
+                W = 88;
+                H = 88*count;
+            }
             self.shopLogoImage.image = postImage;
+
             [HUD hide:YES];
             
         }

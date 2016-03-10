@@ -916,6 +916,9 @@
 		D3ED30DF1C51F5BB00C10387 /* ReturnAppayViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ED30DE1C51F5BB00C10387 /* ReturnAppayViewController.m */; };
 		D3ED30E31C51F85F00C10387 /* LogisticsNumberController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ED30E21C51F85F00C10387 /* LogisticsNumberController.m */; };
 		D3ED31281C5230FB00C10387 /* CollectionHeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = D3ED31271C5230FB00C10387 /* CollectionHeadView.m */; };
+		D3F638BA1C9141EB0088E57E /* PublishSecondCategoryController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F638B91C9141EB0088E57E /* PublishSecondCategoryController.m */; };
+		D3F638BE1C91431E0088E57E /* SecondCategoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D3F638BC1C91431E0088E57E /* SecondCategoryCell.m */; };
+		D3F638BF1C91431E0088E57E /* SecondCategoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D3F638BD1C91431E0088E57E /* SecondCategoryCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -2397,6 +2400,11 @@
 		D3ED30E21C51F85F00C10387 /* LogisticsNumberController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = LogisticsNumberController.m; sourceTree = "<group>"; };
 		D3ED31261C5230FB00C10387 /* CollectionHeadView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CollectionHeadView.h; path = FirstCell/CollectionHeadView.h; sourceTree = "<group>"; };
 		D3ED31271C5230FB00C10387 /* CollectionHeadView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CollectionHeadView.m; path = FirstCell/CollectionHeadView.m; sourceTree = "<group>"; };
+		D3F638B81C9141EB0088E57E /* PublishSecondCategoryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PublishSecondCategoryController.h; sourceTree = "<group>"; };
+		D3F638B91C9141EB0088E57E /* PublishSecondCategoryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PublishSecondCategoryController.m; sourceTree = "<group>"; };
+		D3F638BB1C91431E0088E57E /* SecondCategoryCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondCategoryCell.h; sourceTree = "<group>"; };
+		D3F638BC1C91431E0088E57E /* SecondCategoryCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondCategoryCell.m; sourceTree = "<group>"; };
+		D3F638BD1C91431E0088E57E /* SecondCategoryCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = SecondCategoryCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -4367,6 +4375,7 @@
 		848295B51C0EA02C00452BF9 /* 发布商品 */ = {
 			isa = PBXGroup;
 			children = (
+				D3F638B71C9140D00088E57E /* 产品二级分类 */,
 				00BB0B3D1C5F0605008400A3 /* Model */,
 				848295B81C0EA02C00452BF9 /* PublishProductController.h */,
 				848295B91C0EA02C00452BF9 /* PublishProductController.m */,
@@ -5247,6 +5256,9 @@
 				A2E8A8CD1C112C3500D73999 /* MoviePictureCollectionCell.h */,
 				A2E8A8CE1C112C3500D73999 /* MoviePictureCollectionCell.m */,
 				A2E8A8CF1C112C3500D73999 /* MoviePictureCollectionCell.xib */,
+				D3F638BB1C91431E0088E57E /* SecondCategoryCell.h */,
+				D3F638BC1C91431E0088E57E /* SecondCategoryCell.m */,
+				D3F638BD1C91431E0088E57E /* SecondCategoryCell.xib */,
 			);
 			path = cell;
 			sourceTree = "<group>";
@@ -5424,6 +5436,15 @@
 				D3ED30E21C51F85F00C10387 /* LogisticsNumberController.m */,
 			);
 			name = "上传物流单号";
+			sourceTree = "<group>";
+		};
+		D3F638B71C9140D00088E57E /* 产品二级分类 */ = {
+			isa = PBXGroup;
+			children = (
+				D3F638B81C9141EB0088E57E /* PublishSecondCategoryController.h */,
+				D3F638B91C9141EB0088E57E /* PublishSecondCategoryController.m */,
+			);
+			name = "产品二级分类";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -5630,6 +5651,7 @@
 				8461654F1BFF3A8E003B656B /* share_03-08.png in Resources */,
 				8461653A1BFF3A8E003B656B /* search_normal.png in Resources */,
 				8461650A1BFF3A8E003B656B /* loginLock@2x.png in Resources */,
+				D3F638BF1C91431E0088E57E /* SecondCategoryCell.xib in Resources */,
 				848296731C0EA02C00452BF9 /* MyPhotosHeader.xib in Resources */,
 				846164F31BFF3A8E003B656B /* index_03-03@2x.png in Resources */,
 				848296351C0EA02C00452BF9 /* MovieWalletFirstCell.xib in Resources */,
@@ -6025,6 +6047,7 @@
 				2578B8B31C8991E200EB129D /* TeacherCourseDetailHead.m in Sources */,
 				00200A321C7C65D600DD8084 /* TAAbstractDotView.m in Sources */,
 				848296361C0EA02C00452BF9 /* MovieBankCardViewController.m in Sources */,
+				D3F638BE1C91431E0088E57E /* SecondCategoryCell.m in Sources */,
 				D3ED30DA1C51D85C00C10387 /* PointTableViewCell.m in Sources */,
 				001FE24A1C5F457200820523 /* UserDesModel.m in Sources */,
 				8467DC431C11BA0D00A0FF0C /* ManagerShippingAddressController.m in Sources */,
@@ -6287,6 +6310,7 @@
 				A2C8FB6F1C0D404D00E90468 /* MovieDiscoveryArticleModel.m in Sources */,
 				849487D51C086C420070AD4C /* MyOrderShopModel.m in Sources */,
 				00200A351C7C65D600DD8084 /* TAPageControl.m in Sources */,
+				D3F638BA1C9141EB0088E57E /* PublishSecondCategoryController.m in Sources */,
 				848293781C0E968200452BF9 /* SelectCertificationView.m in Sources */,
 				00580DCA1C7D84CB008012F0 /* VerificationUserController.m in Sources */,
 				8482943F1C0E96C500452BF9 /* SDImageCache.m in Sources */,

@@ -9,6 +9,7 @@
 #import "SiteViewController.h"
 #import "MoviePictureCollectionCell.h"
 #import "ShopSendClickView.h"
+#import "PublishSecondCategoryController.h"
 
 #define IMAGE_START_TAG 300
 #define PLACE_HOLDER  @"场地描述"
@@ -673,6 +674,39 @@
     [sheetView showInView:self.view];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row==8)
+    {
+    
+        PublishSecondCategoryController *secondCategory = [[PublishSecondCategoryController alloc]init];
+        secondCategory.type = @"3";
+        //返回的回调
+        __weak typeof(self)wself = self;
+        secondCategory.backFn = ^(NSDictionary * dict){
+            wself.desModel.goods_category_id = dict[@"category_id"];
+            UITableViewCell *cell = [wself.tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            UILabel *label = (UILabel *)[cell viewWithTag:indexPath.row+300];
+            if(label==nil)
+            {
+                label =[[UILabel alloc]initWithFrame:CGRectMake(kViewWidth-80, 0, 80, cell.frame.size.height)];
+                label.tag = indexPath.row+300;
+                
+            }
+
+            label.textColor = [UIColor blackColor];
+            label.text = dict[@"category_name"];
+            [cell.contentView addSubview:label];
+            
+            
+        };
+        [self.navigationController pushViewController:secondCategory animated:YES];
+        NSLog(@"选择类型");
+
+    }
+    
+}
 - (void)delectChooseImageBtnClicked:(UIButton *)button
 {
     NSInteger index = button.tag - 600;

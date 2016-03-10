@@ -19,7 +19,7 @@
 + (NSString *)getString:(id)value;
 + (id)nullString:(id)content;
 + (BOOL)stringContainsEmoji:(NSString *)string;
-
++ (UIImage *)image:(UIImage*)image scaledToSize:(CGSize)newSize;
 
 /** 修改图片的大小 */
 + (UIImage*)imageWithImageSimple:(UIImage*)image scaledToSize:(CGSize)newSize;
