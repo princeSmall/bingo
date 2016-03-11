@@ -300,7 +300,7 @@
 - (void)storeButtonAction
 {
     //如果没有开店，则进入开店页面。
-    if(![self.desModel.has_shop isEqualToString:@"0"]){
+    if([self.desModel.has_shop isEqualToString:@"0"]){
         UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MoviePersonal" bundle:nil];
         
         MovieCreateMineShopViewController *createShopVC = [storyboard instantiateViewControllerWithIdentifier:@"createMineShop"];

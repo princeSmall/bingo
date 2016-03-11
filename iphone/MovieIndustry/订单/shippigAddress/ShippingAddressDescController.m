@@ -137,7 +137,9 @@
         
         
     } withFieldBlock:^{
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+         [DeliveryUtility showMessage:@"删除成功" target:nil];
+         [self.navigationController popViewControllerAnimated:YES];
     }];
     
 }

@@ -48,7 +48,7 @@
 {
     //CGRect rect =CGRectMake(0, 0, self.frame.size.width, 128);
     self.block = block;
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.frame.size.width, 128) style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.centerView.frame.size.width,300)style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.centerView addSubview:self.tableView];
@@ -64,7 +64,7 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 2;
+    return 3;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
@@ -86,6 +86,12 @@
         cell.payWayLbl.text= @"银联支付";
         cell.payBottomLbl.text = @"支持储蓄卡,无需开通网银";
         cell.selectBtn.tag = 7772;
+    }else if(indexPath.row == 2){
+    
+        cell.payWayLbl.text = @"微信支付";
+        cell.payBottomLbl.text = @"微信支付";
+        cell.selectBtn.tag = 7773;
+    
     }
     [cell.selectBtn setImage:[UIImage imageNamed:@"checked_"] forState:UIControlStateSelected];
     [cell.selectBtn addTarget:self action:@selector(actionChoose:) forControlEvents:UIControlEventTouchUpInside];

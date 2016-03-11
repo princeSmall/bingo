@@ -332,13 +332,18 @@
     NSString *address = [self.address.text asTrim];
     NSString *deliveryId ;
     //0:商家 1:快递  2:自提
-    if ([self.deliveryMethod.text isEqualToString:@"商家送货"]) {
+    if ([self.deliveryMethod.text isEqualToString:@"送货上门"]) {
         deliveryId = @"0";
     }else if([self.deliveryMethod.text isEqualToString:@"快递"]){
     deliveryId = @"1";
     }else if([self.deliveryMethod.text isEqualToString:@"自提"]){
     deliveryId = @"2";
     }
+    if ([self.deliveryMethod.text isEqualToString:@""]) {
+        [DeliveryUtility showMessage:@"请选择送货方式" target:self];
+        return NO;
+    }
+    
     NSString *isDeposit = [NSString stringWithFormat:@"%zd",self.depositSwBtn.on];
     
     //判断商品详情
