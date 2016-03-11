@@ -398,16 +398,18 @@
         [DeliveryUtility showMessage:@"请填写价格" target:self];
         return NO;
     }
-    
+    //判断押金
     if ([self.yajinCount.text isEqualToString:@""]) {
         [DeliveryUtility showMessage:@"请填写押金" target:self];
         return NO;
     }
-    
-//    else if ([DeliveryUtility isNotLegal:price]){
-//        [DeliveryUtility showMessage:@"价格不可包含非法字符" target:self];
-//        return NO;
-//    }
+    //判断类型
+    NSString *type = self.typeLbl.text;
+    if(type.length==0)
+    {
+        [DeliveryUtility showMessage:@"请点击选择类型" target:self];
+        return NO;
+    }
     
     //判断特点
     if ([feature isEqualToString:@""]) {
@@ -467,7 +469,7 @@
     [self.siteDict setObject:isYaJin forKey:@"is_deposit"];
     [self.siteDict setObject:self.goodsCount.text forKey:@"goods_number"];
     [self.siteDict setObject:self.yajinCount.text forKey:@"goods_deposit"];
-    [self.siteDict setObject:@"1" forKey:@"goods_category_id"];
+    //[self.siteDict setObject:@"1" forKey:@"goods_category_id"];
     
     return YES;
 }
@@ -684,21 +686,13 @@
         //返回的回调
         __weak typeof(self)wself = self;
         secondCategory.backFn = ^(NSDictionary * dict){
-            wself.desModel.goods_category_id = dict[@"category_id"];
+            [wself.siteDict setObject:dict[@"category_id"] forKey:@"goods_category_id"];  ;
             UITableViewCell *cell = [wself.tableView cellForRowAtIndexPath:indexPath];
             cell.accessoryType = UITableViewCellAccessoryNone;
-            UILabel *label = (UILabel *)[cell viewWithTag:indexPath.row+300];
-            if(label==nil)
-            {
-                label =[[UILabel alloc]initWithFrame:CGRectMake(kViewWidth-80, 0, 80, cell.frame.size.height)];
-                label.tag = indexPath.row+300;
-                
-            }
-
-            label.textColor = [UIColor blackColor];
-            label.text = dict[@"category_name"];
-            [cell.contentView addSubview:label];
-            
+            wself.typeLbl .frame=CGRectMake(kViewWidth-100, 0, 80, cell.frame.size.height);
+            wself.typeLbl.textColor = [UIColor blackColor];
+            wself.typeLbl.text = dict[@"category_name"];
+            wself.typeLbl.textAlignment = NSTextAlignmentRight;
             
         };
         [self.navigationController pushViewController:secondCategory animated:YES];

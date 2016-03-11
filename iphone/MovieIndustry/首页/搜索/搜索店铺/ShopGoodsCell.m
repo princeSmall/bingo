@@ -33,7 +33,7 @@
     NSString * str ;
     switch (type) {
         case 0:
-            str = @"商家送货";
+            str = @"送货上门";
             break;
             
         case 1:

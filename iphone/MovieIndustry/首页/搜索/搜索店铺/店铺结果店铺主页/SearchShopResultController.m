@@ -108,10 +108,19 @@ typedef void (^babyClassify)(void);
 
 - (void)callPhoneButtonAction
 {
-    NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_searchHeaderView.shopPhoneLabel.text];
-    UIWebView * callWebview = [[UIWebView alloc] init];
-    [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-    [self.view addSubview:callWebview];
+    UIAlertController * aler = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否要拨打店铺电话" preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_searchHeaderView.shopPhoneLabel.text];
+        UIWebView * callWebview = [[UIWebView alloc] init];
+        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
+        [self.view addSubview:callWebview];
+        
+    }];
+    [aler addAction:sureAction];
+    UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    }];
+    [aler addAction:cancelAction];
+    [self presentViewController:aler animated:YES completion:nil];
 }
 
 
@@ -436,7 +445,7 @@ typedef void (^babyClassify)(void);
 
 
 #pragma mark - 宝贝分类
-- (void)loadType :(NSString *)parent_id judge:(int)judgement
+- (void)loadType:(NSString *)parent_id judge:(int)judgement
 {
     NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:APP_DELEGATE.user_id,@"user_id", nil];
     [userDict setValue:parent_id forKey:@"parent_id"];
@@ -508,6 +517,10 @@ typedef void (^babyClassify)(void);
             
             self.searchHeaderView.shopNameLabel.text = shopModel.shop_name;
             
+            CGSize size = [shopModel.shop_name sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
+
+            CGRect labelFrame =self.searchHeaderView.shopNameLabel.frame;
+            self.searchHeaderView.shopNameLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y, size.width, labelFrame.size.height);
             self.searchHeaderView.shopAddressLabel.text = shopModel.shop_addr_detail;
             self.searchHeaderView.shopPhoneLabel.text = shopModel.shop_tel;
             StarView *startView = [[StarView alloc] initWithFrame:CGRectMake(kViewWidth-75, 20, 80, 20) score:0 canscore:@"0"];
@@ -980,24 +993,6 @@ typedef void (^babyClassify)(void);
     }];
     self.selectNumber = (int)selectedBtn.tag;
     self.page=1;
-    //[self judge];
-//    if ([_btnType isEqualToString:@"0"]) {
-//        //店铺首页数据
-//        self.page =1;
-//        self.searchWords = @"";
-//        self.baByType = @"0";
-//        self.theNewGoods = @"0";
-////        [self loadGoodsList];
-////        [self loadData];
-//    }
-//    if ([_btnType isEqualToString:@"2"]) {
-//        //最新上架数据
-//        self.page = 1;
-//        self.searchWords = @"";
-//        self.baByType = @"0";
-//        self.theNewGoods = @"1";
- //       [self loadData];
-//    }
 }
 
 #pragma mark Picker Date Source Methods 

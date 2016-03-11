@@ -31,7 +31,7 @@
     self.myBtnView = btnView;
     
     [[UIApplication sharedApplication].keyWindow addSubview:btnView];
-    self.topBtn = [self createButtonWithFrame:CGRectMake(0, 0, kViewWidth, 148/3-1) ImageName:@"" Title:@"商家送货" fontSize:16];
+    self.topBtn = [self createButtonWithFrame:CGRectMake(0, 0, kViewWidth, 148/3-1) ImageName:@"" Title:@"送货上门" fontSize:16];
     self.topBtn.titleLabel.textAlignment = NSTextAlignmentLeft;
     self.topBtn.backgroundColor = [UIColor whiteColor];
     [btnView addSubview:self.topBtn];

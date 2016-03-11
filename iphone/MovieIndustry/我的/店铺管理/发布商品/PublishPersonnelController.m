@@ -372,7 +372,14 @@
         return NO;
         
     }
-    
+    //判断类型
+    NSString *type = self.typeLbl.text;
+    if(type.length==0)
+    {
+        [DeliveryUtility showMessage:@"请点击选择类型" target:self];
+        return NO;
+
+    }
     //判断特点
     if (0 == feature) {
         [DeliveryUtility showMessage:@"请输入特点信息" target:self];
@@ -407,10 +414,11 @@
     }else{
         isYaJin = @"0";
     }
+    
     [self.issueDict setObject:isYaJin forKey:@"is_deposit"];
     [self.issueDict setObject:self.yajinCount.text forKey:@"goods_deposit"];
     [self.issueDict setObject:self.careerLab.text forKey:@"goods_job"];
-    [self.issueDict setObject:@"1" forKey:@"goods_category_id"];
+    //[self.issueDict setObject:@"1" forKey:@"goods_category_id"];
     
     return YES;
 }
@@ -487,21 +495,13 @@
         //返回的回调
         __weak typeof(self)wself = self;
         secondCategory.backFn = ^(NSDictionary * dict){
-            wself.desModel.goods_category_id = dict[@"category_id"];
+            [wself.issueDict setObject:dict[@"category_id"] forKey:@"goods_category_id"];  ;
             UITableViewCell *cell = [wself.tableView cellForRowAtIndexPath:indexPath];
             cell.accessoryType = UITableViewCellAccessoryNone;
-            UILabel *label = (UILabel *)[cell viewWithTag:indexPath.row+300];
-            if(label==nil)
-            {
-                label =[[UILabel alloc]initWithFrame:CGRectMake(kViewWidth-80, 0, 80, cell.frame.size.height)];
-                label.tag = indexPath.row+300;
-
-            }
-            label.textColor = [UIColor blackColor];
-            label.text = dict[@"category_name"];
-            [cell.contentView addSubview:label];
-            
-            
+            wself.typeLbl .frame=CGRectMake(kViewWidth-100, 0, 80, cell.frame.size.height);
+            wself.typeLbl.textColor = [UIColor blackColor];
+            wself.typeLbl.text = dict[@"category_name"];
+            wself.typeLbl.textAlignment = NSTextAlignmentRight;
         };
         [self.navigationController pushViewController:secondCategory animated:YES];
         NSLog(@"选择类型");

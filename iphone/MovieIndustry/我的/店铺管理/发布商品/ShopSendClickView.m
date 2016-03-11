@@ -88,7 +88,7 @@
         [self addSubview:labelLine3];
         [self addSubview:buttonC3];
         self.button1.selected = YES;
-        self.block(@"商家送货");
+        self.block(@"送货上门");
     }
     return self;
 }
@@ -97,7 +97,7 @@
     self.button1.selected = YES;
     self.button2.selected = NO;
     self.button3.selected = NO;
-    self.block(@"商家送货");
+    self.block(@"送货上门");
 }
 
 - (void)BtnTwoClick:(UIButton *)sender{

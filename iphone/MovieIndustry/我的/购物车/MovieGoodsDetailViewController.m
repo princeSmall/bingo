@@ -63,6 +63,12 @@
 @property (nonatomic,strong) UIImage *shareImage;
 
 @property (nonatomic,copy) NSString *goodsDesc_Url;
+
+//商品描述 暂时做成label 用NSString来保存
+@property (nonatomic,strong)NSString * goodsDes;
+
+@property (nonatomic,strong)UILabel * labelDes;
+
 @end
 
 @implementation MovieGoodsDetailViewController
@@ -268,10 +274,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.btnType isEqualToString:@"0"]) {
-        return  self.webView.frame.size.height;
+         CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
+        return size.height + 10;
     }
     return 86;
 }
+-(CGSize)caculateContentSizeWithContent:(NSString *)content AndWidth:(CGFloat)width andFont:(UIFont *)font{
+    CGSize size = [content boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+    return size;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -280,9 +292,16 @@
         static NSString *webCellID = @"goodsWebCellID";
         UITableViewCell *webCell = [tableView dequeueReusableCellWithIdentifier:webCellID];
         if (!webCell) {
-            webCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:webCellID];
-            [webCell.contentView addSubview:self.webView];
-        }
+            webCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:webCellID];}
+            
+            CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
+            self.labelDes = [[UILabel alloc]initWithFrame:CGRectMake(10,0,kViewWidth-1,size.height)];
+            self.labelDes.textColor = [UIColor blackColor];
+            self.labelDes.numberOfLines = 0;
+            self.labelDes.text = self.goodsDes;
+        self.labelDes.backgroundColor = [UIColor clearColor];
+            [webCell.contentView addSubview:self.labelDes];
+        webCell.backgroundColor = [UIColor clearColor];
         webCell.selectionStyle = UITableViewCellSelectionStyleNone;
         self.tbView.scrollsToTop = YES;
         return webCell;
@@ -548,7 +567,7 @@
     [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.alpha =1;
     if ([self.goodsMaxBought isEqualToString:@""]) {
-        rightBtn.enabled = NO;
+//        rightBtn.enabled = NO;
     }
     
     [self.view addSubview:rightBtn];
@@ -929,6 +948,8 @@
             self.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_price"]floatValue]];
             self.goodsTbHeaderView.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_deposit"]floatValue]];
             ///设置下划线
+            self.goodsDes = dic[@"goods_desc"];
+            
             NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[[WNController nullString:dic[@"market_price"]] floatValue]];
             NSUInteger length = [oldPrice length];
             
@@ -947,8 +968,8 @@
             if (self.imgsArray.count>0) {
                 self.goodsTbHeaderView.goodsScrollView.localizationImagesGroup = self.imgsArray;
             }
-//             [self createUI];
-            
+//             S
+            [self.tbView reloadData];
         }
         @catch (NSException *exception) {
             

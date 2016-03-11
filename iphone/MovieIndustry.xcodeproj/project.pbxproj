@@ -893,6 +893,7 @@
 		D382D2BA1C7C52C800B699D2 /* MyCollectionController.m in Sources */ = {isa = PBXBuildFile; fileRef = D382D2B51C7C52C800B699D2 /* MyCollectionController.m */; };
 		D382D2BB1C7C52C800B699D2 /* shop_collect.png in Resources */ = {isa = PBXBuildFile; fileRef = D382D2B61C7C52C800B699D2 /* shop_collect.png */; };
 		D39E2AAC1C57691700C656B5 /* MovieGoodsDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D39E2AAB1C57691700C656B5 /* MovieGoodsDetailViewController.m */; };
+		D3BCF32E1C9271EF005E825C /* 楷体_GB2312.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D3BCF32D1C9271EF005E825C /* 楷体_GB2312.ttf */; };
 		D3DC502C1C86890E00638886 /* MyRushOrdelController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC50291C86890E00638886 /* MyRushOrdelController.m */; };
 		D3DC502D1C86890E00638886 /* RushOrderController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC502B1C86890E00638886 /* RushOrderController.m */; };
 		D3DC50301C86896F00638886 /* RentGoodsChooseController.m in Sources */ = {isa = PBXBuildFile; fileRef = D3DC502F1C86896F00638886 /* RentGoodsChooseController.m */; };
@@ -2374,6 +2375,7 @@
 		D382D2B61C7C52C800B699D2 /* shop_collect.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = shop_collect.png; sourceTree = SOURCE_ROOT; };
 		D39E2AAA1C57691700C656B5 /* MovieGoodsDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieGoodsDetailViewController.h; sourceTree = "<group>"; };
 		D39E2AAB1C57691700C656B5 /* MovieGoodsDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieGoodsDetailViewController.m; sourceTree = "<group>"; };
+		D3BCF32D1C9271EF005E825C /* 楷体_GB2312.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "楷体_GB2312.ttf"; sourceTree = "<group>"; };
 		D3DC50281C86890E00638886 /* MyRushOrdelController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyRushOrdelController.h; sourceTree = "<group>"; };
 		D3DC50291C86890E00638886 /* MyRushOrdelController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyRushOrdelController.m; sourceTree = "<group>"; };
 		D3DC502A1C86890E00638886 /* RushOrderController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RushOrderController.h; sourceTree = "<group>"; };
@@ -3524,6 +3526,7 @@
 		847D829F1BEC5D4000893542 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				D3BCF32D1C9271EF005E825C /* 楷体_GB2312.ttf */,
 				848CA73E1C12D5860090E075 /* area.plist */,
 				847D82A01BEC5D4000893542 /* Info.plist */,
 				847D82A11BEC5D4000893542 /* main.m */,
@@ -5748,6 +5751,7 @@
 				8461655A1BFF3A8E003B656B /* shop_11-04.png in Resources */,
 				849991021C1EB2B000C24C68 /* screeningNone.png in Resources */,
 				849991061C1EB2B000C24C68 /* screeningUp@2x.png in Resources */,
+				D3BCF32E1C9271EF005E825C /* 楷体_GB2312.ttf in Resources */,
 				8461653D1BFF3A8E003B656B /* share_03-02.png in Resources */,
 				8482967B1C0EA02C00452BF9 /* loading@2x.png in Resources */,
 				848296A41C0EEBCD00452BF9 /* GoodsInfoHeaderView.xib in Resources */,

@@ -307,6 +307,25 @@
 //    [self requestPriceAndCatelogueDatas];
 }
 
+- (void)locationAddressString:(NSString *)addString
+{
+    _localCityLbl.text = addString;
+    [self.indicatorView stopAnimating];
+    [self.indicatorView removeFromSuperview];
+    //抽取前两位
+    
+    NSString *cityStr = @"";
+    @try {
+        cityStr = [addString substringWithRange:NSMakeRange(0, 2)];
+    }
+    @catch (NSException *exception) {
+        
+    }
+    @finally {
+        
+    }
+    //[self loadCityData:cityStr];
+}
 #pragma mark - 获取网络城市数据
 - (void)loadCityData
 {
