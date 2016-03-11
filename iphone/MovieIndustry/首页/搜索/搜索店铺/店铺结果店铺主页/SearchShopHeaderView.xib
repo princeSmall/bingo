@@ -76,6 +76,10 @@
                                 <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                             </state>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="xag-Y6-Awk">
+                            <rect key="frame" x="152" y="93" width="195" height="26"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                 </view>
@@ -83,7 +87,7 @@
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="callPhoneButton" destination="f8g-Dl-hMH" id="QFy-9T-sIa"/>
+                <outlet property="callPhoneButton" destination="xag-Y6-Awk" id="IIx-Lj-VML"/>
                 <outlet property="shopAddressLabel" destination="QAy-Rw-YN5" id="g7G-Mk-lpd"/>
                 <outlet property="shopChatButton" destination="cFO-YK-nqe" id="s7z-LV-Mwq"/>
                 <outlet property="shopDetailButton" destination="fmD-E1-SmS" id="46P-IS-5Ac"/>

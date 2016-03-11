@@ -8,6 +8,8 @@
 
 #import "ShippingAddressController.h"
 #import "JGButtonAreaView.h"
+#import "JGAreaModel.h"
+
 
 @interface ShippingAddressController ()<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UITextViewDelegate>
 {
@@ -45,6 +47,8 @@
 @property (nonatomic,strong)NSString * citID;
 @property (nonatomic,strong)NSString * areID;
 
+@property (nonatomic,strong)NSString * type;
+
 @end
 
 @implementation ShippingAddressController
@@ -73,36 +77,105 @@
 }
 - (IBAction)provinceBtnClick:(id)sender {
     NSLog(@"省份");
-    //   [self chooseCityAreaAction:sender];
-    
+    self.type = @"0";
+//    [self.cityPickView selectRow:0 inComponent:0 animated:YES];
     [self.view endEditing:YES];
-    [self.areaView provinceActionEndWithBlock:^(NSString *provinceStr) {
-        NSArray * array = [provinceStr componentsSeparatedByString:@","];
-        self.provinceStr.text = array[0];
-        self.proID = array[1];
+    NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
+    mutDict[@"user_id"] = APP_DELEGATE.user_id;
+    [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
+        
+        NSArray * dictArr = result[@"data"];
+        
+        NSMutableArray * arrMu = [NSMutableArray array];
+        
+        for (int i = 0; i < dictArr.count; i ++) {
+            JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
+            [arrMu addObject:model];
+        }
+        self.provinceArray = arrMu;
+        
+        JGAreaModel * model = self.provinceArray[0];
+        self.proID = model.ID;
+        self.provinceStr.text = model.local_name;
+        [self chooseCityAreaAction:nil];
+        
+    } withFieldBlock:^{
+        
     }];
+   
     
     
     
 }
 - (IBAction)areaBtn:(id)sender {
     [self.view endEditing:YES];
-    [self.areaView areaActionEndWithBlock:^(NSString * areaStr) {
-        NSArray * array = [areaStr componentsSeparatedByString:@","];
-        self.areaLabel.text = array[0];
-        self.areID = array[1];
+    self.type = @"2";
+//    [self.cityPickView selectRow:0 inComponent:0 animated:YES];
+    if (!self.citID) {
+        [DeliveryUtility showMessage:@"城市信息未选择！" target:nil];
+        return;
+    }
+    
+    NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
+    mutDict[@"user_id"] = APP_DELEGATE.user_id;
+    mutDict[@"parent_id"] = self.citID;
+    [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
+        
+        NSArray * dictArr = result[@"data"];
+        
+        NSMutableArray * arrMu = [NSMutableArray array];
+        
+        for (int i = 0; i < dictArr.count; i ++) {
+            JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
+            [arrMu addObject:model];
+        }
+        self.provinceArray = arrMu;
+        JGAreaModel * model = self.provinceArray[0];
+        self.areID = model.ID;
+        self.areaLabel.text = model.local_name;
+         [self chooseCityAreaAction:nil];
+        
+    } withFieldBlock:^{
+        
     }];
+    
     
     
 }
 - (IBAction)CityBtN:(id)sender {
-    
+//    [self.cityPickView selectRow:0 inComponent:0 animated:YES];
      [self.view endEditing:YES];
-    [self.areaView cityActionEndWithBlock:^(NSString *cityStr) {
-        NSArray * array = [cityStr componentsSeparatedByString:@","];
-        self.cityLabel.text = array[0];
-        self.citID = array[1];
+    self.type = @"1";
+  
+    if (!self.proID) {
+        [DeliveryUtility showMessage:@"省份信息未填写！" target:nil];
+        return;
+    }
+    
+    NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
+    mutDict[@"user_id"] = APP_DELEGATE.user_id;
+    mutDict[@"parent_id"] = self.proID;
+    [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
+        
+        NSArray * dictArr = result[@"data"];
+        
+        NSMutableArray * arrMu = [NSMutableArray array];
+        
+        for (int i = 0; i < dictArr.count; i ++) {
+            JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
+            [arrMu addObject:model];
+        }
+        self.provinceArray = arrMu;
+        JGAreaModel * model = self.provinceArray[0];
+        self.citID = model.ID;
+        self.cityLabel.text = model.local_name;
+         [self chooseCityAreaAction:nil];
+        
+    } withFieldBlock:^{
+        
     }];
+    
+    
 }
 - (IBAction)SaveBtnClick:(id)sender {
     NSLog(@"保存");
@@ -367,95 +440,98 @@
 //返回多少组
 - (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
-    return 3;
+    return 1;
 }
 //每组返回的个数
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    if (component == 0) {
         return self.provinceArray.count;
-    }else if (component == 1)
-    {
-        return self.cityArray.count;
-    }else
-    {
-        return self.areaArray.count;
-    }
 }
 
 //返回每一列的字符串
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    if (component == 0) {
-        return [NSString stringWithFormat:@"%@",self.provinceArray[row][@"state"]];
+    JGAreaModel * model = self.provinceArray[row];
+        return model.local_name;
         
-    }else if(component == 1)
-    {
-        
-        return [NSString stringWithFormat:@"%@",self.cityArray[row][@"city"]];
-    }else
-    {
-        
-        return [NSString stringWithFormat:@"%@",self.areaArray[row]];
-    }
 }
 
 //当改变省份时，重新加载第2列的数据，部分加载
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component
 {
-    if (component == 0) {
-        ///城市读取的数据会改变
-        self.cityArray = self.provinceArray[row][@"cities"];
+    
+    if ([self.type isEqualToString:@"0"]) {
         
-        [self.cityPickView selectRow:0 inComponent:1 animated:YES];
-        [self.cityPickView reloadComponent:1];
+        JGAreaModel * model = self.provinceArray[row];
         
-        self.areaArray = self.cityArray[0][@"areas"];
-        [self.cityPickView selectRow:0 inComponent:2 animated:YES];
-        [self.cityPickView reloadComponent:2];
-        //        HHNSLog(@"%@",[NSString stringWithFormat:@"%@",_provinceArray[row][@"state"]]);
-        
-        
-        _proviceStr =self.provinceArray[row][@"state"];
-        _cityStr = self.cityArray[0][@"city"];
-        if (self.areaArray.count<1) {
-            _areaStr = @"";
-        }else
-        {
-            _areaStr = self.areaArray[0];
-        }
-        
+        self.proID = model.ID;
+        self.provinceStr.text = model.local_name;
     }
-    else if(component == 1)
-    {
-        self.areaArray = self.cityArray[row][@"areas"];
-        [self.cityPickView selectRow:0 inComponent:2 animated:YES];
-        [self.cityPickView reloadComponent:2];
-        
-        if (!_proviceStr) {
-            _proviceStr = _proviceStr =self.provinceArray[0][@"state"];
-        }
-        
-        _cityStr = self.cityArray[row][@"city"];
-        if (self.areaArray.count<1) {
-            _areaStr = @"";
-        }else
-        {
-            _areaStr = self.areaArray[0];
-        }
+    if ([self.type isEqualToString:@"1"]) {
+        JGAreaModel * model = self.provinceArray[row];
+        self.citID = model.ID;
+        self.cityLabel.text = model.local_name;
+    }
+    if ([self.type isEqualToString:@"2"]) {
+        JGAreaModel * model = self.provinceArray[row];
+        self.areID = model.ID;
+        self.areaLabel.text = model.local_name;
     }
     
-    if (component == 2) {
-        if (self.areaArray.count>0) {
-            _areaStr = self.areaArray[row];
-        }
-        
-    }
     
-    self.areaString = [NSString stringWithFormat:@"%@%@%@",_proviceStr,_cityStr,_areaStr];
-    self.provinceStr.text = _proviceStr;
-    self.cityLabel.text = [NSString stringWithFormat:@"%@  %@",_cityStr,_areaStr];
-    
+//    if (component == 0) {
+//        ///城市读取的数据会改变
+//        self.cityArray = self.provinceArray[row][@"cities"];
+//        
+//        [self.cityPickView selectRow:0 inComponent:1 animated:YES];
+//        [self.cityPickView reloadComponent:1];
+//        
+//        self.areaArray = self.cityArray[0][@"areas"];
+//        [self.cityPickView selectRow:0 inComponent:2 animated:YES];
+//        [self.cityPickView reloadComponent:2];
+//        //        HHNSLog(@"%@",[NSString stringWithFormat:@"%@",_provinceArray[row][@"state"]]);
+//        
+//        
+//        _proviceStr =self.provinceArray[row][@"state"];
+//        _cityStr = self.cityArray[0][@"city"];
+//        if (self.areaArray.count<1) {
+//            _areaStr = @"";
+//        }else
+//        {
+//            _areaStr = self.areaArray[0];
+//        }
+//        
+//    }
+//    else if(component == 1)
+//    {
+//        self.areaArray = self.cityArray[row][@"areas"];
+//        [self.cityPickView selectRow:0 inComponent:2 animated:YES];
+//        [self.cityPickView reloadComponent:2];
+//        
+//        if (!_proviceStr) {
+//            _proviceStr = _proviceStr =self.provinceArray[0][@"state"];
+//        }
+//        
+//        _cityStr = self.cityArray[row][@"city"];
+//        if (self.areaArray.count<1) {
+//            _areaStr = @"";
+//        }else
+//        {
+//            _areaStr = self.areaArray[0];
+//        }
+//    }
+//    
+//    if (component == 2) {
+//        if (self.areaArray.count>0) {
+//            _areaStr = self.areaArray[row];
+//        }
+//        
+//    }
+//    
+//    self.areaString = [NSString stringWithFormat:@"%@%@%@",_proviceStr,_cityStr,_areaStr];
+//    self.provinceStr.text = _proviceStr;
+//    self.cityLabel.text = [NSString stringWithFormat:@"%@  %@",_cityStr,_areaStr];
+//    
     
 }
 

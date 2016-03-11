@@ -68,6 +68,9 @@
 @property (nonatomic,strong)GoodDesModel * model;
 @property (nonatomic,strong)NSString * dataStr;
 
+@property (nonatomic,strong)NSString * goodsDes;
+@property (nonatomic,strong)UILabel * labelDes;
+
 @end
 
 @implementation MovieGoodsInfoViewController
@@ -315,7 +318,7 @@
         return self.commentArray.count;
     }
     if ([self.btnType isEqualToString:@"0"]) {
-        return 0;
+        return 1;
     }
     return 0;
 }
@@ -323,10 +326,16 @@
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.btnType isEqualToString:@"0"]) {
-        return  self.webView.frame.size.height;
+         CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
+        return size.height+5;
     }
     return 86;
 }
+-(CGSize)caculateContentSizeWithContent:(NSString *)content AndWidth:(CGFloat)width andFont:(UIFont *)font{
+    CGSize size = [content boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
+    return size;
+}
+
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -335,9 +344,15 @@
         static NSString *webCellID = @"goodsWebCellID";
         UITableViewCell *webCell = [tableView dequeueReusableCellWithIdentifier:webCellID];
         if (!webCell) {
-            webCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:webCellID];
-            [webCell.contentView addSubview:self.webView];
-        }
+            webCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:webCellID];}
+            CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
+            self.labelDes = [[UILabel alloc]initWithFrame:CGRectMake(10,0,kViewWidth-1,size.height)];
+            self.labelDes.textColor = [UIColor blackColor];
+            self.labelDes.numberOfLines = 0;
+        self.labelDes.backgroundColor = [UIColor clearColor];
+            self.labelDes.text = self.goodsDes;
+            [webCell.contentView addSubview:self.labelDes];
+        webCell.backgroundColor = [UIColor clearColor];
         webCell.selectionStyle = UITableViewCellSelectionStyleNone;
         self.tbView.scrollsToTop = YES;
         return webCell;
@@ -594,7 +609,6 @@
     [leftBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     leftBtn.alpha = 1;
     [self.view addSubview:leftBtn];
-    
 
     UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40) ImageName:@"point_info"];
     [self setNavRightImage:@"point_info" rightAction:@selector(shareAction)];
@@ -605,13 +619,6 @@
     [rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.alpha = 1;
-//    if ([self.goodsMaxBought isEqualToString:@""]) {
-//        rightBtn.enabled = NO;
-//    }
-#warning 这边的分享 被干掉了  记得打开
-    #warning 这边的分享 被干掉了  记得打开
-    #warning 这边的分享 被干掉了  记得打开
-    
     [self.view addSubview:rightBtn];
 }
 
@@ -1055,6 +1062,7 @@
             
            GoodDesModel * model = [[GoodDesModel alloc]initWithDict:dic];
             weakSelf.model = model;
+            weakSelf.goodsDes = dic[@"goods_desc"];
                 weakSelf.goodsTbHeaderView.goodsNameLabel.text = [WNController nullString:dic[@"goods_name"]];
             NSLog(@"%@",dic[@"goods_city_name"]);
                 weakSelf.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"goods_city_name"]];

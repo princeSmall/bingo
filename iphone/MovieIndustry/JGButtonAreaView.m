@@ -111,14 +111,14 @@
     //省份button
     self.provinceBtn = [[AreaButton alloc]initWithFrame:CGRectMake(buttonX1, buttonY, buttonW, buttonH)AndString:@"省份"];
     [self addSubview:self.provinceBtn];
-    [self.provinceBtn addTarget:self action:@selector(changeProvince) forControlEvents:UIControlEventTouchUpInside];
+//    [self.provinceBtn addTarget:self action:@selector(changeProvince) forControlEvents:UIControlEventTouchUpInside];
     //城市button
     self.cityBtn = [[AreaButton alloc]initWithFrame:CGRectMake(buttonX2, buttonY, buttonW, buttonH) AndString:@"城市"];
     [self addSubview:self.cityBtn];
-    [self.cityBtn addTarget:self action:@selector(changeCity) forControlEvents:UIControlEventTouchUpInside];
+//    [self.cityBtn addTarget:self action:@selector(changeCity) forControlEvents:UIControlEventTouchUpInside];
     //区域button
     self.areaBtn = [[AreaButton alloc]initWithFrame:CGRectMake(buttonX3, buttonY, buttonW, buttonH) AndString:@"区域"];
-    [self.areaBtn addTarget:self action:@selector(changeArea) forControlEvents:UIControlEventTouchUpInside];
+//    [self.areaBtn addTarget:self action:@selector(changeArea) forControlEvents:UIControlEventTouchUpInside];
     [self addSubview:self.areaBtn];
 }
 
