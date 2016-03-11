@@ -18,5 +18,9 @@ ViewBorderRadius(self.imagV, 3, 0, [UIColor whiteColor]);}
 
     // Configure the view for the selected state
 }
+- (void)setRankingImgStr:(NSString *)rankingImgStr {
+    _rankingImgStr = rankingImgStr;
+    self.rankingImgV.image = [UIImage imageNamed:rankingImgStr];
 
+}
 @end

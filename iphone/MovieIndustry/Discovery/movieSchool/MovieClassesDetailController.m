@@ -9,6 +9,7 @@
 #import "MovieClassesDetailController.h"
 #import "MovieClassesDetailHeadV.h"
 #import "MovieClassesDetailCell.h"
+#import "MovieClassesDetailToolBar.h"
 @interface MovieClassesDetailController () <UITableViewDelegate,UITableViewDataSource>
 @property (strong,nonatomic) UITableView *tableView;
 @property (nonatomic, weak) UIButton *leftBtn;
@@ -39,6 +40,10 @@
     detailHead.frame = CGRectMake(0, 0, kViewWidth, 374);
     
     _tableView.tableHeaderView = detailHead ;
+    
+    MovieClassesDetailToolBar *detailToolBar = [MovieClassesDetailToolBar initMovieClassesDetailToolBar];
+    detailToolBar.frame = CGRectMake(0, kViewHeight - 20, kViewWidth, 40);
+    [self.view addSubview:detailToolBar];
 }
 - (void)viewWillDisappear:(BOOL)animated
 {

@@ -70,12 +70,12 @@
     [super viewWillAppear:animated];
     UIButton *relasePostBtn = [[UIButton alloc] init];
     self.relasePostBtn = relasePostBtn;
-    [relasePostBtn setImage:[UIImage imageNamed:@"movieCircle_relasePost"] forState:UIControlStateNormal];
+    [relasePostBtn setImage:[UIImage imageNamed:@"btn_fabushuoshuo"] forState:UIControlStateNormal];
     [relasePostBtn addTarget:self action:@selector(publishFilmAction) forControlEvents:UIControlEventTouchUpInside];
     [[UIApplication sharedApplication].keyWindow addSubview:self.relasePostBtn];
     CGFloat btnWH = 60;
     CGFloat margin = 10;
-    relasePostBtn.frame = CGRectMake(kViewWidth - btnWH - margin, kViewHeight - btnWH - 2* margin, btnWH, btnWH);
+    relasePostBtn.frame = CGRectMake(kViewWidth - btnWH - margin, kViewHeight - btnWH , btnWH, btnWH);
 
 }
 - (void)viewWillDisappear:(BOOL)animated {

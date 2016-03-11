@@ -187,6 +187,17 @@
 		25A4C6DE1C9162310024EB50 /* MovieClassesDetailHeadV.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C6DD1C9162310024EB50 /* MovieClassesDetailHeadV.m */; };
 		25A4C6E01C9162400024EB50 /* MovieClassesDetailHeadV.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A4C6DF1C9162400024EB50 /* MovieClassesDetailHeadV.xib */; };
 		25A4C6E31C917FDE0024EB50 /* MovieClassesDetailCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C6E21C917FDE0024EB50 /* MovieClassesDetailCell.m */; };
+		25A4C6E61C92697B0024EB50 /* MovieClassesDetailToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C6E51C92697B0024EB50 /* MovieClassesDetailToolBar.m */; };
+		25A4C6E81C92698C0024EB50 /* MovieClassesDetailToolBar.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A4C6E71C92698C0024EB50 /* MovieClassesDetailToolBar.xib */; };
+		25A4C6EC1C9274A50024EB50 /* BestCourse_Total_Controller.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C6EB1C9274A50024EB50 /* BestCourse_Total_Controller.m */; };
+		25A4C7031C9275DE0024EB50 /* FlowMenu.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7021C9275DE0024EB50 /* FlowMenu.m */; };
+		25A4C7061C92764D0024EB50 /* test1ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7051C92764D0024EB50 /* test1ViewController.m */; };
+		25A4C7091C9276590024EB50 /* test2ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7081C9276590024EB50 /* test2ViewController.m */; };
+		25A4C70C1C9276650024EB50 /* test3ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C70B1C9276650024EB50 /* test3ViewController.m */; };
+		25A4C70F1C9276700024EB50 /* test4ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C70E1C9276700024EB50 /* test4ViewController.m */; };
+		25A4C7121C92BA530024EB50 /* BBSSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7111C92BA530024EB50 /* BBSSearchController.m */; };
+		25A4C7161C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7141C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m */; };
+		25A4C7171C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A4C7151C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib */; };
 		841960B31BFAEF740039B74B /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841960B21BFAEF740039B74B /* citydict.plist */; };
 		841B4CA81C0DA2D900DD51D9 /* ShopTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */; };
 		841B4CAA1C0DA2F200DD51D9 /* ShopTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B4CA91C0DA2F200DD51D9 /* ShopTableViewHeader.xib */; };
@@ -1230,6 +1241,26 @@
 		25A4C6DF1C9162400024EB50 /* MovieClassesDetailHeadV.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieClassesDetailHeadV.xib; sourceTree = "<group>"; };
 		25A4C6E11C917FDE0024EB50 /* MovieClassesDetailCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieClassesDetailCell.h; sourceTree = "<group>"; };
 		25A4C6E21C917FDE0024EB50 /* MovieClassesDetailCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieClassesDetailCell.m; sourceTree = "<group>"; };
+		25A4C6E41C92697B0024EB50 /* MovieClassesDetailToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MovieClassesDetailToolBar.h; sourceTree = "<group>"; };
+		25A4C6E51C92697B0024EB50 /* MovieClassesDetailToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieClassesDetailToolBar.m; sourceTree = "<group>"; };
+		25A4C6E71C92698C0024EB50 /* MovieClassesDetailToolBar.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieClassesDetailToolBar.xib; sourceTree = "<group>"; };
+		25A4C6EA1C9274A50024EB50 /* BestCourse_Total_Controller.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BestCourse_Total_Controller.h; sourceTree = "<group>"; };
+		25A4C6EB1C9274A50024EB50 /* BestCourse_Total_Controller.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BestCourse_Total_Controller.m; sourceTree = "<group>"; };
+		25A4C7011C9275DE0024EB50 /* FlowMenu.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlowMenu.h; sourceTree = "<group>"; };
+		25A4C7021C9275DE0024EB50 /* FlowMenu.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FlowMenu.m; sourceTree = "<group>"; };
+		25A4C7041C92764D0024EB50 /* test1ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test1ViewController.h; sourceTree = "<group>"; };
+		25A4C7051C92764D0024EB50 /* test1ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test1ViewController.m; sourceTree = "<group>"; };
+		25A4C7071C9276590024EB50 /* test2ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test2ViewController.h; sourceTree = "<group>"; };
+		25A4C7081C9276590024EB50 /* test2ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test2ViewController.m; sourceTree = "<group>"; };
+		25A4C70A1C9276650024EB50 /* test3ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test3ViewController.h; sourceTree = "<group>"; };
+		25A4C70B1C9276650024EB50 /* test3ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test3ViewController.m; sourceTree = "<group>"; };
+		25A4C70D1C9276700024EB50 /* test4ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = test4ViewController.h; sourceTree = "<group>"; };
+		25A4C70E1C9276700024EB50 /* test4ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = test4ViewController.m; sourceTree = "<group>"; };
+		25A4C7101C92BA530024EB50 /* BBSSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BBSSearchController.h; sourceTree = "<group>"; };
+		25A4C7111C92BA530024EB50 /* BBSSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BBSSearchController.m; sourceTree = "<group>"; };
+		25A4C7131C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyPostDetailBottomCell.h; sourceTree = "<group>"; };
+		25A4C7141C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyPostDetailBottomCell.m; sourceTree = "<group>"; };
+		25A4C7151C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyPostDetailBottomCell.xib; sourceTree = "<group>"; };
 		841960B21BFAEF740039B74B /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		841B4CA61C0DA2D900DD51D9 /* ShopTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewHeader.h; sourceTree = "<group>"; };
 		841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewHeader.m; sourceTree = "<group>"; };
@@ -2789,6 +2820,9 @@
 				2578B8A71C896A8500EB129D /* ClassifyPostDetailHeadCell.h */,
 				2578B8A81C896A8500EB129D /* ClassifyPostDetailHeadCell.m */,
 				2578B8A91C896A8500EB129D /* ClassifyPostDetailHeadCell.xib */,
+				25A4C7131C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.h */,
+				25A4C7141C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m */,
+				25A4C7151C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib */,
 			);
 			name = cell;
 			sourceTree = "<group>";
@@ -2894,6 +2928,7 @@
 		254D66351C8FF44A001DD1BE /* 电影学院 */ = {
 			isa = PBXGroup;
 			children = (
+				25A4C6EE1C9275390024EB50 /* FlowMenu */,
 				254D66371C8FF47D001DD1BE /* View */,
 				254D66361C8FF473001DD1BE /* Controller */,
 			);
@@ -2904,6 +2939,7 @@
 		254D66361C8FF473001DD1BE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				25A4C6E91C9274480024EB50 /* 精品课程 */,
 				254D66381C8FF4A0001DD1BE /* MovieSchoolController.h */,
 				254D66391C8FF4A0001DD1BE /* MovieSchoolController.m */,
 				254D66521C900701001DD1BE /* MovieNewsController.h */,
@@ -2939,6 +2975,9 @@
 				25A4C6DF1C9162400024EB50 /* MovieClassesDetailHeadV.xib */,
 				25A4C6E11C917FDE0024EB50 /* MovieClassesDetailCell.h */,
 				25A4C6E21C917FDE0024EB50 /* MovieClassesDetailCell.m */,
+				25A4C6E41C92697B0024EB50 /* MovieClassesDetailToolBar.h */,
+				25A4C6E51C92697B0024EB50 /* MovieClassesDetailToolBar.m */,
+				25A4C6E71C92698C0024EB50 /* MovieClassesDetailToolBar.xib */,
 			);
 			name = View;
 			sourceTree = "<group>";
@@ -2983,6 +3022,32 @@
 				257A8BEE1C842781009FF0B8 /* BestLikeRankingCell.xib */,
 			);
 			name = cell;
+			sourceTree = "<group>";
+		};
+		25A4C6E91C9274480024EB50 /* 精品课程 */ = {
+			isa = PBXGroup;
+			children = (
+				25A4C6EA1C9274A50024EB50 /* BestCourse_Total_Controller.h */,
+				25A4C6EB1C9274A50024EB50 /* BestCourse_Total_Controller.m */,
+				25A4C7041C92764D0024EB50 /* test1ViewController.h */,
+				25A4C7051C92764D0024EB50 /* test1ViewController.m */,
+				25A4C7071C9276590024EB50 /* test2ViewController.h */,
+				25A4C7081C9276590024EB50 /* test2ViewController.m */,
+				25A4C70A1C9276650024EB50 /* test3ViewController.h */,
+				25A4C70B1C9276650024EB50 /* test3ViewController.m */,
+				25A4C70D1C9276700024EB50 /* test4ViewController.h */,
+				25A4C70E1C9276700024EB50 /* test4ViewController.m */,
+			);
+			name = "精品课程";
+			sourceTree = "<group>";
+		};
+		25A4C6EE1C9275390024EB50 /* FlowMenu */ = {
+			isa = PBXGroup;
+			children = (
+				25A4C7011C9275DE0024EB50 /* FlowMenu.h */,
+				25A4C7021C9275DE0024EB50 /* FlowMenu.m */,
+			);
+			name = FlowMenu;
 			sourceTree = "<group>";
 		};
 		8432109B1C10812400E3026F /* AliPay */ = {
@@ -5147,6 +5212,8 @@
 				252C4FA01C869B3B0081972A /* CreatPostController.h */,
 				252C4FA11C869B3B0081972A /* CreatPostController.m */,
 				252C4FA21C869B3B0081972A /* CreatPostController.xib */,
+				25A4C7101C92BA530024EB50 /* BBSSearchController.h */,
+				25A4C7111C92BA530024EB50 /* BBSSearchController.m */,
 				252C4FDB1C86C8210081972A /* view */,
 				252C4F9A1C8692C70081972A /* cell */,
 			);
@@ -5706,6 +5773,7 @@
 				846165791BFF3A8E003B656B /* timeLineCamera.png in Resources */,
 				846164D11BFF3A8E003B656B /* discover_03.png in Resources */,
 				848296931C0EC65600452BF9 /* OrderDetailTableFooter.xib in Resources */,
+				25A4C6E81C92698C0024EB50 /* MovieClassesDetailToolBar.xib in Resources */,
 				846165301BFF3A8E003B656B /* rankingList_06@3x.png in Resources */,
 				8461655F1BFF3A8E003B656B /* shop_chat@2x.png in Resources */,
 				8461652F1BFF3A8E003B656B /* rankingList_06@2x.png in Resources */,
@@ -5868,6 +5936,7 @@
 				846165191BFF3A8E003B656B /* order_normal.png in Resources */,
 				2578B88A1C891D6700EB129D /* dot@3x.png in Resources */,
 				846165341BFF3A8E003B656B /* search_index.png in Resources */,
+				25A4C7171C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib in Resources */,
 				846164E61BFF3A8E003B656B /* down_arrow.png in Resources */,
 				254D663F1C8FF747001DD1BE /* MovieSchoolCell.xib in Resources */,
 				252C4F871C8686380081972A /* pinglun.jpg in Resources */,
@@ -6103,6 +6172,7 @@
 				D382D2BA1C7C52C800B699D2 /* MyCollectionController.m in Sources */,
 				D3332F861C5F5E6400FA7CFB /* OrderShopModel.m in Sources */,
 				2578B89A1C892D0900EB129D /* FilmTimeIconView.m in Sources */,
+				25A4C7061C92764D0024EB50 /* test1ViewController.m in Sources */,
 				A25BB31D1BFC691700E52ED8 /* MovieComfirmOrderDetailCell.m in Sources */,
 				D3DC50301C86896F00638886 /* RentGoodsChooseController.m in Sources */,
 				D372F1B51C5A152200FA363B /* BusinessCell.m in Sources */,
@@ -6279,11 +6349,13 @@
 				0055FBD41C85355200CB320D /* TuestdayHistroyViewController.m in Sources */,
 				005A88661C573F4D0093F93C /* ShopSendClickView.m in Sources */,
 				848296421C0EA02C00452BF9 /* HHMeViewController.m in Sources */,
+				25A4C7031C9275DE0024EB50 /* FlowMenu.m in Sources */,
 				D3ED30DF1C51F5BB00C10387 /* ReturnAppayViewController.m in Sources */,
 				A278388B1C213DD900AD3B48 /* MovieIncomeDetailModel.m in Sources */,
 				254D66501C90068A001DD1BE /* MovieNewsCell.m in Sources */,
 				A228D9A21C156A8200C9289B /* Attributes.m in Sources */,
 				254D66021C8D12B7001DD1BE /* TeacherDetialMsgHead.m in Sources */,
+				25A4C6EC1C9274A50024EB50 /* BestCourse_Total_Controller.m in Sources */,
 				25A4C6DE1C9162310024EB50 /* MovieClassesDetailHeadV.m in Sources */,
 				A25BB30D1BFC4AEC00E52ED8 /* MovieCommentThirdCell.m in Sources */,
 				848295391C0E9AB700452BF9 /* MovieTalkPersonSecondCell.m in Sources */,
@@ -6311,6 +6383,7 @@
 				849487D51C086C420070AD4C /* MyOrderShopModel.m in Sources */,
 				00200A351C7C65D600DD8084 /* TAPageControl.m in Sources */,
 				D3F638BA1C9141EB0088E57E /* PublishSecondCategoryController.m in Sources */,
+				25A4C7161C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m in Sources */,
 				848293781C0E968200452BF9 /* SelectCertificationView.m in Sources */,
 				00580DCA1C7D84CB008012F0 /* VerificationUserController.m in Sources */,
 				8482943F1C0E96C500452BF9 /* SDImageCache.m in Sources */,
@@ -6363,6 +6436,7 @@
 				A26D69171C17D76A004763B9 /* ReciveMesCell.m in Sources */,
 				0055FCBD1C869E9800CB320D /* CommitHeadView.m in Sources */,
 				A2645A621C0431B800BAB995 /* BaseTableViewController.m in Sources */,
+				25A4C7091C9276590024EB50 /* test2ViewController.m in Sources */,
 				A2C8FBAB1C0D6C5C00E90468 /* RankingListController.m in Sources */,
 				848294421C0E96C500452BF9 /* SDWebImageDownloader.m in Sources */,
 				2578B8AA1C896A8500EB129D /* ClassifyPostDetailHeadCell.m in Sources */,
@@ -6382,11 +6456,13 @@
 				00D638D11C61E91E00F32A77 /* UserLoginModel.m in Sources */,
 				254D663E1C8FF747001DD1BE /* MovieSchoolCell.m in Sources */,
 				252C4F981C868C400081972A /* ClassifyHeadCell.m in Sources */,
+				25A4C70C1C9276650024EB50 /* test3ViewController.m in Sources */,
 				848295561C0E9AB700452BF9 /* ShopDetailView.m in Sources */,
 				848294241C0E96C500452BF9 /* AFSecurityPolicy.m in Sources */,
 				252C4FF51C86DFB80081972A /* TeacherDetialMsgController.m in Sources */,
 				252C4F8F1C868BBF0081972A /* ClassifyPostController.m in Sources */,
 				8482942D1C0E96C500452BF9 /* MJRefreshFooter.m in Sources */,
+				25A4C70F1C9276700024EB50 /* test4ViewController.m in Sources */,
 				D35E24231C895F070091C4E5 /* LightRentContentModel.m in Sources */,
 				00A34F381C7D9E7600707673 /* ShopSendView.m in Sources */,
 				A26BF2B11BFD906A009D65C4 /* MovieRefundMoneyViewController.m in Sources */,
@@ -6403,12 +6479,14 @@
 				8482963F1C0EA02C00452BF9 /* StoreSettingController.m in Sources */,
 				8482943D1C0E96C500452BF9 /* MKAnnotationView+WebCache.m in Sources */,
 				848294251C0E96C500452BF9 /* AFURLConnectionOperation.m in Sources */,
+				25A4C6E61C92697B0024EB50 /* MovieClassesDetailToolBar.m in Sources */,
 				2578B8A01C8935D400EB129D /* UIView+Extension.m in Sources */,
 				8482955B1C0E9AB700452BF9 /* ChooseCityController.m in Sources */,
 				8482942B1C0E96C500452BF9 /* MJRefreshBackFooter.m in Sources */,
 				A2C8FBAC1C0D6C5C00E90468 /* FamousTeacherController.m in Sources */,
 				D3DC50671C868BE800638886 /* PayOrderController.m in Sources */,
 				841B4CB31C0DB0F200DD51D9 /* MoviceTextFiledCell.m in Sources */,
+				25A4C7121C92BA530024EB50 /* BBSSearchController.m in Sources */,
 				A25BB3081BFC42DE00E52ED8 /* MovieCommentSecondCell.m in Sources */,
 				848296271C0EA02C00452BF9 /* MovieReportViewController.m in Sources */,
 				A2C8FBAD1C0D6C5C00E90468 /* RankingListHeader.m in Sources */,
