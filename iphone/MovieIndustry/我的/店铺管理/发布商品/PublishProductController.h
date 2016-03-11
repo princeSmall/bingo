@@ -28,6 +28,7 @@
 @property (strong, nonatomic) IBOutlet UISwitch *depositSwBtn;
 
 @property (strong, nonatomic) IBOutlet UITextView *textViewDetail;
+@property (weak, nonatomic) IBOutlet UILabel *typeLbl;
 
 @property (nonatomic,strong)GoodDesModel * desModel;
 

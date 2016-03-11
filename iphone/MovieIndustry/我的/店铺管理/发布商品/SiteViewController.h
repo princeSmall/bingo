@@ -16,5 +16,6 @@
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (nonatomic,strong)GoodDesModel * desModel;
+@property (weak, nonatomic) IBOutlet UILabel *typeLbl;
 
 @end

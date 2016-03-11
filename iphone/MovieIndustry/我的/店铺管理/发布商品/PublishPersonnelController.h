@@ -30,5 +30,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtSpecial;//特点
 
 @property (strong, nonatomic) IBOutlet UITextView *textViewBriefly;//简介
+@property (weak, nonatomic) IBOutlet UILabel *typeLbl;
 @property (nonatomic,strong)GoodDesModel * desModel;
 @end
