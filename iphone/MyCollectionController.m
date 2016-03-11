@@ -277,7 +277,7 @@
     if ([_btnType isEqualToString:@"3"]) {
         return 68;
     }
-    return 125;
+    return 110;
 }
       
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

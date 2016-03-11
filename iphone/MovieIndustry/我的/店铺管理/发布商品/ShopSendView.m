@@ -139,7 +139,7 @@
     self.button1.selected = YES;
     self.button2.selected = NO;
     self.button3.selected = NO;
-    self.sendStr = @"商家送货";
+    self.sendStr = @"送货上门";
 }
 
 - (void)BtnTwoClick:(UIButton *)sender{

@@ -332,7 +332,7 @@
     NSString *address = [self.address.text asTrim];
     NSString *deliveryId ;
     //0:商家 1:快递  2:自提
-    if ([self.deliveryMethod.text isEqualToString:@"商家送货"]) {
+    if ([self.deliveryMethod.text isEqualToString:@"送货上门"]) {
         deliveryId = @"0";
     }else if([self.deliveryMethod.text isEqualToString:@"快递"]){
     deliveryId = @"1";

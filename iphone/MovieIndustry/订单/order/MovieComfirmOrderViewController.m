@@ -596,7 +596,7 @@
     NSNumber *number = [NSNumber numberWithInteger:section];
     
     ////设置快递和留言的状态
-    footerView.postTypeLabel.text = @"商家送货";
+    footerView.postTypeLabel.text = @"送货上门";
     self.textFiledFoot = footerView.textField;
     if ([[self.memoDict objectForKey:number] isEqualToString:@"无"]) {
         footerView.textField.text = @"";
@@ -638,7 +638,7 @@
 #pragma mark - 判断商家送货方式
 - (NSString *)judgeExpressType:(NSString *)express
 {
-    if ([express isEqualToString:@"商家送货"]) {
+    if ([express isEqualToString:@"送货上门"]) {
         return @"0";
     }
     if ([express isEqualToString:@"快递"]) {

@@ -1067,7 +1067,7 @@
             NSLog(@"%@",dic[@"goods_city_name"]);
                 weakSelf.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"goods_city_name"]];
             //送货方式字段
-            NSArray *arr = [NSArray arrayWithObjects:@"商家送货",@"顺丰",@"申通", nil];
+            NSArray *arr = [NSArray arrayWithObjects:@"送货上门",@"快递",@"买家自提", nil];
             weakSelf.goodsTbHeaderView.businessPostTypeLabel.text = [WNController nullString:[ arr objectAtIndex: [dic[@"goods_express"]intValue]]];
             weakSelf.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_price"] floatValue]];
                 

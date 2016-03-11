@@ -142,7 +142,7 @@
                 NSString * typePoss = @"";
 #warning 这边需要判断送货类型
                 if ([shopModel.method isEqualToString:@"0"]) {
-                    typePoss = @"商家送货";
+                    typePoss = @"送货上门";
                 }
                 if ([shopModel.method isEqualToString:@"1"]) {
                     typePoss = @"快递";
