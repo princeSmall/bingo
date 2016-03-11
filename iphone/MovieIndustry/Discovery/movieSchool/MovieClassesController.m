@@ -8,6 +8,7 @@
 
 #import "MovieClassesController.h"
 #import "MovieClasses_TotalCollectionCell.h"
+#import "MovieClassesDetailController.h"
 @interface MovieClassesController ()<UICollectionViewDataSource , UICollectionViewDelegate , UICollectionViewDelegateFlowLayout >
 
 @end
@@ -52,5 +53,12 @@
 
     return cell;
 }
-
+//UICollectionView被选中时调用的方法
+-(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath
+{
+    UICollectionViewCell * cell = (UICollectionViewCell *)[collectionView cellForItemAtIndexPath:indexPath];
+    MovieClassesDetailController *detailVC = [[MovieClassesDetailController alloc] init];
+    [self.navigationController pushViewController:detailVC animated:YES];
+    
+}
 @end

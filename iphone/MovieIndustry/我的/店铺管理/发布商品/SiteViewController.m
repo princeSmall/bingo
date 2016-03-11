@@ -9,6 +9,7 @@
 #import "SiteViewController.h"
 #import "MoviePictureCollectionCell.h"
 #import "ShopSendClickView.h"
+#import "PublishSecondCategoryController.h"
 
 #define IMAGE_START_TAG 300
 #define PLACE_HOLDER  @"场地描述"
@@ -397,16 +398,18 @@
         [DeliveryUtility showMessage:@"请填写价格" target:self];
         return NO;
     }
-    
+    //判断押金
     if ([self.yajinCount.text isEqualToString:@""]) {
         [DeliveryUtility showMessage:@"请填写押金" target:self];
         return NO;
     }
-    
-//    else if ([DeliveryUtility isNotLegal:price]){
-//        [DeliveryUtility showMessage:@"价格不可包含非法字符" target:self];
-//        return NO;
-//    }
+    //判断类型
+    NSString *type = self.typeLbl.text;
+    if(type.length==0)
+    {
+        [DeliveryUtility showMessage:@"请点击选择类型" target:self];
+        return NO;
+    }
     
     //判断特点
     if ([feature isEqualToString:@""]) {
@@ -466,7 +469,7 @@
     [self.siteDict setObject:isYaJin forKey:@"is_deposit"];
     [self.siteDict setObject:self.goodsCount.text forKey:@"goods_number"];
     [self.siteDict setObject:self.yajinCount.text forKey:@"goods_deposit"];
-    [self.siteDict setObject:@"1" forKey:@"goods_category_id"];
+    //[self.siteDict setObject:@"1" forKey:@"goods_category_id"];
     
     return YES;
 }
@@ -673,6 +676,31 @@
     [sheetView showInView:self.view];
 }
 
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    if(indexPath.row==8)
+    {
+    
+        PublishSecondCategoryController *secondCategory = [[PublishSecondCategoryController alloc]init];
+        secondCategory.type = @"3";
+        //返回的回调
+        __weak typeof(self)wself = self;
+        secondCategory.backFn = ^(NSDictionary * dict){
+            [wself.siteDict setObject:dict[@"category_id"] forKey:@"goods_category_id"];  ;
+            UITableViewCell *cell = [wself.tableView cellForRowAtIndexPath:indexPath];
+            cell.accessoryType = UITableViewCellAccessoryNone;
+            wself.typeLbl .frame=CGRectMake(kViewWidth-100, 0, 80, cell.frame.size.height);
+            wself.typeLbl.textColor = [UIColor blackColor];
+            wself.typeLbl.text = dict[@"category_name"];
+            wself.typeLbl.textAlignment = NSTextAlignmentRight;
+            
+        };
+        [self.navigationController pushViewController:secondCategory animated:YES];
+        NSLog(@"选择类型");
+
+    }
+    
+}
 - (void)delectChooseImageBtnClicked:(UIButton *)button
 {
     NSInteger index = button.tag - 600;
