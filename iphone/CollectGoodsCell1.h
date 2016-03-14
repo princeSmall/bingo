@@ -12,8 +12,6 @@
 @interface CollectGoodsCell1 : UITableViewCell
 //商品图片
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImageView;
-//商铺名称
-@property (weak, nonatomic) IBOutlet UILabel *shopNameLbl;
 //商品信息
 @property (weak, nonatomic) IBOutlet UILabel *goodsInfoLbl;
 //商品价格

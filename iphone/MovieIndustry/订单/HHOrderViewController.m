@@ -533,6 +533,12 @@
         ///设置订单按钮
         tbheaderView.orderStatusLabel.text = [self orderStatusWithString:order.status];
         tbheaderView.shopNameLabel.text = array[0][@"shop_name"];
+        //调整frame
+        CGSize size =[array[0][@"shop_name"] sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
+        CGRect labelFrame =tbheaderView.shopNameLabel.frame;
+        tbheaderView.shopNameLabel.frame = CGRectMake(labelFrame.origin.x, labelFrame.origin.y, size.width, labelFrame.size.height);
+        CGRect btnFrame =tbheaderView.orderArrowImage.frame;
+        tbheaderView.orderArrowImage.frame = CGRectMake(CGRectGetMaxX(tbheaderView.shopNameLabel.frame), btnFrame.origin.y, btnFrame.size.width, btnFrame.size.height);
         
         tbheaderView.enterShopButton.tag = 100+section;
         [tbheaderView.enterShopButton addTarget:self action:@selector(enterShopButtonAction:) forControlEvents:UIControlEventTouchUpInside];

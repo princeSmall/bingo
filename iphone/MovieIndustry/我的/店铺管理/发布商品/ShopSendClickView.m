@@ -87,8 +87,10 @@
         [self addSubview:button3];
         [self addSubview:labelLine3];
         [self addSubview:buttonC3];
-//        self.button1.selected = YES;
-//        self.block(@"送货上门");
+
+        self.button1.selected = YES;
+        self.block(@"送货上门");
+
     }
     return self;
 }

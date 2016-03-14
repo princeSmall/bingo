@@ -437,7 +437,7 @@
             cell.typeLabel.hidden = YES;
             if ([good.type isEqual:@"0"]) {
                 if ([good.goods_express isEqual:@"0"]) {
-                    cell.deliveryWay.text = @"商家送货";
+                    cell.deliveryWay.text = @"送货上门";
                 }
                 if ([good.goods_express isEqual:@"1"]) {
                     cell.deliveryWay.text = @"快递";

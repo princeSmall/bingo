@@ -269,7 +269,10 @@
 //            }];
         }
         if ([type isEqualToString:@"2"]) {
-            [self WXpayDemo:@"201601191229196401538"];
+            
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                 [self WXpayDemo:@"S0001727"];
+            }];
         }
         
     }];

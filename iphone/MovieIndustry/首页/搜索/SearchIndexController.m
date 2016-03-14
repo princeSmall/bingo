@@ -13,6 +13,8 @@
 #import "SearchView.h"
 #import "NSUserManager.h"
 
+#define KaitiFont @"STHeiti-Medium"
+
 @interface SearchIndexController ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tbView;
 @property (nonatomic,strong) NSMutableArray *hotWordArray;
@@ -60,6 +62,7 @@
         _popView = [[[NSBundle mainBundle] loadNibNamed:@"DiscoverPopView" owner:nil options:nil]lastObject];
         _popView.frame = CGRectMake((kViewWidth-(isScreen4?235:257))/2, 0, 132, 106);
         [_popView.forumButton setTitle:@"宝贝" forState:UIControlStateNormal];
+      
         [_popView.courseButton setTitle:@"店铺" forState:UIControlStateNormal];
         [_popView.forumButton addTarget:self action:@selector(forumButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_popView.courseButton addTarget:self action:@selector(courseButtonAction:) forControlEvents:UIControlEventTouchUpInside];
@@ -203,6 +206,7 @@
     
     UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(14, 1, 40, 30) Font:16 Text:@"宝贝" textAligment:NSTextAlignmentCenter];
     self.navLabel = navLabel;
+    self.navLabel.font = [UIFont fontWithName:KaitiFont size:10];
     UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(53, 8, 14, 14) ImageName:@"15-07"];
     UITextField *textField = [WNController createTextFieldWithFrame:CGRectMake(74, 2, (isScreen4?146:168), 28) boreStyle:UITextBorderStyleNone font:15];
     textField.placeholder = @"你想找什么？";
