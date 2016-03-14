@@ -22,41 +22,52 @@
                                     <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dog.png" translatesAutoresizingMaskIntoConstraints="NO" id="2n2-Lg-3vk">
                                         <rect key="frame" x="4" y="0.0" width="159" height="162"/>
                                     </imageView>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中世纪的电影课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUR-dY-bvZ">
-                                        <rect key="frame" x="8" y="170" width="151" height="17"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授课人：刘老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-Bf-XqM">
-                                        <rect key="frame" x="8" y="195" width="84" height="15"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
-                                        <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="666元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsA-9S-k2v">
-                                        <rect key="frame" x="116" y="194" width="43" height="18"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                        <color key="textColor" red="0.93333333330000001" green="0.34901960780000002" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M6J-3y-wTO">
+                                        <rect key="frame" x="4" y="162" width="159" height="54"/>
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="授课人：刘老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gWe-Bf-XqM">
+                                                <rect key="frame" x="8" y="31" width="84" height="15"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                                <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中世纪的电影课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="EUR-dY-bvZ">
+                                                <rect key="frame" x="8" y="8" width="143" height="17"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="666元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UsA-9S-k2v">
+                                                <rect key="frame" x="108" y="30" width="43" height="18"/>
+                                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                                <color key="textColor" red="0.93333333330000001" green="0.34901960780000002" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                        </subviews>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="EUR-dY-bvZ" secondAttribute="trailing" constant="8" id="70Y-e0-qG9"/>
+                                            <constraint firstItem="EUR-dY-bvZ" firstAttribute="top" secondItem="M6J-3y-wTO" secondAttribute="top" constant="8" id="ImL-mv-ItO"/>
+                                            <constraint firstItem="gWe-Bf-XqM" firstAttribute="top" secondItem="EUR-dY-bvZ" secondAttribute="bottom" constant="6" id="PfL-ma-1Aq"/>
+                                            <constraint firstItem="gWe-Bf-XqM" firstAttribute="leading" secondItem="EUR-dY-bvZ" secondAttribute="leading" id="VZ6-Nc-m1n"/>
+                                            <constraint firstItem="EUR-dY-bvZ" firstAttribute="leading" secondItem="M6J-3y-wTO" secondAttribute="leading" constant="8" id="VfJ-R5-yrS"/>
+                                            <constraint firstAttribute="trailing" secondItem="UsA-9S-k2v" secondAttribute="trailing" constant="8" id="WAV-DD-vCE"/>
+                                            <constraint firstItem="UsA-9S-k2v" firstAttribute="centerY" secondItem="gWe-Bf-XqM" secondAttribute="centerY" id="hhe-a6-xI4"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="EUR-dY-bvZ" firstAttribute="top" secondItem="2n2-Lg-3vk" secondAttribute="bottom" constant="8" id="5fx-Ci-MJV"/>
                                     <constraint firstAttribute="bottom" secondItem="2n2-Lg-3vk" secondAttribute="bottom" constant="54" id="7TD-3V-UwY"/>
                                     <constraint firstItem="2n2-Lg-3vk" firstAttribute="leading" secondItem="72x-LQ-DWR" secondAttribute="leading" constant="4" id="7mv-Mn-koS"/>
-                                    <constraint firstItem="EUR-dY-bvZ" firstAttribute="leading" secondItem="72x-LQ-DWR" secondAttribute="leading" constant="8" id="O5G-Zn-Vy0"/>
-                                    <constraint firstItem="UsA-9S-k2v" firstAttribute="centerY" secondItem="gWe-Bf-XqM" secondAttribute="centerY" id="PDI-26-IZv"/>
-                                    <constraint firstItem="gWe-Bf-XqM" firstAttribute="top" secondItem="EUR-dY-bvZ" secondAttribute="bottom" constant="8" id="Sfh-HI-1tU"/>
-                                    <constraint firstItem="gWe-Bf-XqM" firstAttribute="leading" secondItem="EUR-dY-bvZ" secondAttribute="leading" id="ZTh-OW-lKe"/>
+                                    <constraint firstItem="M6J-3y-wTO" firstAttribute="top" secondItem="2n2-Lg-3vk" secondAttribute="bottom" id="MH5-3t-z1s"/>
+                                    <constraint firstAttribute="bottom" secondItem="M6J-3y-wTO" secondAttribute="bottom" id="OeV-XX-NuS"/>
+                                    <constraint firstItem="M6J-3y-wTO" firstAttribute="leading" secondItem="72x-LQ-DWR" secondAttribute="leading" constant="4" id="XsE-6r-YsR"/>
                                     <constraint firstAttribute="trailing" secondItem="2n2-Lg-3vk" secondAttribute="trailing" constant="4" id="bud-P2-seQ"/>
-                                    <constraint firstAttribute="trailing" secondItem="EUR-dY-bvZ" secondAttribute="trailing" constant="8" id="dow-ef-MVn"/>
+                                    <constraint firstAttribute="trailing" secondItem="M6J-3y-wTO" secondAttribute="trailing" constant="4" id="c4V-Al-4TP"/>
                                     <constraint firstItem="2n2-Lg-3vk" firstAttribute="top" secondItem="72x-LQ-DWR" secondAttribute="top" id="uO7-fF-EOj"/>
-                                    <constraint firstAttribute="trailing" secondItem="UsA-9S-k2v" secondAttribute="trailing" constant="8" id="xU2-3C-QgF"/>
                                 </constraints>
                             </view>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="72x-LQ-DWR" secondAttribute="trailing" id="Kz6-n9-5dy"/>
                             <constraint firstItem="72x-LQ-DWR" firstAttribute="leading" secondItem="rdP-a7-IkL" secondAttribute="leading" id="nOL-tf-beh"/>

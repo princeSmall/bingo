@@ -11,12 +11,34 @@
 #import "MovieSchoolCell.h"
 #import "MovieNewsController.h"
 #import "MovieClassesController.h"
+#import "MovieSchool_NewsCell.h"
+#import "MovieSchool_ClassesCell.h"
 @interface MovieSchoolController () <UITableViewDataSource,UITableViewDelegate,SDCycleScrollViewDelegate,MovieSchoolCellDelegate>
 @property (weak,nonatomic) UITableView *tableView;
+@property (nonatomic, strong) NSMutableArray *bestClassesTitleArr;
+@property (nonatomic, strong) NSMutableArray *movieNewsTitleArr;
 @end
 
 @implementation MovieSchoolController
-
+- (NSMutableArray *)bestClassesTitleArr {
+    if (_bestClassesTitleArr == nil) {
+        self.bestClassesTitleArr = [NSMutableArray array];
+        for (int i = 1; i < 11; i ++ ) {
+            [self.bestClassesTitleArr addObject:[NSString stringWithFormat:@"%d",i]];
+        }
+       
+    }
+    return _bestClassesTitleArr;
+}
+- (NSMutableArray *)movieNewsTitleArr {
+    if (_movieNewsTitleArr == nil) {
+        self.movieNewsTitleArr = [NSMutableArray array];
+        for (int i = 1; i < 11; i ++ ) {
+            [self.movieNewsTitleArr addObject:[NSString stringWithFormat:@"%d_b",i]];
+        }
+    }
+    return _movieNewsTitleArr;
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTabBar:@"电影学院"];
@@ -58,7 +80,7 @@
     if (section == 0 ) {
         return 1;
     }
-    return 5;
+    return 10;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.section == 0) {
@@ -78,8 +100,12 @@
         schoolCell.delegate = self;
     } else if (indexPath.section == 1){
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MovieSchool_NewsCell" owner:nil options:nil] lastObject];
+        MovieSchool_NewsCell *newsCell = (MovieSchool_NewsCell *) cell;
+        newsCell.rankingImgStr = self.bestClassesTitleArr[indexPath.row];
     } else {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"MovieSchool_ClassesCell" owner:nil options:nil] lastObject];
+        MovieSchool_ClassesCell *classesCell = (MovieSchool_ClassesCell *) cell;
+        classesCell.rankingImgStr = self.movieNewsTitleArr[indexPath.row];
     }
     return cell;
 }
@@ -103,18 +129,18 @@
         headV.backgroundColor = kViewBackColor;
         UIButton *btn = [[UIButton alloc] init];
         CGFloat btnW  = 150;
-        CGFloat btnH = 30;
+        CGFloat btnH = 20;
         [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
         btn.titleLabel.font = [UIFont systemFontOfSize:13];
-        btn.frame = CGRectMake(kViewWidth * 0.5 - 75, 0, btnW, btnH);
+        btn.frame = CGRectMake(kViewWidth * 0.5 - 75, 5, btnW, btnH);
         btn.titleEdgeInsets = UIEdgeInsetsMake(0, 10, 0, 0);
         [headV addSubview:btn];
         if (section == 1) {
-            [btn setTitle:@"精品课程TOP10" forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:@"movieSchool_fire"] forState:UIControlStateNormal];
+            
+            [btn setImage:[UIImage imageNamed:@"jinpingkecheng_top"] forState:UIControlStateNormal];
         } else {
-            [btn setTitle:@"电影资讯TOP10" forState:UIControlStateNormal];
-            [btn setImage:[UIImage imageNamed:@"fire_black"] forState:UIControlStateNormal];
+            
+            [btn setImage:[UIImage imageNamed:@"dianyingzixun_top"] forState:UIControlStateNormal];
         }
         return headV;
     }

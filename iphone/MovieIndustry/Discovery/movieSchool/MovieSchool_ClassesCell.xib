@@ -14,27 +14,21 @@
                 <rect key="frame" x="0.0" y="0.0" width="404" height="101"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rYs-DS-tRo">
-                        <rect key="frame" x="8" y="8" width="11" height="20"/>
-                        <fontDescription key="fontDescription" type="system" weight="black" pointSize="16"/>
-                        <color key="textColor" red="0.18823529411764706" green="0.36470588235294116" blue="0.96078431372549022" alpha="1" colorSpace="calibratedRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" image="dog.png" translatesAutoresizingMaskIntoConstraints="NO" id="iug-As-VTb">
-                        <rect key="frame" x="34" y="15" width="74" height="74"/>
+                        <rect key="frame" x="31" y="15" width="74" height="74"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="74" id="aYz-7j-Ofe"/>
                             <constraint firstAttribute="width" constant="74" id="fl4-3B-QQL"/>
                         </constraints>
                     </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="007棒棒棒" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5GB-AL-kF6">
-                        <rect key="frame" x="123" y="15" width="90" height="23"/>
+                        <rect key="frame" x="120" y="15" width="90" height="23"/>
                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" verticalCompressionResistancePriority="749" text="kf就阿里加对方啊惊呆李开复阿道夫家电及开放啦对方离开家阿里看电视就疯了；氨基丁酸；老费劲啊； 六点发夹 " textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lEb-PW-zll">
-                        <rect key="frame" x="123" y="46" width="273" height="43"/>
+                        <rect key="frame" x="120" y="46" width="276" height="43"/>
                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                         <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
@@ -45,29 +39,38 @@
                         <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1_b" translatesAutoresizingMaskIntoConstraints="NO" id="dgl-XT-yDT">
+                        <rect key="frame" x="8" y="8" width="8" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="5ba-ST-0Rw"/>
+                            <constraint firstAttribute="height" constant="16" id="JTg-DX-p2J"/>
+                        </constraints>
+                    </imageView>
                 </subviews>
                 <constraints>
                     <constraint firstItem="VEz-2i-fQx" firstAttribute="centerY" secondItem="5GB-AL-kF6" secondAttribute="centerY" id="0Mb-PP-VtJ"/>
                     <constraint firstItem="iug-As-VTb" firstAttribute="top" secondItem="FG7-PZ-5iS" secondAttribute="top" constant="15" id="5H8-c0-UbP"/>
-                    <constraint firstItem="rYs-DS-tRo" firstAttribute="leading" secondItem="FG7-PZ-5iS" secondAttribute="leading" constant="8" id="Cta-D4-aye"/>
+                    <constraint firstItem="dgl-XT-yDT" firstAttribute="leading" secondItem="FG7-PZ-5iS" secondAttribute="leading" constant="8" id="7KG-Sk-zKa"/>
                     <constraint firstItem="5GB-AL-kF6" firstAttribute="top" secondItem="iug-As-VTb" secondAttribute="top" id="Hxu-OU-KMw"/>
                     <constraint firstItem="5GB-AL-kF6" firstAttribute="leading" secondItem="iug-As-VTb" secondAttribute="trailing" constant="15" id="JZw-sd-B25"/>
                     <constraint firstItem="lEb-PW-zll" firstAttribute="bottom" secondItem="iug-As-VTb" secondAttribute="bottom" id="PNX-Nj-Zeg"/>
+                    <constraint firstItem="dgl-XT-yDT" firstAttribute="top" secondItem="FG7-PZ-5iS" secondAttribute="top" constant="8" id="TQf-K4-3Y7"/>
                     <constraint firstItem="lEb-PW-zll" firstAttribute="leading" secondItem="iug-As-VTb" secondAttribute="trailing" constant="15" id="Uz7-dR-CsJ"/>
-                    <constraint firstItem="rYs-DS-tRo" firstAttribute="top" secondItem="FG7-PZ-5iS" secondAttribute="top" constant="8" id="cWX-j1-90s"/>
+                    <constraint firstItem="iug-As-VTb" firstAttribute="leading" secondItem="dgl-XT-yDT" secondAttribute="trailing" constant="15" id="cnP-dB-VPP"/>
                     <constraint firstAttribute="trailing" secondItem="VEz-2i-fQx" secondAttribute="trailing" constant="8" id="cvv-Rk-wXr"/>
                     <constraint firstItem="lEb-PW-zll" firstAttribute="top" secondItem="5GB-AL-kF6" secondAttribute="bottom" constant="8" id="fiw-fV-Ki7"/>
                     <constraint firstAttribute="trailing" secondItem="lEb-PW-zll" secondAttribute="trailing" constant="8" id="g9X-eU-OjD"/>
-                    <constraint firstItem="iug-As-VTb" firstAttribute="leading" secondItem="rYs-DS-tRo" secondAttribute="trailing" constant="15" id="x9K-W0-864"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="imagV" destination="iug-As-VTb" id="Bao-PU-RZD"/>
+                <outlet property="rankingImgV" destination="dgl-XT-yDT" id="MQR-U7-5tR"/>
             </connections>
             <point key="canvasLocation" x="300" y="314"/>
         </tableViewCell>
     </objects>
     <resources>
+        <image name="1_b" width="10" height="26"/>
         <image name="dog.png" width="93" height="92"/>
     </resources>
 </document>

@@ -19,5 +19,8 @@
 
     // Configure the view for the selected state
 }
-
+- (void)setRankingImgStr:(NSString *)rankingImgStr {
+    _rankingImgStr = rankingImgStr;
+    self.rankingImgV.image = [UIImage imageNamed:rankingImgStr];
+}
 @end

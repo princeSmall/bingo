@@ -7,28 +7,43 @@
 //
 
 #import "MovieClassesDetailHeadV.h"
+@interface MovieClassesDetailHeadV()
+@property (weak,nonatomic) UILabel *lbl;
+@property (nonatomic, weak) UIButton *btn;
 
+
+@end
 @implementation MovieClassesDetailHeadV
 
 - (instancetype) initMovieClassesDetailHeadV {
     if (self = [super init]) {
-        [self setTitle];
-
+      
+        UILabel *lbl = [[UILabel alloc] init];
+        self.lbl = lbl;
+        [self.detailHead_ImageV addSubview:lbl];
+        lbl.textColor = [UIColor whiteColor];
+        lbl.font =[UIFont systemFontOfSize:20];
+        
+        UIButton *btn = [[UIButton alloc] init];
+        [self.detailHead_ImageV addSubview:btn];
+        self.btn = btn;
+        [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [btn setBackgroundColor:[UIColor orangeColor]];
+        
+        self = [[[NSBundle mainBundle] loadNibNamed:@"MovieClassesDetailHeadV" owner:nil options:nil] lastObject];
     }
-    return [[[NSBundle mainBundle] loadNibNamed:@"MovieClassesDetailHeadV" owner:nil options:nil] lastObject];
+    return self;;
 }
 - (void) setTitle {
-    UILabel *lbl = [[UILabel alloc] init];
-    lbl.text = @"课程标题";
-    lbl.textColor = [UIColor whiteColor];
-    lbl.font =[UIFont systemFontOfSize:20];
-    [self.detailHead_ImageV addSubview:lbl];
-    lbl.frame = CGRectMake(10, self.detailHead_ImageV.height - 40, 50, 30);
-    UIButton *btn = [[UIButton alloc] init];
-    [self.detailHead_ImageV addSubview:btn];
-    [btn setTitle:@"30课时" forState:UIControlStateNormal];
-    [btn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [btn setBackgroundColor:[UIColor orangeColor]];
-    btn.frame = CGRectMake(CGRectGetMaxX(lbl.frame), CGRectGetMinY(lbl.frame), 40, 20);
+    
+}
+- (void)layoutSubviews {
+    [super layoutSubviews];
+    _lbl.text = @"课程标题";
+    
+    _lbl.frame = CGRectMake(10, self.detailHead_ImageV.height - 40, 50, 30);
+    [_btn setTitle:@"30课时" forState:UIControlStateNormal];
+    
+    _btn.frame = CGRectMake(CGRectGetMaxX(_lbl.frame), CGRectGetMinY(_lbl.frame), 40, 20);
 }
 @end

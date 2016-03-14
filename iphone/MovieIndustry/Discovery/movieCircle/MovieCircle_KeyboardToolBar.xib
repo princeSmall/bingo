@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
             <items>
                 <barButtonItem image="movieCircle_Emoticon" id="sLm-6K-ds4"/>
-                <barButtonItem width="9" style="plain" systemItem="fixedSpace" id="l5M-24-oim"/>
+                <barButtonItem width="9" style="plain" id="l5M-24-oim"/>
                 <barButtonItem image="movieCircle_camera" id="1Kv-ao-DtE"/>
             </items>
             <point key="canvasLocation" x="360.5" y="253"/>
