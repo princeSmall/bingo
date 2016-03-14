@@ -223,6 +223,10 @@
 {
     ShippingAddressModel *model = self.dataArray[indexPath.row];
     [self deleteShippingAddress:model.address_id];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        [self loadAddressList];
+    });
     
     self.tbView.editing = NO;
 }
@@ -259,6 +263,8 @@
         
         
     } withFieldBlock:^{
+        [DeliveryUtility showMessage:@"删除成功！" target:nil];
+        [self loadAddressList];
         
     }];
     

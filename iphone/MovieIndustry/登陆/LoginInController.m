@@ -48,7 +48,7 @@
     [self.agreeButton addTarget:self action:@selector(agreeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
     self.agreeButton.selected = YES;
     
-    [self setNavTabBar:@"登陆"];
+    [self setNavTabBar:@"登录"];
     
     [self.loginButton addTarget:self action:@selector(loginButtonAction) forControlEvents:UIControlEventTouchUpInside];
     
@@ -177,10 +177,13 @@
                                 [self.view endEditing:YES];
                                  [DeliveryUtility showMessage:@"登陆成功！" target:nil];
                                 
-                                [self dismissViewControllerAnimated:YES completion:nil];
+//                                [self dismissViewControllerAnimated:YES completion:nil];
+                                [self.view endEditing:YES];
                                 APP_DELEGATE.tbbC .selectedViewController = APP_DELEGATE.tbbC.viewControllers[0];
                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-                                    [self dismissViewControllerAnimated:YES completion:nil];
+                                    [APP_DELEGATE.tbbC .selectedViewController.view endEditing:YES];
+                                    
+//                                    [self dismissViewControllerAnimated:YES completion:nil];
                                 });
                                 [MBHudManager removeHud:hud scallBack:^(id obj) {
                                 

@@ -216,6 +216,13 @@
     return _shopsArray;
 }
 
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+
+    [self.mainTableView endEditing:YES];
+
+}
+
+
 - (void)viewWillAppear:(BOOL)animated {
     [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
     [self setNavTabBar:@"确认订单"];
@@ -227,7 +234,7 @@
     if (!self.isShoppingCar) {
         self.isShoppingCar = @"0";
     }
-    
+    self.mainTableView.userInteractionEnabled = YES;
     //初始化接送方式
     
     if (APP_DELEGATE.addressPalce) {
@@ -285,6 +292,14 @@
     bgView.alpha = 0.3;
     UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removeTapGesAction)];
     [bgView addGestureRecognizer:tapGes];
+    UITapGestureRecognizer *tapGesSecond = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(endEditinD)];
+    [self.view addGestureRecognizer:tapGesSecond];
+    
+}
+
+- (void)endEditinD{
+
+    [self.view endEditing:YES];
     
 }
 

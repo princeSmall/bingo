@@ -110,7 +110,7 @@
                      [DeliveryUtility showMessage:@"验证码已发送到您的手机，请查收" target:nil];
                     
                     _codeString = dict[@"code"];
-                    
+                    NSLog(@"_____%@",_codeString);
                     ///发送成功之后按钮不可点击 然后倒计时
                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
                     self.timeCount = 60;
@@ -165,7 +165,7 @@
              [DeliveryUtility showMessage:@"请输入验证码" target:nil];
         }else
         {
-            if ([self.codeTextField.text isEqualToString:_codeString]) {
+            if (![self.codeTextField.text isEqualToString:_codeString]) {
 //                [PromptLabel custemAlertPromAddView:self.view text:@"验证码不正确"];
                  [DeliveryUtility showMessage:@"验证码不正确" target:nil];
             }else
@@ -187,7 +187,7 @@
                             
                             [self.view endEditing:YES];
                             
-                            [self.navigationController popViewControllerAnimated:YES];
+                            [self.navigationController popToRootViewControllerAnimated:YES];
                         }];
                     }
                     else
