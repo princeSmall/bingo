@@ -12,7 +12,7 @@
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="EWJ-GG-ftS">
-                    <rect key="frame" x="43" y="7" width="79" height="27"/>
+                    <rect key="frame" x="43" y="7" width="214" height="27"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
@@ -28,7 +28,7 @@
             <connections>
                 <outlet property="shopName" destination="EWJ-GG-ftS" id="C9f-xq-s92"/>
             </connections>
-            <point key="canvasLocation" x="412" y="397"/>
+            <point key="canvasLocation" x="411.5" y="397"/>
         </view>
     </objects>
     <resources>
