@@ -13,7 +13,7 @@
 #import "SearchView.h"
 #import "NSUserManager.h"
 
-#define KaitiFont @"STHeiti-Medium"
+
 
 @interface SearchIndexController ()<UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (nonatomic,strong) UITableView *tbView;
@@ -66,6 +66,9 @@
         [_popView.courseButton setTitle:@"店铺" forState:UIControlStateNormal];
         [_popView.forumButton addTarget:self action:@selector(forumButtonAction:) forControlEvents:UIControlEventTouchUpInside];
         [_popView.courseButton addTarget:self action:@selector(courseButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+        _popView.courseButton.titleLabel.font = KaitiFont;
+
+
     }
     return _popView;
 }
@@ -206,12 +209,13 @@
     
     UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(14, 1, 40, 30) Font:16 Text:@"宝贝" textAligment:NSTextAlignmentCenter];
     self.navLabel = navLabel;
-    self.navLabel.font = [UIFont fontWithName:KaitiFont size:10];
+    self.navLabel.font = KaitiFont;
     UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(53, 8, 14, 14) ImageName:@"15-07"];
     UITextField *textField = [WNController createTextFieldWithFrame:CGRectMake(74, 2, (isScreen4?146:168), 28) boreStyle:UITextBorderStyleNone font:15];
     textField.placeholder = @"你想找什么？";
     textField.delegate = self;
     textField.returnKeyType = UIReturnKeySearch;
+    textField.font = KaitiFont;
     self.searchTextField = textField;
     
     UIButton *navBtn  = [WNController createButtonWithFrame:CGRectMake(0, 0, 70, 30) ImageName:@"" Target:self Action:@selector(searchTypeAction:) Title:@""];
@@ -310,12 +314,14 @@
 {
     UIView *hView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 50)];
     UILabel *hLabel = [WNController createLabelWithFrame:CGRectMake(8, 0, 80, 50) Font:13 Text:@"热词搜索" textAligment:NSTextAlignmentLeft];
+    hLabel.font = KaitiFont;
     hLabel.textColor = [UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:1];
     if (section == 1) {
         hLabel.text = @"历史搜索";
         
         UIButton *hbtn = [WNController createButtonWithFrame:CGRectMake(kViewWidth-88, 0, 80, 50) ImageName:@"" Target:self Action:@selector(clearSearchHistory) Title:@"清空" fontSize:13];
-//        [hbtn setBackgroundImage:[WNController createImageWithColor:[UIColor whiteColor]] forState:UIControlStateNormal];
+        hbtn.titleLabel.font =KaitiFont;
+
         hbtn.contentHorizontalAlignment = NSTextAlignmentRight;
         [hbtn setTitleColor:[UIColor colorWithRed:0.64 green:0.64 blue:0.64 alpha:1] forState:UIControlStateNormal];
         [hView addSubview:hbtn];
@@ -358,6 +364,7 @@
             btn.backgroundColor = [UIColor whiteColor];
             [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
             [cell addSubview:btn];
+            btn.titleLabel.font = KaitiFont;
             
         }
 

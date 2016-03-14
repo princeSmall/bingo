@@ -21,6 +21,7 @@
 #define RGBColor(r,g,b,a) [UIColor colorWithRed:r/255.0 green:g/255.0 blue:b/255.0 alpha:a]
 #define kViewWidth ([UIScreen mainScreen].applicationFrame.size.width)
 #define kViewHeight ([UIScreen mainScreen].applicationFrame.size.height)
+#define KaitiFont [UIFont fontWithName:@"KaiTi_GB2312" size:16]
 #define kViewBackColor [UIColor colorWithRed:0.94 green:0.94 blue:0.96 alpha:1]
 #define kNavBarColor [UIColor colorWithRed:0.22 green:0.22 blue:0.24 alpha:1]
 #define kNetWork_ERROR @"请检查网络"
