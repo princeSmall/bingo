@@ -10,5 +10,6 @@
 
 @interface MovieSchool_NewsCell : UITableViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *imagV;
-
+@property (weak, nonatomic) IBOutlet UIImageView *rankingImgV;
+@property (nonatomic, copy) NSString *rankingImgStr;
 @end

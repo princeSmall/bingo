@@ -97,7 +97,7 @@
         [buttonCommit addTarget:self action:@selector(ClickDoSomething) forControlEvents:UIControlEventTouchUpInside];
         [self addSubview:buttonCommit];
         
-        UILabel * label1 = [self createLabelWithTitle:@"商家送货" AndFrame: CGRectMake(13, 50, screenW - 50, 42)];
+        UILabel * label1 = [self createLabelWithTitle:@"送货上门" AndFrame: CGRectMake(13, 50, screenW - 50, 42)];
         
         UIButton * button1 = [self GetButtonWithFrame:CGRectMake(screenW - 35, 62, 15, 15)];
         self.button1 = button1;

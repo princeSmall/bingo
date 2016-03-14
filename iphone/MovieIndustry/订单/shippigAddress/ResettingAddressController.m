@@ -407,7 +407,7 @@
         [self.view endEditing:YES];
     }else
     {
-        [textField nextResponder];
+        [self.view endEditing:YES];
     }
     return YES;
 }

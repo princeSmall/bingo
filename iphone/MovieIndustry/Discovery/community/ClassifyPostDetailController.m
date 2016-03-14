@@ -8,6 +8,7 @@
 
 #import "ClassifyPostDetailController.h"
 #import "ClassifyPostDetailHeadCell.h"
+#import "ClassifyPostDetailBottomCell.h"
 #import "BottomInputView.h"
 @interface ClassifyPostDetailController () <UITableViewDelegate,UITableViewDataSource>{
     UITableView *_tableView;
@@ -28,7 +29,7 @@
     [self.view addSubview:_tableView];
     _tableView.delegate = self;
     _tableView.dataSource = self;
-    _tableView.frame = CGRectMake(0, 0, kViewWidth, kViewHeight - 50);
+    _tableView.frame = CGRectMake(0, 0, kViewWidth, kViewHeight - 100);
     BottomInputView *bottomInputV = [[BottomInputView alloc] init];
     [self.view addSubview:bottomInputV];
 }
@@ -37,22 +38,35 @@
     return 2;
 }
 - (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == 0) {
-        return 1;
-    }
-    return 5;
+    
+    return 1;
 }
 - (UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *ID = @"ClassifyPostDetailHeadCell";
-    ClassifyPostDetailHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
-    if (cell == nil) {
-        cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassifyPostDetailHeadCell" owner:nil options:nil] lastObject];
+    if (indexPath.section == 0) {
+        static NSString *ID = @"ClassifyPostDetailHeadCell";
+        ClassifyPostDetailHeadCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassifyPostDetailHeadCell" owner:nil options:nil] lastObject];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
+    } else {
+        static NSString *ID = @"ClassifyPostDetailBottomCell";
+        ClassifyPostDetailBottomCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
+        if (cell == nil) {
+            cell = [[[NSBundle mainBundle] loadNibNamed:@"ClassifyPostDetailBottomCell" owner:nil options:nil] lastObject];
+        }
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        return cell;
     }
-    return cell;
+    return nil;
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 82;
+    if (indexPath.section == 1) {
+        return 686;
+    }
+    return 96;
 }
 - (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
     if (section == 1) {

@@ -11,9 +11,10 @@
 #import "MerchantCertificationViewController.h"
 #import "JGButtonAreaView.h"
 #import "ShopMainModel.h"
+#import "JGAreaModel.h"
 
 
-@interface StoreSettingController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate>
+@interface StoreSettingController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
 
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (weak, nonatomic) IBOutlet UIButton *btnType1;
@@ -47,9 +48,261 @@
 @property (nonatomic,strong) NSString * imageName;
 @property (nonatomic,strong)JGButtonAreaView * buttonView;
 
+//修改过的
+@property (nonatomic,strong) UIPickerView *cityPickView;
+
+@property (nonatomic,strong)UIView * pickBgView;
+
+@property (nonatomic,strong)NSMutableArray * provinceArray;
+
+@property (nonatomic,strong)NSString * proID;
+
+@property (nonatomic,strong)NSString * citID;
+
+@property (nonatomic,strong)NSString * areID;
+
+@property (nonatomic,strong)NSString * type;
+
+@property (nonatomic,strong)UITextField *cityPickTextField;
+
 @end
 
 @implementation StoreSettingController
+- (BOOL)textView:(UITextView *)textView shouldChangeTextInRange:(NSRange)range replacementText:(NSString *)text{
+
+//    [self.view endEditing:YES];
+    return YES;
+}
+
+- (UITextField *)cityPickTextField
+
+{
+    
+    if (!_cityPickTextField) {
+        
+        _cityPickTextField = [[UITextField alloc] init];
+        
+    }
+    
+    return _cityPickTextField;
+    
+}
+
+
+- (void)provinceBtnClick{
+    NSLog(@"省份");
+    self.type = @"0";
+    [self.view endEditing:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
+    mutDict[@"user_id"] = APP_DELEGATE.user_id;
+    [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSArray * dictArr = result[@"data"];
+        
+        NSMutableArray * arrMu = [NSMutableArray array];
+        
+        for (int i = 0; i < dictArr.count; i ++) {
+            JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
+            [arrMu addObject:model];
+        }
+        self.provinceArray = arrMu;
+        
+        JGAreaModel * model = self.provinceArray[0];
+//        self.proID = model.ID;
+//        //        self.provinceStr.text = model.local_name;
+//        self.buttonView.provinceBtn.buttonTitle =model.local_name;
+        [self chooseCityAreaAction:nil];
+        
+    } withFieldBlock:^{
+        
+    }];
+}
+- (void)chooseCityAreaAction:(UIButton *)btn
+{
+    //创建大的背景View
+    UIView *bgView = [[UIView alloc] initWithFrame:self.view.bounds];
+    _pickBgView = bgView;
+    UITapGestureRecognizer *tapGes = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(removePickerView)];
+    bgView.userInteractionEnabled = YES;
+    [bgView addGestureRecognizer:tapGes];
+    [self.view addSubview:bgView];
+
+    //创建工具条
+    UIToolbar *toolbar=[[UIToolbar alloc]init];
+    //设置工具条的颜色
+    toolbar.barTintColor=kNavBarColor;
+    //设置工具条的frame
+    toolbar.frame=CGRectMake(0, 0, kViewWidth, 30);
+    UIBarButtonItem *item2=[[UIBarButtonItem alloc]initWithBarButtonSystemItem:UIBarButtonSystemItemFlexibleSpace target:nil action:nil];
+    UIButton *cusBtn = [WNController createButtonWithFrame:CGRectMake(0, 0, 40, 20) ImageName:@"" Target:self Action:@selector(finishCityAction) Title:@"完成" fontSize:14];
+    [cusBtn setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+    
+    UIBarButtonItem *item3=[[UIBarButtonItem alloc] initWithCustomView:cusBtn];
+    item3.tintColor = [UIColor whiteColor];
+    toolbar.items = @[item2,item2,item2,item3];
+    
+    self.cityPickTextField.inputAccessoryView = toolbar;
+    self.cityPickTextField.inputView = self.cityPickView;
+    [self.cityPickTextField becomeFirstResponder];
+}
+#pragma mark - 点击之后文字改变
+- (void)finishCityAction
+{
+
+    [self removePickerView];
+    //    }
+    
+    
+}
+//移除PickerView
+- (void)removePickerView
+{
+    //收起日期选择框
+    [self.cityPickTextField resignFirstResponder];
+    
+    [UIView animateWithDuration:0.5 animations:^{
+        
+    } completion:^(BOOL finished) {
+        [_pickBgView removeFromSuperview];
+    }];
+    
+}
+
+
+
+- (void)areaBtnClick {
+    [self.view endEditing:YES];
+    
+    self.type = @"2";
+    
+    if (!self.citID) {
+        
+        [DeliveryUtility showMessage:@"城市信息未选择！" target:nil];
+        
+        return;
+    }
+    
+    NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
+    
+    mutDict[@"user_id"] = APP_DELEGATE.user_id;
+    
+    mutDict[@"parent_id"] = self.citID;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSArray * dictArr = result[@"data"];
+        
+        NSMutableArray * arrMu = [NSMutableArray array];
+        
+        for (int i = 0; i < dictArr.count; i ++) {
+            
+            JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
+            
+            [arrMu addObject:model];
+            
+        }
+        self.provinceArray = arrMu;
+        JGAreaModel * model = self.provinceArray[0];
+//        self.areID = model.ID;
+//        self.buttonView.areaBtn.buttonTitle = model.local_name;
+        [self chooseCityAreaAction:nil];
+    } withFieldBlock:^{
+    }];
+    
+}
+- (void)CityBtN{
+    [self.view endEditing:YES];
+    self.type = @"1";
+    if (!self.proID) {
+        [DeliveryUtility showMessage:@"省份信息未填写！" target:nil];
+        return;
+    }
+    NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
+    mutDict[@"user_id"] = APP_DELEGATE.user_id;
+    mutDict[@"parent_id"] = self.proID;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+        NSArray * dictArr = result[@"data"];
+        NSMutableArray * arrMu = [NSMutableArray array];
+        for (int i = 0; i < dictArr.count; i ++) {
+            JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
+            [arrMu addObject:model];
+        }
+        self.provinceArray = arrMu;
+        JGAreaModel * model = self.provinceArray[0];
+        
+//        self.citID = model.ID;
+//        
+//        self.buttonView.cityBtn.buttonTitle = model.local_name;
+//        
+        [self chooseCityAreaAction:nil];
+        
+        
+        
+    } withFieldBlock:^{
+        
+        
+        
+    }];
+    
+}
+
+- (NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView{
+    return 1;
+}
+
+- (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
+{
+    return self.provinceArray.count;
+}
+
+//返回每一列的字符串
+- (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
+{
+    JGAreaModel * model = self.provinceArray[row];
+    return model.local_name;
+    
+}
+
+//当改变省份时，重新加载第2列的数据，部分加载
+- (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component{
+    if ([self.type isEqualToString:@"0"]) {
+        
+        JGAreaModel * model = self.provinceArray[row];
+        
+        self.proID = model.ID;
+        self.buttonView.provinceBtn.buttonTitle = model.local_name;
+    }
+    if ([self.type isEqualToString:@"1"]) {
+        JGAreaModel * model = self.provinceArray[row];
+        self.citID = model.ID;
+        self.buttonView.cityBtn.buttonTitle = model.local_name;
+    }
+    if ([self.type isEqualToString:@"2"]) {
+        JGAreaModel * model = self.provinceArray[row];
+        self.areID = model.ID;
+        self.buttonView.areaBtn.buttonTitle = model.local_name;
+    }
+    
+}
+
+
+
+- (UIPickerView *)cityPickView
+{
+    if (!_cityPickView) {
+        _cityPickView = [[UIPickerView alloc] initWithFrame:CGRectMake(0, 0, kViewWidth, 150)];
+        
+        //    显示选中框
+        _cityPickView.showsSelectionIndicator = YES;
+        _cityPickView.delegate = self;
+        _cityPickView.dataSource = self;
+        _cityPickView.backgroundColor = [UIColor whiteColor];
+    }
+    return _cityPickView;
+}
 
 
 - (IBAction)BtnTypeClick:(UIButton*)sender {
@@ -112,7 +365,12 @@
     
     JGButtonAreaView * buttonView = [[JGButtonAreaView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 43)WithController:self];
     [self.myCellView addSubview:buttonView];
+    [buttonView.provinceBtn addTarget:self action:@selector(provinceBtnClick) forControlEvents:UIControlEventTouchUpInside];
+        [buttonView.cityBtn addTarget:self action:@selector(CityBtN) forControlEvents:UIControlEventTouchUpInside];
+        [buttonView.areaBtn addTarget:self action:@selector(areaBtnClick) forControlEvents:UIControlEventTouchUpInside];
+    
     self.buttonView = buttonView;
+    [self.view addSubview:self.cityPickTextField];
 }
 
 - (void)initSettingStoreView
@@ -230,22 +488,19 @@
     NSString * proID;
     NSString * citID;
     NSString * areID;
-    if (![self.storeModel.spare_address isEqualToString:[self.buttonView getAddress]]) {
-        if (![self.buttonView isAllAddress]) {
-            [DeliveryUtility showMessage:@"请确保地址的完整性" target:self];
-            return NO;
-        }else{
-            proID = [self.buttonView getProID];
-            citID = [self.buttonView getCitID];
-            areID = [self.buttonView getAreID];
-        }
-    }else{
-        proID = self.storeModel.province_id;
-        citID = self.storeModel.city_id;
-        areID = self.storeModel.district_id;
-    }
-
     
+    if (!self.areID) {
+        
+    proID = self.storeModel.province_id;
+  citID = self.storeModel.city_id;
+ areID = self.storeModel.district_id;
+        
+        
+    }else{
+    proID = self.proID;
+    citID = self.citID;
+    areID = self.areID;
+    }
     //判断周边交通
 //    if (0 == traffic.length) {
 //        [DeliveryUtility showMessage:@"请输入您的交通工具" target:self];
@@ -300,7 +555,7 @@
     }
     
     self.storeDict[@"category_id"] = category;
-    self.storeDict[@"spare_address"] = [self.buttonView getAddress];
+    self.storeDict[@"spare_address"] = @"DAS";
 
     return YES;
 }
@@ -367,10 +622,9 @@
     self.txtPhoneNum.text = self.storeModel.shop_tel;
 //    self.txtAddress.text = self.storeModel.shop_addr_detail;
     
-    NSString * string = self.storeModel.spare_address;
+
     self.desAddress.text = self.storeModel.shop_addr_detail;
-    NSArray * strArray = [string componentsSeparatedByString:@","];
-    [_buttonView ChangeTitleWith:strArray];
+
     _buttonView.proID = self.storeModel.province_id;
     _buttonView.citID = self.storeModel.city_id;
     _buttonView.areID = self.storeModel.district_id;

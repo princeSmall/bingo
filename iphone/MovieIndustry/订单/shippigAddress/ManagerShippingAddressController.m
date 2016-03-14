@@ -111,7 +111,8 @@
                 NSDictionary *morenDict;
                 
                 if (![dict[@"data"] isKindOfClass:[NSArray class]]) {
-                    
+                    [self.tbView reloadData];
+                    [self createBottomView];
                 }else{
                 
                 NSMutableArray * mutArray = [NSMutableArray arrayWithArray:dict[@"data"]];

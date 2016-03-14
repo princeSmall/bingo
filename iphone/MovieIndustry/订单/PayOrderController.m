@@ -12,6 +12,10 @@
 #import "CartGood.h"
 #import "PaySuccessViewController.h"
 #import "UPPaymentControl.h"
+#import "WXApi.h"
+#import "WXApiObject.h"
+#import "payRequsestHandler.h"
+
 
 @interface PayOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
@@ -264,15 +268,55 @@
 //                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
 //            }];
         }
+        if ([type isEqualToString:@"2"]) {
+            
+            [[NSOperationQueue mainQueue]addOperationWithBlock:^{
+                 [self WXpayDemo:@"S0001727"];
+            }];
+        }
+        
     }];
     CGSize size =CGSizeMake(self.view.frame.size.width, 103*3+400+100);
-    bottomView.tableView.frame = CGRectMake(0, 0,  self.view.frame.size.width, 128);
+    bottomView.tableView.frame = CGRectMake(0, 0,  self.view.frame.size.width, 192);
     self.tableView.contentSize = size;
     bottomView.payBtn.layer.cornerRadius = 5.0f;
     [bottomView.payBtn addTarget:self action:@selector(actionPay) forControlEvents:UIControlEventTouchUpInside];
     self.tableView.tableFooterView = bottomView;
     
 }
+
+
+- (void)WXpayDemo:(NSString *)orderid{
+    payRequsestHandler *req = [[payRequsestHandler alloc] init];
+    //初始化支付签名对象
+    [req init:@"wxd8f37269581ddec2" mch_id:@"1300124601"];
+    //设置密钥
+    [req setKey:@"SDL94P6OUQ1I6A82ED4TP7APCKOF53SQ"];
+    //获取到实际调起微信支付的参数后，在app端调起支付
+    NSMutableDictionary *dict = [req sendPay_demoWith:@"dd" withOrderId:orderid withPrise:@"1"];
+    if(dict == nil) {
+        //错误提示
+    } else {
+        //[self alert:@"确认" msg:@"下单成功，点击OK后调起支付！"];
+        //调起微信支付
+        PayReq* req             = [[PayReq alloc] init];
+        req.openID              = [dict objectForKey:@"appid"];
+        req.partnerId           = [dict objectForKey:@"partnerid"];
+        req.prepayId            = [dict objectForKey:@"prepayid"];
+        req.nonceStr            = [dict objectForKey:@"noncestr"];
+        req.timeStamp           = [dict[@"timestamp"] intValue];
+        req.package             = [dict objectForKey:@"package"];
+        req.sign                = [dict objectForKey:@"sign"];
+        
+        if (![WXApi isWXAppInstalled]) {
+            NSLog(@"没有安装微信");
+        }
+        [WXApi sendReq:req];
+        [WXApi openWXApp];
+    }
+}
+
+
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {

@@ -776,7 +776,7 @@
         [userDict setObject:@"1" forKey:@"pay_id"];
         
         NSString * methodStr = @"0";
-        if ([self.expressLabel.text isEqualToString:@"商家送货"]) {
+        if ([self.expressLabel.text isEqualToString:@"送货上门"]) {
             methodStr = @"0";
         }
         if ([self.expressLabel.text isEqualToString:@"快递"]) {

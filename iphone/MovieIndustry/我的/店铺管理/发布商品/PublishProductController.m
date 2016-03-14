@@ -339,6 +339,11 @@
     }else if([self.deliveryMethod.text isEqualToString:@"自提"]){
     deliveryId = @"2";
     }
+    if ([self.deliveryMethod.text isEqualToString:@""]) {
+        [DeliveryUtility showMessage:@"请选择送货方式" target:self];
+        return NO;
+    }
+    
     NSString *isDeposit = [NSString stringWithFormat:@"%zd",self.depositSwBtn.on];
     
     //判断商品详情

@@ -200,10 +200,11 @@
     NSLog(@"省份");
     self.type = @"0";
     [self.view endEditing:YES];
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
     mutDict[@"user_id"] = APP_DELEGATE.user_id;
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSArray * dictArr = result[@"data"];
         
         NSMutableArray * arrMu = [NSMutableArray array];
@@ -215,7 +216,7 @@
         self.provinceArray = arrMu;
         
         JGAreaModel * model = self.provinceArray[0];
-        self.proID = model.ID;
+//        self.proID = model.ID;
 //        self.provinceStr.text = model.local_name;
         self.buttonAreaView.provinceBtn.buttonTitle =model.local_name;
         [self chooseCityAreaAction:nil];
@@ -241,9 +242,9 @@
     mutDict[@"user_id"] = APP_DELEGATE.user_id;
     
     mutDict[@"parent_id"] = self.citID;
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
-
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSArray * dictArr = result[@"data"];
 
         NSMutableArray * arrMu = [NSMutableArray array];
@@ -257,8 +258,8 @@
         }
         self.provinceArray = arrMu;
         JGAreaModel * model = self.provinceArray[0];
-        self.areID = model.ID;
-        self.buttonAreaView.areaBtn.buttonTitle = model.local_name;
+//        self.areID = model.ID;
+//        self.buttonAreaView.areaBtn.buttonTitle = model.local_name;
         [self chooseCityAreaAction:nil];
     } withFieldBlock:^{
     }];
@@ -274,7 +275,9 @@
     NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
     mutDict[@"user_id"] = APP_DELEGATE.user_id;
     mutDict[@"parent_id"] = self.proID;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSArray * dictArr = result[@"data"];
         NSMutableArray * arrMu = [NSMutableArray array];
         for (int i = 0; i < dictArr.count; i ++) {
@@ -284,9 +287,9 @@
         self.provinceArray = arrMu;
         JGAreaModel * model = self.provinceArray[0];
         
-        self.citID = model.ID;
+//        self.citID = model.ID;
         
-        self.buttonAreaView.cityBtn.buttonTitle = model.local_name;
+//        self.buttonAreaView.cityBtn.buttonTitle = model.local_name;
         
         [self chooseCityAreaAction:nil];
         
@@ -419,6 +422,10 @@
     NSString * citID;
     NSString * areID;
     
+    proID = self.proID;
+    citID = self.citID;
+    areID = self.areID;
+    
     if (![self.buttonAreaView isAllAddress]) {
         cityStr = @"";
     }else{
@@ -514,9 +521,9 @@
     [self.storeDict setObject:self.txtIntroduce.text forKey:@"shop_desc"];
     
     [self.storeDict setObject:self.txtAddress.text forKey:@"shop_addr_detail"];
-    [self.storeDict setObject:proID forKey:@"province_id"];
-    [self.storeDict setObject:citID forKey:@"city_id"];
-    [self.storeDict setObject:areID forKey:@"district_id"];
+    [self.storeDict setObject:self.proID forKey:@"province_id"];
+    [self.storeDict setObject:self.citID forKey:@"city_id"];
+    [self.storeDict setObject:self.areID forKey:@"district_id"];
     [self.storeDict setObject:addressStr forKey:@"shop_addr_detail"];
 //    [self.storeDict setObject:cityStr forKey:@"city_id"];
     [self.storeDict setObject:telStr forKey:@"shop_tel"];

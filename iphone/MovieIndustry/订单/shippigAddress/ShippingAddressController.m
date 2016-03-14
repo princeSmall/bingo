@@ -52,6 +52,7 @@
 @end
 
 @implementation ShippingAddressController
+
 - (UITextField *)cityPickTextField
 {
     if (!_cityPickTextField) {
@@ -82,8 +83,11 @@
     [self.view endEditing:YES];
     NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
     mutDict[@"user_id"] = APP_DELEGATE.user_id;
+    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSArray * dictArr = result[@"data"];
         
         NSMutableArray * arrMu = [NSMutableArray array];
@@ -95,8 +99,8 @@
         self.provinceArray = arrMu;
         
         JGAreaModel * model = self.provinceArray[0];
-        self.proID = model.ID;
-        self.provinceStr.text = model.local_name;
+//        self.proID = model.ID;
+//        self.provinceStr.text = model.local_name;
         [self chooseCityAreaAction:nil];
         
     } withFieldBlock:^{
@@ -115,12 +119,12 @@
         [DeliveryUtility showMessage:@"城市信息未选择！" target:nil];
         return;
     }
-    
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
     mutDict[@"user_id"] = APP_DELEGATE.user_id;
     mutDict[@"parent_id"] = self.citID;
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSArray * dictArr = result[@"data"];
         
         NSMutableArray * arrMu = [NSMutableArray array];
@@ -131,8 +135,8 @@
         }
         self.provinceArray = arrMu;
         JGAreaModel * model = self.provinceArray[0];
-        self.areID = model.ID;
-        self.areaLabel.text = model.local_name;
+//        self.areID = model.ID;
+//        self.areaLabel.text = model.local_name;
          [self chooseCityAreaAction:nil];
         
     } withFieldBlock:^{
@@ -155,8 +159,9 @@
     NSMutableDictionary * mutDict = [NSMutableDictionary dictionary];
     mutDict[@"user_id"] = APP_DELEGATE.user_id;
     mutDict[@"parent_id"] = self.proID;
+    [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
-        
+        [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSArray * dictArr = result[@"data"];
         
         NSMutableArray * arrMu = [NSMutableArray array];
@@ -167,8 +172,8 @@
         }
         self.provinceArray = arrMu;
         JGAreaModel * model = self.provinceArray[0];
-        self.citID = model.ID;
-        self.cityLabel.text = model.local_name;
+//        self.citID = model.ID;
+//        self.cityLabel.text = model.local_name;
          [self chooseCityAreaAction:nil];
         
     } withFieldBlock:^{
@@ -219,7 +224,11 @@
     [self.view endEditing:YES];
     CGRect rect = self.view.frame;
     rect.origin.y = 64;
-    self.view.frame = rect;
+    [UIView animateWithDuration:0.3 animations:^{
+         self.view.frame = rect;
+    }];
+    
+   
 }
 
 
@@ -366,10 +375,10 @@
              [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
         }else
         {
-//            if ([self.postCodeLabel.text isEqualToString:@""]) {
-//                [PromptLabel custemAlertPromAddView:self.view text:@"请输入邮编"];
-//            }else
-//            {
+            if (!self.areID) {
+               [PromptLabel custemAlertPromAddView:self.view text:@"请选择地区"];
+           }else
+            {
             
             if ([self.addressDetailTextView.text isEqualToString:@""]||[self.addressDetailTextView.text isEqualToString:@"详细地址"]) {
 //                        [PromptLabel custemAlertPromAddView:self.view text:@"请输入详细地址"];
@@ -385,7 +394,7 @@
                         dict[@"user_id"] = APP_DELEGATE.user_id;
                         dict[@"consignee_name"] = self.consigneeTextField.text;
                         dict[@"mobile"] = self.phoneNumberText.text;
-                        dict[@"tel"] = self.telPhone.text;
+                        dict[@"tel"] = @"13245678910";
                         dict[@"post_code"] = self.postCodeLabel.text;
                         dict[@"addr_detail"] = self.addressDetailTextView.text;
                         dict[@"province_id"] = self.proID;
@@ -433,7 +442,7 @@
             
     
 }
-
+}
 
 
 #pragma mark - UIPickerView代理方法
@@ -477,79 +486,24 @@
         self.areID = model.ID;
         self.areaLabel.text = model.local_name;
     }
-    
-    
-//    if (component == 0) {
-//        ///城市读取的数据会改变
-//        self.cityArray = self.provinceArray[row][@"cities"];
-//        
-//        [self.cityPickView selectRow:0 inComponent:1 animated:YES];
-//        [self.cityPickView reloadComponent:1];
-//        
-//        self.areaArray = self.cityArray[0][@"areas"];
-//        [self.cityPickView selectRow:0 inComponent:2 animated:YES];
-//        [self.cityPickView reloadComponent:2];
-//        //        HHNSLog(@"%@",[NSString stringWithFormat:@"%@",_provinceArray[row][@"state"]]);
-//        
-//        
-//        _proviceStr =self.provinceArray[row][@"state"];
-//        _cityStr = self.cityArray[0][@"city"];
-//        if (self.areaArray.count<1) {
-//            _areaStr = @"";
-//        }else
-//        {
-//            _areaStr = self.areaArray[0];
-//        }
-//        
-//    }
-//    else if(component == 1)
-//    {
-//        self.areaArray = self.cityArray[row][@"areas"];
-//        [self.cityPickView selectRow:0 inComponent:2 animated:YES];
-//        [self.cityPickView reloadComponent:2];
-//        
-//        if (!_proviceStr) {
-//            _proviceStr = _proviceStr =self.provinceArray[0][@"state"];
-//        }
-//        
-//        _cityStr = self.cityArray[row][@"city"];
-//        if (self.areaArray.count<1) {
-//            _areaStr = @"";
-//        }else
-//        {
-//            _areaStr = self.areaArray[0];
-//        }
-//    }
-//    
-//    if (component == 2) {
-//        if (self.areaArray.count>0) {
-//            _areaStr = self.areaArray[row];
-//        }
-//        
-//    }
-//    
-//    self.areaString = [NSString stringWithFormat:@"%@%@%@",_proviceStr,_cityStr,_areaStr];
-//    self.provinceStr.text = _proviceStr;
-//    self.cityLabel.text = [NSString stringWithFormat:@"%@  %@",_cityStr,_areaStr];
-//    
-    
+
 }
 
 - (void)textFieldDidBeginEditing:(UITextField *)textField{
     CGRect rect = self.view.frame;
+    if ([textField isEqual:self.consigneeTextField]||[textField isEqual:self.phoneNumberText]) {
+        
+    }else{
     rect.origin.y = -100;
-    self.view.frame = rect;
+    [UIView animateWithDuration:0.3 animations:^{
+         self.view.frame = rect;
+    }];
 }
-
+}
 - (BOOL)textFieldShouldReturn:(UITextField *)textField
 {
     
-    if ([textField isEqual:self.addressDetailTextView]) {
-        [self.view endEditing:YES];
-    }else
-    {
-        [textField nextResponder];
-    }
+    [textField resignFirstResponder];
     return YES;
 }
 
@@ -593,7 +547,10 @@
     }
     CGRect rect = self.view.frame;
     rect.origin.y = -100;
-    self.view.frame = rect;
+    [UIView animateWithDuration:0.3 animations:^{
+        self.view.frame = rect;
+    }];
+    
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView
@@ -609,7 +566,16 @@
     if ([text isEqualToString:@"\n"]) {
         
         [textView resignFirstResponder];
-        [self.postCodeLabel becomeFirstResponder];
+        [self.view endEditing:YES];
+        CGRect rect = self.view.frame;
+        rect.origin.y = 64;
+        
+        [UIView animateWithDuration:0.3 animations:^{
+             self.view.frame = rect;
+        }];
+        
+       
+//        [self.postCodeLabel becomeFirstResponder];
         return NO;
     }
     

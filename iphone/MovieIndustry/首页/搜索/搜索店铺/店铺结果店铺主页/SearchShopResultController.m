@@ -106,15 +106,16 @@ typedef void (^babyClassify)(void);
     return _searchHeaderView;
 }
 
+- (void)makePhoneCall:(NSString *)tel{
+    NSString * urlStr = [NSString stringWithFormat:@"tel://%@",tel];
+    [[UIApplication sharedApplication] openURL:[NSURL URLWithString:urlStr]];
+}
+
 - (void)callPhoneButtonAction
 {
     UIAlertController * aler = [UIAlertController alertControllerWithTitle:@"提示" message:@"是否要拨打店铺电话" preferredStyle:UIAlertControllerStyleAlert];
     UIAlertAction * sureAction = [UIAlertAction actionWithTitle:@"确认" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
-        NSMutableString * str=[[NSMutableString alloc] initWithFormat:@"tel:%@",_searchHeaderView.shopPhoneLabel.text];
-        UIWebView * callWebview = [[UIWebView alloc] init];
-        [callWebview loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:str]]];
-        [self.view addSubview:callWebview];
-        
+        [self makePhoneCall:_searchHeaderView.shopPhoneLabel.text];
     }];
     [aler addAction:sureAction];
     UIAlertAction * cancelAction = [UIAlertAction actionWithTitle:@"取消" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {

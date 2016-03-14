@@ -250,9 +250,9 @@
     }
     // 社区论坛
     if (indexPath.section == 2) {
-        RankingListController *rankListVc = [[RankingListController alloc] init];
-        [rankListVc setHidesBottomBarWhenPushed:YES];
-        [self.navigationController pushViewController:rankListVc animated:YES];
+        DiscoverBBSController *BBSVC = [[DiscoverBBSController alloc] init];
+        [BBSVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:BBSVC animated:YES];
     }
     // 电影学院
     if (indexPath.section == 1) {
