@@ -714,6 +714,8 @@ typedef void (^babyClassify)(void);
     NSInteger count = self.listTypeArray.count;
     if (count>0) {
         [self.listTypePickView selectRow:4 inComponent:0 animated:NO];
+        ((UIView *)[self.listTypePickView.subviews objectAtIndex:1]).backgroundColor = [UIColor clearColor];
+        ((UIView *)[self.listTypePickView.subviews objectAtIndex:2]).backgroundColor = [UIColor clearColor];
         self.listTypePickView.frame = CGRectMake(0, 0, kViewWidth, 120);
         [self.pickBgView addSubview:self.listTypePickView];
         ///滚动视图

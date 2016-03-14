@@ -268,6 +268,9 @@
     MyOrderCellHeader * header = [[[NSBundle mainBundle]loadNibNamed:@"MyOrderCellHeader" owner:self options:nil]lastObject];
     header.shopNameLabel.text = _orderListArray[section][@"shop_name"];
     header.orderStatusLabel.text = _orderListArray[section][@"shop_goods"][@"status_name"];
+    header.orderArrowImage.hidden=YES;
+    CGRect rect = header.shopNameLabel.frame;
+    header.shopNameLabel.frame = CGRectMake(rect.origin.x, rect.origin.y, 150, rect.size.height);
     
 #warning 这边需要传出事件  点击进入店铺
 #warning 这边需要传出事件  点击进入店铺

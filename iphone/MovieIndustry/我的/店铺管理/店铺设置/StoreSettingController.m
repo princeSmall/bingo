@@ -191,22 +191,24 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        NSArray * dictArr = result[@"data"];
-        
-        NSMutableArray * arrMu = [NSMutableArray array];
-        
-        for (int i = 0; i < dictArr.count; i ++) {
+        id data = result[@"data"];
+        if([[data class] isSubclassOfClass:[NSArray class]])
+        {
+            NSMutableArray * arrMu = [NSMutableArray array];
+            NSArray*dictArr = [NSArray arrayWithArray:data];
+            for (int i = 0; i < dictArr.count; i ++) {
             
             JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
             
             [arrMu addObject:model];
             
         }
-        self.provinceArray = arrMu;
-        JGAreaModel * model = self.provinceArray[0];
+            self.provinceArray = arrMu;
+            JGAreaModel * model = self.provinceArray[0];
 //        self.areID = model.ID;
 //        self.buttonView.areaBtn.buttonTitle = model.local_name;
-        [self chooseCityAreaAction:nil];
+            [self chooseCityAreaAction:nil];
+        }
     } withFieldBlock:^{
     }];
     
@@ -224,22 +226,25 @@
     [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:mutDict withRequestFinishBlock:^(id result) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-        NSArray * dictArr = result[@"data"];
-        NSMutableArray * arrMu = [NSMutableArray array];
-        for (int i = 0; i < dictArr.count; i ++) {
+        id data = result[@"data"];
+        if([[data class] isSubclassOfClass:[NSArray class]])
+        {
+            NSMutableArray * arrMu = [NSMutableArray array];
+            NSArray*dictArr = [NSArray arrayWithArray:data];
+            for (int i = 0; i < dictArr.count; i ++) {
             JGAreaModel * model = [[JGAreaModel alloc]initWithDict:dictArr[i]];
             [arrMu addObject:model];
-        }
-        self.provinceArray = arrMu;
-        JGAreaModel * model = self.provinceArray[0];
+            }
+            self.provinceArray = arrMu;
+            JGAreaModel * model = self.provinceArray[0];
         
 //        self.citID = model.ID;
 //        
 //        self.buttonView.cityBtn.buttonTitle = model.local_name;
 //        
-        [self chooseCityAreaAction:nil];
+            [self chooseCityAreaAction:nil];
         
-        
+        }
         
     } withFieldBlock:^{
         
