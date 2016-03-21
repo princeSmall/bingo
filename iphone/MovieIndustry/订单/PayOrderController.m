@@ -102,9 +102,9 @@
         if ([type isEqualToString:@"0"]) {
             //支付宝
             NSLog(@"支付宝");
-            
+//            self.orderPayDic[@"order_id"]
             if (!self.payDict) {
-                [HttpRequestServers sendAlipayWithOrderSn:self.orderPayDic[@"order_id"] orderName:@"咖么支付测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%f",0.01] andScallback:^(id obj)
+                [HttpRequestServers sendAlipayWithOrderSn:@"32222210000" orderName:@"咖么支付测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%f",0.01] andScallback:^(id obj)
                  {
                      
                      NSDictionary *aliDict = obj;
@@ -166,9 +166,10 @@
                                 dict1[@"user_id"] = APP_DELEGATE.user_id;
                                 dict1[@"pay_status"] = @"1";
                                 dict1[@"pay_id"] = @"1";
-                            dict1[@"order_id"]= dict[@"data"];
+//                            dict1[@"order_id"]= dict[@"data"];
+                        dict1[@"order_id"]= @"8899774466";
                             if (!self.orderId) {
-                                self.orderId =dict[@"data"];
+                                self.orderId =dict1[@"order_id"];
                             }
                             [[NSOperationQueue mainQueue]addOperationWithBlock:^{
                                 [HttpRequestServers sendAlipayWithOrderSn:self.orderId orderName:@"咖么测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%.2f",0.01] andScallback:^(id obj) {

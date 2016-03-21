@@ -44,13 +44,6 @@
 		006042A61C58626300FBAFB9 /* CorrelationTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 006042A51C58626300FBAFB9 /* CorrelationTableViewController.m */; };
 		00610A841C86C5E0000B2F57 /* MovieHistoryActiveCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 00610A821C86C5E0000B2F57 /* MovieHistoryActiveCell.m */; };
 		00610A851C86C5E0000B2F57 /* MovieHistoryActiveCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 00610A831C86C5E0000B2F57 /* MovieHistoryActiveCell.xib */; };
-		0076F7F01C84364900AC412F /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7EF1C84364900AC412F /* main.m */; };
-		0076F7F31C84364900AC412F /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7F21C84364900AC412F /* AppDelegate.m */; };
-		0076F7F61C84364900AC412F /* MasterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7F51C84364900AC412F /* MasterViewController.m */; };
-		0076F7F91C84364900AC412F /* DetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0076F7F81C84364900AC412F /* DetailViewController.m */; };
-		0076F7FC1C84364900AC412F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0076F7FA1C84364900AC412F /* Main.storyboard */; };
-		0076F7FE1C84364900AC412F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0076F7FD1C84364900AC412F /* Assets.xcassets */; };
-		0076F8011C84364900AC412F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0076F7FF1C84364900AC412F /* LaunchScreen.storyboard */; };
 		00800B271C76B76000B2AADC /* changdi.png in Resources */ = {isa = PBXBuildFile; fileRef = 00800B231C76B76000B2AADC /* changdi.png */; };
 		00800B281C76B76000B2AADC /* dianpu.png in Resources */ = {isa = PBXBuildFile; fileRef = 00800B241C76B76000B2AADC /* dianpu.png */; };
 		00800B291C76B76000B2AADC /* qicai.png in Resources */ = {isa = PBXBuildFile; fileRef = 00800B251C76B76000B2AADC /* qicai.png */; };
@@ -1007,17 +1000,6 @@
 		00610A821C86C5E0000B2F57 /* MovieHistoryActiveCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MovieHistoryActiveCell.m; sourceTree = "<group>"; };
 		00610A831C86C5E0000B2F57 /* MovieHistoryActiveCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MovieHistoryActiveCell.xib; sourceTree = "<group>"; };
 		0076F7EC1C84364900AC412F /* TableView重用Play.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "TableView重用Play.app"; sourceTree = BUILT_PRODUCTS_DIR; };
-		0076F7EF1C84364900AC412F /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
-		0076F7F11C84364900AC412F /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
-		0076F7F21C84364900AC412F /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
-		0076F7F41C84364900AC412F /* MasterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MasterViewController.h; sourceTree = "<group>"; };
-		0076F7F51C84364900AC412F /* MasterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MasterViewController.m; sourceTree = "<group>"; };
-		0076F7F71C84364900AC412F /* DetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailViewController.h; sourceTree = "<group>"; };
-		0076F7F81C84364900AC412F /* DetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailViewController.m; sourceTree = "<group>"; };
-		0076F7FB1C84364900AC412F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		0076F7FD1C84364900AC412F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		0076F8001C84364900AC412F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
-		0076F8021C84364900AC412F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00800B231C76B76000B2AADC /* changdi.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = changdi.png; sourceTree = "<group>"; };
 		00800B241C76B76000B2AADC /* dianpu.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dianpu.png; sourceTree = "<group>"; };
 		00800B251C76B76000B2AADC /* qicai.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = qicai.png; sourceTree = "<group>"; };
@@ -2660,32 +2642,6 @@
 			name = "定时器工具";
 			sourceTree = "<group>";
 		};
-		0076F7ED1C84364900AC412F /* TableView重用Play */ = {
-			isa = PBXGroup;
-			children = (
-				0076F7F11C84364900AC412F /* AppDelegate.h */,
-				0076F7F21C84364900AC412F /* AppDelegate.m */,
-				0076F7F41C84364900AC412F /* MasterViewController.h */,
-				0076F7F51C84364900AC412F /* MasterViewController.m */,
-				0076F7F71C84364900AC412F /* DetailViewController.h */,
-				0076F7F81C84364900AC412F /* DetailViewController.m */,
-				0076F7FA1C84364900AC412F /* Main.storyboard */,
-				0076F7FD1C84364900AC412F /* Assets.xcassets */,
-				0076F7FF1C84364900AC412F /* LaunchScreen.storyboard */,
-				0076F8021C84364900AC412F /* Info.plist */,
-				0076F7EE1C84364900AC412F /* Supporting Files */,
-			);
-			path = "TableView重用Play";
-			sourceTree = "<group>";
-		};
-		0076F7EE1C84364900AC412F /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				0076F7EF1C84364900AC412F /* main.m */,
-			);
-			name = "Supporting Files";
-			sourceTree = "<group>";
-		};
 		00800B221C76B74000B2AADC /* 轮播图图片暂时使用 */ = {
 			isa = PBXGroup;
 			children = (
@@ -3485,7 +3441,6 @@
 				00849D8A1C4DF05E00DFEA6B /* CFNetwork.framework */,
 				847D829E1BEC5D4000893542 /* MovieIndustry */,
 				847D82B81BEC5D4000893542 /* MovieIndustryTests */,
-				0076F7ED1C84364900AC412F /* TableView重用Play */,
 				847D829D1BEC5D4000893542 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -5623,9 +5578,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0076F8011C84364900AC412F /* LaunchScreen.storyboard in Resources */,
-				0076F7FE1C84364900AC412F /* Assets.xcassets in Resources */,
-				0076F7FC1C84364900AC412F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6075,10 +6027,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				0076F7F31C84364900AC412F /* AppDelegate.m in Sources */,
-				0076F7F61C84364900AC412F /* MasterViewController.m in Sources */,
-				0076F7F01C84364900AC412F /* main.m in Sources */,
-				0076F7F91C84364900AC412F /* DetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -6560,22 +6508,6 @@
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
-		0076F7FA1C84364900AC412F /* Main.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0076F7FB1C84364900AC412F /* Base */,
-			);
-			name = Main.storyboard;
-			sourceTree = "<group>";
-		};
-		0076F7FF1C84364900AC412F /* LaunchScreen.storyboard */ = {
-			isa = PBXVariantGroup;
-			children = (
-				0076F8001C84364900AC412F /* Base */,
-			);
-			name = LaunchScreen.storyboard;
-			sourceTree = "<group>";
-		};
 		847D82A91BEC5D4000893542 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
@@ -6757,7 +6689,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.camo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f0650a3-39d9-4c32-a558-3e128b81510c";
+				PROVISIONING_PROFILE = "724546d4-4aae-4682-b1cb-8c2aa0da76bc";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -6801,7 +6733,7 @@
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_BUNDLE_IDENTIFIER = com.camo.dev;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "6f0650a3-39d9-4c32-a558-3e128b81510c";
+				PROVISIONING_PROFILE = "724546d4-4aae-4682-b1cb-8c2aa0da76bc";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

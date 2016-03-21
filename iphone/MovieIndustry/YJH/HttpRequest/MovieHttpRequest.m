@@ -1017,7 +1017,7 @@ static const NSString *MESSAGE = @"msg";
             }
         }
         @catch (NSException *exception) {
-            
+            HHNSLog(@"我收藏的商品列表 --> %@\n",TIAdd_CollectionGoodsList);
             HHNSLog(@"我收藏的商品列表错误2 --> %@",exception);
             scallback(Network_Error);
         }

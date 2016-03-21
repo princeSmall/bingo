@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 //头部接口
 //外网
-#define HttpUrlLeft @"http://test.3tichina.com:8017/front/index.php/api/"
+//#define HttpUrlLeft @"http://test.3tichina.com:8017/front/index.php/api/"
 //内网
-//#define HttpUrlLeft @"http://192.168.2.110/index.php/api/"
+#define HttpUrlLeft @"http://demo635.firdot.com/Code/front/index.php/api/"
 /*
  *下面为接口
  */
@@ -90,7 +90,7 @@
 #define TIPublish_Categories [NSString stringWithFormat:@"%@publish/Categories",HttpUrlLeft]
 
 //37、上传图片接口
-#define TICommon_Uploadify [NSString stringWithFormat:@"%@common/uploadify",HttpUrlLeft]
+#define TICommon_Uploadify [NSString stringWithFormat:@"%@common/uploadify",@"http://test.3tichina.com:8017/front/index.php/api/"]
 
 //38、用户登陆接口
 #define TIUser_Login [NSString stringWithFormat:@"%@user/login",HttpUrlLeft]
@@ -133,12 +133,12 @@
 
 //内网测试
 
-////大图
-//#define TIBIGImage @"http://192.168.2.110/media/images/imgs/big/"
+//大图
+//#define TIBIGImage @"http://demo635.firdot.com/Code/front/media/images/imgs/big/"
 ////中图
-//#define TIMIDDLEImage @"http://192.168.2.110/media/images/imgs/middle/"
+//#define TIMIDDLEImage @"http://demo635.firdot.com/Code/front/media/images/imgs/middle/"
 ////小图
-//#define TISMALLImage @"http://192.168.2.110/media/images/imgs/small/"
+//#define TISMALLImage @"http://demo635.firdot.com/Code/front/media/images/imgs/small/"
 
 
 @interface FilmInterfaceNew : NSObject
