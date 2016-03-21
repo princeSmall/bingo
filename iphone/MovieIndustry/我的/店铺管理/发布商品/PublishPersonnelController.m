@@ -46,6 +46,11 @@
 
 @property (nonatomic,assign) NSInteger imageIndex;
 
+/**
+ *  职业数组
+ */
+@property (nonatomic,strong) NSArray *arrayCareer;
+
 /** 发布商品信息 */
 @property (nonatomic,strong) NSMutableDictionary *issueDict;
 
@@ -53,6 +58,21 @@
 
 @implementation PublishPersonnelController
 
+/*
+ 摄影师
+ 导演
+ 模特
+ 其他
+ */
+-(NSArray *)arrayCareer
+{
+    if(!_arrayCareer)
+    {
+        _arrayCareer = [NSArray arrayWithObjects:@"摄影师", @"导演",@"模特",@"其他",nil];
+    }
+    return _arrayCareer;
+    
+}
 - (NSMutableDictionary *)issueDict{
     if (nil == _issueDict) {
         _issueDict = [NSMutableDictionary new];
@@ -148,7 +168,7 @@
         
     }
     [self initIssuePersonView];
-    [self requestProfessionList];
+   
     [self addTextFileAndTextViewInputeObserver];
 }
 
@@ -423,38 +443,6 @@
     return YES;
 }
 
-#pragma mark - 请求职业选项数据
-- (void)requestProfessionList
-{
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.labelText = @"正在加载";
-    [HUD hide:YES];
-    
-    [MovieHttpRequest createOccupationListCallBack:^(id obj) {
-        
-        HUD.labelText = @"加载完成";
-        [HUD hide:YES];
-        
-        self.careerArray = [NSArray arrayWithArray:obj];
-        if (_careerArray.count)
-        {
-            [self createCareerChooseView];
-            
-            self.careerModel = [self.careerArray firstObject];
-            self.careerLab.text = self.careerModel.value;
-        }
-        else{
-            self.careerLab.text = @"暂无收货方式选项";
-        }
-        
-    } andSCallBack:^(id obj) {
-        
-        [HUD hide:YES];
-        [DeliveryUtility showMessage:obj target:self];
-    }];
-}
-
-
 #pragma mark - TableViewDelegate
 - (void)tableView:(UITableView *)tableView willDisplayCell:(UITableViewCell *)cell forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -478,8 +466,10 @@
         HHNSLog(@"商家送货被点击");
         
         UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+        [self createCareerChooseView];
         [window addSubview:self.maskView];
         [window bringSubviewToFront:self.careerView];
+        
         
         [UIView animateWithDuration:0.3 animations:^{
             
@@ -702,21 +692,22 @@
 - (void)createCareerChooseView
 {
     CGFloat viewH = 45.0f;
-    NSInteger count = _careerArray.count;
+    NSInteger count = self.arrayCareer.count;
     
     self.careerView = [[UIView alloc] initWithFrame:CGRectMake(0,screenHeight,screenWidth,viewH*(count+1))];
     
-    for (int i = 0; i < count; i++) {
+    for (int i = 0; i < 4; i++) {
         
         CGRect frame = CGRectMake(0,viewH*(i+1),screenWidth, viewH);
         UIView *chooseView = [[UIView alloc] initWithFrame:frame];
         chooseView.userInteractionEnabled = YES;
         chooseView.tag = VIEW_START_TAG + i;
         chooseView.backgroundColor = [UIColor whiteColor];
+     
         
-        MovieOccupationModel *model = _careerArray[i];
-        
-        UILabel *label = [DeliveryUtility createLabelFrame:CGRectMake(10, 13, 100, 21) title:model.value textAlignment:0];
+        //MovieOccupationModel *model = _careerArray[i];
+        NSString *value = [self.arrayCareer objectAtIndex:i];
+        UILabel *label = [DeliveryUtility createLabelFrame:CGRectMake(10, 13, 100, 21) title:value textAlignment:0];
         label.font = [UIFont systemFontOfSize:15.0f];
         [chooseView addSubview:label];
         
@@ -752,6 +743,7 @@
     [self.careerView addSubview:doneView];
     
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
+//    self.careerView .frame = CGRectMake(0, screenHeight-20*4-45, screenWidth, 20*4+45);
     [window addSubview:self.careerView];
 }
 
@@ -788,8 +780,8 @@
     [self removeCareerMaskViewAction];
     
     NSInteger index = (self.selecteBtn.superview.tag - VIEW_START_TAG);
-    MovieOccupationModel *model = _careerArray[index];
-    self.careerLab.text = model.value;
+    NSString *value = [self.arrayCareer objectAtIndex:index];
+    self.careerLab.text = value;
 }
 
 
@@ -927,7 +919,6 @@
         }
     }
 }
-
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

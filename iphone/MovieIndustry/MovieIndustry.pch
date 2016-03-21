@@ -46,7 +46,7 @@
 #import "OBJCProMark.h"
 #import "UserInfo.h"
 #import "BaseTableViewController.h"
-#import "FilmInterfaceNew.h"
+//#import "FilmInterfaceNew.h"
 #import "MovieHttpRequest.h"
 #import "UIView+Toast.h"
 #import "NSString+StringExtend.h"

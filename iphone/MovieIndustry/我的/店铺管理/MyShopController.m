@@ -116,8 +116,10 @@
     [myView1 addSubview:levelImage];
 
     //店铺简介
-    CGFloat brifyH =[DeliveryUtility caculateContentSizeWithContent:shopBrify andHight:21.0f andWidth:screenWidth-170 andFont:DefaultFont].height;
-    CGRect brifyFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+20, CGRectGetMaxY(self.shopNameLabel.frame)+10, screenWidth-170, brifyH);
+    CGSize brifySize = [shopBrify sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
+    CGFloat brifyW = screenWidth-170;
+    CGFloat brifyH =brifySize.width/(int)brifyW *brifySize.height;
+    CGRect brifyFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+20, CGRectGetMaxY(self.shopNameLabel.frame)+10, brifyW, brifyH);
     
     self.shopDescLabel = [WNController createLabelWithFrame:brifyFrame Font:13 Text:shopBrify textAligment:NSTextAlignmentLeft];
     self.shopDescLabel.textColor = [UIColor colorWithRed:0.62 green:0.62 blue:0.62 alpha:1];
