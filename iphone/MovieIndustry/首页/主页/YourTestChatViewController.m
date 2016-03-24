@@ -23,6 +23,7 @@
     //设置需要将哪些类型的会话在会话列表中聚合显示
     [self setCollectionConversationType:@[@(ConversationType_DISCUSSION),
                                           @(ConversationType_GROUP)]];
+    
 }
 
 - (void)onSelectedTableRow:(RCConversationModelType)conversationModelType
@@ -31,7 +32,7 @@
     RCConversationViewController *conversationVC = [[RCConversationViewController alloc]init];
     conversationVC.conversationType = model.conversationType;
     conversationVC.targetId = model.targetId;
-    conversationVC.title = @"想显示的会话标题";
+    conversationVC.title = model.targetId;
     [self.navigationController pushViewController:conversationVC animated:YES];
 }
 

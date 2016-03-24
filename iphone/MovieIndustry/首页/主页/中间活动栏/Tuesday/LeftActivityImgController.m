@@ -201,9 +201,9 @@
     self.infoWebView = [[UIWebView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, 1)];
     self.infoWebView.delegate = self;
     self.infoWebView.scrollView.scrollEnabled = NO;
-    [self.infoWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",Goods_xiangqing_url]]]];
+//    [self.infoWebView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@",Goods_xiangqing_url]]]];
     
-    self.mainTableView.alpha = 0;
+    self.mainTableView.alpha = 1;
 }
 
 #pragma mark - 创建底部输入框
@@ -415,32 +415,32 @@
 #pragma mark - 请求周二抢评论列表接口
 - (void)requestTuesdayActiveCommentDatas
 {
-    [MovieHttpRequest createTuesdayCommentListDatasWithPage:_commentPage andGoodId:self.mainModel.dealId CallBack:^(id obj) {
-        
-        if (1 == _commentPage) {
-            self.commentArray = [NSMutableArray arrayWithArray:obj];
-        }
-        else{
-            [self.commentArray addObjectsFromArray:obj];
-        }
-        
-        [self.mainTableView reloadData];
-
-//        NSInteger count = self.commentArray.count;;
-//        if (count > 99) {
-//            [self.headerView.rightSegmentBtn setTitle:@"评价(99+)" forState:UIControlStateNormal];
+//    [MovieHttpRequest createTuesdayCommentListDatasWithPage:_commentPage andGoodId:self.mainModel.dealId CallBack:^(id obj) {
+//        
+//        if (1 == _commentPage) {
+//            self.commentArray = [NSMutableArray arrayWithArray:obj];
 //        }
 //        else{
-//            [self.headerView.rightSegmentBtn setTitle:[NSString stringWithFormat:@"评价(%zd)",self.commentArray.count] forState:UIControlStateNormal];
+//            [self.commentArray addObjectsFromArray:obj];
 //        }
-        
-        [self.mainTableView.footer endRefreshing];
-        
-    } andSCallBack:^(id obj) {
-        
-        [self.mainTableView.footer endRefreshing];
-        [DeliveryUtility showMessage:obj target:self];
-    }];
+//        
+//        [self.mainTableView reloadData];
+//
+////        NSInteger count = self.commentArray.count;;
+////        if (count > 99) {
+////            [self.headerView.rightSegmentBtn setTitle:@"评价(99+)" forState:UIControlStateNormal];
+////        }
+////        else{
+////            [self.headerView.rightSegmentBtn setTitle:[NSString stringWithFormat:@"评价(%zd)",self.commentArray.count] forState:UIControlStateNormal];
+////        }
+//        
+//        [self.mainTableView.footer endRefreshing];
+//        
+//    } andSCallBack:^(id obj) {
+//        
+//        [self.mainTableView.footer endRefreshing];
+//        [DeliveryUtility showMessage:obj target:self];
+//    }];
 }
 
 
@@ -623,7 +623,7 @@
     }
     else if (isEnded)
     {   //倒计时结束,活动开始
-        [self rushCheaperGoodBaseNumber];
+//        [self rushCheaperGoodBaseNumber];
     }
     else
     {
@@ -745,7 +745,7 @@
 {
     [super viewWillDisappear:animated];
     
-    [self talkViewKeyboardDown];
+//    [self talkViewKeyboardDown];
 }
 
 //返回上一层

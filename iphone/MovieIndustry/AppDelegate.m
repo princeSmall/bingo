@@ -38,6 +38,7 @@
     if (model) {
         self.user_id = model.user_id;
     }
+    self.user_id = @"443";
 
 //    我们也可以使用UIApplication的statusBarStyle方法来设置状态栏，不过，首先需要停止使用View controller-based status bar appearance。在project target的Info tab中，插入一个新的key，名字为View controller-based status bar appearance，并将其值设置为NO。
     ///设置状态栏颜色

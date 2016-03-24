@@ -10,6 +10,7 @@
 
 @implementation JGScenicAnnoation
 
+
 - (instancetype)initWithCoordinate:(CLLocationCoordinate2D)coordinate title:(NSString *)title subtitle:(NSString *)subtitle icon:(NSString *)icon{
 
     if (self = [super init]) {

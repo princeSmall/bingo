@@ -104,7 +104,7 @@
             NSLog(@"支付宝");
 //            self.orderPayDic[@"order_id"]
             if (!self.payDict) {
-                [HttpRequestServers sendAlipayWithOrderSn:@"32222210000" orderName:@"咖么支付测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%f",0.01] andScallback:^(id obj)
+                [HttpRequestServers sendAlipayWithOrderSn:@"32222210022" orderName:@"咖么支付测试" orderDescription:@"1分钱测试" orderPrice:[NSString stringWithFormat:@"%f",0.01] andScallback:^(id obj)
                  {
                      
                      NSDictionary *aliDict = obj;
@@ -167,7 +167,7 @@
                                 dict1[@"pay_status"] = @"1";
                                 dict1[@"pay_id"] = @"1";
 //                            dict1[@"order_id"]= dict[@"data"];
-                        dict1[@"order_id"]= @"8899774466";
+                        dict1[@"order_id"]= @"88997744665";
                             if (!self.orderId) {
                                 self.orderId =dict1[@"order_id"];
                             }

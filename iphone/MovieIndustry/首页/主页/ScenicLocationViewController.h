@@ -10,4 +10,9 @@
 
 @interface ScenicLocationViewController : UIViewController
 
+@property (nonatomic,strong)NSString * address;
+@property (nonatomic,strong)NSString * shopName;
+@property (nonatomic,strong)UIImage * shopImage;
+
+
 @end

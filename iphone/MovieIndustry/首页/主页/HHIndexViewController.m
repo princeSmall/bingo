@@ -198,13 +198,13 @@
     [self loadAdvList];
     
     //加载首页文章列表
-    [self loadArticleList];
+//    [self loadArticleList];
     
     //获得首页商品
     [self loadHomeGoodsData];
    
     //活动数据
-    [self loadActivityData];
+//    [self loadActivityData];
     
     //添加刷新
     [self createRefresh];
@@ -351,14 +351,11 @@
 - (void)lightningAction
 {
     if (!APP_DELEGATE.user_id) {
-        
-//        BusinessBuyingController *loginVc = [[BusinessBuyingController alloc]init];
         LoginInController *loginVc = [[LoginInController alloc] init];
         UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:loginVc];
         [self presentViewController:navC animated:YES completion:nil];
     }else
     {
-//        PayOrderController *lightingVc = [[PayOrderController alloc]init];
         LightningRentController *lightingVc = [[LightningRentController alloc] init];
         [lightingVc setHidesBottomBarWhenPushed:YES];
         [self.navigationController pushViewController:lightingVc animated:YES];
