@@ -84,15 +84,15 @@
         {
             NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"mobile", nil];
             
-            [HttpRequestServers requestBaseUrl:Send_note_login withParams:userDict withRequestFinishBlock:^(id result) {
+            [HttpRequestServers requestBaseUrl:TIMessage_Verifed withParams:userDict withRequestFinishBlock:^(id result) {
                 
                 NSDictionary *dict = result;
                 HHNSLog(@"%@",dict);
-                if ([dict[@"status"] isEqualToString:@"f99"]) {
+                if ([dict[@"code"] intValue]==0) {
                   [DeliveryUtility showMessage:@"验证码已经发到您的手机，请查收！" target:nil];
                     
                     
-                    _codeString = dict[@"code"];
+                    _codeString = dict[@"data"][@"code"];
                     
                     ///发送成功之后按钮不可点击 然后倒计时
                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
@@ -147,11 +147,8 @@
              [DeliveryUtility showMessage:@"请输入验证码" target:nil];
         }else
         {
-            if ([self.phoneTextField.text isEqualToString:@"15800390791"]&&[self.codeTextField.text isEqualToString:@"1099"]) {
-                [self testAccountLogin];
-            }else
-            {
-                if ([self.codeTextField.text isEqualToString:_codeString]) {
+
+                if (![self.codeTextField.text isEqualToString:_codeString]) {
 //                    [PromptLabel custemAlertPromAddView:self.view text:@"验证码不正确"];
                      [DeliveryUtility showMessage:@"验证码不正确" target:nil];
                 }else
@@ -214,7 +211,7 @@
                             }];
                         }];
                     }
-                }
+                
             }
             
             
@@ -224,52 +221,7 @@
 }
 
 
-- (void)testAccountLogin
-{
-    
-    MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:[UIApplication sharedApplication].keyWindow];
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"mobile", nil];
-    [HttpRequestServers requestBaseUrl:Register_login withParams:userDict withRequestFinishBlock:^(id result) {
-        NSDictionary *dict = result;
-        HHNSLog(@"%@",dict);
-        if ([dict[@"status"] isEqualToString:@"f99"]) {
-            NSDictionary *userInfo = dict[@"user_info"];
-            
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo[@"mobile"] forKey:@"userAccount"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo[@"id"] forKey:@"userID"];
-            [[NSUserDefaults standardUserDefaults] setValue:userInfo[@"user_pwd"] forKey:@"userPassword"];
-            
-            [MBHudManager removeHud:hud scallBack:^(id obj) {
-                
-                [self.view endEditing:YES];
-                
-                if (!self.isExitLogin) {
-                    [self dismissViewControllerAnimated:YES completion:nil];
-                }else
-                {
-                    MainTabBarController *mainTabBar = [[MainTabBarController alloc] init];
-                    [UIApplication sharedApplication].keyWindow.rootViewController = mainTabBar;
-                }
-            }];
-        }
-        else
-        {
-//            [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
-             [DeliveryUtility showMessage:dict[@"msg"] target:nil];
-            [MBHudManager removeHud:hud scallBack:^(id obj) {
-                
-            }];
-        }
-        
-    } withFieldBlock:^{
-//        [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
-          [DeliveryUtility showMessage:@"请检查网络" target:nil];
-        [MBHudManager removeHud:hud scallBack:^(id obj) {
-            
-        }];
-    }];
 
-}
 
 
 #pragma mark - 点击同意协议
@@ -360,6 +312,12 @@
     self.timer = nil;
 }
 
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    self.codeString= nil;
+    self.timer = nil;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

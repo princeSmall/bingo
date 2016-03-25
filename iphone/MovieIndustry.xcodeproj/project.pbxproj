@@ -6793,6 +6793,7 @@
 					"$(PROJECT_DIR)/MovieIndustry/ThirdParty/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/MovieIndustry/ThirdParty/ShareSDK",
 					"$(PROJECT_DIR)/MovieIndustry/首页/主页/Rong_Cloud_iOS_SDK_v2_4_5_stable",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MovieIndustry/MovieIndustry.pch";
@@ -6839,6 +6840,7 @@
 					"$(PROJECT_DIR)/MovieIndustry/ThirdParty/ShareSDK/Extend/QQConnectSDK",
 					"$(PROJECT_DIR)/MovieIndustry/ThirdParty/ShareSDK",
 					"$(PROJECT_DIR)/MovieIndustry/首页/主页/Rong_Cloud_iOS_SDK_v2_4_5_stable",
+					"$(PROJECT_DIR)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SRCROOT)/MovieIndustry/MovieIndustry.pch";

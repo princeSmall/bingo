@@ -9,9 +9,9 @@
 #import <Foundation/Foundation.h>
 //头部接口
 //外网
-//#define HttpUrlLeft @"http://test.3tichina.com:8017/front/index.php/api/"
+#define HttpUrlLeft @"http://test.3tichina.com:8017/front/index.php/api/"
 //内网
-#define HttpUrlLeft @"http://demo635.firdot.com/Code/front/index.php/api/"
+//#define HttpUrlLeft @"http://demo635.firdot.com/Code/front/index.php/api/"
 /*
  *下面为接口
  */
@@ -118,8 +118,11 @@
 #define TICity_List [NSString stringWithFormat:@"http://1.szmytravel.sinaapp.com/home/index/SearchCity"]
 
 //48.发布闪电租
-
 #define TILightingRent_Send [NSString stringWithFormat:@"http://1.szmytravel.sinaapp.com/home/index/CreateLightSend "]
+
+//49.短信验证接口
+#define TIMessage_Verifed [NSString stringWithFormat:@"%@user/code",HttpUrlLeft]
+
 
 
 //APPDELEGATE单类

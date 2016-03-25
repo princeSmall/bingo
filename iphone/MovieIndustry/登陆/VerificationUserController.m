@@ -103,12 +103,13 @@
 {
     NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.phoneNum.text,@"mobile", nil];
             
-            [HttpRequestServers requestBaseUrl:Send_note_login withParams:userDict withRequestFinishBlock:^(id result) {
+            [HttpRequestServers requestBaseUrl:TIMessage_Verifed withParams:userDict withRequestFinishBlock:^(id result) {
                 
                 NSDictionary *dict = result;
-                if ([dict[@"status"] isEqualToString:@"f99"]) {
-              [DeliveryUtility showMessage:@"验证码已经发到你的手机，请查收" target:nil];
-                    _codeStr = dict[@"code"];
+                if ([dict[@"code"] intValue]==0)
+                {
+                    [DeliveryUtility showMessage:@"验证码已经发到你的手机，请查收" target:nil];
+                    _codeStr = dict[@"data"][@"code"];
                     ///发送成功之后按钮不可点击 然后倒计时
                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(TimePlay) userInfo:nil repeats:YES];
                     ///
@@ -117,7 +118,7 @@
                 else
                 {
 //                    [PromptLabel custemAlertPromAddView:self.view text:dict[@"msg"]];
-                     [DeliveryUtility showMessage:dict[@"msg"] target:nil];
+                     [DeliveryUtility showMessage:dict[@"message"] target:nil];
                 }
             } withFieldBlock:^{
 //                [PromptLabel custemAlertPromAddView:self.view text:@"请检查网络"];
