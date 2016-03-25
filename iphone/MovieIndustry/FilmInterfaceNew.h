@@ -114,6 +114,12 @@
 //46.店铺最新上架商品列表
 #define TIShop_newGoodsList [NSString stringWithFormat:@"%@shop/newGoods",HttpUrlLeft]
 
+//47.获取城市列表
+#define TICity_List [NSString stringWithFormat:@"http://1.szmytravel.sinaapp.com/home/index/SearchCity"]
+
+//48.发布闪电租
+
+#define TILightingRent_Send [NSString stringWithFormat:@"http://1.szmytravel.sinaapp.com/home/index/CreateLightSend "]
 
 
 //APPDELEGATE单类

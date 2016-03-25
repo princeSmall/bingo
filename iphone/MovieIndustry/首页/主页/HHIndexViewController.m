@@ -185,9 +185,6 @@
     
     self.cityID =@"";
     
-#warning 这边设置的是tabBarItem的下标数字
-//    [self.tabBarItem setBadgeValue:@"10"];
-    
     //设置头部滚动视图
     self.page = 1;
     self.isShowSearch = NO;
@@ -196,9 +193,6 @@
     
     
     [self loadAdvList];
-    
-    //加载首页文章列表
-    [self loadArticleList];
     
     //获得首页商品
     [self loadHomeGoodsData];
@@ -218,10 +212,6 @@
     _tbView.header = [MJRefreshNormalHeader headerWithRefreshingBlock:^{
 
         self.page = 1;
-        //加载首页文章列表
-        [self loadArticleList];
-        
-        
         //首页商品数据
         [self loadHomeGoodsData];
         
@@ -235,10 +225,6 @@
         
         
         self.page ++;
-        //加载首页文章列表
-        [self loadArticleList];
-        
-        
         //首页商品数据
         [self loadHomeGoodsData];
         
@@ -991,72 +977,6 @@
     }];
 }
 
-#pragma mark - 加载首页文章内容
-- (void)loadArticleList
-{
-    MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
-    
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[NSString stringWithFormat:@"%ld",(unsigned long)self.page],@"p", nil];
-    
-    [HttpRequestServers requestBaseUrl:Article_list withParams:userDict withRequestFinishBlock:^(id result) {
-        NSDictionary *dict = result;
-                HHNSLog(@"%@",dict);
-        
-        @try {
-            
-            if ([dict[@"status"] isEqualToString:@"f99"]) {
-                
-                if (self.page == 1) {
-                    [self.articleArray removeAllObjects];
-                }
-                
-                
-                for (NSDictionary *infoDict in dict[@"list"]) {
-                    IndexModel *model = [[IndexModel alloc] init];
-                    model.title = infoDict[@"title"];
-                    model.brief = infoDict[@"brief"];
-                    model.image = infoDict[@"image"];
-                    model.comment_number = infoDict[@"comment_number"];
-                    model.articleID = infoDict[@"id"];
-                    
-                    [self.articleArray addObject:model];
-                }
-                
-                hud.labelText = @"加载成功";
-                [MBHudManager removeHud:hud scallBack:^(id obj) {
-                    
-                }];
-                
-                [_tbView reloadData];
-                //结束刷新
-                [_tbView.header endRefreshing];
-                [_tbView.footer endRefreshing];
-            }else
-            {
-                hud.labelText = dict[@"msg"];
-                [MBHudManager removeHud:hud scallBack:^(id obj) {
-                    
-                }];
-            }
-            
-        }
-        @catch (NSException *exception) {
-            [MBHudManager removeHud:hud scallBack:^(id obj) {
-                
-            }];
-        }
-        @finally {
-            
-        }
-        
-    } withFieldBlock:^{
-        [MBHudManager removeHud:hud scallBack:^(id obj) {
-            
-        }];
-    }];
-    
-}
-
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
@@ -1070,13 +990,13 @@
 
 
 #pragma mark - 文章详情评论成功代理(刷新界面)
-- (void)commentArticleSuccess:(BOOL)isSuccess
-{
-    if (isSuccess) {
-        self.page = 1;
-        [self loadArticleList];
-    }
-}
+//- (void)commentArticleSuccess:(BOOL)isSuccess
+//{
+//    if (isSuccess) {
+//        self.page = 1;
+//        [self loadArticleList];
+//    }
+//}
 
 #pragma mark - 切换文章
 - (void)cycleScrollView:(SDCycleScrollView *)cycleScrollView didSelectItemAtIndex:(NSInteger)index

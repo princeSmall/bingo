@@ -342,7 +342,7 @@ static const NSString *MESSAGE = @"msg";
     @try {
         [parameters setValue:[UserInfo uid] forKey:@"user_id"];
         [parameters setValue:requestDict[@"keyword"] forKey:@"keyword"];
-        [parameters setValue:requestDict[@"city_id"] forKey:@"city_id"];
+        [parameters setValue:requestDict[@"city_id"] forKey:@"city_name"];
         [parameters setValue:requestDict[@"cate_id"] forKey:@"cate_id"];
         [parameters setValue:requestDict[@"price_id"] forKey:@"price_id"];
         [parameters setValue:requestDict[@"time_str"] forKey:@"time_str"];
@@ -357,7 +357,7 @@ static const NSString *MESSAGE = @"msg";
         
     }
     
-    [HttpRequestServers requestBaseUrl:Add_rent withParams:parameters withRequestFinishBlock:^(id result) {
+    [HttpRequestServers requestBaseUrl:TILightingRent_Send withParams:parameters withRequestFinishBlock:^(id result) {
         
         HHNSLog(@"发布闪电租需求 --> %@\n%@,%@",parameters,Add_rent,result);
         NSDictionary *dict = (NSDictionary *)result;
@@ -987,10 +987,6 @@ static const NSString *MESSAGE = @"msg";
         HHNSLog(@"我收藏的商品列表 --> %@\n%@,%@",TIAdd_CollectionGoodsList,parameters,result);
         NSDictionary *dict = (NSDictionary *)result;
         @try {
-//            if(page==1)
-//            {
-//                
-//            }
             
            
             if ([dict[@"code"] intValue]==0) {
