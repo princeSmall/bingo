@@ -19,6 +19,9 @@
 #import "ShopGoodsModel.h"
 #import <ShareSDK/ShareSDK.h>
 
+//地图定位
+#import "ScenicLocationViewController.h"
+
 #import "ShopContentModel.h"
 
 typedef void (^babyClassify)(void);
@@ -99,11 +102,22 @@ typedef void (^babyClassify)(void);
 {
     if (!_searchHeaderView) {
         _searchHeaderView = [[[NSBundle mainBundle] loadNibNamed:@"SearchShopHeaderView" owner:nil options:nil] lastObject];
+        
+        [_searchHeaderView.locationBtn addTarget:self action:@selector(ActionLocation) forControlEvents:UIControlEventTouchUpInside];
+        
         _searchHeaderView.frame = CGRectMake(0, 0, kViewWidth, 128);
         //[_searchHeaderView.shopDetailButton addTarget:self action:@selector(shopDetailButtonAction) forControlEvents:UIControlEventTouchUpInside];
         [_searchHeaderView.callPhoneButton addTarget:self action:@selector(callPhoneButtonAction) forControlEvents:UIControlEventTouchUpInside];
     }
     return _searchHeaderView;
+}
+
+- (void)ActionLocation{
+    ScenicLocationViewController * scen = [[ScenicLocationViewController alloc]init];
+    scen.address = @"上海";
+    scen.shopImage = [UIImage imageNamed:@"dianpu"];
+    scen.shopName = @"店铺";
+    [self.navigationController pushViewController:scen animated:YES];
 }
 
 - (void)makePhoneCall:(NSString *)tel{

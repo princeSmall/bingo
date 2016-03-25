@@ -21,7 +21,6 @@
 {
     if (!_locationManager) {
         _locationManager = [[CLLocationManager alloc] init];
-//        _locationString = @"";
     }
     
     return _locationManager;
@@ -36,11 +35,6 @@
         if([self.locationManager respondsToSelector:@selector(requestAlwaysAuthorization)]) {
             [self.locationManager requestAlwaysAuthorization];
         }
-        
-//        if([self.locationManager respondsToSelector:@selector(requestWhenInUseAuthorization)]) {
-//            [self.locationManager requestWhenInUseAuthorization];
-//        }
-        
         self.locationManager.delegate = self;
         //设置定位精度
         self.locationManager.desiredAccuracy = kCLLocationAccuracyBest;
@@ -80,9 +74,6 @@
 {
     CLLocation *location = [locations firstObject];//取出第一个位置
     CLLocationCoordinate2D coordinate = location.coordinate;//位置坐标
-    
-//    NSLog(@"经度 = %f,纬度 = %f",coordinate.longitude,coordinate.latitude);
-    
     //根据经纬度获取位置信息
     [self getAddressByLatitude:coordinate.latitude longitude:coordinate.longitude];
     
@@ -123,10 +114,6 @@
                 HHNSLog(@"%@",placemark.addressDictionary);
             }else
             {
-                //NSDictionary *addressDic = placemark.addressDictionary;
-                //字符串包含城市名和城市描述区域
-//                NSString *locationString = [NSString stringWithFormat:@"%@%@",placemark.locality,placemark.subLocality];
-                
                  NSString *locationString = [NSString stringWithFormat:@"%@",placemark.locality];
                 HHNSLog(@"locationString %@",locationString);
                 
@@ -134,20 +121,10 @@
                 if (self.delegate) {
                     [self.delegate locationAddressString:locationString];
                 }
-                //设置参数返回数据
-//                _locationString = locationString;
-                
                 HHNSLog(@"%@",placemark.addressDictionary);
                 
             
             }
     }];
 }
-
-////返回定位数据
-//- (NSString *)locationAddressString
-//{
-//    return _locationString;
-//}
-
 @end

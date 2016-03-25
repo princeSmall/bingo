@@ -16,6 +16,10 @@
 #import "GoodsInfoHeaderView.h"
 #import "GoodsDetailTableCell.h"
 #import "GoodsCommentModel.h"
+#import "RongYunViewController.h"
+#import <RongIMKit/RongIMKit.h>
+#import "YourTestChatViewController.h"
+
 #import <ShareSDK/ShareSDK.h>
 
 @interface MovieGoodsDetailViewController ()<ShareViewDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
@@ -677,6 +681,33 @@
 - (void)sendMessageToCustomerService:(id)sender
 {
     NSLog(@"咨询客服界面被点击");
+    [[RCIM sharedRCIM] initWithAppKey:@"qf3d5gbj3my5h"];
+    
+    [[RCIM sharedRCIM] connectWithToken:@"M5jUEJEZsBfTmqwJs3Pp0SbYHuAAZjlWtC47uOsD645PlClQV8xiMx8cTFEo2hh492l79a9j8YDVQIhduaIRKA==" success:^(NSString *userId) {
+        NSLog(@"登陆成功。当前登录的用户ID：%@", userId);
+    } error:^(RCConnectErrorCode status) {
+        NSLog(@"登陆的错误码为:%ld", (long)status);
+    } tokenIncorrect:^{
+        //token过期或者不正确。
+        //如果设置了token有效期并且token过期，请重新请求您的服务器获取新的token
+        //如果没有设置token有效期却提示token错误，请检查您客户端和服务器的appkey是否匹配，还有检查您获取token的流程。
+        NSLog(@"token错误");
+    }];
+    //新建一个聊天会话View Controller对象
+    RCConversationViewController *chat = [[RCConversationViewController alloc]init];
+    //设置会话的类型，如单聊、讨论组、群聊、聊天室、客服、公众服务会话等
+    chat.conversationType = ConversationType_PRIVATE;
+    //设置会话的目标会话ID。（单聊、客服、公众服务会话为对方的ID，讨论组、群聊、聊天室为会话的ID）
+    chat.targetId = @"KM1";
+    //设置聊天会话界面要显示的标题
+    chat.title = @"KM1";
+    UIColor * color = [UIColor whiteColor];
+    NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
+    chat.navigationController.navigationBar.titleTextAttributes = dict;
+//        [chat setValue:[UIColor whiteColor] forKey:@"titleColor"];
+    //显示聊天会话界面
+    [self.navigationController pushViewController:chat animated:YES];
+    
 }
 
 #pragma mark - 进入商品所在店铺

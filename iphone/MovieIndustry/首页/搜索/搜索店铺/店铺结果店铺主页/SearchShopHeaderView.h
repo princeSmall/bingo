@@ -20,6 +20,8 @@
 ///星星的View
 
 @property (weak, nonatomic) IBOutlet UILabel *shopAddressLabel;
+//定位按钮
+@property (weak, nonatomic) IBOutlet UIButton *locationBtn;
 
 @property (weak, nonatomic) IBOutlet UILabel *shopPhoneLabel;
 ///联系店家按钮

@@ -132,12 +132,13 @@
     }
 }
 
+
+
 #pragma mark 登陆接口
 - (void)loginButtonAction
 {
     [self.view endEditing:YES];
     if ([self.phoneTextField.text isEqualToString:@""]) {
-//        [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号"];
          [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
     }else
     {
@@ -150,7 +151,7 @@
                 [self testAccountLogin];
             }else
             {
-                if (![self.codeTextField.text isEqualToString:_codeString]) {
+                if ([self.codeTextField.text isEqualToString:_codeString]) {
 //                    [PromptLabel custemAlertPromAddView:self.view text:@"验证码不正确"];
                      [DeliveryUtility showMessage:@"验证码不正确" target:nil];
                 }else
@@ -176,8 +177,6 @@
                                 
                                 [self.view endEditing:YES];
                                  [DeliveryUtility showMessage:@"登陆成功！" target:nil];
-                                
-//                                [self dismissViewControllerAnimated:YES completion:nil];
                                 [self.view endEditing:YES];
                                 APP_DELEGATE.tbbC .selectedViewController = APP_DELEGATE.tbbC.viewControllers[0];
                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
