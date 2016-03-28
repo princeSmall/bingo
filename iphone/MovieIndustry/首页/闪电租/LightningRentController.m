@@ -585,15 +585,6 @@
 {
     if ([self checkRentInfomationValid]) {
         
-//        NSString *keyword = [self.textField.text asTrim];
-//        //        NSString *cityId = [self.requestDict objectForKey:@"city_id"];
-//        NSString *catalague = [self.requestDict objectForKey:@"cate_id"];
-//        NSString *priceId = [self.requestDict objectForKey:@"price_id"];
-//        //        NSString *timeStr = [self.requestDict objectForKey:@"time_str"];
-//        NSString *remark = [self.textView.text asTrim];
-        
-        
-        
         self.lightRentPubView = [[[NSBundle mainBundle] loadNibNamed:@"LightRentPublishView" owner:self options:nil] lastObject];
         [self.lightRentPubView.publishButton addTarget:self action:@selector(publishButtonAction) forControlEvents:UIControlEventTouchUpInside];
         
@@ -1613,7 +1604,7 @@
                 }
                 
                 
-                [self.requestDict setObject:model.cityId forKey:@"city_id"];
+                [self.requestDict setObject:model.cityId forKey:@"city_name"];
             }
                 break;
             case 1: //时间选择
