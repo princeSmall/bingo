@@ -109,9 +109,9 @@
         self.provinceArray = arrMu;
         
         JGAreaModel * model = self.provinceArray[0];
-//        self.proID = model.ID;
-//        //        self.provinceStr.text = model.local_name;
-//        self.buttonView.provinceBtn.buttonTitle =model.local_name;
+        self.proID = model.ID;
+//              self.provinceStr.text = model.local_name;
+        self.buttonView.provinceBtn.buttonTitle =model.local_name;
         [self chooseCityAreaAction:nil];
         
     } withFieldBlock:^{
@@ -205,8 +205,8 @@
         }
             self.provinceArray = arrMu;
             JGAreaModel * model = self.provinceArray[0];
-//        self.areID = model.ID;
-//        self.buttonView.areaBtn.buttonTitle = model.local_name;
+        self.areID = model.ID;
+        self.buttonView.areaBtn.buttonTitle = model.local_name;
             [self chooseCityAreaAction:nil];
         }
     } withFieldBlock:^{
@@ -238,10 +238,10 @@
             self.provinceArray = arrMu;
             JGAreaModel * model = self.provinceArray[0];
         
-//        self.citID = model.ID;
-//        
-//        self.buttonView.cityBtn.buttonTitle = model.local_name;
-//        
+        self.citID = model.ID;
+        
+        self.buttonView.cityBtn.buttonTitle = model.local_name;
+        
             [self chooseCityAreaAction:nil];
         
         }
@@ -811,7 +811,11 @@
 {
     UIImage *postImage;
     if (_isLogo) {
-        CGFloat i = originImage.size.width/800;
+        
+        NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
+        
+        
+        CGFloat i = originImage.size.width/400;
         postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     }
     else{

@@ -615,8 +615,9 @@
 
 - (void)uploadSiteChooseImageWith:(UIImage *)originImage
 {
-    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(800, 800)];
-    
+    NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
+    CGFloat i = originImage.size.width/400;
+    UIImage * postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"正在上传图片";
     [HUD show:YES];
@@ -630,10 +631,8 @@
             [HUD hide:YES];
             [self.imagePathArray replaceObjectAtIndex:_imageIndex withObject:string];
         }
-        
     }];
 }
-
 
 #pragma mark - UICollectionViewDataSource
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section
@@ -660,9 +659,7 @@
     {
         cell.pcImage.image = _imageArray[indexPath.item];
         [cell.pcImage sizeThatFits:cell.pcImage.frame.size];
-//        cell.delectBtn.hidden = NO;
     }
-    
     return cell;
 }
 
@@ -693,13 +690,10 @@
             wself.typeLbl.textColor = [UIColor blackColor];
             wself.typeLbl.text = dict[@"category_name"];
             wself.typeLbl.textAlignment = NSTextAlignmentRight;
-            
         };
         [self.navigationController pushViewController:secondCategory animated:YES];
         NSLog(@"选择类型");
-
     }
-    
 }
 - (void)delectChooseImageBtnClicked:(UIButton *)button
 {

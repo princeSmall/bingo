@@ -88,6 +88,9 @@
     _shopImageView.maskView.clipsToBounds = YES;
     _shopImageView.layer.borderWidth = 1.0f;
     _shopImageView.layer.borderColor = [UIColor colorWithRed:0.88 green:0.88 blue:0.87 alpha:1].CGColor;
+    
+    _shopImageView.contentMode = UIViewContentModeScaleAspectFit;
+    
     [_shopImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.storeModel.shop_logo]] placeholderImage:[UIImage imageNamed:@"changShop_logo"]];
     _shopImageView.contentMode = UIViewContentModeScaleAspectFill;
     

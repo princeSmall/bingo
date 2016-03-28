@@ -44,6 +44,7 @@
     
     UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 20, 20)];
     [leftBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+//    [leftBtn setBackgroundColor:[UIColor whiteColor]];
     //添加点击事件
     [leftBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [leftBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];

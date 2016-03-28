@@ -57,7 +57,7 @@ typedef enum {
 // 每张图片对应要显示的文字数组
 @property (nonatomic, strong) NSArray *titlesGroup;
 
-
+@property (nonatomic,strong)NSString * imageType;
 
 
 

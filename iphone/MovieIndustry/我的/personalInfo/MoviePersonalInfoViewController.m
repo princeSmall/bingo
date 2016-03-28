@@ -142,6 +142,8 @@
         NSString *phoneNum = self.desModel.mobile;
 //        NSString *comeFrom = self.mineModel.comeFrom;
         
+        self.headerImg.contentMode = UIViewContentModeScaleAspectFit;
+        
         [self.headerImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,headerImgPath]] placeholderImage:[UIImage imageNamed:@"defualt_headerImg"]];
                 
         self.name.text = [nikeName asTrim];
@@ -598,7 +600,9 @@
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"正在上传头像";
     [HUD show:YES];
-       UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(800,800)];
+    NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
+    CGFloat i = originImage.size.width/400;
+    UIImage * postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     self.headerImg.image = postImage;
     [self.headerImg sizeThatFits:self.headerImg.frame.size];
     NSData * imageData = UIImagePNGRepresentation(postImage);
