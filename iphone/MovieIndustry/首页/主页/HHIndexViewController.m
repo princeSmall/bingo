@@ -261,7 +261,7 @@
     
     NSArray * imageArray = @[image1,image2,image3,image4,image5];
     SDCycleScrollView * bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kViewWidth, 168) imagesGroup:imageArray];
-    
+    bannerView.imageType = @"ds";
         bannerView.delegate = self;
     bannerView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;
     self.bannerView = bannerView;

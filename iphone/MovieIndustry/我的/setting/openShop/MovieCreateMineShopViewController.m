@@ -681,14 +681,13 @@
 
 - (void)uploadStoreLogoImage:(UIImage *)originImage
 {
-    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(200, 150)];
-    
+    NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
+    CGFloat i = originImage.size.width/400;
+    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     NSData * imageData = UIImagePNGRepresentation(postImage);
-    
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"正在上传图片";
     [HUD show:YES];
-    
     NSMutableDictionary * parameters = [NSMutableDictionary dictionary];
     parameters[@"device"] = @"0";
     parameters[@"stream"] = imageData;

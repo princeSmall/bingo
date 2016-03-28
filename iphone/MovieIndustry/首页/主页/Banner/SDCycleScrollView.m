@@ -415,6 +415,12 @@ NSString * const ID = @"cycleCell";
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath
 {
     SDCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ID forIndexPath:indexPath];
+    
+    if (!self.imageType) {
+          cell.imageView.contentMode = UIViewContentModeScaleAspectFit;
+    }else{
+    cell.imageView.contentMode = UIViewContentModeScaleAspectFill;
+    }
     long itemIndex = indexPath.item % self.imagesGroup.count;
     
     if ([self.imagesGroup[itemIndex] isKindOfClass:[UIImage class]]) {

@@ -198,12 +198,12 @@
 
 - (void)uploadStoreLogoImage:(UIImage *)originImage
 {
-    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(200, 150)];
-    
+    NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
+    CGFloat i = originImage.size.width/400;
+    UIImage *  postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"正在上传图片";
     [HUD show:YES];
-    
     [HttpRequestServers postImageRequest:Image_upload UIImage:postImage parameters:nil requestFinish:^(id result) {
         
         NSLog(@"上传图片成功 --> %@",result);

@@ -594,31 +594,23 @@
 
 - (void)uploadIssuePersonImages:(UIImage *)originImage
 {
-    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(800, 800)];
-    
+    NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
+    CGFloat i = originImage.size.width/400;
+    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"正在上传图片";
     [HUD show:YES];
     NSData * imageData = UIImagePNGRepresentation(postImage);
     [UserDesModel GetUploadImageDictWithData:imageData WithType:@"0" With:^(NSString *string) {
         if ([string isEqualToString:@"F"]) {
-            
             HUD.labelText = @"添加失败";
-            
             [HUD hide:YES afterDelay:1.5];
-            
         }else{
-            
             HUD.labelText = @"添加成功";
-            
-            
-            
             if (self.imageArray.count >= (_imageIndex+1))
                 
             {
-                
                 [self.imageArray replaceObjectAtIndex:_imageIndex withObject:originImage];
-                
             }else{
                 
                 [self.imageArray addObject:originImage];

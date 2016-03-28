@@ -357,25 +357,19 @@
 #pragma mark - 上传我的评论中的图片
 - (void)requestUploadActiveCommentImage
 {
-    UIImage *postImage = [DeliveryUtility imageWithImageSimple:self.commentImage scaledToSize:CGSizeMake(self.commentImage.size.width*0.8, self.commentImage.size.height*0.8)];
-    
+    CGFloat i = self.commentImage.size.width/400;
+    UIImage *postImage = [DeliveryUtility imageWithImageSimple:self.commentImage scaledToSize:CGSizeMake(self.commentImage.size.width/i, self.commentImage.size.height/i)];
     UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
-    
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:window animated:YES];
     HUD.labelText = @"正在上传图片";
     [HUD show:YES];
-    
     [HttpRequestServers postImageRequest:Image_upload UIImage:postImage parameters:nil requestFinish:^(id result) {
-        
         HHNSLog(@"上传评论图片成功 --> %@",result);
-        
         NSDictionary *dict = (NSDictionary *)result;
         if ([dict[@"status"] isEqualToString:@"f99"]) {
-            
             NSString *imagePath = [DeliveryUtility nullString:dict[@"image_url"]];
             [self.commentDict setObject:imagePath forKey:@"img"];
             HUD.labelText = @"上传成功";
-            
             [self requestSendActiveComment];
         }
         else

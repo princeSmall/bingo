@@ -555,27 +555,61 @@
 
 - (void)setNavBack
 {
-    UIImageView *myImage = [WNController createImageViewWithFrame:CGRectMake(8, 35, 20, 20) ImageName:@"goodInfo_back"];
-    [self.view addSubview:myImage];
-    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(8, 35, 40, 30)];
-    //[leftBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(8, 35, 25, 25)];
+    
+    [leftBtn setImage:[UIImage imageNamed:@"goodInfo_back"] forState:UIControlStateNormal];
+    
     //添加点击事件
+    
     [leftBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    
     leftBtn.alpha = 1;
+    
+    
+    
+    UIView * leftView = [[UIView alloc]initWithFrame:CGRectMake(8, 33, 30, 30)];
+    
+    leftView.backgroundColor = [UIColor whiteColor];
+    
+    leftView.layer.cornerRadius = 15;
+    
+    leftView.layer.masksToBounds = YES;
+    
+    [self.view addSubview:leftView];
+    
     [self.view addSubview:leftBtn];
     
     
-    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40)];
-    //    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
-    [rightBtn setBackgroundImage:[UIImage imageNamed:@"point_info"] forState:UIControlStateNormal];
-    [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
-    rightBtn.alpha =1;
-    if ([self.goodsMaxBought isEqualToString:@""]) {
-//        rightBtn.enabled = NO;
-    }
     
-    [self.view addSubview:rightBtn];
-}
+    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40) ImageName:@"point_info"];
+    
+    
+    
+    UIView * rightView = [[UIView alloc]initWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40)];
+    
+    rightView.layer.cornerRadius = 20;
+    
+    rightView.layer.masksToBounds = YES;
+    
+    rightView.backgroundColor = [UIColor whiteColor];
+    
+    [self.view addSubview:rightView];
+    
+    [self setNavRightImage:@"point_info" rightAction:@selector(shareAction)];
+    
+    [self.view addSubview:rightImage];
+    
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40)];
+    
+    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
+    
+    [rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+    
+    [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
+    
+    rightBtn.alpha = 1;
+    
+    [self.view addSubview:rightBtn];}
 
 #pragma mark - 商品分类选择信息
 - (void)loadGoodsAttribute

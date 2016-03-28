@@ -549,8 +549,9 @@
 
 - (void)uploadChooseImageWith:(UIImage *)originImage
 {
-    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(300, 300)];
-    
+    NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
+    CGFloat i = originImage.size.width/400;
+    UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"添加图片中";
     [HUD show:YES];
