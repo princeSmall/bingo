@@ -98,6 +98,8 @@
     
      CGSize size = [shopName sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
     CGFloat nameW = screenWidth-255;
+    float n = size.width/(int)nameW;
+    
     CGFloat nameH = size.width/(int)nameW * size.height;
     //CGFloat nameW = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-230 andFont:DefaultFont].width;
     // CGFloat nameH = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-130 andFont:DefaultFont].height;

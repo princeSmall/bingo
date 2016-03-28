@@ -174,7 +174,7 @@
         JGAreaModel * model = self.provinceArray[0];
 //        self.citID = model.ID;
 //        self.cityLabel.text = model.local_name;
-         [self chooseCityAreaAction:nil];
+        [self chooseCityAreaAction:nil];
         
     } withFieldBlock:^{
         
@@ -242,11 +242,11 @@
     self.addressDetailTextView.delegate = self;
     //从本地读取plist文件
     self.postCodeLabel.delegate = self;
-    NSBundle *bundle = [NSBundle mainBundle];
-    NSString *plistPath = [bundle pathForResource:@"area" ofType:@"plist"];
-    self.provinceArray = [NSMutableArray arrayWithContentsOfFile:plistPath];
-    self.cityArray = self.provinceArray[0][@"cities"];
-    self.areaArray = self.cityArray[0][@"areas"];
+//    NSBundle *bundle = [NSBundle mainBundle];
+//    NSString *plistPath = [bundle pathForResource:@"area" ofType:@"plist"];
+//    self.provinceArray = [NSMutableArray arrayWithContentsOfFile:plistPath];
+//    self.cityArray = self.provinceArray[0][@"cities"];
+//    self.areaArray = self.cityArray[0][@"areas"];
     _proviceStr = @"";
     _cityStr = @"";
     _areaStr = @"";
@@ -365,13 +365,11 @@
 {
     
     if ([self.consigneeTextField.text isEqualToString:@""]) {
-//        [PromptLabel custemAlertPromAddView:self.view text:@"请输入收货人姓名"];
          [DeliveryUtility showMessage:@"请输入收货人姓名" target:nil];
     }else
     {
         //这边需要判断 手机号码是否合法
         if ([self.phoneNumberText.text isEqualToString:@""]) {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号码"];
              [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
         }else
         {
@@ -381,7 +379,6 @@
             {
             
             if ([self.addressDetailTextView.text isEqualToString:@""]||[self.addressDetailTextView.text isEqualToString:@"详细地址"]) {
-//                        [PromptLabel custemAlertPromAddView:self.view text:@"请输入详细地址"];
                  [DeliveryUtility showMessage:@"请输入详细地址" target:nil];
                 
             }else if ([self.postCodeLabel.text isEqualToString:@""]) {
