@@ -112,6 +112,7 @@
     self.cityPickTextField.inputAccessoryView = toolbar;
     
     self.cityPickTextField.inputView = self.cityPickView;
+    [self.cityPickView reloadAllComponents];
     
     [self.cityPickTextField becomeFirstResponder];
     

@@ -144,6 +144,7 @@
     
     self.cityPickTextField.inputAccessoryView = toolbar;
     self.cityPickTextField.inputView = self.cityPickView;
+    [self.cityPickView reloadAllComponents];
     [self.cityPickTextField becomeFirstResponder];
 }
 #pragma mark - 点击之后文字改变

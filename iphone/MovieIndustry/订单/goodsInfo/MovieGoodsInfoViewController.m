@@ -614,14 +614,16 @@
     UIView * leftView = [[UIView alloc]initWithFrame:CGRectMake(8, 33, 30, 30)];
     leftView.backgroundColor = [UIColor whiteColor];
     leftView.layer.cornerRadius = 15;
+    leftView.alpha = 0.7;
     leftView.layer.masksToBounds = YES;
     [self.view addSubview:leftView];
     [self.view addSubview:leftBtn];
 
-    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40) ImageName:@"point_info"];
+    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 33, 30, 30) ImageName:@"point_info"];
     
-    UIView * rightView = [[UIView alloc]initWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40)];
-    rightView.layer.cornerRadius = 20;
+    UIView * rightView = [[UIView alloc]initWithFrame:CGRectMake(kViewWidth-50, 30, 30, 30)];
+    rightView.layer.cornerRadius = 15;
+    rightView.alpha = 0.7;
     rightView.layer.masksToBounds = YES;
     rightView.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:rightView];
