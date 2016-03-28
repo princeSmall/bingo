@@ -330,44 +330,44 @@
 - (void)loadCityData
 {
     NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:@"",@"name", nil];
-    [HttpRequestServers requestBaseUrl:City_list withParams:userDict withRequestFinishBlock:^(id result) {
+    [HttpRequestServers requestBaseUrl:TICity_List withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
         HHNSLog(@"-------->%@",dict);
         @try {
             
-            if ([dict[@"status"] isEqualToString:@"f99"])
+            if ([dict[@"code"] intValue]==0)
             {
+                NSArray *arrayCity = dict[@"data"];
                 [self.suoyinArray removeAllObjects];
                 [self.cityArray removeAllObjects];
                 [self.arrayHotCity removeAllObjects];
                 
+                //[self.suoyinArray addObject:UITableViewIndexSearch];
                 if (self.historyCityArray.count>0) {
                     ///添加历史搜索
                     [self.cityArray addObject:self.historyCityArray];
                     [self.suoyinArray addObject:@"历"];
                 }
-                
-                
                 ///添加索引的搜索按钮
                 [self.suoyinArray addObject:@"热"];
                 ///热点城市
-                for (NSDictionary *hotDcit in dict[@"hot_list"]) {
+                for (int i=0 ;i<1;i++) {
                     CityModel *hotCityModel = [[CityModel alloc] init];
-                    hotCityModel.cityName = hotDcit[@"name"];
-                    hotCityModel.cityId = hotDcit[@"id"];
+                    hotCityModel.cityName = @"上海";
+                    hotCityModel.cityId = @"上海";
                     [self.arrayHotCity addObject:hotCityModel];
                 }
                 ///将热点城市加到大数组里面
                 [self.cityArray addObject:self.arrayHotCity];
                 ///城市索引和城市列表表
-                for (NSDictionary *listDict in dict[@"list"]) {
-                    [self.suoyinArray addObject:listDict[@"u_name"]];
+                for (NSDictionary *listDict in arrayCity) {
+                    [self.suoyinArray addObject:listDict[@"type"]];
                     ///存储城市列表临时变量
                     NSMutableArray *cityInfoArray = [NSMutableArray array];
-                    for (NSDictionary *infoDict  in listDict[@"info"]) {
+                    for (NSString *city  in listDict[@"list"]) {
                         CityModel *cityModel = [[CityModel alloc] init];
-                        cityModel.cityName = infoDict[@"name"];
-                        cityModel.cityId = infoDict[@"id"];
+                        cityModel.cityName = city;
+                        cityModel.cityId = city;
                         [cityInfoArray addObject:cityModel];
                     }
                     ///存储到数据数组
@@ -631,19 +631,19 @@
     
     //
     [self performSelector:@selector(lightRentGoback) withObject:nil afterDelay:0.25];
-    //    [MovieHttpRequest createMakeMineLightingRentWithRequestInfo:self.requestDict CallBack:^(id obj) {
-//        
-//        HUD.labelText = @"发布成功";
-//        [HUD hide:YES];
-//        
-//        [self.view makeToast:@"发布成功"];
-//        [self performSelector:@selector(lightRentGoback) withObject:nil afterDelay:0.25];
-//        
-//    } andSCallBack:^(id obj) {
-//        
-//        [DeliveryUtility showMessage:obj target:self];
-//        [HUD hide:YES];
-//    }];
+    [MovieHttpRequest createMakeMineLightingRentWithRequestInfo:self.requestDict CallBack:^(id obj) {
+        
+        HUD.labelText = @"发布成功";
+        [HUD hide:YES];
+        
+        [self.view makeToast:@"发布成功"];
+        [self performSelector:@selector(lightRentGoback) withObject:nil afterDelay:0.25];
+        
+    } andSCallBack:^(id obj) {
+        
+        [DeliveryUtility showMessage:obj target:self];
+        [HUD hide:YES];
+    }];
 }
 
 - (NSString *)PriceList:(NSString *)priceID
@@ -1010,7 +1010,7 @@
  */
 -(void)changeButtonFrame:(UIButton *)btn
 {
-    CGRect btnRect = btn.frame;
+    //CGRect btnRect = btn.frame;
     if(self.cityButton)
     {
         

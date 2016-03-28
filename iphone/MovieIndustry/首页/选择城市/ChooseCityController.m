@@ -156,81 +156,58 @@
 - (void)loadCityData:(NSString *)cityID
 {
     NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:cityID,@"name", nil];
-    [HttpRequestServers requestBaseUrl:City_list withParams:userDict withRequestFinishBlock:^(id result) {
+    [HttpRequestServers requestBaseUrl:TICity_List withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
         //        HHNSLog(@"-------->%@",dict);
         @try {
             
-            if ([dict[@"status"] isEqualToString:@"f99"])
+            if ([dict[@"code"] intValue]==0)
             {
                 
-                NSDictionary *currentDict = dict[@"current"];
-                if (currentDict.count>0) {
-                    self.locationButton.enabled = YES;
-                    self.locationCityId = currentDict[@"id"];
-                }
+                NSArray *arrayCity = dict[@"data"];
+//                if (currentDict.count>0) {
+//                    self.locationButton.enabled = YES;
+//                    self.locationCityId = currentDict[@"id"];
+//                }
                 
                 [self.suoyinArray removeAllObjects];
                 [self.cityArray removeAllObjects];
                 [self.arrayHotCity removeAllObjects];
                 
-                if (self.historyCityArray.count>0) {
+                ///添加索引的搜索按钮
+                                if (self.historyCityArray.count>0) {
                     ///添加历史搜索
                     [self.cityArray addObject:self.historyCityArray];
-                    [self.suoyinArray addObject:@""];
+                    [self.suoyinArray addObject:@"历"];
                 }
                 //不是搜索
                 _isSearch = NO;
-                
-                ///添加索引的搜索按钮
                 [self.suoyinArray addObject:UITableViewIndexSearch];
+
+               
+                //[self.suoyinArray addObject:@"热"];
                 ///热点城市
-                for (NSDictionary *hotDcit in dict[@"hot_list"]) {
+                for (int i=0 ;i<1;i++) {
                     CityModel *hotCityModel = [[CityModel alloc] init];
-                    hotCityModel.cityName = hotDcit[@"name"];
-                    hotCityModel.cityId = hotDcit[@"id"];
+                    hotCityModel.cityName = @"上海";
+                    hotCityModel.cityId = @"上海";
                     [self.arrayHotCity addObject:hotCityModel];
                 }
                 ///将热点城市加到大数组里面
                 [self.cityArray addObject:self.arrayHotCity];
                 ///城市索引和城市列表表
-                for (NSDictionary *listDict in dict[@"list"]) {
-                    [self.suoyinArray addObject:listDict[@"u_name"]];
+                for (NSDictionary *listDict in arrayCity) {
+                    [self.suoyinArray addObject:listDict[@"type"]];
                     ///存储城市列表临时变量
                     NSMutableArray *cityInfoArray = [NSMutableArray array];
-                    for (NSDictionary *infoDict  in listDict[@"info"]) {
+                    for (NSString *city  in listDict[@"list"]) {
                         CityModel *cityModel = [[CityModel alloc] init];
-                        cityModel.cityName = infoDict[@"name"];
-                        cityModel.cityId = infoDict[@"id"];
+                        cityModel.cityName = city;
+                        cityModel.cityId = city;
                         [cityInfoArray addObject:cityModel];
                     }
                     ///存储到数据数组
                     [self.cityArray addObject:cityInfoArray];
-                }
-                
-                //                HHNSLog(@"hotarr %@, cityArr %@, suoyin%@",self.arrayHotCity,self.cityArray,self.suoyinArray);
-                
-                ///刷新数据
-                if (self.historyCityArray.count>0){
-                    CityModel * model = self.cityArray[23][1];
-                    
-                    NSMutableArray * cityArray1 = [NSMutableArray arrayWithArray:self.cityArray[23]];
-                    [cityArray1 removeObject:model];
-                    self.cityArray[23] = cityArray1;
-                    NSMutableArray * cityArray2 = [NSMutableArray arrayWithArray:self.cityArray[4]];
-                    [cityArray2 insertObject:model atIndex:0];
-                    self.cityArray[4] = cityArray2;
-                    
-                }else{
-                
-                    CityModel * model = self.cityArray[22][1];
-                    NSMutableArray * cityArray1 = [NSMutableArray arrayWithArray:self.cityArray[22]];
-                    [cityArray1 removeObject:model];
-                    self.cityArray[22] = cityArray1;
-                    NSMutableArray * cityArray2 = [NSMutableArray arrayWithArray:self.cityArray[3]];
-                    [cityArray2 insertObject:model atIndex:0];
-                    self.cityArray[3] = cityArray2;
-                
                 }
                 
                 [self.tableView reloadData];
