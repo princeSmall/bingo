@@ -70,7 +70,7 @@
 			<string>weixin</string>
 			<key>CFBundleURLSchemes</key>
 			<array>
-				<string>wxd8f37269581ddec2</string>
+				<string>wxa6cb25669b7a1894</string>
 			</array>
 		</dict>
 	</array>
@@ -78,11 +78,26 @@
 	<string>1.1.5</string>
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
-		<string>uppaysdk</string>
-		<string>uppaywallet</string>
-		<string>uppayx1</string>
-		<string>uppayx2</string>
-		<string>uppayx3</string>
+		<string>wechat</string>
+		<string>weixin</string>
+		<string>sinaweibohd</string>
+		<string>sinaweibo</string>
+		<string>sinaweibosso</string>
+		<string>weibosdk</string>
+		<string>weibosdk2.5</string>
+		<string>mqqapi</string>
+		<string>mqq</string>
+		<string>mqqOpensdkSSoLogin</string>
+		<string>mqqconnect</string>
+		<string>mqqopensdkdataline</string>
+		<string>mqqopensdkgrouptribeshare</string>
+		<string>mqqopensdkfriend</string>
+		<string></string>
+		<string></string>
+		<string></string>
+		<string></string>
+		<string></string>
+		<string></string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

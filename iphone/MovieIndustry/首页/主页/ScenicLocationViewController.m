@@ -73,6 +73,27 @@
     return _manger;
 }
 
+- (void)setBackItem
+{
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 20, 20)];
+    [leftBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    //添加点击事件
+    [leftBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
+    //    [self.navigationController.navigationBar addSubview:leftBtn];
+    
+    //设置TabBar左边的按钮
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    [self.navigationItem setLeftBarButtonItem:backItem];
+}
+
+- (void)backAction{
+
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+
+
 - (void)createAlertViewWith:(NSString *)string{
     UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"提示" message:string delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
     [self.view addSubview:alert];
@@ -84,6 +105,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    [self setBackItem];
 //    [self createSegmentedControl];
     JGScenic * scenic = [[JGScenic alloc]init];
     scenic.s_address = self.address;
