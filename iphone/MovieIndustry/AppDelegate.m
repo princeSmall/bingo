@@ -54,10 +54,10 @@
     [_locationService openLocationService];
     
     ///注册分享
-    [ShareSDK registerApp:@"d9a84800ca10"];
+    [ShareSDK registerApp:@"1107dba9a7858"];
     //初始化社交平台
     [self initializePlat];
-    [WXApi registerApp:@"wxd8f37269581ddec2"];
+    [WXApi registerApp:@"wxa6cb25669b7a1894"];
     if ([[UIDevice currentDevice].systemVersion floatValue] >= 8.0) {
         //可以添加自定义categories
         [APService registerForRemoteNotificationTypes:(UIUserNotificationTypeBadge |

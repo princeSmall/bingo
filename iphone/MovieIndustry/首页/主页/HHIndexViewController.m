@@ -218,7 +218,7 @@
         //首页商品数据
         [self loadHomeGoodsData];
         
-        [self loadActivityData];
+//        [self loadActivityData];
     }];
     // 设置自动切换透明度(在导航栏下面自动隐藏)
     _tbView.header.automaticallyChangeAlpha = YES;
@@ -231,7 +231,7 @@
         //首页商品数据
         [self loadHomeGoodsData];
         
-        [self loadActivityData];
+//        [self loadActivityData];
         
     }];
     _tbView.footer.automaticallyChangeAlpha = YES;
@@ -301,11 +301,11 @@
 #warning 这边是城市选择（左），闪电租（右）按钮
     UIView *leftView = [WNController createViewFrame:CGRectMake(0, 0, 70, 30)];
     leftView.backgroundColor = kNavBarColor;
-    UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(0, 1, 40, 30) Font:14 Text:@"上海" textAligment:NSTextAlignmentLeft];
+    UILabel *navLabel = [WNController createLabelWithFrame:CGRectMake(0, 1, 60, 30) Font:14 Text:@"上海" textAligment:NSTextAlignmentLeft];
     _locationLabel = navLabel;
     navLabel.textColor = [UIColor whiteColor];
     
-    UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(30, 8, 18, 18) ImageName:@"index_03-03"];
+    UIImageView *navImage = [WNController createImageViewWithFrame:CGRectMake(50, 8, 18, 18) ImageName:@"index_03-03"];
     [leftView addSubview:navLabel];
     [leftView addSubview:navImage];
     //可以点击的按钮
@@ -332,7 +332,16 @@
     
     //设置TabBar左边的按钮
     UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-    [self.navigationItem setRightBarButtonItem:rightItem];
+    /**
+     *  这边没有调用闪电租按钮。
+     */
+    /**
+     *  这边没有调用闪电租按钮。
+     */
+    /**
+     *  这边没有调用闪电租按钮。
+     */
+//    [self.navigationItem setRightBarButtonItem:rightItem];
 
 }
 
@@ -445,12 +454,30 @@
 {
     if (indexPath.section == 2)
     {
-        return 163;
+//        return 163;
+        /**
+         *  这边关掉了，周二抢等一系列功能。
+         *
+         *  @param indexPath.section <#indexPath.section description#>
+         *
+         *  @return <#return value description#>
+         */
+        return 0;
     }
     
     
     if (indexPath.section == 0) {
-       return 45;
+//       return 45;
+        /**
+         *  这边关掉了搜索栏。
+         */
+        /**
+         *  这边关掉了搜索栏。
+         */
+        /**
+         *  这边关掉了搜索栏。
+         */
+        return 0;
     }
     if (indexPath.section == 1 )
         {
@@ -493,7 +520,15 @@
 
     else
     {
-            return 87;
+//            return 87;
+        /**
+         *  这边关掉了下面的资讯等功能。
+         *
+         *  @param  <# description#>
+         *
+         *  @return <#return value description#>
+         */
+        return 0;
     }
 }
 
@@ -524,6 +559,7 @@
         btn.frame = CGRectMake(0, 0, kViewWidth, 45);
         [btn addTarget:self action:@selector(searchVcAction) forControlEvents:UIControlEventTouchUpInside];
         [cell.contentView addSubview:btn];
+        cell.contentView.hidden = YES;
         return cell;
         
     }else if (indexPath.section == 1) {

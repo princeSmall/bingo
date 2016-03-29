@@ -69,7 +69,7 @@
     [self setNavTabBar:@"我的"];
      self.headerImage.layer.borderColor = [UIColor whiteColor].CGColor;
 
-   [self setNavRightItem:@"帮助" rightAction:@selector(RightAction)];
+//   [self setNavRightItem:@"帮助" rightAction:@selector(RightAction)];
     [self addTargetActionForButton];
     [self getMineInfoRequest];
 

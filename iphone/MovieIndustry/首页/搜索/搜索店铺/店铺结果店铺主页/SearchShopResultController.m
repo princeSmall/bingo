@@ -862,7 +862,7 @@ typedef void (^babyClassify)(void);
     [view addSubview:searchArticleBtn];
     //设置头部的View
 #warning 搜索暂时隐藏
-    self.navigationItem.titleView = view;
+//    self.navigationItem.titleView = view;
 }
 
 #pragma mark - 搜索店铺内的宝贝

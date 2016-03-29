@@ -443,9 +443,9 @@
     self.shareView =  [[[NSBundle mainBundle] loadNibNamed:@"ShareView" owner:self options:nil] lastObject];
     self.shareView.delegate = self;
     //取消第三方授权
-    [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
-    [ShareSDK cancelAuthWithType:ShareTypeWeixiSession];
-    [ShareSDK cancelAuthWithType:ShareTypeQQ];
+//    [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+//    [ShareSDK cancelAuthWithType:ShareTypeWeixiSession];
+//    [ShareSDK cancelAuthWithType:ShareTypeQQ];
     
     [self.shareView show];
     
