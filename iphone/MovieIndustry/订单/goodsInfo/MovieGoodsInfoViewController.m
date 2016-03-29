@@ -270,6 +270,7 @@
     
     ///设置状态栏颜色
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
+    [self setNavBack];
     [self loadGoodsData];
     
     
@@ -1146,7 +1147,7 @@
                 
             }
             [weakSelf createUI];
-            [weakSelf setNavBack];
+            
 
         }
         @catch (NSException *exception) {
