@@ -280,7 +280,7 @@
         
     }];
     CGSize size =CGSizeMake(self.view.frame.size.width, 103*3+400+100);
-    bottomView.tableView.frame = CGRectMake(0, 0,  self.view.frame.size.width, 192);
+    bottomView.tableView.frame = CGRectMake(0, 0,  self.view.frame.size.width, 61);
     self.tableView.contentSize = size;
     bottomView.payBtn.layer.cornerRadius = 5.0f;
     [bottomView.payBtn addTarget:self action:@selector(actionPay) forControlEvents:UIControlEventTouchUpInside];

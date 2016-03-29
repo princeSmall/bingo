@@ -48,10 +48,12 @@
 {
     //CGRect rect =CGRectMake(0, 0, self.frame.size.width, 128);
     self.block = block;
-    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.centerView.frame.size.width,300)style:UITableViewStylePlain];
+    self.tableView = [[UITableView alloc]initWithFrame:CGRectMake(0, 0, self.centerView.frame.size.width,61)style:UITableViewStylePlain];
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     [self.centerView addSubview:self.tableView];
+    self.tableView.tableFooterView = [[UIView alloc]init];
+    self.tableView.separatorStyle  = UITableViewCellSeparatorStyleNone;
     
     
     
@@ -64,12 +66,12 @@
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 1;
 }
 
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    return 64;
+    return 61;
 }
 
 -(UITableViewCell*)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath

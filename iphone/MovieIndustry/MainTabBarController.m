@@ -41,13 +41,13 @@
     orderVc.tabBarItem.selectedImage = [[UIImage imageNamed:@"order_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
     orderVc.tabBarItem.imageInsets = UIEdgeInsetsMake(-2, 0, 2, 0);
     UINavigationController *nc2 = [[UINavigationController alloc] initWithRootViewController:orderVc];
-    
-    HHDiscoverController *discoverVc = [[HHDiscoverController alloc] init];
-    discoverVc.tabBarItem.title = @"发现";
-    discoverVc.tabBarItem.image = [[UIImage imageNamed:@"discover_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    discoverVc.tabBarItem.selectedImage = [[UIImage imageNamed:@"discover_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
-    discoverVc.tabBarItem.imageInsets = UIEdgeInsetsMake(-2, 0, 2, 0);
-    UINavigationController *nc3 = [[UINavigationController alloc] initWithRootViewController:discoverVc];
+#warning 发现隐藏了
+//    HHDiscoverController *discoverVc = [[HHDiscoverController alloc] init];
+//    discoverVc.tabBarItem.title = @"发现";
+//    discoverVc.tabBarItem.image = [[UIImage imageNamed:@"discover_normal"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    discoverVc.tabBarItem.selectedImage = [[UIImage imageNamed:@"discover_selected"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+//    discoverVc.tabBarItem.imageInsets = UIEdgeInsetsMake(-2, 0, 2, 0);
+//    UINavigationController *nc3 = [[UINavigationController alloc] initWithRootViewController:discoverVc];
     
     
     HHMeViewController *meVc = [[HHMeViewController alloc] init];
@@ -63,12 +63,14 @@
     nc1.navigationBar.translucent=NO;
     nc2.navigationBar.barTintColor=kNavBarColor;
     nc2.navigationBar.translucent=NO;
-    nc3.navigationBar.barTintColor=kNavBarColor;
-    nc3.navigationBar.translucent=NO;
+#warning 发现隐藏了
+//    nc3.navigationBar.barTintColor=kNavBarColor;
+//    nc3.navigationBar.translucent=NO;
     nc4.navigationBar.barTintColor=kNavBarColor;
     nc4.navigationBar.translucent=NO;
     //设置控制器
-    NSMutableArray *array = [NSMutableArray arrayWithObjects:nc1,nc2,nc3,nc4, nil];
+#warning 发现隐藏了
+    NSMutableArray *array = [NSMutableArray arrayWithObjects:nc1,nc2,nc4, nil];
     self.viewControllers = array;
     
     //设置字体样式
