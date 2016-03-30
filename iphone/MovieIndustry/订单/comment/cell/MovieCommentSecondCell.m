@@ -7,28 +7,44 @@
 //
 
 #import "MovieCommentSecondCell.h"
+#import "PlaceholderTextView.h"
+
+
+@interface MovieCommentSecondCell ()
+
+@end
+
+
 
 @implementation MovieCommentSecondCell
 
-- (void)awakeFromNib {
 
-    self.textView.clipsToBounds = YES;
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        [self awakeFromNib];
+    }
+    return self;
+}
+
+
+
+- (void)awakeFromNib {
+    self.textView = [[PlaceholderTextView alloc]initWithFrame:CGRectMake(10, 5, [UIScreen mainScreen].bounds.size.width-20, 100)];
+    self.textView.font = [UIFont systemFontOfSize:16];
     self.textView.layer.cornerRadius = 10;
+    self.textView.layer.masksToBounds = YES;
     self.textView.layer.borderColor = [UIColor colorWithRed:193.0f/255.0f green:193.0f/255.0f blue:193.0f/255.0f alpha:1].CGColor;
     self.textView.layer.borderWidth = 1;
+    [self addSubview:self.textView];
     
+    self.cameraBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 110, 100, 100)];
     self.cameraBtn.clipsToBounds = YES;
     self.cameraBtn.layer.cornerRadius = 10;
-    
-    self.imageBg1.hidden = YES;
-    self.imageBg2.hidden = YES;
-    self.imageBg3.hidden = YES;
+    self.cameraBtn.backgroundColor = [UIColor colorWithRed:0.910 green:0.918 blue:0.922 alpha:1.000];
+    [self.cameraBtn setImage:[UIImage imageNamed:@"evaluation_camera"] forState:UIControlStateNormal];
+    [self addSubview:self.cameraBtn];
 }
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

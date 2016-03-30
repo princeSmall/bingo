@@ -87,6 +87,7 @@
 		00849DA91C4E0DD000DFEA6B /* PushConfig.plist in Resources */ = {isa = PBXBuildFile; fileRef = 00849DA81C4E0DD000DFEA6B /* PushConfig.plist */; };
 		008A921B1C72B88D0092CDB5 /* JGAreaModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 008A921A1C72B88D0092CDB5 /* JGAreaModel.m */; };
 		008A92221C7313330092CDB5 /* MyHelpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 008A92211C7313330092CDB5 /* MyHelpViewController.m */; };
+		00A157401CABA0BE00EAF208 /* PlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A1573F1CABA0BE00EAF208 /* PlaceholderTextView.m */; };
 		00A22F4E1C60A26E000F11DB /* ShopMainModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A22F4D1C60A26E000F11DB /* ShopMainModel.m */; };
 		00A34F381C7D9E7600707673 /* ShopSendView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00A34F371C7D9E7600707673 /* ShopSendView.m */; };
 		00B1F3B51C5B02100027672A /* JGCoverView.m in Sources */ = {isa = PBXBuildFile; fileRef = 00B1F3A81C5B02100027672A /* JGCoverView.m */; };
@@ -1082,6 +1083,8 @@
 		008A921A1C72B88D0092CDB5 /* JGAreaModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JGAreaModel.m; sourceTree = "<group>"; };
 		008A92201C7313330092CDB5 /* MyHelpViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyHelpViewController.h; sourceTree = "<group>"; };
 		008A92211C7313330092CDB5 /* MyHelpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MyHelpViewController.m; sourceTree = "<group>"; };
+		00A1573E1CABA0BD00EAF208 /* PlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PlaceholderTextView.h; sourceTree = "<group>"; };
+		00A1573F1CABA0BE00EAF208 /* PlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PlaceholderTextView.m; sourceTree = "<group>"; };
 		00A22F4C1C60A26E000F11DB /* ShopMainModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopMainModel.h; sourceTree = "<group>"; };
 		00A22F4D1C60A26E000F11DB /* ShopMainModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopMainModel.m; sourceTree = "<group>"; };
 		00A34F361C7D9E7600707673 /* ShopSendView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopSendView.h; sourceTree = "<group>"; };
@@ -4904,6 +4907,8 @@
 				A25BB3021BFC405800E52ED8 /* MovieCommentFirstCell.xib */,
 				A25BB3051BFC42DE00E52ED8 /* MovieCommentSecondCell.h */,
 				A25BB3061BFC42DE00E52ED8 /* MovieCommentSecondCell.m */,
+				00A1573E1CABA0BD00EAF208 /* PlaceholderTextView.h */,
+				00A1573F1CABA0BE00EAF208 /* PlaceholderTextView.m */,
 				A25BB3071BFC42DE00E52ED8 /* MovieCommentSecondCell.xib */,
 				A25BB30A1BFC4AEC00E52ED8 /* MovieCommentThirdCell.h */,
 				A25BB30B1BFC4AEC00E52ED8 /* MovieCommentThirdCell.m */,
@@ -6481,6 +6486,7 @@
 				A2645A681C04350A00BAB995 /* NSString+StringExtend.m in Sources */,
 				00610A841C86C5E0000B2F57 /* MovieHistoryActiveCell.m in Sources */,
 				847D82CF1BEC7ED700893542 /* MainTabBarController.m in Sources */,
+				00A157401CABA0BE00EAF208 /* PlaceholderTextView.m in Sources */,
 				848294341C0E96C500452BF9 /* MJRefreshBackStateFooter.m in Sources */,
 				8482944C1C0E96C500452BF9 /* UIView+WebCacheOperation.m in Sources */,
 				A2EC3A811C22529E00E38129 /* MovieTradeRecordModel.m in Sources */,
