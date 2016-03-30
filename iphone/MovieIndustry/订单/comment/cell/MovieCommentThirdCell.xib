@@ -28,40 +28,11 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gkb-mY-k4Y">
                         <rect key="frame" x="91" y="0.0" width="145" height="43"/>
                         <subviews>
-                            <button opaque="NO" tag="501" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gp-bP-bUV">
-                                <rect key="frame" x="10" y="10" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="Tx3-u5-hMu"/>
-                                </constraints>
-                                <state key="normal" image="star_no">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" image="star_yes"/>
-                            </button>
-                            <button opaque="NO" tag="502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moO-pp-3T8">
-                                <rect key="frame" x="35" y="10" width="25" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="VrG-QK-j7o"/>
-                                </constraints>
-                                <state key="normal" image="star_no">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" image="star_yes"/>
-                            </button>
-                            <button opaque="NO" tag="503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag3-gx-iNG">
-                                <rect key="frame" x="60" y="10" width="26" height="25"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="26" id="HGc-s4-5Aw"/>
-                                </constraints>
-                                <state key="normal" image="star_no">
-                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                </state>
-                                <state key="selected" image="star_yes"/>
-                            </button>
                             <button opaque="NO" tag="504" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YsT-sr-9Mz">
-                                <rect key="frame" x="86" y="10" width="25" height="25"/>
+                                <rect key="frame" x="60" y="15" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="mSW-Mv-hPz"/>
+                                    <constraint firstAttribute="height" constant="20" id="bPr-xE-TFF"/>
+                                    <constraint firstAttribute="width" constant="20" id="s89-UI-PNR"/>
                                 </constraints>
                                 <state key="normal" image="star_no">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -69,9 +40,43 @@
                                 <state key="selected" image="star_yes"/>
                             </button>
                             <button opaque="NO" tag="505" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lO2-8h-F7a">
-                                <rect key="frame" x="113" y="10" width="25" height="25"/>
+                                <rect key="frame" x="80" y="15" width="20" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="25" id="KPr-IK-0Ta"/>
+                                    <constraint firstAttribute="height" constant="20" id="Ao6-5a-38e"/>
+                                    <constraint firstAttribute="width" constant="20" id="Fnz-83-Jcj"/>
+                                </constraints>
+                                <state key="normal" image="star_no">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="star_yes"/>
+                            </button>
+                            <button opaque="NO" tag="501" contentMode="scaleToFill" horizontalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9gp-bP-bUV">
+                                <rect key="frame" x="0.0" y="15" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="20" id="Ndw-Y7-qCr"/>
+                                    <constraint firstAttribute="width" constant="20" id="NnX-Ha-XRt"/>
+                                </constraints>
+                                <state key="normal" image="star_no">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="star_yes"/>
+                            </button>
+                            <button opaque="NO" tag="502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="moO-pp-3T8">
+                                <rect key="frame" x="20" y="15" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="Zg5-GB-hzp"/>
+                                    <constraint firstAttribute="height" constant="20" id="x2I-sV-jzl"/>
+                                </constraints>
+                                <state key="normal" image="star_no">
+                                    <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <state key="selected" image="star_yes"/>
+                            </button>
+                            <button opaque="NO" tag="503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ag3-gx-iNG">
+                                <rect key="frame" x="40" y="15" width="20" height="20"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="20" id="8o1-On-dQ2"/>
+                                    <constraint firstAttribute="height" constant="20" id="hXv-zC-de3"/>
                                 </constraints>
                                 <state key="normal" image="star_no">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
@@ -81,31 +86,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="ag3-gx-iNG" firstAttribute="leading" secondItem="moO-pp-3T8" secondAttribute="trailing" id="0iw-5t-0bF"/>
-                            <constraint firstAttribute="bottom" secondItem="9gp-bP-bUV" secondAttribute="bottom" constant="8" id="0w4-qO-oji"/>
-                            <constraint firstAttribute="bottom" secondItem="YsT-sr-9Mz" secondAttribute="bottom" constant="8" id="4ss-gW-FS5"/>
-                            <constraint firstItem="lO2-8h-F7a" firstAttribute="leading" secondItem="YsT-sr-9Mz" secondAttribute="trailing" constant="1" id="5Ph-JD-Jx4"/>
-                            <constraint firstItem="lO2-8h-F7a" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="10" id="83b-6m-ZGn"/>
-                            <constraint firstAttribute="bottom" secondItem="ag3-gx-iNG" secondAttribute="bottom" constant="8" id="8sJ-IC-2ug"/>
-                            <constraint firstItem="ag3-gx-iNG" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="10" id="ET4-3c-Orc"/>
-                            <constraint firstAttribute="bottom" secondItem="moO-pp-3T8" secondAttribute="bottom" constant="8" id="KMm-vN-QqR"/>
-                            <constraint firstItem="YsT-sr-9Mz" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="10" id="VH4-uw-F6x"/>
-                            <constraint firstAttribute="bottom" secondItem="lO2-8h-F7a" secondAttribute="bottom" constant="8" id="VZ0-cX-JmY"/>
-                            <constraint firstItem="moO-pp-3T8" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="10" id="aAH-uX-jjt"/>
-                            <constraint firstItem="moO-pp-3T8" firstAttribute="leading" secondItem="9gp-bP-bUV" secondAttribute="trailing" id="aWH-9I-0JB"/>
-                            <constraint firstItem="YsT-sr-9Mz" firstAttribute="leading" secondItem="ag3-gx-iNG" secondAttribute="trailing" id="b82-hD-TAU"/>
-                            <constraint firstItem="9gp-bP-bUV" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="10" id="jIp-7d-YjT"/>
-                            <constraint firstItem="9gp-bP-bUV" firstAttribute="leading" secondItem="gkb-mY-k4Y" secondAttribute="leading" constant="10" id="jgh-Sm-Krq"/>
-                            <constraint firstItem="YsT-sr-9Mz" firstAttribute="leading" secondItem="ag3-gx-iNG" secondAttribute="trailing" id="mP9-vL-kas"/>
-                            <constraint firstItem="lO2-8h-F7a" firstAttribute="leading" secondItem="YsT-sr-9Mz" secondAttribute="trailing" constant="2" id="nH3-NS-cYY"/>
-                            <constraint firstItem="lO2-8h-F7a" firstAttribute="leading" secondItem="YsT-sr-9Mz" secondAttribute="trailing" constant="2" id="nsi-sq-diU"/>
+                            <constraint firstItem="ag3-gx-iNG" firstAttribute="leading" secondItem="moO-pp-3T8" secondAttribute="trailing" id="0xN-Gx-Gqa"/>
+                            <constraint firstItem="moO-pp-3T8" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="15" id="8f6-wS-d1b"/>
+                            <constraint firstItem="ag3-gx-iNG" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="15" id="9FP-Af-ndo"/>
+                            <constraint firstItem="YsT-sr-9Mz" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="15" id="9sQ-eQ-XWF"/>
+                            <constraint firstItem="moO-pp-3T8" firstAttribute="leading" secondItem="9gp-bP-bUV" secondAttribute="trailing" id="BFf-Qd-kYc"/>
+                            <constraint firstItem="YsT-sr-9Mz" firstAttribute="leading" secondItem="ag3-gx-iNG" secondAttribute="trailing" id="CFc-Xf-Qa7"/>
+                            <constraint firstItem="9gp-bP-bUV" firstAttribute="leading" secondItem="gkb-mY-k4Y" secondAttribute="leading" id="bRf-AL-7ke"/>
+                            <constraint firstItem="lO2-8h-F7a" firstAttribute="leading" secondItem="YsT-sr-9Mz" secondAttribute="trailing" id="ebO-LU-MFG"/>
+                            <constraint firstItem="9gp-bP-bUV" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="15" id="er8-UJ-52N"/>
                             <constraint firstAttribute="width" constant="145" id="rxE-99-J3P"/>
+                            <constraint firstItem="lO2-8h-F7a" firstAttribute="top" secondItem="gkb-mY-k4Y" secondAttribute="top" constant="15" id="zgv-b4-8rN"/>
                         </constraints>
-                        <variation key="default">
-                            <mask key="constraints">
-                                <exclude reference="5Ph-JD-Jx4"/>
-                            </mask>
-                        </variation>
                     </view>
                 </subviews>
                 <constraints>

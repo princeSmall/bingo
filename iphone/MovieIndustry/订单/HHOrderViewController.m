@@ -781,16 +781,8 @@
 #pragma mark - 进入评价页面
 - (void)gotoCommentView:(UIButton *)sender
 {
-    
-//    [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
-     [DeliveryUtility showMessage:@"二期开发中" target:nil];
-    
-//   MyOrderShopModel *shopsModel = self.shopArray[sender.tag - 20000];
-//    NSArray *array = self.dataArray[sender.tag - 20000];
 
    MovieCommentViewController *commentVC = [[MovieCommentViewController alloc] init];
-//    commentVC.shopModel = shopsModel;
-//    commentVC.goodsModelArray = array;
     [commentVC setHidesBottomBarWhenPushed:YES];
    [self.navigationController pushViewController:commentVC animated:YES];
 }

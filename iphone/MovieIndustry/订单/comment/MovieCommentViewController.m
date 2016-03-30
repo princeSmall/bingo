@@ -11,6 +11,8 @@
 #import "MovieCommentSecondCell.h"
 #import "MovieCommentThirdCell.h"
 #import "OrderShopModel.h"
+#import "PlaceholderTextView.h"
+
 
 @interface MovieCommentViewController ()<UITableViewDataSource,UITableViewDelegate,UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextViewDelegate>
 
@@ -28,6 +30,11 @@
 @property (nonatomic,copy) NSString *point_type;
 //图片字符串数组
 @property (nonatomic,strong) NSMutableArray *imagePathArray;
+
+@property (nonatomic,strong)PlaceholderTextView * textView;
+@property (nonatomic,strong)UIButton * buttonPhoto;
+
+
 @end
 
 @implementation MovieCommentViewController
@@ -174,29 +181,30 @@
 #pragma mark - UITableViewDataSource
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return self.goodsModelArray.count+2;
+    return 3;
 }
 
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row <self.goodsModelArray.count) {
+    if (indexPath.row == 0) {
         MovieCommentFirstCell *firstCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieCommentFirstCell" owner:self options:nil] lastObject];
         firstCell.selectionStyle = UITableViewCellSelectionStyleNone;
         
         MyOrderGoodsModel *model = self.goodsModelArray[indexPath.row];
-        [firstCell config:model];
+//        [firstCell config:model];
         
         return firstCell;
-    }else if (indexPath.row == self.goodsModelArray.count){
-        MovieCommentSecondCell *secondCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieCommentSecondCell" owner:self options:nil] lastObject];
+    }else if (indexPath.row == 1){
         
+        static NSString * cellID = @"cellID";
+        
+        MovieCommentSecondCell *secondCell = [[MovieCommentSecondCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         [self setCommentBtnTagret:secondCell];
-        
         secondCell.selectionStyle = UITableViewCellSelectionStyleNone;
         return secondCell;
     }
-    else if (indexPath.row == self.goodsModelArray.count+1){
+    else if (indexPath.row == 2){
         MovieCommentThirdCell *thirdCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieCommentThirdCell" owner:self options:nil] lastObject];
         [self setChooseStarRank:thirdCell];
         thirdCell.selectionStyle = UITableViewCellSelectionStyleNone;
@@ -229,9 +237,9 @@
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    if (indexPath.row <self.goodsModelArray.count) {
+    if (indexPath.row == 0) {
         return 100;
-    }else if (indexPath.row == self.goodsModelArray.count){
+    }else if (indexPath.row == 1){
         return 260;
     }
     
@@ -259,75 +267,10 @@
 
 #pragma mark - 给cell添加点击事件
 - (void)setCommentBtnTagret:(MovieCommentSecondCell *)cell
-{
-    if (self.selectedBtn) {
-        NSLog(@"被选中按钮的 --> %zd",self.selectedBtn.tag);
-        
-        //判断是否已经选中评论等级,避免传照片时被刷新掉
-        UIButton *chooseBtn = (UIButton *)[cell viewWithTag:self.selectedBtn.tag];
-        chooseBtn.selected = YES;
-    }
-    
-    cell.textView.delegate = self;
-    cell.textView.text = self.commentStr;
-    
-    [cell.goodBtn1 addTarget:self action:@selector(changeGoodCommentEvalueStatue:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.goodBtn2 addTarget:self action:@selector(changeGoodCommentEvalueStatue:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.mediumBtn1 addTarget:self action:@selector(changeGoodCommentEvalueStatue:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.mediumBtn2 addTarget:self action:@selector(changeGoodCommentEvalueStatue:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.barelyBtn1 addTarget:self action:@selector(changeGoodCommentEvalueStatue:) forControlEvents:UIControlEventTouchUpInside];
-    [cell.barelyBtn2 addTarget:self action:@selector(changeGoodCommentEvalueStatue:) forControlEvents:UIControlEventTouchUpInside];
-    
+{   self.textView = cell.textView;
+    self.buttonPhoto = cell.cameraBtn;
     [cell.cameraBtn addTarget:self action:@selector(takeCommentPictureAction:) forControlEvents:UIControlEventTouchUpInside];
-    
-    if (self.imagePathArray.count == self.imageArray.count) {
-        if (_imageArray.count) {
-            
-            @try {
-                for (NSInteger i = 0;i <_imageArray.count;i++)
-                {
-                    UIView *pictureBgView = (UIView *)[cell viewWithTag:400+i];
-                    pictureBgView.hidden = NO;
-                    UIImageView *imageView = (UIImageView *)[pictureBgView viewWithTag:100];
-//                    UIButton *delectBtn = (UIButton *)[pictureBgView viewWithTag:200];
-//                    [delectBtn addTarget:self action:@selector(delecteCurrentChooeseImage:) forControlEvents:UIControlEventTouchUpInside];
-                    imageView.image = _imageArray[i];
-                }
-            }
-            @catch (NSException *exception) {
-                
-            }
-            @finally {
-                
-            }
-            
-            
-        }
-    }
-    
 }
-
-//#pragma mark - 删除当前选中的图片
-//- (void)delecteCurrentChooeseImage:(UIButton *)button
-//{
-//    UIView *buttonBgView = (UIView *)button.superview;
-//    NSInteger index = buttonBgView.tag - 400;
-//    
-//    @try {
-//        [self.imageArray removeObjectAtIndex:index];
-//        [self.imagePathArray removeObjectAtIndex:index];
-//    }
-//    @catch (NSException *exception) {
-//        
-//    }
-//    @finally {
-//        
-//    }
-//    
-//    
-//    NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-//    [self.mainTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO];
-//}
 
 
 #pragma mark -- 好评/中评/差评
@@ -557,34 +500,19 @@
     [HUD show:YES];
     
     [HttpRequestServers postImageRequest:Image_upload UIImage:postImage parameters:nil requestFinish:^(id result) {
-        
         NSLog(@"上传图片成功 --> %@",result);
-        
         NSDictionary *dict = (NSDictionary *)result;
         if ([dict[@"status"] isEqualToString:@"f99"]) {
-            
             HUD.labelText = @"添加成功";
-            NSString *imagePath = [DeliveryUtility nullString:dict[@"image_url"]];
-            
-            
-            //上传成功之后添加
-            [self.imagePathArray addObject:imagePath];
-            [self.imageArray addObject:originImage];
-            
-            [self.mainTableView reloadData];
-//            NSIndexPath *indexPath = [NSIndexPath indexPathForRow:1 inSection:0];
-//            [self.mainTableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:NO];
-            
+            [self.buttonPhoto setBackgroundImage:originImage forState:UIControlStateNormal];
+             [HUD hide:YES afterDelay:1.25];
         }
         else
         {
             [DeliveryUtility showMessage:dict[@"msg"] target:self];
         }
-        
         [HUD hide:YES afterDelay:0.25];
-        
     } requestField:^{
-        
         HUD.labelText = @"上传成功";
         [HUD hide:YES afterDelay:0.25];
     }];
@@ -595,15 +523,5 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end
