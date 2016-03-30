@@ -124,7 +124,11 @@
 //49.短信验证接口
 #define TIMessage_Verifed [NSString stringWithFormat:@"%@user/code",HttpUrlLeft]
 
+//50.延迟收货 
+#define TIOrder_Delay [NSString stringWithFormat:@"%@order/delay",HttpUrlLeft]
 
+//51.订单评论
+#define TIOrder_Evaluate [NSString stringWithFormat:@"%@order/evaluate",HttpUrlLeft]
 
 //APPDELEGATE单类
 #define APP_DELEGATE ((AppDelegate *)[[UIApplication sharedApplication] delegate])

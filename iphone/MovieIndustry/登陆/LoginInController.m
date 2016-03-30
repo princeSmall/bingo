@@ -129,6 +129,7 @@
         [self.timer invalidate];
         self.timeLabel.text =@"重新发送";
         self.sendCodeButton.enabled = YES;
+        _codeString = nil;
     }
 }
 

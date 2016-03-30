@@ -33,32 +33,6 @@
     // Dispose of any resources that can be recreated.
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 - (void)setNavTabBar1:(NSString *)title
 {
     UILabel *ntitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];

@@ -396,7 +396,7 @@
 #warning 缺少送货方式字段
        // cell.deliveryWay
         cell.price.text = [NSString stringWithFormat:@"￥%.2f",[good.goods_price floatValue]];
-        cell.yajinLabel.text = @"￥100.00";
+        cell.yajinLabel.text = good.goods_deposit;
         cell.address.text = good.local_name;
         cell.typeLabel.hidden = YES;
         if ([good.type isEqual:@"0"]) {

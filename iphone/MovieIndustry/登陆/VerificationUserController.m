@@ -72,6 +72,7 @@
         self.timer = nil;
         _currentNum = 60;
         self.senderBtn.enabled = YES;
+        _codeStr = nil;
     }
 
 }
@@ -108,6 +109,7 @@
                 NSDictionary *dict = result;
                 if ([dict[@"code"] intValue]==0)
                 {
+                    HHNSLog(@"%@",dict);
                     [DeliveryUtility showMessage:@"验证码已经发到你的手机，请查收" target:nil];
                     _codeStr = dict[@"data"][@"code"];
                     ///发送成功之后按钮不可点击 然后倒计时
@@ -126,6 +128,10 @@
             }];
 }
 
-
+-(void)viewDidDisappear:(BOOL)animated
+{
+    [super viewDidDisappear:YES];
+    _codeStr = nil;
+}
 
 @end

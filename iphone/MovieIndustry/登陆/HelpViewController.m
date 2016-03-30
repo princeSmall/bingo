@@ -88,6 +88,11 @@
 //        [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号"];
         [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
     }else
+        if([self.phoneTextField.text isEqualToString:self.currentPhoneLabel.text])
+        {
+            [DeliveryUtility showMessage:@"手机号码不正确" target:nil];
+        }
+    else
     {
         if (self.phoneTextField.text.length < 11) {
 //            [PromptLabel custemAlertPromAddView:self.view text:@"手机号不正确"];
@@ -96,12 +101,12 @@
         {
             NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.phoneTextField.text,@"mobile", nil];
             
-            [HttpRequestServers requestBaseUrl:Send_note_login withParams:userDict withRequestFinishBlock:^(id result) {
+            [HttpRequestServers requestBaseUrl:TIMessage_Verifed withParams:userDict withRequestFinishBlock:^(id result) {
                 
                 NSDictionary *dict = result;
                 HHNSLog(@"%@",dict);
-                if ([dict[@"status"] isEqualToString:@"f99"]) {
-//                    PromptLabel *prom = [[PromptLabel alloc] initWithString:@"验证码已发送到您手机，请查收"];
+                if ([dict[@"code"]intValue] == 0) {
+                    NSDictionary *userInfo = dict[@"data"];//                    PromptLabel *prom = [[PromptLabel alloc] initWithString:@"验证码已发送到您手机，请查收"];
                     
 //                    prom.frame = CGRectMake(0, 0, 120, 50);
 //                    prom.center=CGPointMake(kViewWidth/2,kViewHeight*0.3);
@@ -109,7 +114,7 @@
 //                    [prom MyViewRemove];
                      [DeliveryUtility showMessage:@"验证码已发送到您的手机，请查收" target:nil];
                     
-                    _codeString = dict[@"code"];
+                    _codeString = userInfo[@"code"];
                     NSLog(@"_____%@",_codeString);
                     ///发送成功之后按钮不可点击 然后倒计时
                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
@@ -148,6 +153,7 @@
 //        [self.sendCodeButton setTitle:@"重新发送" forState:UIControlStateNormal];
         self.textLabel.text = @"重新发送";
         self.sendCodeButton.enabled = YES;
+        _codeString = nil;
     }
 }
 
