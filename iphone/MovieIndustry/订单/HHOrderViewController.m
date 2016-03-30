@@ -487,7 +487,6 @@
     NSDictionary *goodsModel1= goodsArray[indexPath.row];
     
     NSMutableDictionary * goodsModel = [NSMutableDictionary dictionaryWithDictionary:goodsModel1];
-      goodsModel[@"goods_deposit"] = @"100.00";
     AllOrderCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
     if (!cell) {
         cell = [[[NSBundle mainBundle] loadNibNamed:@"AllOrderCell" owner:nil options:nil]lastObject];

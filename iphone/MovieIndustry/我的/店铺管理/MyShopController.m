@@ -102,8 +102,7 @@
      CGSize size = [shopName sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
     CGFloat nameW = screenWidth-255;
     float n = size.width/(int)nameW;
-    
-    CGFloat nameH = size.width/(int)nameW * size.height;
+    CGFloat nameH = ceilf(n) * size.height;
     //CGFloat nameW = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-230 andFont:DefaultFont].width;
     // CGFloat nameH = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-130 andFont:DefaultFont].height;
     CGRect nameFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+15, CGRectGetMinY(_shopImageView.frame)+10 , nameW, nameH);
@@ -123,7 +122,8 @@
     //店铺简介
     CGSize brifySize = [shopBrify sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
     CGFloat brifyW = screenWidth-170;
-    CGFloat brifyH =brifySize.width/(int)brifyW *brifySize.height;
+    
+    CGFloat brifyH =ceilf(brifySize.width/(int)brifyW )*brifySize.height;
     CGRect brifyFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+20, CGRectGetMaxY(self.shopNameLabel.frame)+10, brifyW, brifyH);
     
     self.shopDescLabel = [WNController createLabelWithFrame:brifyFrame Font:13 Text:shopBrify textAligment:NSTextAlignmentLeft];
