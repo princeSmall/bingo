@@ -737,6 +737,9 @@
     chat.title = @"KM1";
     UIColor * color = [UIColor whiteColor];
     NSDictionary * dict=[NSDictionary dictionaryWithObject:color forKey:UITextAttributeTextColor];
+    
+    chat.navigationItem.leftBarButtonItem = 
+    
     chat.navigationController.navigationBar.titleTextAttributes = dict;
 //        [chat setValue:[UIColor whiteColor] forKey:@"titleColor"];
     //显示聊天会话界面

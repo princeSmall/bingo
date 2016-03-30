@@ -74,7 +74,7 @@
 
 @property (nonatomic,strong)NSString * goodsDes;
 @property (nonatomic,strong)UILabel * labelDes;
-
+@property (nonatomic,strong)RCConversationViewController * chat;
 @end
 
 @implementation MovieGoodsInfoViewController
@@ -770,14 +770,35 @@
     chat.targetId = @"KM1";
     //设置聊天会话界面要显示的标题
     chat.title = @"KM1";
+    self.chat = chat;
     [chat setMessageAvatarStyle:1];
 //        [chat setValue:[UIColor whiteColor] forKey:@"titleColor"];
     chat.displayUserNameInCell = YES;
-
+    UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 20, 20)];
+    [leftBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
+    //添加点击事件
+    [leftBtn addTarget:self action:@selector(backAction1WithController:) forControlEvents:UIControlEventTouchUpInside];
+    [leftBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
+    //    [self.navigationController.navigationBar addSubview:leftBtn];
+    
+    //设置TabBar左边的按钮
+    UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
+    [chat.navigationItem setLeftBarButtonItem:backItem];
     //显示聊天会话界面
     [self.navigationController pushViewController:chat animated:YES];
 
 }
+- (void)setBackItem
+{
+
+}
+
+- (void)backAction1WithController:(RCConversationViewController *)chat
+{
+    [self.chat.navigationController popViewControllerAnimated:YES];
+}
+
+
 
 #pragma mark - 进入商品所在店铺
 - (void)enterGoodMainShop:(id)sender
