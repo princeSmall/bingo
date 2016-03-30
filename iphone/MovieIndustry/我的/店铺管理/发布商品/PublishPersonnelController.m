@@ -141,7 +141,7 @@
             
             self.yajinSwitch.on = NO;}
         [self.imagePathArray removeAllObjects];
-        for (int i = 0; i < 5; i ++) {
+        for (int i = 0; i < self.desModel.imgs.count; i ++) {
             [self.imagePathArray addObject:self.desModel.imgs[i]];
         }
         
@@ -151,7 +151,7 @@
 //        self.deliveryMethod.text = self.desModel.goods_express;
         self.textViewBriefly.text = self.desModel.goods_desc;
         
-        for (int i = 0;i < 5; i ++) {
+        for (int i = 0;i < self.desModel.imgs.count; i ++) {
             NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.desModel.imgs[i]]];
             UIImage *image =[UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
             if (image) {
@@ -622,8 +622,14 @@
             
             
             [HUD hide:YES afterDelay:1.5];
-            
-            [self.imagePathArray replaceObjectAtIndex:_imageIndex withObject:string];
+            if(self.imagePathArray.count==5)
+            {
+                [self.imagePathArray replaceObjectAtIndex:_imageIndex withObject:string];
+            }
+            else
+            {
+                [self.imagePathArray addObject:string];
+            }
             
         }
     }];

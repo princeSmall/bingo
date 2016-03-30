@@ -65,7 +65,6 @@
     [self setNavTabBar:@"商品管理"];
     [self createGoodManangeView];
     [self setupTableViewRefresh];
-//    [self requestMineAllManagerGoods];
     [self ReloadDataNew];
 }
 
@@ -75,7 +74,7 @@
     _allPage = 0;
     [self.allGoodsArray removeAllObjects];
     _currentIndex = 0;
-    [self requestMineAllManagerGoods];
+    [self requestMineAllManagerGoods:_allPage];
     
 }
 
@@ -151,7 +150,7 @@
     if (0 == _chooseIndex) {
         
         _allPage = 1;
-        [self requestMineAllManagerGoods];
+        [self requestMineAllManagerGoods:_allPage];
     }
     else
     {
@@ -161,9 +160,8 @@
 }
 
 #pragma mark - 请求全部商品数据
-- (void)requestMineAllManagerGoods
+- (void)requestMineAllManagerGoods:(int)page
 {
-    _currentIndex ++;
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"正在加载";
     [HUD show:YES];
@@ -171,12 +169,16 @@
     
     NSMutableDictionary * dict = [NSMutableDictionary dictionary];
     dict[@"user_id"] = APP_DELEGATE.user_id;
-    dict[@"page"] = [NSString stringWithFormat:@"%d",_currentIndex];
+    dict[@"page"] = [NSString stringWithFormat:@"%d",page];
     [HttpRequestServers requestBaseUrl:TIShopGoods_GoodsList withParams:dict withRequestFinishBlock:^(id result) {
 
 #warning 这边返回后 需要修改 allgoodsarray的数据
 #warning 
 #warning 
+        if(page ==1)
+        {
+            self.allGoodsArray = [NSMutableArray array];
+        }
 
         HUD.labelText = @"加载成功";
         [HUD hide:YES];
@@ -315,7 +317,7 @@
     if (0 == _chooseIndex) {
         _allPage = 1;
 //        [self.mainTableView.header beginRefreshing];
-        [self requestMineAllManagerGoods];
+        [self requestMineAllManagerGoods:_allPage];
     }
     else{
         _rentPage = 1;
@@ -636,7 +638,7 @@
             
             //全部商品
             _allPage = 1;
-            [self requestMineAllManagerGoods];
+            [self requestMineAllManagerGoods:_allPage];
         }
         else
         {
@@ -652,7 +654,7 @@
             
             //全部商品
             _allPage++;
-            [self requestMineAllManagerGoods];
+            [self requestMineAllManagerGoods:_allPage];
         }
         else
         {
