@@ -212,7 +212,7 @@
                     ordelModel.shop_status = ordelDcit[@"shop_status"];
                     ordelModel.order_shops = ordelDcit[@"order_shops"];
                     NSLog(@"%@",ordelModel.order_shops);
-                    ordelModel.status = ordelDcit[@"status"];
+                    ordelModel.status = [NSString stringWithFormat:@"%d",[ordelDcit[@"status"] intValue]];
                     
                     [self.orderArray addObject:ordelModel];
                     ///遍历商品数组 ///添加可变数组
@@ -238,10 +238,7 @@
                             goodsDetailModel.goods_number = goodsDetailDic[@"goods_number"];
                             goodsDetailModel.goods_price = goodsDetailDic[@"goods_price"];
                             goodsDetailModel.name_value_str = goodsDetailDic[@"name_value_str"];
-#warning 后台没有返回 我前台写死数据
-#warning 后台没有返回 我前台写死数据
-#warning 后台没有返回 我前台写死数据
-                            goodsDetailModel.goods_deposit = @"100";
+                            goodsDetailModel.goods_deposit = goodsDetailDic[@"goods_deposit"];
                             
                             goodsDetailModel.img_path =goodsDetailDic[@"img_path"];
                              [self.goodsArray addObject:goodsDetailModel];
@@ -257,9 +254,7 @@
                     if (ordelDcit[@"order_shops"]) {
                         [self.dataArray addObject:ordelModel];
                     }
-                    
 
-                    
                 }
                 
                 HUD.labelText = @"加载成功";
@@ -268,7 +263,7 @@
                 //结束刷新
                 [_tbView.header endRefreshing];
                 [_tbView.footer endRefreshing];
-                //                HHNSLog(@"shopArray --> %@ goodsArray----->%@",self.shopArray,self.dataArray);
+
             }else
             {
                 
@@ -603,9 +598,8 @@
         int amount = 0;
         for(NSDictionary *goodsDict in arrGoods)
         {
-#warning 写死的数据
             number += [goodsDict[@"goods_number"] intValue];
-            amount += [goodsDict[@"goods_number"] intValue] *([goodsDict[@"goods_price"] intValue] + 100);
+            amount += [goodsDict[@"goods_number"] intValue] *([goodsDict[@"goods_price"] intValue] +[goodsDict[@"goods_deposit"] intValue]);
         }
         
          ///设置订单按钮
@@ -620,7 +614,7 @@
         tbFooterView.rightBtn.tag = 20000+section;
 //        [tbFooterView.rightBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         //tbFooterView.goodsPriceTotalLabel.text = [NSString stringWithFormat:@"%@",];
-        [self checkCellBtnStatue:tbFooterView orderStatus:order.status];
+        [self checkCellBtnStatue:tbFooterView orderStatus:order.order_status status:order.status];
         
     }
     
@@ -644,22 +638,35 @@
 
 
 #pragma mark - 根据切换状态改变cell的btn点击事件
-- (void)checkCellBtnStatue:(MyOrderCellFooter *)view orderStatus:(NSString *)orderStatus
+- (void)checkCellBtnStatue:(MyOrderCellFooter *)view
+               orderStatus:(NSString *)orderStatus
+                    status:(NSString *)status
 {
     
-    //0 待付款 1 待发货 2 已发货 3 待评价  4 已取消
+  
 //    _btnType 0:全部 1:待付款 2:待发货 3:待收货 4:待评价
         
-    switch ([orderStatus integerValue]) {
+    switch ([status intValue]) {
+        case 0:
+        {
+            if([orderStatus intValue]==9)
+            {
+                view.leftBtn.hidden = YES;
+                UIColor *btnColor = RGBColor(251, 0, 6, 1);
+                [view.rightBtn setTitle:@"确认收货" forState:UIControlStateNormal];
+                view.rightBtn.layer.borderColor = btnColor.CGColor;
+                [view.rightBtn addTarget:self action:@selector(comfirmReceiveMineGood:) forControlEvents:UIControlEventTouchUpInside];
+                
+            }
+            
+        }
+            break;
         case 1:
         {
             [view.leftBtn setTitle:@"取消订单" forState:UIControlStateNormal];
-//            [view.leftBtn addTarget:self action:@selector(cancelMineOrderAction:) forControlEvents:UIControlEventTouchUpInside];
-               [view.leftBtn addTarget:self action:@selector(applyRefundAction:) forControlEvents:UIControlEventTouchUpInside];
-//            applyRefundAction:
+            [view.leftBtn addTarget:self action:@selector(applyRefundAction:) forControlEvents:UIControlEventTouchUpInside];
             UIColor *btnColor = RGBColor(251, 0, 6, 1);
             [view.rightBtn setTitle:@"付款" forState:UIControlStateNormal];
-//            [view.rightBtn setTitleColor:btnColor forState:UIControlStateNormal];
             view.rightBtn.layer.borderColor = btnColor.CGColor;
             [view.rightBtn addTarget:self action:@selector(payForMineOrder:) forControlEvents:UIControlEventTouchUpInside];
         }
@@ -674,12 +681,14 @@
             break;
         case 3:
         {
-            [view.leftBtn setTitle:@"延迟收货" forState:UIControlStateNormal];
-            [view.leftBtn addTarget:self action:@selector(checkoutOrderDelivery:) forControlEvents:UIControlEventTouchUpInside];
+            if([orderStatus intValue]!=9)
+            {
+                [view.leftBtn setTitle:@"延迟收货" forState:UIControlStateNormal];
+                [view.leftBtn addTarget:self action:@selector(orderDelay:) forControlEvents:UIControlEventTouchUpInside];
+            }
             
             UIColor *btnColor = RGBColor(251, 0, 6, 1);
             [view.rightBtn setTitle:@"确认收货" forState:UIControlStateNormal];
-//            [view.rightBtn setTitleColor:btnColor forState:UIControlStateNormal];
             view.rightBtn.layer.borderColor = btnColor.CGColor;
          
             [view.rightBtn addTarget:self action:@selector(comfirmReceiveMineGood:) forControlEvents:UIControlEventTouchUpInside];
@@ -692,7 +701,6 @@
             
             UIColor *btnColor = RGBColor(251, 0, 6, 1);
             [view.rightBtn setTitle:@"评价" forState:UIControlStateNormal];
-//            [view.rightBtn setTitleColor:btnColor forState:UIControlStateNormal];
             view.rightBtn.layer.borderColor = btnColor.CGColor;
             [view.rightBtn addTarget:self action:@selector(gotoCommentView:) forControlEvents:UIControlEventTouchUpInside];
         }
@@ -704,7 +712,6 @@
             
             UIColor *btnColor = RGBColor(251, 0, 6, 1);
             [view.rightBtn setTitle:@"删除订单" forState:UIControlStateNormal];
-//            [view.rightBtn setTitleColor:btnColor forState:UIControlStateNormal];
             view.rightBtn.layer.borderColor = btnColor.CGColor;
             [view.rightBtn addTarget:self action:@selector(deleteOrder:) forControlEvents:UIControlEventTouchUpInside];
             
@@ -895,7 +902,6 @@
 
         for(NSDictionary *goodsDict in arrGoods)
         {
-#warning 写死的数据
             number += [goodsDict[@"goods_number"] intValue];
             amount += [goodsDict[@"goods_number"] intValue] *([goodsDict[@"goods_price"] intValue] + 100);
         }
@@ -947,6 +953,32 @@
 //    }];
 }
 
+#pragma mark --延迟收货
+-(void)orderDelay:(UIButton *)button
+{
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.labelText = @"正在加载";
+    NSMutableDictionary *params = [NSMutableDictionary dictionary];
+    [params setValue:APP_DELEGATE.user_id forKey:@"user_id"];
+    NSInteger section = button.tag-10000;
+    OrderGoodsModel *model =  self.shopArray[section];
+    [params setValue:model.order_id forKey:@"order_id"];
+    
+    [HttpRequestServers requestBaseUrl:TIOrder_Delay withParams:params withRequestFinishBlock:^(id result) {
+        NSDictionary *dict = result;
+        HHNSLog(@"%@",dict);
+        if([dict[@"code"] intValue]==0)
+        {
+            HUD.labelText = dict[@"message"];
+            [HUD hide:YES afterDelay:3];
+            
+        }
+        
+        
+    } withFieldBlock:^{
+        
+    }];
+}
 #pragma mark -- 查看物流
 - (void)checkoutOrderDelivery:(UIButton *)button
 {

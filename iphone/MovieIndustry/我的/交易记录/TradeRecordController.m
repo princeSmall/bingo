@@ -345,7 +345,7 @@
 
     TradeHeadCell *cell = [[[NSBundle mainBundle]loadNibNamed:@"TradeHeadCell" owner:self options:nil] lastObject];
     cell.shopNameLabel.text = dic[@"shop_name"];
-    cell.orderStatus.text = [self orderStatusWithString:data.status];
+    cell.orderStatus.text = [self orderStatusWithString:[NSString stringWithFormat:@"%d",data.status]];
     
     
     return cell;
