@@ -24,6 +24,8 @@
 #import "OrderDataModel.h"
 #import "OrderGoodsModel.h"
 #import "OrderShopModel.h"
+#import "MovieCommentListViewController.h"
+
 
 #import "PayOrderController.h"
 
@@ -781,10 +783,23 @@
 #pragma mark - 进入评价页面
 - (void)gotoCommentView:(UIButton *)sender
 {
-
-   MovieCommentViewController *commentVC = [[MovieCommentViewController alloc] init];
-    [commentVC setHidesBottomBarWhenPushed:YES];
-   [self.navigationController pushViewController:commentVC animated:YES];
+    int a = (int)sender.tag -20000;
+    OrderDataModel * dataModel = self.dataArray[a];
+    APP_DELEGATE.orderid = dataModel.order_id;
+    NSDictionary * dict = dataModel.order_shops[0];
+    NSArray * goodsArray = dict[@"shop_goods"];
+    
+    if (goodsArray.count == 1) {
+        MovieCommentViewController *commentVC = [[MovieCommentViewController alloc] init];
+        commentVC.goodsModel = goodsArray[0];
+        [commentVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:commentVC animated:YES];
+    }else{
+        MovieCommentListViewController * comm = [[MovieCommentListViewController alloc]init];
+        comm.goodsArray = goodsArray;
+        [comm setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:comm animated:YES];
+    }
 }
 
 

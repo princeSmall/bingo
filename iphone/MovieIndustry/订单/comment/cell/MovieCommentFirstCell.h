@@ -9,8 +9,9 @@
 #import <UIKit/UIKit.h>
 #import "MyOrderGoodsModel.h"
 @interface MovieCommentFirstCell : UITableViewCell
+@property (strong, nonatomic) IBOutlet UIImageView *goodImg;//商品图片
+@property (strong, nonatomic) IBOutlet UILabel *goodName;//商品名称
+@property (strong, nonatomic) IBOutlet UILabel *goodPrice;//商品价格
 
-
-- (void)config:(MyOrderGoodsModel *)model;
 
 @end

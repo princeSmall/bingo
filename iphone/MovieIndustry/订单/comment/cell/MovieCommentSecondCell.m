@@ -34,6 +34,7 @@
     self.textView.font = [UIFont systemFontOfSize:16];
     self.textView.layer.cornerRadius = 10;
     self.textView.layer.masksToBounds = YES;
+    self.textView.Placeholder = @"写点什么吧";
     self.textView.layer.borderColor = [UIColor colorWithRed:193.0f/255.0f green:193.0f/255.0f blue:193.0f/255.0f alpha:1].CGColor;
     self.textView.layer.borderWidth = 1;
     [self addSubview:self.textView];

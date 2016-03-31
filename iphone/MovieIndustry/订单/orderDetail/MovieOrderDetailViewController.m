@@ -19,6 +19,8 @@
 #import "OrderGoodsModel.h"
 #import "OrderShopModel.h"
 #import "PayOrderController.h"
+#import "MovieCommentListViewController.h"
+
 
 #define BTN_TAG_START 300
 
@@ -455,13 +457,46 @@
 #pragma mark - 评论按钮被点击
 - (void)commentMineOrderBtnClicked:(UIButton *)button
 {
-    MyOrderShopModel *shopModel = self.shopsArray[0];
-    NSArray *goodsModelArray = self.goodsArray[0];
-    HHNSLog(@"评论按钮被点击");
-    MovieCommentViewController *commentVC = [[MovieCommentViewController alloc] init];
-    commentVC.shopModel = shopModel;
-    commentVC.goodsModelArray = goodsModelArray;
-    [self.navigationController pushViewController:commentVC animated:YES];
+    NSArray * goodsArray = self.shopModel.shop_goods;
+    if (goodsArray.count == 1) {
+        MovieCommentViewController *commentVC = [[MovieCommentViewController alloc] init];
+        OrderGoodsModel * model = goodsArray[0];
+        NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+        dict[@"order_id"] = model.order_id;
+        dict[@"shop_id"] = model.shop_id;
+        dict[@"goods_id"] = model.goods_id;
+        dict[@"goods_name"] = model.goods_name;
+        dict[@"goods_number"] = model.goods_number;
+        dict[@"goods_price"] = model.goods_price;
+        dict[@"name_value_str"] = model.name_value_str;
+        dict[@"img_path"] = model.img_path;
+        dict[@"goods_deposit"] = model.goods_deposit;
+        commentVC.goodsModel = dict;
+        [commentVC setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:commentVC animated:YES];
+    }else{
+        MovieCommentListViewController * comm = [[MovieCommentListViewController alloc]init];
+        
+        NSMutableArray * arr =[NSMutableArray array];
+        
+        for (OrderGoodsModel * model in goodsArray) {
+            NSMutableDictionary * dict = [NSMutableDictionary dictionary];
+            dict[@"order_id"] = model.order_id;
+            dict[@"shop_id"] = model.shop_id;
+            dict[@"goods_id"] = model.goods_id;
+            dict[@"goods_name"] = model.goods_name;
+            dict[@"goods_number"] = model.goods_number;
+            dict[@"goods_price"] = model.goods_price;
+            dict[@"name_value_str"] = model.name_value_str;
+            dict[@"img_path"] = model.img_path;
+            dict[@"goods_deposit"] = model.goods_deposit;
+            [arr addObject:dict];
+        }
+        comm.goodsArray = arr;
+        [comm setHidesBottomBarWhenPushed:YES];
+        [self.navigationController pushViewController:comm animated:YES];
+    }
+
 }
 
 #pragma mark - 删除订单按钮被点击

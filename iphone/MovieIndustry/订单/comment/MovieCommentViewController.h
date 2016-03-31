@@ -11,9 +11,11 @@
 #import <AVFoundation/AVMediaFormat.h>
 #import <AssetsLibrary/AssetsLibrary.h>
 #import "MyOrderShopModel.h"
+#import "OrderGoodsModel.h"
 
 @interface MovieCommentViewController : BaseViewController
 //店铺信息，一个店铺一个订单模型
 @property (nonatomic,strong) MyOrderShopModel *shopModel;
+@property (nonatomic,strong) NSDictionary * goodsModel;
 @property (nonatomic,strong) NSArray *goodsModelArray;
 @end

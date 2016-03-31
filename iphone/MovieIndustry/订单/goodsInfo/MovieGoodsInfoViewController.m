@@ -22,7 +22,7 @@
 #import <ShareSDK/ShareSDK.h>
 
 #import "GoodDesModel.h"
-
+#import "GoodCommitFrame.h"
 
 @interface MovieGoodsInfoViewController ()<ShareViewDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
 ///底部的View
@@ -272,19 +272,13 @@
     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleDefault];
     [self setNavBack];
     [self loadGoodsData];
-    
-    
 }
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-    
+    self.tbView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setNavTabBar:@""];
-    
     [self createTableView];
-    
     self.goodsMaxBought = @"";
     self.btnType = @"0";
     self.page = 1;
@@ -333,8 +327,12 @@
     if ([self.btnType isEqualToString:@"0"]) {
          CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
         return size.height+5;
+    }else{
+    
+        GoodCommitFrame * Gframe = self.commentArray[indexPath.row];
+        return Gframe.cellHeigth;
     }
-    return 86;
+    
 }
 -(CGSize)caculateContentSizeWithContent:(NSString *)content AndWidth:(CGFloat)width andFont:(UIFont *)font{
     CGSize size = [content boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:font} context:nil].size;
@@ -350,14 +348,9 @@
         UITableViewCell *webCell = [tableView dequeueReusableCellWithIdentifier:webCellID];
         if (!webCell) {
             webCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:webCellID];}
-            CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
-            self.labelDes = [[UILabel alloc]initWithFrame:CGRectMake(10,0,kViewWidth-1,size.height)];
-            self.labelDes.textColor = [UIColor blackColor];
-            self.labelDes.numberOfLines = 0;
-        self.labelDes.backgroundColor = [UIColor clearColor];
-            self.labelDes.text = self.goodsDes;
-            [webCell.contentView addSubview:self.labelDes];
-        webCell.backgroundColor = [UIColor clearColor];
+        webCell.textLabel.numberOfLines = 0;
+        webCell.textLabel.textColor = [UIColor colorWithWhite:0.396 alpha:1.000];
+        webCell.textLabel.text = self.goodsDes;
         webCell.selectionStyle = UITableViewCellSelectionStyleNone;
         self.tbView.scrollsToTop = YES;
         return webCell;
@@ -367,12 +360,12 @@
         static NSString *cellID = @"goodsDetailCellID";
         GoodsDetailTableCell *cell = [tableView dequeueReusableCellWithIdentifier:cellID];
         if (!cell) {
-            cell = [[[NSBundle mainBundle] loadNibNamed:@"GoodsDetailTableCell" owner:self options:nil] lastObject];
+            cell = [[GoodsDetailTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
-        cell.selectionStyle = UITableViewCellSelectionStyleNone;
+        GoodCommitFrame *gf = self.commentArray[indexPath.row];
         
-//        GoodsCommentModel *goodsModel = self.commentArray[indexPath.row];
-//        [cell config:goodsModel];
+        cell.Gframe = gf;
+        cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
     
@@ -620,9 +613,9 @@
     [self.view addSubview:leftView];
     [self.view addSubview:leftBtn];
 
-    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-50, 33, 30, 30) ImageName:@"point_info"];
+    UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-38, 33, 30, 30) ImageName:@"point_info"];
     
-    UIView * rightView = [[UIView alloc]initWithFrame:CGRectMake(kViewWidth-50, 30, 30, 30)];
+    UIView * rightView = [[UIView alloc]initWithFrame:CGRectMake(kViewWidth-38, 30, 30, 30)];
     rightView.layer.cornerRadius = 15;
     rightView.alpha = 0.7;
     rightView.layer.masksToBounds = YES;
@@ -630,7 +623,7 @@
     [self.view addSubview:rightView];
     [self setNavRightImage:@"point_info" rightAction:@selector(shareAction)];
     [self.view addSubview:rightImage];
-    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(kViewWidth-50, 30, 40, 40)];
+    UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(kViewWidth-38, 30, 40, 40)];
         [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
     [rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
@@ -1168,6 +1161,7 @@
                 
             }
             [weakSelf createUI];
+            [weakSelf.tbView reloadData];
             
 
         }
@@ -1191,27 +1185,23 @@
 #pragma mark - 加载评论数据
 - (void)loadCommentMessage
 {
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.goodsId,@"deal_id",[NSString stringWithFormat:@"%ld",self.page],@"p", nil];
-    [HttpRequestServers requestBaseUrl:Shop_deal_message withParams:userDict withRequestFinishBlock:^(id result) {
+    NSMutableDictionary * userDict = [NSMutableDictionary dictionary];
+    userDict[@"user_id"] = APP_DELEGATE.user_id;
+    userDict[@"goods_id"] = self.goodsId;
+    [self.commentArray removeAllObjects];
+    [HttpRequestServers requestBaseUrl:TIGoods_Evaluatelist withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
-        HHNSLog(@"dict %@,%@",Shop_deal_message,dict);
         @try {
-            if ([dict[@"status"] isEqualToString:Status_Success])
+            if ([dict[@"code"]intValue] == 0)
             {
-                if (self.page == 1) {
-                    [self.commentArray removeAllObjects];
-                }
-                
-                for (NSDictionary *listDict in dict[@"list"]) {
-                    GoodsCommentModel *model = [[GoodsCommentModel alloc] init];
-                    model.content = [WNController nullString:listDict[@"content"]];
-                    model.create_time = [WNController nullString:listDict[@"create_time"]];
-                    model.user_name = [WNController nullString:listDict[@"user_name"]];
-                    model.icon_img = [WNController nullString:listDict[@"icon_img"]];
-                    [self.commentArray addObject:model];
+                for (NSDictionary *listDict in dict[@"data"]) {
+                    GoodsCommentModel *model = [[GoodsCommentModel alloc] initWithDict:listDict];
                     
+                    GoodCommitFrame * Gframe = [[GoodCommitFrame alloc]init];
+                    Gframe.model = model;
+                    
+                    [self.commentArray addObject:Gframe];
                 }
-                
                 [_tbView reloadData];
                 [self.tbView reloadData];
             }

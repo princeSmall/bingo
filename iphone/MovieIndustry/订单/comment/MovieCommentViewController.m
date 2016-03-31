@@ -34,6 +34,7 @@
 @property (nonatomic,strong)PlaceholderTextView * textView;
 @property (nonatomic,strong)UIButton * buttonPhoto;
 
+@property (nonatomic,strong)NSString * imageName;
 
 @end
 
@@ -60,8 +61,12 @@
     self.commentStr = @"";
     self.point_type = @"";
     self.points =@"0";
-    
+    self.imageArray = [NSMutableArray array];
     [self setNavTabBar:@"评价"];
+    
+    
+
+    
     [self createCommentView];
 }
 
@@ -106,43 +111,33 @@
 {
     [self commentViewKeyBoradDown];
     NSLog(@"确定提交评价");
-    
-    if ([self.point_type isEqualToString:@""]) {
-//        [PromptLabel custemAlertPromAddView:self.view text:@"你还没选择评价哦"];
-    }else
-    {
-      if ([self.commentStr isEqualToString:@""])
+
+      if ([self.textView.text isEqualToString:@""])
         {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"请输入评价内容"];
+           [PromptLabel custemAlertPromAddView:self.view text:@"请输入评价内容"];
         }else
         {
             if ([self.points isEqualToString:@"0"]) {
-//                [PromptLabel custemAlertPromAddView:self.view text:@"请选择星级"];
+                [PromptLabel custemAlertPromAddView:self.view text:@"请选择星级"];
             }else
             {
-                
+                if (!self.imageName) {
+                    [PromptLabel custemAlertPromAddView:self.view text:@"请上传图片"];
+                }else{
                 MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 HUD.labelText = @"正在提交";
                 [HUD show:YES];
-                
                 //分割字符串
-                NSString *images = [self.imagePathArray componentsJoinedByString:@","];
-                
-                NSString *goodsIDS = @"";
-                for (MyOrderGoodsModel *model in self.goodsModelArray) {
-                    if ([goodsIDS isEqualToString:@""]) {
-                        goodsIDS = model.commentID;
-                    }else
-                    {
-                        goodsIDS = [NSString stringWithFormat:@"%@,%@",goodsIDS,model.commentID];
-                    }
-                }
-                
+                    NSMutableArray * iamgeArray = [NSMutableArray array];
+                    [iamgeArray addObject:self.imageName];
                 NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
-                HHNSLog(@"%@",userDict);
-                
-                
-                [HttpRequestServers requestBaseUrl:Shop_message_add withParams:userDict withRequestFinishBlock:^(id result) {
+                    userDict[@"user_id"] = APP_DELEGATE.user_id;
+                    userDict[@"order_id"] = APP_DELEGATE.orderid;
+                    userDict[@"content"] = self.textView.text;
+                    userDict[@"pics"] = iamgeArray;
+                    userDict[@"goods_id"] = self.goodsModel[@"goods_id"];
+                    userDict[@"score"] =self.points;
+                [HttpRequestServers requestBaseUrl:TIOrder_Evaluate withParams:userDict withRequestFinishBlock:^(id result) {
                     HHNSLog(@"%@",result);
                     NSDictionary *dict = result;
                     @try {
@@ -175,7 +170,7 @@
                 
             }
         }
-    }
+        }
 }
 
 #pragma mark - UITableViewDataSource
@@ -190,10 +185,9 @@
     if (indexPath.row == 0) {
         MovieCommentFirstCell *firstCell = [[[NSBundle mainBundle] loadNibNamed:@"MovieCommentFirstCell" owner:self options:nil] lastObject];
         firstCell.selectionStyle = UITableViewCellSelectionStyleNone;
-        
-        MyOrderGoodsModel *model = self.goodsModelArray[indexPath.row];
-//        [firstCell config:model];
-        
+        [firstCell.goodImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.goodsModel[@"img_path"]]]];
+        firstCell.goodName.text = self.goodsModel[@"goods_name"];
+        firstCell.goodPrice.text = self.goodsModel[@"goods_price"];
         return firstCell;
     }else if (indexPath.row == 1){
         
@@ -383,11 +377,6 @@
 {
     [self commentViewKeyBoradDown];
     
-    if (self.imageArray.count == 3) {
-        [DeliveryUtility showMessage:@"亲,最多只能上传三张图片哦~" target:self];
-        return;
-    }
-    
     UIActionSheet *sheetView = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选择", nil];
     [sheetView showInView:self.view];
 }
@@ -495,26 +484,27 @@
     NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
     CGFloat i = originImage.size.width/400;
     UIImage *postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
+     NSData * imageData = UIImagePNGRepresentation(postImage);
+    
     MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     HUD.labelText = @"添加图片中";
     [HUD show:YES];
     
-    [HttpRequestServers postImageRequest:Image_upload UIImage:postImage parameters:nil requestFinish:^(id result) {
-        NSLog(@"上传图片成功 --> %@",result);
-        NSDictionary *dict = (NSDictionary *)result;
-        if ([dict[@"status"] isEqualToString:@"f99"]) {
-            HUD.labelText = @"添加成功";
-            [self.buttonPhoto setBackgroundImage:originImage forState:UIControlStateNormal];
-             [HUD hide:YES afterDelay:1.25];
-        }
-        else
-        {
-            [DeliveryUtility showMessage:dict[@"msg"] target:self];
-        }
-        [HUD hide:YES afterDelay:0.25];
-    } requestField:^{
-        HUD.labelText = @"上传成功";
-        [HUD hide:YES afterDelay:0.25];
+    NSMutableDictionary * parameters = [NSMutableDictionary dictionary];
+    parameters[@"device"] = @"0";
+    parameters[@"stream"] = imageData;
+    parameters[@"flag"] = @"1";
+    [HttpRequestServers requestBaseUrl:TICommon_Uploadify withParams:parameters withRequestFinishBlock:^(id result) {
+        HUD.labelText = @"图片上传成功！";
+        [HUD hide:YES];
+        NSDictionary * dict = result[@"data"];
+        self.imageName = dict[@"img"];
+        [self.buttonPhoto setBackgroundImage:originImage forState:UIControlStateNormal];
+        [self.buttonPhoto setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
+        [HUD hide:YES afterDelay:1.25];
+    } withFieldBlock:^{
+        HUD.labelText = @"图片上传失败！";
+        [HUD hide:YES];
     }];
 }
 

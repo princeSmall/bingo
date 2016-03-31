@@ -130,6 +130,10 @@
 //51.订单评论
 #define TIOrder_Evaluate [NSString stringWithFormat:@"%@order/evaluate",HttpUrlLeft]
 
+//52、订单列表
+#define TIGoods_Evaluatelist [NSString stringWithFormat:@"%@goods/evaluatelist",HttpUrlLeft]
+
+
 //APPDELEGATE单类
 #define APP_DELEGATE ((AppDelegate *)[[UIApplication sharedApplication] delegate])
 

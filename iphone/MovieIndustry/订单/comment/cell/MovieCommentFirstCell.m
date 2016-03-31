@@ -10,21 +10,11 @@
 
 @interface MovieCommentFirstCell ()
 
-@property (strong, nonatomic) IBOutlet UIImageView *goodImg;//商品图片
-@property (strong, nonatomic) IBOutlet UILabel *goodName;//商品名称
-@property (strong, nonatomic) IBOutlet UILabel *goodPrice;//商品价格
+
 
 @end
 
 @implementation MovieCommentFirstCell
-
-
-- (void)config:(MyOrderGoodsModel *)model
-{
-    [self.goodImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",PREFIX,model.img]]];
-    self.goodName.text = model.name;
-    self.goodPrice.text = [NSString stringWithFormat:@"￥%.2f",[model.unit_price floatValue]];
-}
 
 - (void)awakeFromNib {
     self.goodImg.layer.cornerRadius = 2;

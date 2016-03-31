@@ -18,6 +18,8 @@
 @property (nonatomic,strong) NSString * addressPalce;
 
 @property (nonatomic,strong) UITabBarController *tbbC;
+//订单id号
+@property (nonatomic,strong)NSString * orderid;
 
 @end
 

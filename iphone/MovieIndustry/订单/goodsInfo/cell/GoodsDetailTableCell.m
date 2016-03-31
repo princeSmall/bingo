@@ -8,34 +8,80 @@
 
 #import "GoodsDetailTableCell.h"
 
+@interface GoodsDetailTableCell()
+
+@property (nonatomic ,strong)UIImageView * icon;
+@property (nonatomic, strong)UILabel * nameLabel;
+@property (nonatomic, strong)UILabel * desPerson;
+@property (nonatomic,strong)UILabel * timeLabel;
+@property (nonatomic, strong)UILabel * content;
+@property (nonatomic, strong)UIImageView * desImage;
+
+@end
+
+
 @implementation GoodsDetailTableCell
 
-- (void)config:(GoodsCommentModel *)model
-{
-    [self.headerImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,model.icon_img]] placeholderImage:[UIImage imageNamed:@"defualt_headerImg"]];
-    self.userNickNameLabel.text = model.user_name;
-    self.commentLabel.text = model.content;
-    self.createTimeLabel.text = [self transformTime:model.create_time];
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
+
+    if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.icon = [[UIImageView alloc]init];
+        [self addSubview:self.icon];
+        self.nameLabel = [[UILabel alloc]init];
+        self.nameLabel.textColor = [UIColor colorWithRed:0.337 green:0.392 blue:0.420 alpha:1.000];
+        self.nameLabel.font = [UIFont systemFontOfSize:17];
+        [self addSubview:self.nameLabel];
+        
+        self.desPerson = [[UILabel alloc]init];
+        self.desPerson.textColor =[UIColor colorWithRed:0.337 green:0.392 blue:0.420 alpha:1.000];
+        self.desPerson.font = [UIFont systemFontOfSize:14];
+        [self addSubview:self.desPerson];
+        
+        self.timeLabel = [[UILabel alloc]init];
+        self.timeLabel.textColor = [UIColor colorWithRed:0.576 green:0.576 blue:0.580 alpha:1.000];
+        self.timeLabel.font = [UIFont systemFontOfSize:14];
+        [self addSubview:self.timeLabel];
+        
+        self.content = [[UILabel alloc]init];
+        self.content.textColor =[UIColor colorWithRed:0.576 green:0.576 blue:0.580 alpha:1.000];
+        self.content.font = [UIFont systemFontOfSize:15];
+        self.content.numberOfLines = 0;
+        [self addSubview:self.content];
+        
+        self.desImage = [[UIImageView alloc]init];
+        [self addSubview:self.desImage];
+        
+    }
+    return self;
+}
+
+- (void)setGframe:(GoodCommitFrame *)Gframe{
+    _Gframe = Gframe;
+    GoodsCommentModel * model = Gframe.model;
+    self.icon.frame = Gframe.iconF;
+    self.icon.layer.cornerRadius = 20;
+    self.icon.layer.masksToBounds = YES;
+    self.icon.image = [UIImage imageNamed:@"testImage.jpg"];
     
+    self.nameLabel.text = model.name;
+    self.nameLabel.frame = Gframe.nameF;
+    
+    self.desPerson.text = model.job;
+    self.desPerson.frame = Gframe.desPersonF;
+    
+    self.timeLabel.text = model.create_at;
+    self.timeLabel.frame = Gframe.timeF;
+    
+    self.content.text = model.content;
+    self.content.frame = Gframe.contentF;
+    
+    self.desImage.frame = Gframe.imageF;
+    self.desImage.image = [UIImage imageNamed:@"testImage.jpg"];
+    self.desImage.layer.cornerRadius = 5;
+    self.desImage.layer.masksToBounds = YES;
 }
 
-- (NSString *)transformTime:(NSString *)interval
-{
-    NSDate *timeDate = [NSDate dateWithTimeIntervalSince1970:[interval doubleValue]];
-    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-    [formatter setDateFormat:@"YYYY-MM-dd HH:mm"];
-    NSString *timeStr = [formatter stringFromDate:timeDate];
-    return timeStr;
-}
 
-- (void)awakeFromNib {
-    // Initialization code
-}
 
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
-
-    // Configure the view for the selected state
-}
 
 @end

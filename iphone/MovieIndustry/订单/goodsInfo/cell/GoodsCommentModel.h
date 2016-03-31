@@ -8,13 +8,22 @@
 
 #import <Foundation/Foundation.h>
 
+
+
+
 @interface GoodsCommentModel : NSObject
 //评论内容
 @property (nonatomic,copy) NSString *content;
 //创建时间
-@property (nonatomic,copy) NSString *create_time;
+@property (nonatomic,copy) NSString *create_at;
 //icon_img
 @property (nonatomic,copy) NSString *icon_img;
 //用户名
-@property (nonatomic,copy) NSString *user_name;
+@property (nonatomic,copy) NSString *name;
+//工作
+@property (nonatomic,strong)NSString * job;
+
+- (instancetype)initWithDict:(NSDictionary *)dict;
+
+
 @end

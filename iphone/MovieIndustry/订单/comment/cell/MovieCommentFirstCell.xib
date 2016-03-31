@@ -3,6 +3,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
@@ -28,8 +29,22 @@
                         <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥1250" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGg-11-XTB">
-                        <rect key="frame" x="98" y="67" width="197" height="21"/>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Yay-gi-O7b">
+                        <rect key="frame" x="98" y="67" width="20" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="20" id="DvJ-4a-H9e"/>
+                            <constraint firstAttribute="height" constant="21" id="nOJ-Su-Qd6"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.84313732389999996" green="0.0" blue="0.19215688110000001" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="1250" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nGg-11-XTB">
+                        <rect key="frame" x="115" y="65" width="197" height="21"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="197" id="Ptv-A6-t9T"/>
+                            <constraint firstAttribute="height" constant="21" id="wda-HH-UHu"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                         <color key="textColor" red="0.83921568627450982" green="0.0" blue="0.031372549019607843" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
@@ -37,13 +52,13 @@
                 </subviews>
                 <constraints>
                     <constraint firstItem="gLo-p8-fzW" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.51" id="4ka-es-D6a"/>
-                    <constraint firstItem="nGg-11-XTB" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.05" id="72L-Tq-p19"/>
                     <constraint firstItem="gLo-p8-fzW" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.715" id="7mp-xa-eas"/>
-                    <constraint firstItem="nGg-11-XTB" firstAttribute="width" secondItem="H2p-sc-9uM" secondAttribute="width" multiplier="0.525" id="CDm-rZ-pl0"/>
-                    <constraint firstItem="nGg-11-XTB" firstAttribute="height" secondItem="H2p-sc-9uM" secondAttribute="height" multiplier="0.21" id="IlT-c2-1wT"/>
+                    <constraint firstItem="Yay-gi-O7b" firstAttribute="leading" secondItem="FcL-2V-bBz" secondAttribute="trailing" constant="8" id="CwL-W3-onW"/>
+                    <constraint firstItem="nGg-11-XTB" firstAttribute="leading" secondItem="FcL-2V-bBz" secondAttribute="trailing" constant="25" id="RqA-IE-Cyo"/>
                     <constraint firstItem="gLo-p8-fzW" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="1.24" id="Tsp-xS-Kbq"/>
-                    <constraint firstItem="nGg-11-XTB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="1.55" id="d7u-LB-mG4"/>
+                    <constraint firstItem="Yay-gi-O7b" firstAttribute="top" secondItem="gLo-p8-fzW" secondAttribute="bottom" constant="8" id="ajb-II-DPG"/>
                     <constraint firstItem="gLo-p8-fzW" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" multiplier="0.66" id="fHM-zU-h3P"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="nGg-11-XTB" secondAttribute="bottom" constant="5" id="gwd-MY-8cg"/>
                     <constraint firstItem="FcL-2V-bBz" firstAttribute="centerX" secondItem="H2p-sc-9uM" secondAttribute="centerX" multiplier="0.27" id="iQ9-xu-5CQ"/>
                     <constraint firstItem="FcL-2V-bBz" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uWp-Pw-W29"/>
                 </constraints>

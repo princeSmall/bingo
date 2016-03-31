@@ -8,17 +8,11 @@
 
 #import <UIKit/UIKit.h>
 #import "GoodsCommentModel.h"
+#import "GoodCommitFrame.h"
+
 
 @interface GoodsDetailTableCell : UITableViewCell
 
-@property (weak, nonatomic) IBOutlet UIImageView *headerImageView;
-
-@property (weak, nonatomic) IBOutlet UILabel *userNickNameLabel;
-
-@property (weak, nonatomic) IBOutlet UILabel *commentLabel;
-//创建时间
-@property (weak, nonatomic) IBOutlet UILabel *createTimeLabel;
-
-- (void)config:(GoodsCommentModel *)model;
+@property (nonatomic,strong)GoodCommitFrame * Gframe;
 
 @end
