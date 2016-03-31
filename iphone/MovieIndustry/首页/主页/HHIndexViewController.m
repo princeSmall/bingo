@@ -251,7 +251,7 @@
     
     
     //设置头部View的大小
-    UIView *tbHeaderView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 168)];
+    UIView *tbHeaderView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, kViewWidth/2)];
     //
     UIImage * image1 = [UIImage imageNamed:@"zhouerqiang"];
     UIImage * image2 = [UIImage imageNamed:@"changdi"];
@@ -260,7 +260,7 @@
     UIImage * image5 = [UIImage imageNamed:@"renyuan"];
     
     NSArray * imageArray = @[image1,image2,image3,image4,image5];
-    SDCycleScrollView * bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kViewWidth, 168) imagesGroup:imageArray];
+    SDCycleScrollView * bannerView = [SDCycleScrollView cycleScrollViewWithFrame:CGRectMake(0, 0, kViewWidth, kViewWidth/2) imagesGroup:imageArray];
     bannerView.imageType = @"ds";
         bannerView.delegate = self;
     bannerView.pageControlStyle = SDCycleScrollViewPageContolStyleAnimated;

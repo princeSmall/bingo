@@ -122,12 +122,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/setting/openShop/MovieCreateMineShopViewController.m"
-                  timestampString = "481024437.204587"
+                  timestampString = "481100905.106285"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "299"
                   endingLineNumber = "299"
-                  offsetFromSymbolStart = "660">
+                  offsetFromSymbolStart = "579">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -137,12 +137,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/setting/openShop/MovieCreateMineShopViewController.m"
-                  timestampString = "481024437.204766"
+                  timestampString = "481100905.106516"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -152,12 +152,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/setting/openShop/MovieCreateMineShopViewController.m"
-                  timestampString = "481024437.204944"
+                  timestampString = "481100905.106722"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "0"
                   endingLineNumber = "0"
-                  offsetFromSymbolStart = "20">
+                  offsetFromSymbolStart = "16">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -167,7 +167,7 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/setting/openShop/MovieCreateMineShopViewController.m"
-                  timestampString = "481024437.205122"
+                  timestampString = "481100905.106936"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "303"
@@ -559,22 +559,6 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
-            timestampString = "480924189.069997"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "219"
-            endingLineNumber = "219"
-            landmarkName = "-warningStoreAllGoodsStatue"
-            landmarkType = "5">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
             timestampString = "480924040.563226"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
@@ -790,6 +774,38 @@
             endingLineNumber = "16"
             landmarkName = "-config:"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GoodsDetailTableCell timeLabel]"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/goodsInfo/cell/GoodsDetailTableCell.m"
+                  timestampString = "481100905.119754"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "12">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GoodsDetailTableCell setTimeLabel:]"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/goodsInfo/cell/GoodsDetailTableCell.m"
+                  timestampString = "481100905.119955"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "0"
+                  endingLineNumber = "0"
+                  offsetFromSymbolStart = "20">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1311,12 +1327,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/YJH/HttpRequest/MovieHttpRequest.m"
-                  timestampString = "481024437.253391"
+                  timestampString = "481100905.136717"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "985"
                   endingLineNumber = "985"
-                  offsetFromSymbolStart = "548">
+                  offsetFromSymbolStart = "631">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1326,12 +1342,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/YJH/HttpRequest/MovieHttpRequest.m"
-                  timestampString = "481024437.253576"
+                  timestampString = "481100905.136908"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "985"
                   endingLineNumber = "985"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "65">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1471,12 +1487,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E7%99%BB%E9%99%86/LoginInController.m"
-                  timestampString = "481024437.258586"
+                  timestampString = "481100905.140629"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "165"
                   endingLineNumber = "165"
-                  offsetFromSymbolStart = "1292">
+                  offsetFromSymbolStart = "1247">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -1486,12 +1502,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E7%99%BB%E9%99%86/LoginInController.m"
-                  timestampString = "481024437.25879"
+                  timestampString = "481100905.140861"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "165"
                   endingLineNumber = "165"
-                  offsetFromSymbolStart = "44">
+                  offsetFromSymbolStart = "39">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1583,11 +1599,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieIndustry/BaseViewController.m"
-            timestampString = "476363180.732184"
+            timestampString = "481112960.516915"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "84"
-            endingLineNumber = "84"
+            startingLineNumber = "82"
+            endingLineNumber = "82"
             landmarkName = "-setNavRightItem:rightAction:"
             landmarkType = "5">
          </BreakpointContent>
@@ -2161,12 +2177,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E8%B4%AD%E7%89%A9%E8%BD%A6/MovieGoodsDetailViewController.m"
-                  timestampString = "481024437.291693"
+                  timestampString = "481100905.191762"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "427"
-                  endingLineNumber = "427"
-                  offsetFromSymbolStart = "292">
+                  startingLineNumber = "426"
+                  endingLineNumber = "426"
+                  offsetFromSymbolStart = "273">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2176,12 +2192,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E8%B4%AD%E7%89%A9%E8%BD%A6/MovieGoodsDetailViewController.m"
-                  timestampString = "481024437.291874"
+                  timestampString = "481100905.191955"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "427"
-                  endingLineNumber = "427"
-                  offsetFromSymbolStart = "88">
+                  startingLineNumber = "426"
+                  endingLineNumber = "426"
+                  offsetFromSymbolStart = "87">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2200,6 +2216,38 @@
             endingLineNumber = "480"
             landmarkName = "-qqButtonAction"
             landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MovieGoodsInfoViewController qqButtonAction]"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/goodsInfo/MovieGoodsInfoViewController.m"
+                  timestampString = "481100905.193194"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "481"
+                  endingLineNumber = "481"
+                  offsetFromSymbolStart = "273">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__46-[MovieGoodsInfoViewController qqButtonAction]_block_invoke"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/goodsInfo/MovieGoodsInfoViewController.m"
+                  timestampString = "481100905.193407"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "481"
+                  endingLineNumber = "481"
+                  offsetFromSymbolStart = "87">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -2609,12 +2657,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/PublishProductController.m"
-                  timestampString = "481024437.315535"
+                  timestampString = "481100905.51445"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "281"
                   endingLineNumber = "281"
-                  offsetFromSymbolStart = "468">
+                  offsetFromSymbolStart = "444">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2624,12 +2672,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/PublishProductController.m"
-                  timestampString = "481024437.315748"
+                  timestampString = "481100905.514668"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "281"
                   endingLineNumber = "281"
-                  offsetFromSymbolStart = "40">
+                  offsetFromSymbolStart = "43">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2705,12 +2753,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/PublishPersonnelController.m"
-                  timestampString = "481024437.32032"
+                  timestampString = "481100905.549582"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "308"
                   endingLineNumber = "308"
-                  offsetFromSymbolStart = "460">
+                  offsetFromSymbolStart = "459">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2720,12 +2768,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E5%8F%91%E5%B8%83%E5%95%86%E5%93%81/PublishPersonnelController.m"
-                  timestampString = "481024437.320539"
+                  timestampString = "481100905.549816"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "308"
                   endingLineNumber = "308"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "43">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2833,12 +2881,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/YJH/HttpRequest/MovieHttpRequest.m"
-                  timestampString = "481024437.326169"
+                  timestampString = "481100905.555422"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "482"
                   endingLineNumber = "482"
-                  offsetFromSymbolStart = "108">
+                  offsetFromSymbolStart = "101">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2848,12 +2896,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/YJH/HttpRequest/MovieHttpRequest.m"
-                  timestampString = "481024437.326377"
+                  timestampString = "481100905.555633"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "482"
                   endingLineNumber = "482"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "65">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -2945,12 +2993,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MyCollectionController.m"
-                  timestampString = "481024437.33185"
+                  timestampString = "481100905.560235"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "170"
                   endingLineNumber = "170"
-                  offsetFromSymbolStart = "72">
+                  offsetFromSymbolStart = "48">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -2960,12 +3008,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MyCollectionController.m"
-                  timestampString = "481024437.33204"
+                  timestampString = "481100905.560472"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "170"
                   endingLineNumber = "170"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "36">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3137,12 +3185,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E9%80%89%E6%8B%A9%E5%9F%8E%E5%B8%82/ChooseCityController.m"
-                  timestampString = "481024437.342254"
+                  timestampString = "481100905.568759"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
                   endingLineNumber = "159"
-                  offsetFromSymbolStart = "152">
+                  offsetFromSymbolStart = "127">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3152,12 +3200,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E9%80%89%E6%8B%A9%E5%9F%8E%E5%B8%82/ChooseCityController.m"
-                  timestampString = "481024437.342448"
+                  timestampString = "481100905.569012"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "159"
                   endingLineNumber = "159"
-                  offsetFromSymbolStart = "76">
+                  offsetFromSymbolStart = "65">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3217,12 +3265,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/shippigAddress/ShippingAddressController.m"
-                  timestampString = "481024437.345935"
+                  timestampString = "481100905.57204"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
                   endingLineNumber = "163"
-                  offsetFromSymbolStart = "780">
+                  offsetFromSymbolStart = "742">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3232,12 +3280,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/shippigAddress/ShippingAddressController.m"
-                  timestampString = "481024437.346237"
+                  timestampString = "481100905.572294"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "163"
                   endingLineNumber = "163"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "39">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3329,12 +3377,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E5%BA%97%E9%93%BA%E8%AE%BE%E7%BD%AE/StoreSettingController.m"
-                  timestampString = "481024437.351742"
+                  timestampString = "481100905.577162"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "228"
                   endingLineNumber = "228"
-                  offsetFromSymbolStart = "748">
+                  offsetFromSymbolStart = "714">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3344,12 +3392,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E5%BA%97%E9%93%BA%E8%AE%BE%E7%BD%AE/StoreSettingController.m"
-                  timestampString = "481024437.351929"
+                  timestampString = "481100905.57742"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "228"
                   endingLineNumber = "228"
-                  offsetFromSymbolStart = "56">
+                  offsetFromSymbolStart = "39">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3457,7 +3505,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
-            timestampString = "480924189.069997"
+            timestampString = "481100891.221525"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "635"
@@ -3473,12 +3521,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
-                  timestampString = "481024437.359462"
+                  timestampString = "481100905.583938"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "635"
                   endingLineNumber = "635"
-                  offsetFromSymbolStart = "32">
+                  offsetFromSymbolStart = "23">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3488,12 +3536,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
-                  timestampString = "481024437.359668"
+                  timestampString = "481100905.584184"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "635"
                   endingLineNumber = "635"
-                  offsetFromSymbolStart = "24">
+                  offsetFromSymbolStart = "16">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3521,12 +3569,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2%E5%BA%97%E9%93%BA/%E5%BA%97%E9%93%BA%E7%BB%93%E6%9E%9C%E5%BA%97%E9%93%BA%E4%B8%BB%E9%A1%B5/SearchShopResultController.m"
-                  timestampString = "481024437.361327"
+                  timestampString = "481100905.585413"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "518"
                   endingLineNumber = "518"
-                  offsetFromSymbolStart = "548">
+                  offsetFromSymbolStart = "510">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3536,12 +3584,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2%E5%BA%97%E9%93%BA/%E5%BA%97%E9%93%BA%E7%BB%93%E6%9E%9C%E5%BA%97%E9%93%BA%E4%B8%BB%E9%A1%B5/SearchShopResultController.m"
-                  timestampString = "481024437.361534"
+                  timestampString = "481100905.585646"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "518"
                   endingLineNumber = "518"
-                  offsetFromSymbolStart = "52">
+                  offsetFromSymbolStart = "43">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3656,68 +3704,6 @@
             endingLineNumber = "957"
             landmarkName = "-orderDelay:"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[HHOrderViewController orderDelay:]_block_invoke"
-                  moduleName = "MovieIndustry"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/HHOrderViewController.m"
-                  timestampString = "481024662.274397"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "959"
-                  endingLineNumber = "959"
-                  offsetFromSymbolStart = "356">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__copy_helper_block_575"
-                  moduleName = "MovieIndustry"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/HHOrderViewController.m"
-                  timestampString = "481024662.274655"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__destroy_helper_block_576"
-                  moduleName = "MovieIndustry"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/HHOrderViewController.m"
-                  timestampString = "481024662.274909"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "0"
-                  endingLineNumber = "0"
-                  offsetFromSymbolStart = "16">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__36-[HHOrderViewController orderDelay:]_block_invoke578"
-                  moduleName = "MovieIndustry"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/HHOrderViewController.m"
-                  timestampString = "481024662.275209"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "961"
-                  endingLineNumber = "961"
-                  offsetFromSymbolStart = "12">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3785,12 +3771,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E4%BA%A4%E6%98%93%E7%AE%A1%E7%90%86/TradingManagerController.m"
-                  timestampString = "481024437.373415"
+                  timestampString = "481100905.595827"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "313"
                   endingLineNumber = "313"
-                  offsetFromSymbolStart = "1260">
+                  offsetFromSymbolStart = "1447">
                </Location>
                <Location
                   shouldBeEnabled = "Yes"
@@ -3800,12 +3786,12 @@
                   moduleName = "MovieIndustry"
                   usesParentBreakpointCondition = "Yes"
                   urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/%E4%BA%A4%E6%98%93%E7%AE%A1%E7%90%86/TradingManagerController.m"
-                  timestampString = "481024437.373611"
+                  timestampString = "481100905.596058"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "313"
                   endingLineNumber = "313"
-                  offsetFromSymbolStart = "48">
+                  offsetFromSymbolStart = "39">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -3856,38 +3842,6 @@
             endingLineNumber = "176"
             landmarkName = "-loadData"
             landmarkType = "5">
-            <Locations>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "-[HHOrderViewController loadData]"
-                  moduleName = "MovieIndustry"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/HHOrderViewController.m"
-                  timestampString = "481024448.560755"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
-                  offsetFromSymbolStart = "644">
-               </Location>
-               <Location
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__33-[HHOrderViewController loadData]_block_invoke"
-                  moduleName = "MovieIndustry"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E8%AE%A2%E5%8D%95/HHOrderViewController.m"
-                  timestampString = "481024448.560987"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "176"
-                  endingLineNumber = "176"
-                  offsetFromSymbolStart = "68">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -3904,6 +3858,342 @@
             endingLineNumber = "210"
             landmarkName = "-loadData"
             landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
+            timestampString = "481084934.694324"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "173"
+            endingLineNumber = "173"
+            landmarkName = "-requestMineAllManagerGoods:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GoodsManagerController requestMineAllManagerGoods:]"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
+                  timestampString = "481100905.600696"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "643">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[GoodsManagerController requestMineAllManagerGoods:]_block_invoke"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
+                  timestampString = "481100905.600947"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "173"
+                  endingLineNumber = "173"
+                  offsetFromSymbolStart = "39">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
+            timestampString = "481100891.221525"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "518"
+            endingLineNumber = "518"
+            landmarkName = "-ChangeGoodsDes:"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GoodsManagerController ChangeGoodsDes:]"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
+                  timestampString = "481100905.602325"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "518"
+                  endingLineNumber = "518"
+                  offsetFromSymbolStart = "506">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__41-[GoodsManagerController ChangeGoodsDes:]_block_invoke"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
+                  timestampString = "481100905.602586"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "518"
+                  endingLineNumber = "518"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/&#x53d1;&#x5e03;&#x5546;&#x54c1;/PublishPersonnelController.m"
+            timestampString = "481085855.98414"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "144"
+            endingLineNumber = "144"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/&#x53d1;&#x5e03;&#x5546;&#x54c1;/PublishPersonnelController.m"
+            timestampString = "481086037.207222"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "156"
+            endingLineNumber = "156"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/&#x53d1;&#x5e03;&#x5546;&#x54c1;/PublishPersonnelController.m"
+            timestampString = "481085961.485922"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "172"
+            endingLineNumber = "172"
+            landmarkName = "-viewDidLoad"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
+            timestampString = "481100891.221525"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "549"
+            endingLineNumber = "549"
+            landmarkName = "-tableView:didSelectRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x8d2d;&#x7269;&#x8f66;/MovieGoodsDetailViewController.m"
+            timestampString = "481086684.834247"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1007"
+            endingLineNumber = "1007"
+            landmarkName = "-loadGoodsData"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[MovieGoodsDetailViewController loadGoodsData]"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E8%B4%AD%E7%89%A9%E8%BD%A6/MovieGoodsDetailViewController.m"
+                  timestampString = "481100905.606882"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1007"
+                  endingLineNumber = "1007"
+                  offsetFromSymbolStart = "319">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[MovieGoodsDetailViewController loadGoodsData]_block_invoke"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E8%B4%AD%E7%89%A9%E8%BD%A6/MovieGoodsDetailViewController.m"
+                  timestampString = "481100905.607076"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "1007"
+                  endingLineNumber = "1007"
+                  offsetFromSymbolStart = "65">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x8d2d;&#x7269;&#x8f66;/MovieGoodsDetailViewController.m"
+            timestampString = "481086754.823526"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "1030"
+            endingLineNumber = "1030"
+            landmarkName = "-loadGoodsData"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x9996;&#x9875;/&#x4e3b;&#x9875;/Banner/SDCycleScrollView.m"
+            timestampString = "481087203.902159"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "251"
+            endingLineNumber = "251"
+            landmarkName = "-loadImageAtIndex:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
+            timestampString = "481087655.157819"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "421"
+            endingLineNumber = "421"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x6211;/CorrelationTableViewController.m"
+            timestampString = "481099550.999126"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "44"
+            endingLineNumber = "44"
+            landmarkName = "-backAction"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
+            timestampString = "481100904.787169"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "461"
+            endingLineNumber = "461"
+            landmarkName = "-tableView:cellForRowAtIndexPath:"
+            landmarkType = "5">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "MovieIndustry/&#x6211;&#x7684;/&#x5e97;&#x94fa;&#x7ba1;&#x7406;/goodsManager/GoodsManagerController.m"
+            timestampString = "481101040.461675"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "242"
+            endingLineNumber = "242"
+            landmarkName = "-requestMineAleardyRentGoods"
+            landmarkType = "5">
+            <Locations>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[GoodsManagerController requestMineAleardyRentGoods]"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
+                  timestampString = "481101040.465173"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "651">
+               </Location>
+               <Location
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__53-[GoodsManagerController requestMineAleardyRentGoods]_block_invoke"
+                  moduleName = "MovieIndustry"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/pjhopki/Desktop/%E5%92%94%E4%B9%88%E7%BD%91%E9%A1%B9%E7%9B%AE0328/iphone/MovieIndustry/%E6%88%91%E7%9A%84/%E5%BA%97%E9%93%BA%E7%AE%A1%E7%90%86/goodsManager/GoodsManagerController.m"
+                  timestampString = "481101040.465493"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "242"
+                  endingLineNumber = "242"
+                  offsetFromSymbolStart = "46">
+               </Location>
+            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
