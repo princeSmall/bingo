@@ -141,11 +141,11 @@
                     HHNSLog(@"%@",result);
                     NSDictionary *dict = result;
                     @try {
-                        if ([dict[@"status"] isEqualToString:Status_Success]) {
+                        if ([dict[@"code"] intValue] == 0) {
                             HUD.labelText = @"评论成功";
                             [HUD hide:YES];
                             //返回
-                            [self.navigationController popToRootViewControllerAnimated:YES];
+                            [self.navigationController popViewControllerAnimated:YES];
                         }else
                         {
                             HUD.labelText = dict[@"msg"];

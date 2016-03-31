@@ -329,8 +329,12 @@
         return size.height+5;
     }else{
     
-        GoodCommitFrame * Gframe = self.commentArray[indexPath.row];
-        return Gframe.cellHeigth;
+        if (self.commentArray.count > 0) {
+            GoodCommitFrame * Gframe = self.commentArray[indexPath.row];
+            return Gframe.cellHeigth;
+        }else{
+            return 0;
+        }
     }
     
 }
@@ -362,9 +366,14 @@
         if (!cell) {
             cell = [[GoodsDetailTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
+        
+        if (self.commentArray.count == 0) {
+            
+        }else{
+        
         GoodCommitFrame *gf = self.commentArray[indexPath.row];
         
-        cell.Gframe = gf;
+            cell.Gframe = gf;}
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
     }
@@ -1202,9 +1211,9 @@
                     
                     [self.commentArray addObject:Gframe];
                 }
-                [_tbView reloadData];
-                [self.tbView reloadData];
-            }
+               
+            } [_tbView reloadData];
+            [self.tbView reloadData];
             
         }
         @catch (NSException *exception) {
