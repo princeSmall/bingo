@@ -429,7 +429,9 @@
 //    [self.goodsDict setObject:self.desModel.goods_category_id forKey:@"goods_category_id"];
     [self.goodsDict setObject:imagePath forKey:@"imgs"];
     //goods_city_id
-    [self.goodsDict setObject:@"0" forKey:@"goods_city_id"];
+    NSUserDefaults *userdefault = [NSUserDefaults standardUserDefaults];
+    
+    [self.goodsDict setObject:[(NSArray *)[userdefault objectForKey:@"rentHistoryCity"] lastObject] forKey:@"goods_city_id"];
     [self.goodsDict setObject:self.address.text forKey:@"spare_address"];
      return YES;
 }

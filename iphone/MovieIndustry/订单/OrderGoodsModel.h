@@ -9,15 +9,15 @@
 #import <Foundation/Foundation.h>
 
 @interface OrderGoodsModel : NSObject
-@property (nonatomic,copy)NSString *order_id;
-@property (nonatomic,copy)NSString *shop_id;
-@property (nonatomic,copy)NSString *goods_id;
-@property (nonatomic,copy)NSString *goods_name;
-@property (nonatomic,copy)NSString *goods_number;
-@property (nonatomic,copy)NSString *goods_price;
-@property (nonatomic,copy)NSString *name_value_str;
-@property (nonatomic,copy)NSString *img_path;
-@property (nonatomic,copy)NSString *goods_deposit;
+@property (nonatomic,strong)NSString *order_id;
+@property (nonatomic,strong)NSString *shop_id;
+@property (nonatomic,strong)NSString *goods_id;
+@property (nonatomic,strong)NSString *goods_name;
+@property (nonatomic,strong)NSString *goods_number;
+@property (nonatomic,strong)NSString *goods_price;
+@property (nonatomic,strong)NSString *name_value_str;
+@property (nonatomic,strong)NSString *img_path;
+@property (nonatomic,strong)NSString *goods_deposit;
 
 
 - (instancetype)initWithDict:(NSDictionary *)dict;

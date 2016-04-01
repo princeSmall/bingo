@@ -1130,8 +1130,8 @@
             weakSelf.model = model;
             weakSelf.goodsDes = dic[@"goods_desc"];
                 weakSelf.goodsTbHeaderView.goodsNameLabel.text = [WNController nullString:dic[@"goods_name"]];
-            NSLog(@"%@",dic[@"goods_city_name"]);
-                weakSelf.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"goods_city_name"]];
+            NSLog(@"%@",dic[@"spare_address"]);
+            weakSelf.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"spare_address"]];
             //送货方式字段
 
             NSArray *arr = [NSArray arrayWithObjects:@"送货上门",@"快递",@"买家自提", nil];

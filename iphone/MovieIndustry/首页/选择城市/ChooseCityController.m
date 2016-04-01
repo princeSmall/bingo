@@ -155,7 +155,7 @@
 #pragma mark - 获取网络城市数据
 - (void)loadCityData:(NSString *)cityID
 {
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:cityID,@"name", nil];
+    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:cityID,@"name",APP_DELEGATE.user_id,@"user_id", nil];
     [HttpRequestServers requestBaseUrl:TICity_List withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
         //        HHNSLog(@"-------->%@",dict);
