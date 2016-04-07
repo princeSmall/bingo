@@ -12,6 +12,7 @@
 #import "ShippingAddressCell.h"
 #import "ProvinceModel.h"
 #import "ShippingAddressListController.h"
+#import "TTIChooseCityController.h"
 
 
 @interface ManagerShippingAddressController ()<UITableViewDataSource,UITableViewDelegate>
@@ -36,7 +37,7 @@
         _tbView = [[UITableView alloc] initWithFrame:CGRectMake(0, 30, kViewWidth, kViewHeight-44-40-30) style:UITableViewStylePlain];
         _tbView.delegate = self;
         _tbView.dataSource = self;
-        _tbView.backgroundColor = kViewBackColor;
+        _tbView.backgroundColor = [UIColor colorWithWhite:0.918 alpha:1.000];
         _tbView.tableFooterView = [[UIView alloc] init];
     }
     return _tbView;
@@ -51,7 +52,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self setNavTabBar:@"选择收货地址"];
-    
+    APP_DELEGATE.managerShip = self;
     [self.view addSubview:self.tbView];
     //最多添加5个收货地址
     UILabel * topShowLabel = [[UILabel alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 30)];
@@ -74,7 +75,7 @@
     UIButton *btn = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth, 40) ImageName:@"" Target:self Action:@selector(addShippingAddress:) Title:@"添加新的收货地址" fontSize:15];
     btn.titleLabel.font = [UIFont boldSystemFontOfSize:15];
     btn.backgroundColor = [UIColor whiteColor];
-    [btn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
+    [btn setTitleColor:[UIColor colorWithRed:0.839 green:0.220 blue:0.239 alpha:1.000] forState:UIControlStateNormal];
 //    btn.backgroundColor = [UIColor colorWithRed:0.92 green:0.08 blue:0 alpha:1];
 //    btn.layer.cornerRadius = 10;
 //    btn.clipsToBounds = YES;
@@ -86,12 +87,11 @@
 - (void)addShippingAddress:(UIButton *)btn
 {
     if (self.dataArray.count == 5) {
-//     [PromptLabel custemAlertPromAddView:self.view text:@"最多可添加5个地址"];
-          [DeliveryUtility showMessage:@"最多可添加5个地址" target:nil];
+    [DeliveryUtility showMessage:@"最多可添加5个地址" target:nil];
     }else{
-    
-    ShippingAddressController *addSdVc = [[ShippingAddressController alloc] init];
-        [self.navigationController pushViewController:addSdVc animated:YES];}
+        TTIChooseCityController * choose = [[TTIChooseCityController alloc]init];
+        [self.navigationController pushViewController:choose animated:YES];
+    }
 }
 
 #pragma mark - 查询收货地址 用于判断是否有默认地址
@@ -239,18 +239,13 @@
     [HttpRequestServers requestBaseUrl:TIShipping_DeleteAddr withParams:userDict withRequestFinishBlock:^(id result) {
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         NSDictionary *dict = result;
-        //        HHNSLog(@"--------> %@",dict);
         @try {
             if ([dict[@"code"] intValue] == 0) {
-                
-//                [PromptLabel custemAlertPromAddView:self.view text:@"删除成功"];
                   [DeliveryUtility showMessage:@"删除成功！" target:nil];
                 [self loadAddressList];
                 
                 
             }else if([dict[@"message"] isEqualToString:@"最少一个地址"]){
-                
-//                [PromptLabel custemAlertPromAddView:self.view text:@"最少留一个地址"];
                   [DeliveryUtility showMessage:@"最少保留一个收货地址！" target:nil];
             }
         }
@@ -299,19 +294,15 @@
     }
 }
 
+- (void)viewDidUnload{
+
+    APP_DELEGATE.managerShip = nil;
+    
+}
+
+
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
-
 @end

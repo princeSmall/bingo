@@ -15,6 +15,8 @@
 #import "PublishPersonnelController.h"
 #import "SiteViewController.h"
 #import "MovieGoodsDetailViewController.h"
+#import "TTIPersonViewController.h"
+
 
 #define BTN_START_TAG 200
 
@@ -528,7 +530,7 @@
             tradingVc.desModel = model;
             [self.navigationController pushViewController:tradingVc animated:YES];}
         if([model.type isEqualToString:@"1"]){
-            PublishPersonnelController *tradingVc = [storyboard instantiateViewControllerWithIdentifier:@"issuePerson"];
+            TTIPersonViewController *tradingVc = [[TTIPersonViewController alloc]init];
             tradingVc.desModel = model;
             [self.navigationController pushViewController:tradingVc animated:YES];}
         if([model.type isEqualToString:@"2"]){

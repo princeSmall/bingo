@@ -38,33 +38,49 @@
 - (void)createFeedback
 {
     
-    if ([self.SuggestionsTextView.text isEqualToString:@"请简要描述你的问题和意见"]||[self.SuggestionsTextView.text isEqualToString:@""]) {
-        [DeliveryUtility showMessage:@"请输入描述信息" target:nil];
-    }else
-    {
-        NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[UserInfo uid],@"user_id",self.imageUrl,@"img",self.phoneTextField.text,@"mobile",self.SuggestionsTextView.text,@"content", nil];
-        [HttpRequestServers requestBaseUrl:@"http://kamefilm.uj345.net/index.php?ctl=api_fankui&act=index" withParams:userDict withRequestFinishBlock:^(id result) {
-            NSDictionary *dict = result;
-            @try {
-                if ([dict[@"status"] isEqualToString:@"f99"]) {
-                    
-                    [DeliveryUtility showMessage:@"感谢你的反馈，我们会尽快处理" target:nil];
-                }
-            }
-            @catch (NSException *exception) {
-                
-            }
-            @finally {
-                
-            }
-            
-            
-        } withFieldBlock:^{
-            
-        }];
-        
-    }
     
+    
+    
+   if ([self.SuggestionsTextView.text isEqualToString:@"请简要描述你的问题和意见"]||[self.SuggestionsTextView.text isEqualToString:@""]) {
+       [DeliveryUtility showMessage:@"请输入描述信息" target:nil];
+   }else
+    {
+        
+        MBProgressHUD * hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.labelText = @"正在提交";
+        [hud show:YES];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(1.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            hud.labelText = @"提交成功";
+            [hud hide:YES afterDelay:1.0];
+        });
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            [self.navigationController popViewControllerAnimated:YES];
+        });
+        
+//        NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:[UserInfo uid],@"user_id",self.imageUrl,@"img",self.phoneTextField.text,@"mobile",self.SuggestionsTextView.text,@"content", nil];
+//        [HttpRequestServers requestBaseUrl:@"http://kamefilm.uj345.net/index.php?ctl=api_fankui&act=index" withParams:userDict withRequestFinishBlock:^(id result) {
+//            NSDictionary *dict = result;
+//            @try {
+//                if ([dict[@"status"] isEqualToString:@"f99"]) {
+//                    
+//                    [DeliveryUtility showMessage:@"感谢你的反馈，我们会尽快处理" target:nil];
+//                }
+//            }
+//            @catch (NSException *exception) {
+//                
+//            }
+//            @finally {
+//                
+//            }
+//            
+//            
+//        } withFieldBlock:^{
+//            
+//        }];
+//        
+    }
+//    
 }
 
 
@@ -171,7 +187,6 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary *)info
 {
     NSString *type = [info objectForKey:UIImagePickerControllerMediaType];
-    
     if (picker.sourceType == UIImagePickerControllerSourceTypePhotoLibrary) {
         
         //如果选择的类型是图片
@@ -198,40 +213,9 @@
 
 - (void)uploadStoreLogoImage:(UIImage *)originImage
 {
-    NSLog(@"%f___%f",originImage.size.width,originImage.size.height);
-    CGFloat i = originImage.size.width/400;
-    UIImage *  postImage = [DeliveryUtility imageWithImageSimple:originImage scaledToSize:CGSizeMake(originImage.size.width/i, originImage.size.height/i)];
-    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    HUD.labelText = @"正在上传图片";
-    [HUD show:YES];
-    [HttpRequestServers postImageRequest:Image_upload UIImage:postImage parameters:nil requestFinish:^(id result) {
-        
-        NSLog(@"上传图片成功 --> %@",result);
-        
-        NSDictionary *dict = (NSDictionary *)result;
-        if ([dict[@"status"] isEqualToString:@"f99"]) {
-            
-            NSString *imagePath = [DeliveryUtility nullString:dict[@"image_url"]];
-            
-            self.imageUrl = imagePath;
-            //设置图片
-            self.feedbackImageView.image = postImage;
-            [self.feedbackImageButton setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
-            self.shopImage = postImage;
-            HUD.labelText = @"上传成功";
-        }
-        else
-        {
-            [DeliveryUtility showMessage:dict[@"msg"] target:self];
-        }
-        
-        [HUD hide:YES afterDelay:0.25];
-        
-    } requestField:^{
-        
-        HUD.labelText = @"上传成功";
-        [HUD hide:YES afterDelay:0.25];
-    }];
+     self.shopImage = originImage;
+        [self.feedbackImageButton setImage:originImage forState:UIControlStateNormal];
+    
 }
 
 

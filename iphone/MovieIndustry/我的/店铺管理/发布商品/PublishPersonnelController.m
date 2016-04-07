@@ -314,14 +314,9 @@
             HUD.labelText = @"发布失败";
             }
             [HUD hide:YES];
-            
-        
-            
         } andSCallBack:^(id obj) {
-            
             [HUD hide:YES];
                 [self performSelector:@selector(goBack) withObject:self afterDelay:0.25];
-//            [DeliveryUtility showMessage:obj target:self];
         }];
     }
 }
@@ -764,6 +759,7 @@
 - (void)removeCareerMaskViewAction
 {
     [self.maskView removeFromSuperview];
+    
     [UIView animateWithDuration:0.3 animations:^{
         
         CGRect frame = self.careerView.frame;

@@ -11,10 +11,15 @@
 #import "ShopSendClickView.h"
 #import "PublishSecondCategoryController.h"
 
+#import "ChooseCityController.h"
+
+#import "JGAddPictureView.h"
+
+
 #define IMAGE_START_TAG 300
 #define PLACE_HOLDER  @"场地描述"
 
-@interface SiteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface SiteViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITextViewDelegate,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,ChooseCityControllerDelegate>
 
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 
@@ -22,6 +27,8 @@
 @property (strong, nonatomic) IBOutlet UITextField *txtPhoneNum;//联系方式
 @property (strong, nonatomic) IBOutlet UITextField *txtSiteArea;//面积
 @property (strong, nonatomic) IBOutlet UITextField *txtPrice;//价格
+@property (weak, nonatomic) IBOutlet UITextField *makPrice;//市场价
+
 @property (weak, nonatomic) IBOutlet UITextField *goodsCount;
 @property (weak, nonatomic) IBOutlet UISwitch *yajinSwitch;
 @property (weak, nonatomic) IBOutlet UITextField *yajinCount;
@@ -35,26 +42,91 @@
 
 /** 图片 image */
 @property (nonatomic,strong) NSMutableArray *imageArray;
+//积分抵扣选择
+@property (weak, nonatomic) IBOutlet UISwitch *jifendikou;
 
 /** 图片路径 imagePath */
 @property (nonatomic,strong) NSMutableArray *imagePathArray;
+@property (weak, nonatomic) IBOutlet UIView *myView;
 
 @property (nonatomic,assign) NSInteger imageIndex;
 
 @property (nonatomic,assign)BOOL isOpen;
 
+@property (nonatomic,strong)JGAddPictureView * addView;
+@property (nonatomic,strong)NSMutableArray * imgArray;
+
+/**
+ *  场地所在地
+ 请选择所在地
+ */
+
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+/**
+ *类型
+ 请选择类型
+ */
+@property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+@property (nonatomic,strong)NSString * typeID;
+
 @end
 
 @implementation SiteViewController
+/**
+ *  产品所在地的按钮事件
+ */
+- (IBAction)addressBtnClick:(id)sender {
+    
+    ChooseCityController * choose = [[ChooseCityController alloc]init];
+    choose.delegate = self;
+    [self.navigationController pushViewController:choose animated:YES];
+}
 
-//- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
-//    
-//    if (indexPath.row == 7) {
-//        return 176;
-//    }else{
-//        return 44;
-//    }
-//}
+-(void)cityName:(NSString *)CityName andCityId:(NSString *)cityId{
+
+    self.addressLabel.text = CityName;
+}
+
+/**
+ *  类型按钮点击事件
+ *
+ */
+- (IBAction)typeBtnClick:(id)sender {
+    
+    PublishSecondCategoryController * type = [[PublishSecondCategoryController alloc]init];
+    type.type = @"3";
+    type.backFn = ^(NSDictionary * dic){
+        self.typeLabel.text = dic[@"category_name"];
+        self.typeID = dic[@"category_id"];
+    };
+    [self.navigationController pushViewController:type animated:YES];
+}
+
+/**
+ *  点击发布的时候 ，第一步先上传图片
+ */
+- (void)UploadFile{
+    
+    //    self.addView.imageArray
+    
+    if ([self checkPublishSiteInfoValid]) {
+        [self.imagePathArray removeAllObjects];
+        if (self.addView.imageArray.count == 0) {
+            /**
+             *  这边提示需要选择1-5张图片
+             */
+            [DeliveryUtility showMessage:@"请上传1-5张图片" target:self];
+            
+        }else{
+            self.imgArray = [NSMutableArray arrayWithArray:self.addView.imageArray];
+            [self uploadSiteChooseImageWith:self.imgArray[0]];
+            
+        }
+    }
+}
+
+
+
 - (IBAction)yajinSitch:(id)sender {
     if (self.yajinSwitch.on) {
         self.yajinCount.userInteractionEnabled = YES;
@@ -96,9 +168,22 @@
     return _siteDict;
 }
 
+- (void)TAP{
+    [self.view endEditing:YES];
+}
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    APP_DELEGATE.ShowViewController = self;
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.800 green:0.812 blue:0.816 alpha:0.5];
     
+    self.addView = [[JGAddPictureView alloc]initWithFrame:CGRectMake(10, 35, APP_DELEGATE.window.frame.size.width, PictureWH) AndViewController:APP_DELEGATE.ShowViewController];
+    [self.myView addSubview:self.addView];
+    
+    UITapGestureRecognizer * TAP = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(TAP)];
+    [self.tableView addGestureRecognizer:TAP];
     self.imagePathArray = nil;
     if (self.desModel) {
         [self setNavTabBar:@"修改场地"];
@@ -110,36 +195,45 @@
         self.goodsCount.text = self.desModel.goods_number;
         //        self.address.text = self.desModel.spare_address;
         self.txtSpecial.text = self.desModel.goods_alone;
+        self.addressLabel.text = self.desModel.people_location;
+        self.typeLabel.text = self.desModel.category_name;
+        self.typeID = self.desModel.goods_category_id;
+//        
+//        @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
+//        /**
+//         *类型
+//         请选择类型
+//         */
+//        @property (weak, nonatomic) IBOutlet UILabel *typeLabel;
+//        @property (nonatomic,strong)NSString * typeID;
+        
         if ([self.desModel.is_deposit isEqualToString:@"1"]) {
             self.yajinSwitch.on = YES;
         }else{
             
             self.yajinSwitch.on = NO;}
-       
-        [self.imagePathArray removeAllObjects];
-        for (int i= 0; i < 5; i ++) {
-            [self.imagePathArray addObject:self.desModel.imgs[i]];
-        }
-        
-        
         self.yajinCount.text = self.desModel.goods_deposit;
 #warning 选择类型 没有做
 #warning 选择类型没有做TUPIAN
         //        self.deliveryMethod.text = self.desModel.goods_express;
-        self.textViewDetail.text = self.desModel.goods_desc;
         
-        for (int i = 0;i < 5; i ++) {
-            NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.desModel.imgs[i]]];
-            UIImage *image =[UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
-            if (image) {
-                [self.imageArray addObject:image];
-            }
+        if ([self.desModel.is_deduction isEqualToString:@"1"]) {
+            self.jifendikou.on = YES;
+        }else{
+            self.jifendikou.on = NO;
         }
+        self.textViewDetail.text = self.desModel.goods_desc;
+        NSMutableArray * imgArray = [NSMutableArray array];
+        for (int i= 0; i<self.desModel.imgs.count; i ++) {
+            NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.desModel.imgs[i]]];
+            UIImage * image = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+            [imgArray addObject:image];
+        }
+        self.addView.imageArray = [NSMutableArray arrayWithArray:imgArray];
+        [imgArray addObject:[UIImage imageNamed:@"addPicture"]];
+        [self.addView ViewWithPictures:imgArray];
 
-        
     }else{
-    
-    
     [self setNavTabBar:@"发布场地"];
         for (int i = 0; i < 5; i ++) {
             UIImage * image = [UIImage imageNamed:@"addPicture"];
@@ -149,6 +243,10 @@
     }
     [self initIssueSiteView];
     [self addInputeWordNotification];
+    
+
+    
+    
 }
 - (void)initIssueSiteView
 {
@@ -161,10 +259,10 @@
     UIButton *comfirmBtn;
     
     if (self.desModel) {
-           comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20,20,kViewWidth-40,40) title:@"修改" andFont:DefaultFont target:self action:@selector(issueSiteChangeAction:)];
+           comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20,20,kViewWidth-40,40) title:@"修改" andFont:DefaultFont target:self action:@selector(UploadFile)];
     }else{
     
-        comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20,20,kViewWidth-40,40) title:@"发布" andFont:DefaultFont target:self action:@selector(issueSiteComfimrAction:)];}
+        comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20,20,kViewWidth-40,40) title:@"发布" andFont:DefaultFont target:self action:@selector(UploadFile)];}
     [comfirmBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     comfirmBtn.backgroundColor = [UIColor whiteColor];
     comfirmBtn.clipsToBounds = YES;
@@ -393,9 +491,17 @@
 //        return NO;
 //    }
     
+    
     //判断价格
+    
+    if ([self.makPrice.text isEqual:@""]) {
+        [DeliveryUtility showMessage:@"请填写市场价" target:self];
+        return NO;
+    }
+    
+    
     if ([price isEqualToString:@""]) {
-        [DeliveryUtility showMessage:@"请填写价格" target:self];
+        [DeliveryUtility showMessage:@"请填写咔么价格" target:self];
         return NO;
     }
     //判断押金
@@ -404,10 +510,15 @@
         return NO;
     }
     //判断类型
-    NSString *type = self.typeLbl.text;
-    if(type.length==0)
+    NSString *type = self.typeLabel.text;
+    if([type isEqual:@"请选择类型"])
     {
         [DeliveryUtility showMessage:@"请点击选择类型" target:self];
+        return NO;
+    }
+    
+    if ([self.addressLabel.text isEqualToString:@"请选择所在地"]) {
+        [DeliveryUtility showMessage:@"请选择所在地" target:self];
         return NO;
     }
     
@@ -428,21 +539,6 @@
         [DeliveryUtility showMessage:@"描述信息应为5~150字之间" target:self];
         return NO;
     }
-    
-    
-    int imageNum=0;
-    for (int i = 0; i < self.imagePathArray.count; i ++) {
-        if ([_imagePathArray[i] isEqual:@""]) {
-            imageNum++;
-           
-        }
-    }
-    if (imageNum>=5) {
-        [DeliveryUtility showMessage:@"请上传至少1张商品图片" target:self];
-        return NO;
-    }
-
-    
     NSString *imagePath = [self.imagePathArray componentsJoinedByString:@","];
     
     //图片id
@@ -451,8 +547,15 @@
     [self.siteDict setObject:phoneNum forKey:@"goods_mobile"];
     [self.siteDict setObject:area forKey:@"goods_area"];
     [self.siteDict setObject:price forKey:@"goods_price"];
+    [self.siteDict setObject:self.makPrice.text forKey:@"market_price"];
     [self.siteDict setObject:feature forKey:@"goods_alone"];
     [self.siteDict setObject:imagePath forKey:@"imgs"]; //图片(逗号拼接)
+    if (self.jifendikou.on) {
+        [self.siteDict setObject:@"1" forKey:@"is_deduction"];
+    }else{
+    [self.siteDict setObject:@"0" forKey:@"is_deduction"];
+    }
+    [self.siteDict setObject:self.addressLabel.text forKey:@"people_location"];
     
     //场地描述信息
     if ([description isEqualToString:@""] || [description isEqualToString:PLACE_HOLDER]) {
@@ -469,7 +572,7 @@
     [self.siteDict setObject:isYaJin forKey:@"is_deposit"];
     [self.siteDict setObject:self.goodsCount.text forKey:@"goods_number"];
     [self.siteDict setObject:self.yajinCount.text forKey:@"goods_deposit"];
-    //[self.siteDict setObject:@"1" forKey:@"goods_category_id"];
+    [self.siteDict setObject:self.typeID forKey:@"goods_category_id"];
     
     return YES;
 }
@@ -508,17 +611,6 @@
 #pragma mark - 拍照获取图片
 - (void)takeShopImageFromCamera
 {
-//    //相机访问受限
-//    AVAuthorizationStatus authStatus = [AVCaptureDevice authorizationStatusForMediaType:AVMediaTypeVideo];
-//    if (authStatus == AVAuthorizationStatusDenied || authStatus == AVAuthorizationStatusRestricted) {
-//        
-//        UIAlertView *alertView = [[UIAlertView alloc] initWithTitle:@"相机访问受限" message:@"请在设备的'设置-隐私-相机'中允许访问相机" delegate:self cancelButtonTitle:@"确定" otherButtonTitles:nil, nil];
-//        [alertView show];
-//        
-//        return;
-//    }
-    
-    
     UIImagePickerControllerSourceType sourceType = UIImagePickerControllerSourceTypeCamera;
     
     if ([UIImagePickerController isSourceTypeAvailable:sourceType]) {
@@ -627,9 +719,15 @@
             HUD.labelText = @"上传失败";
             [HUD hide:YES];
         }else{
-            HUD.labelText = @"上传成功";
-            [HUD hide:YES];
-            [self.imagePathArray replaceObjectAtIndex:_imageIndex withObject:string];
+            [self.imgArray removeObjectAtIndex:0];
+            [self.imagePathArray addObject:string];
+            if (self.imgArray.count > 0)
+            {
+                [self uploadSiteChooseImageWith:self.imgArray[0]];
+            }else{
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                [self issueSiteComfimrAction:nil];
+        }
         }
     }];
 }

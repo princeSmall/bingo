@@ -32,4 +32,7 @@
 ///-- 判断是否为空
 + (id)nullString:(id)content;
 
++(UITextView*)TextViewcreateLabelWithFrame:(CGRect)frame Font:(int)font Text:(NSString*)text textAligment:(NSTextAlignment )textAligment;
+
+
 @end

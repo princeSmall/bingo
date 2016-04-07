@@ -146,8 +146,12 @@
         
     }else
     {
+<<<<<<< HEAD
+
+=======
 //        [self.navigationController popToRootViewControllerAnimated:YES];
         
+>>>>>>> e29f718d8d7169cb8fa57d7b9e5e64468734be5c
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -533,7 +537,7 @@
                     UIButton *btn = [WNController createButtonWithFrame:CGRectMake(10+(10*(i%3))+btnWidth*(i%3), 10+(36*(i/3))+((i/3)*10), btnWidth, 36) ImageName:@"" Target:self Action:@selector(chooseHistoryCityAction:) Title:self.historyCityArray[i] fontSize:NormalFont];
                     btn.tag = 100+i;
                     btn.backgroundColor = [UIColor whiteColor];
-                    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    [btn setTitleColor:[UIColor colorWithRed:0.345 green:0.349 blue:0.353 alpha:1.000] forState:UIControlStateNormal];
                     [cell addSubview:btn];
                     
                 }
@@ -559,7 +563,7 @@
                     UIButton *btn = [WNController createButtonWithFrame:CGRectMake(10+(10*(i%3))+btnWidth*(i%3), 10+(36*(i/3))+((i/3)*10), btnWidth, 36) ImageName:@"" Target:self Action:@selector(hotCityAction:) Title:cityModel.cityName fontSize:NormalFont];
                     btn.tag = 100+i;
                     btn.backgroundColor = [UIColor whiteColor];
-                    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    [btn setTitleColor:[UIColor colorWithRed:0.294 green:0.298 blue:0.302 alpha:1.000] forState:UIControlStateNormal];
                     [cell addSubview:btn];
                     
                 }
@@ -587,7 +591,7 @@
                     UIButton *btn = [WNController createButtonWithFrame:CGRectMake(10+(10*(i%3))+btnWidth*(i%3), 10+(36*(i/3))+((i/3)*10), btnWidth, 36) ImageName:@"" Target:self Action:@selector(hotCityAction:) Title:cityModel.cityName fontSize:NormalFont];
                     btn.tag = 100+i;
                     btn.backgroundColor = [UIColor whiteColor];
-                    [btn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+                    [btn setTitleColor:[UIColor colorWithRed:0.373 green:0.376 blue:0.376 alpha:1.000] forState:UIControlStateNormal];
                     [cell addSubview:btn];
                     
                 }
@@ -605,7 +609,7 @@
                     cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
                     cell.selectionStyle = UITableViewCellSelectionStyleNone;
                     
-                    [cell.textLabel setTextColor:[UIColor blackColor]];
+                    [cell.textLabel setTextColor:[UIColor colorWithRed:0.420 green:0.420 blue:0.424 alpha:1.000]];
                     cell.textLabel.font = [UIFont systemFontOfSize:15];
                 }
                 
@@ -624,7 +628,7 @@
                 cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
                 cell.selectionStyle = UITableViewCellSelectionStyleNone;
                 
-                [cell.textLabel setTextColor:[UIColor blackColor]];
+                [cell.textLabel setTextColor:[UIColor colorWithRed:0.322 green:0.325 blue:0.329 alpha:1.000]];
                 cell.textLabel.font = [UIFont systemFontOfSize:15];
             }
             
@@ -644,7 +648,7 @@
             cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] ;
             cell.selectionStyle = UITableViewCellSelectionStyleNone;
             
-            [cell.textLabel setTextColor:[UIColor blackColor]];
+            [cell.textLabel setTextColor:[UIColor colorWithRed:0.251 green:0.255 blue:0.255 alpha:1.000]];
             cell.textLabel.font = [UIFont systemFontOfSize:15];
         }
         

@@ -10,10 +10,17 @@
 #import "CommentHtmlViewController.h"
 #import "JGButtonAreaView.h"
 #import "JGAreaModel.h"
+#import "PlaceholderTextView.h"
+#import "TTIChooseCityController.h"
+#import "SysTool.h"
+#import "ShopMainModel.h"
+
 
 
 @interface MovieCreateMineShopViewController ()<UIActionSheetDelegate,UIImagePickerControllerDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate>
-
+@property (nonatomic,strong)PlaceholderTextView * placeView;
+//店铺详情的cell
+@property (weak, nonatomic) IBOutlet UITableViewCell *myCellView;
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 @property (strong, nonatomic) IBOutlet UIImageView *shopImage;
 @property (strong, nonatomic) IBOutlet UITextField *txtShopName;
@@ -35,6 +42,7 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *thingsBtn;
 @property (weak, nonatomic) IBOutlet UIButton *areaBtn;
+@property (weak, nonatomic) IBOutlet UILabel *addressLab;
 
 //修改的显示
 @property (nonatomic,strong) UIPickerView *cityPickView;
@@ -43,9 +51,28 @@
 @property (nonatomic,strong)NSString * proID;
 @property (nonatomic,strong)NSString * citID;
 @property (nonatomic,strong)NSString * areID;
+@property (nonatomic,strong)NSString * cityStr;
 @property (nonatomic,strong)NSString * type;
 
+/**
+ *  地址信息和地址id
+ */
+@property (nonatomic,strong)NSString * addressString;
+@property (nonatomic,strong)NSString * addressID;
+
+
+@property (nonatomic,strong)ShopMainModel * storeModel;
+
 @property (nonatomic,strong)NSString * imageName;
+
+/**
+ *  开通 和  开店须知
+ */
+
+@property (weak, nonatomic) IBOutlet UIButton *openShopBtn;
+@property (weak, nonatomic) IBOutlet UIButton *readBtn;
+@property (weak, nonatomic) IBOutlet UIButton *readKnowBtn;
+
 @end
 
 @implementation MovieCreateMineShopViewController
@@ -182,13 +209,112 @@
     return _storeDict;
 }
 
+/**
+ *  请求店铺信息
+ */
+- (void)requetMineStoreInfomation
+{
+    MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    HUD.labelText = @"正在加载";
+    [HUD show:YES];
+    
+    [MovieHttpRequest createSetingStoreViewDataCallBack:^(id obj) {
+        
+        HUD.labelText = @"加载完成";
+        [HUD hide:YES];
+        
+        self.storeModel = (ShopMainModel *)obj;
+        [self refreshSetingShopView];
+        
+    } andSCallBack:^(id obj) {
+        
+        HUD.labelText = @"加载失败";
+        [HUD hide:YES];
+        //        [DeliveryUtility showMessage:obj target:self];
+    }];
+}
+- (void)BtnTypeClick1WithArray:(NSArray *)array{
+    
+    if ([array[0] isEqualToString:@"1"]) {
+        self.peopleBtn.selected = YES;
+    }
+    if ([array[1] isEqualToString:@"1"]) {
+        self.thingsBtn.selected = YES;
+    }
+    if ([array[2] isEqualToString:@"1"]) {
+        self.areaBtn.selected = YES;
+    }
+}
+
+- (void)refreshSetingShopView
+{
+    //店铺背景
+
+    NSString * string22 =[NSString stringWithFormat:@"%@%@",TIBIGImage,self.storeModel.shop_logo];
+    NSURLRequest * req = [NSURLRequest requestWithURL:[NSURL URLWithString:string22]];
+    UIImage * imageShop =[UIImage imageWithData:[NSURLConnection sendSynchronousRequest:req returningResponse:nil error:nil]];
+    
+    CGFloat imageW = imageShop.size.width;
+    CGFloat imageH = imageShop.size.height;
+    CGFloat count;
+    CGFloat W,H;
+    if (imageW > imageH) {
+        count = imageW/imageH;
+        W = 88*count;
+        H = 88;
+    }else{
+        count = imageH/imageW;
+        W = 88;
+        H = 88*count;
+    }
+    self.shopImage.image = [DeliveryUtility image:imageShop scaledToSize:CGSizeMake(W, H)];
+    self.shopImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.imageName = self.storeModel.shop_logo;
+    self.txtShopName.text = self.storeModel.shop_name;
+    self.txtContact.text = self.storeModel.shop_contact_person;
+    self.txtPhoneNum.text = self.storeModel.shop_tel;
+    //    self.txtAddress.text = self.storeModel.shop_addr_detail;
+    
+    self.addressLab.text = self.storeModel.spare_address;
+    self.txtAddress.text = self.storeModel.shop_addr_detail;
+    
+    self.proID = self.storeModel.province_id;
+    self.citID = self.storeModel.city_id;
+    self.areID = self.storeModel.district_id;
+    self.addressString = self.storeModel.spare_address;
+    [self.placeView setPlaceholderHidden];
+    self.placeView.text = self.storeModel.shop_desc;
+    NSArray * arrCategory = [self.storeModel.category_id componentsSeparatedByString:@"3"];
+    [self BtnTypeClick1WithArray:arrCategory];
+}
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.addressString = @"";
+    if ([self.openShop isEqualToString:@"0"]) {
+        [self setNavTabBar:@"店铺设置"];
+        [self ViewChange];
+        [self requetMineStoreInfomation];
+    }else{
     [self setNavTabBar:@"开通店铺"];
+    }
     [self initCreateMineShopView];
     [self openStoreAddTextFieldNotification];
     JGButtonAreaView *buttonAreaView = [[JGButtonAreaView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 40) WithController:self];
-    [self.myView addSubview:buttonAreaView];
+    PlaceholderTextView * placeHolder = [[PlaceholderTextView alloc]initWithFrame:CGRectMake(8, 5,kViewWidth - 16,self.myCellView.height)];
+    self.placeView = placeHolder;
+    placeHolder.textColor = [UIColor lightGrayColor];
+    placeHolder.Placeholder = @"店铺介绍";
+    [self.myCellView addSubview:placeHolder];
+//    [self.myView addSubview:buttonAreaView];
+    
+    UIButton * addressBtn = [[UIButton alloc]initWithFrame:CGRectMake(0, 0, self.myView.frame.size.width, self.myView.frame.size.height)];
+    [self.myView addSubview:addressBtn];
+    [addressBtn addTarget:self action:@selector(ChoseAddress) forControlEvents:UIControlEventTouchUpInside];
+    
     [buttonAreaView.provinceBtn addTarget:self action:@selector(provinceBtnClick) forControlEvents:UIControlEventTouchUpInside];
     [buttonAreaView.cityBtn addTarget:self action:@selector(CityBtN) forControlEvents:UIControlEventTouchUpInside];
     [buttonAreaView.areaBtn addTarget:self action:@selector(areaBtnClick) forControlEvents:UIControlEventTouchUpInside];
@@ -196,6 +322,57 @@
     [self.view addSubview:self.cityPickTextField];
     
 }
+/**
+ *  修改店铺信息
+ *
+ *  @param sender <#sender description#>
+ */
+
+- (void)comfirmSettingStoreAction
+{
+    NSLog(@"确定设置店铺");
+    if ([self checkCreateMineStoreValidChange]) {
+        MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        HUD.labelText = @"正在设置";
+        [HUD show:YES];
+        
+        [MovieHttpRequest createSettingMineStoreInfomation:self.storeDict CallBack:^(id obj) {
+            HUD.labelText = @"设置成功";
+            [HUD hide:YES];
+            [self.navigationController popViewControllerAnimated:YES];
+            [[NSNotificationCenter defaultCenter]postNotificationName:@"我的店铺修改" object:nil];
+            
+        } andSCallBack:^(id obj) {
+            
+            [HUD hide:YES];
+            [DeliveryUtility showMessage:obj target:self];
+        }];
+    }
+}
+
+
+- (void)ChoseAddress{
+
+    TTIChooseCityController * choose = [[TTIChooseCityController alloc]init];
+    choose.openShop = @"1";
+    choose.infoFn = ^(NSString * address,NSString * addressID){
+        
+        NSLog(@"%@%@",address,addressID);
+        NSArray * addressArr = [address componentsSeparatedByString:@","];
+        self.addressLab.text = [NSString stringWithFormat:@"%@%@%@",addressArr[0],addressArr[1],addressArr[2]];
+        self.addressString = address;
+        self.addressID = addressID;
+        self.cityStr = addressArr[1];
+        NSArray * addressIDArr = [addressID componentsSeparatedByString:@","];
+        self.proID = addressIDArr[0];
+        self.citID = addressIDArr[1];
+        self.areID = addressIDArr[2];
+    };
+    
+    [self.navigationController pushViewController:choose animated:YES];
+}
+
+
 
 - (void)provinceBtnClick{
     NSLog(@"省份");
@@ -381,6 +558,9 @@
 #pragma mark - 确定开通店铺
 - (IBAction)comfirmCreateMineShop:(UIButton *)sender {
     
+    if ([self.openShop isEqualToString:@"0"]) {
+        [self comfirmSettingStoreAction];
+    }else{
     if ([self checkCreateMineStoreValid]) {
         
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
@@ -394,17 +574,27 @@
             [HUD hide:YES];
             
             [self.view makeToastCenter:@"恭喜成功开通店铺"];
-            [self performSelector:@selector(openMineShopGoBack) withObject:nil afterDelay:0.25];
+            [self performSelector:@selector(openMineShopGoBack) withObject:nil afterDelay:1.0];
             
         } andSCallBack:^(id obj) {
             
-            HUD.labelText = @"店铺名称已存在";
+            HUD.labelText = @"店铺名称已存在或者您已经拥有店铺";
             [HUD hide:YES];
         }];
     }
     
     NSLog(@"确定开通店铺");
+    }
 }
+/**
+ *  这边需要修改开通 和  开店须知  将他们Hiden
+ */
+- (void)ViewChange{
+    [self.openShopBtn setTitle:@"确 认" forState:UIControlStateNormal];
+    self.readBtn.hidden = YES;
+    self.readKnowBtn.hidden = YES;
+}
+
 
 
 - (void)openMineShopGoBack
@@ -414,31 +604,10 @@
     [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
-- (BOOL)checkCreateMineStoreValid
+- (BOOL)checkCreateMineStoreValidChange
 {
     NSString *shopNameStr = [self.txtShopName.text asTrim];
-    NSString *briefStr = [self.txtIntroduce.text asTrim];
-    NSString *cityStr ;
-    NSString * proID;
-    NSString * citID;
-    NSString * areID;
-    
-    proID = self.proID;
-    citID = self.citID;
-    areID = self.areID;
-    
-    if (![self.buttonAreaView isAllAddress]) {
-        cityStr = @"";
-    }else{
-      cityStr = [self.buttonAreaView getAddress];
-        proID = [self.buttonAreaView getProID];
-        citID = [self.buttonAreaView getCitID];
-        areID = [self.buttonAreaView getAreID];
-    }
-    
-
-    
-    
+    NSString *briefStr = [self.placeView.text asTrim];
     NSString *addressStr = [self.txtAddress.text asTrim];
     NSString *telStr = [self.txtPhoneNum.text asTrim];
     NSString *contectStr = [self.txtContact.text asTrim];
@@ -458,19 +627,19 @@
         [DeliveryUtility showMessage:@"请填写店铺介绍" target:self];
         return NO;
     }
-//    else if ([DeliveryUtility isNotLegal:briefStr]){
-//        [DeliveryUtility showMessage:@"店铺简介不可包含非法字符" target:self];
-//        return NO;
-//    }
-    
-    if ([cityStr isEqualToString:@""]){
-        [DeliveryUtility showMessage:@"请确保地址信息完整" target:self];
+    if ([self.addressString isEqualToString:@""]) {
+        [DeliveryUtility showMessage:@"请选择地址" target:self];
         return NO;
     }
-//    else if ([DeliveryUtility isNotLegal:cityStr]){
-//        [DeliveryUtility showMessage:@"地址不可包含非法字符" target:self];
-//        return NO;
-//    }
+    NSString *cityStr ;
+    NSString * proID;
+    NSString * citID;
+    NSString * areID;
+    
+    proID = self.proID;
+    citID = self.citID;
+    areID = self.areID;
+    cityStr = self.cityStr;
     
     if (!self.imageName) {
         [DeliveryUtility showMessage:@"请选择店铺logo" target:self];
@@ -485,7 +654,118 @@
         [DeliveryUtility showMessage:@"详细地址不可包含非法字符" target:self];
         return NO;
     }
+    //判断联系电话
+    if ([telStr isEqualToString:@""]){
+        [DeliveryUtility showMessage:@"请填写电话号码" target:self];
+        return NO;
+    }
+    else if ([DeliveryUtility isNotLegal:telStr]){
+        [DeliveryUtility showMessage:@"电话号码不可包含非法字符" target:self];
+        return NO;
+    }
+    
+    if ([contectStr isEqualToString:@""]){
+        [DeliveryUtility showMessage:@"请填写联系人信息" target:self];
+        return NO;
+    }
+    else if ([DeliveryUtility isNotLegal:contectStr]){
+        [DeliveryUtility showMessage:@"联系人信息不可包含非法字符" target:self];
+        return NO;
+    }
+    
+    else if (!(self.peopleBtn.selected ==YES||self.thingsBtn.selected ==YES||self.areaBtn.selected ==YES)) {
+        [DeliveryUtility showMessage:@"请选择店铺类型" target:self];
+        return NO;
+    }
+    [self.storeDict setObject:APP_DELEGATE.user_id forKey:@"user_id"];
+    [self.storeDict setObject:self.storeModel.shop_id forKey:@"shop_id"];
+    [self.storeDict setObject:shopNameStr forKey:@"shop_name"];
+    [self.storeDict setObject:self.imageName forKey:@"shop_logo"];
+    [self.storeDict setObject:self.placeView.text forKey:@"shop_desc"];
+    
+    [self.storeDict setObject:self.txtAddress.text forKey:@"shop_addr_detail"];
+    [self.storeDict setObject:self.proID forKey:@"province_id"];
+    [self.storeDict setObject:self.citID forKey:@"city_id"];
+    [self.storeDict setObject:self.areID forKey:@"district_id"];
+    [self.storeDict setObject:telStr forKey:@"shop_tel"];
+    [self.storeDict setObject:contectStr forKey:@"shop_contact_person"];
+    NSMutableString * category = [NSMutableString string];
+    if (self.peopleBtn.selected) {
+        [category appendString:@"13"];
+    }else{
+        [category appendString:@"03"];
+    }
+    
+    if (self.thingsBtn.selected) {
+        [category appendString:@"13"];
+    }else{
+        [category appendString:@"03"];
+    }
+    if (self.areaBtn.selected) {
+        [category appendString:@"13"];
+    }else{
+        [category appendString:@"03"];
+    }
+    [self.storeDict setObject:category forKey:@"category_id"];
+    [self.storeDict setObject:self.addressLab.text forKey:@"spare_address"];
+    return YES;
+}
 
+
+
+
+
+- (BOOL)checkCreateMineStoreValid
+{
+    NSString *shopNameStr = [self.txtShopName.text asTrim];
+    NSString *briefStr = [self.placeView.text asTrim];
+    NSString *addressStr = [self.txtAddress.text asTrim];
+    NSString *telStr = [self.txtPhoneNum.text asTrim];
+    NSString *contectStr = [self.txtContact.text asTrim];
+    
+    //判断店铺名称
+    if ([shopNameStr isEqualToString:@""]) {
+        [DeliveryUtility showMessage:@"请填写店铺名称" target:self];
+        return NO;
+    }
+    else if ([DeliveryUtility isNotLegal:shopNameStr]){
+        [DeliveryUtility showMessage:@"店铺名称不可包含非法字符" target:self];
+        return NO;
+    }
+    
+    //判断店铺介绍
+    if ([briefStr isEqualToString:@""]){
+        [DeliveryUtility showMessage:@"请填写店铺介绍" target:self];
+        return NO;
+    }
+
+    if ([self.addressString isEqualToString:@""]) {
+        [DeliveryUtility showMessage:@"请选择地址" target:self];
+        return NO;
+    }
+    NSString *cityStr ;
+    NSString * proID;
+    NSString * citID;
+    NSString * areID;
+    
+    proID = self.proID;
+    citID = self.citID;
+    areID = self.areID;
+    cityStr = self.cityStr;
+
+    if (!self.imageName) {
+        [DeliveryUtility showMessage:@"请选择店铺logo" target:self];
+        return NO;
+    }
+    
+    if ([addressStr isEqualToString:@""]){
+        [DeliveryUtility showMessage:@"请填写详细地址" target:self];
+        return NO;
+    }
+    else if ([DeliveryUtility isNotLegal:addressStr]){
+        [DeliveryUtility showMessage:@"详细地址不可包含非法字符" target:self];
+        return NO;
+    }
     //判断联系电话
     if ([telStr isEqualToString:@""]){
         [DeliveryUtility showMessage:@"请填写电话号码" target:self];
@@ -519,14 +799,12 @@
     [self.storeDict setObject:APP_DELEGATE.user_id forKey:@"user_id"];
     [self.storeDict setObject:shopNameStr forKey:@"shop_name"];
     [self.storeDict setObject:self.imageName forKey:@"shop_logo"];
-    [self.storeDict setObject:self.txtIntroduce.text forKey:@"shop_desc"];
+    [self.storeDict setObject:self.placeView.text forKey:@"shop_desc"];
     
     [self.storeDict setObject:self.txtAddress.text forKey:@"shop_addr_detail"];
     [self.storeDict setObject:self.proID forKey:@"province_id"];
     [self.storeDict setObject:self.citID forKey:@"city_id"];
     [self.storeDict setObject:self.areID forKey:@"district_id"];
-    [self.storeDict setObject:addressStr forKey:@"shop_addr_detail"];
-//    [self.storeDict setObject:cityStr forKey:@"city_id"];
     [self.storeDict setObject:telStr forKey:@"shop_tel"];
     [self.storeDict setObject:contectStr forKey:@"shop_contact_person"];
     NSMutableString * category = [NSMutableString string];
@@ -547,7 +825,7 @@
         [category appendString:@"03"];
     }
     [self.storeDict setObject:category forKey:@"category_id"];
-    [self.storeDict setObject:cityStr forKey:@"spare_address"];
+    [self.storeDict setObject:self.addressLab.text forKey:@"spare_address"];
     return YES;
 }
 
@@ -572,13 +850,11 @@
 
 #pragma mark - 为店铺选择照片
 - (IBAction)chooseShopMainImage:(id)sender {
-    
-    NSLog(@"为店铺选择照片11111");
-    
-    [self creatShopKeyboardDown];
-    
-    UIActionSheet *sheetView = [[UIActionSheet alloc] initWithTitle:nil delegate:self cancelButtonTitle:@"取消" destructiveButtonTitle:nil otherButtonTitles:@"拍照",@"从相册选择", nil];
-    [sheetView showInView:self.view];
+
+    [[SysTool ShareTool]ShowActionSheetInViewController:self AndChoseBlock:^(UIImage *img, NSData *data) {
+        [self uploadStoreLogoImage:img];
+    }];
+   
 }
 
 
@@ -695,7 +971,7 @@
     parameters[@"flag"] = @"1";
     [HttpRequestServers requestBaseUrl:TICommon_Uploadify withParams:parameters withRequestFinishBlock:^(id result) {
         HUD.labelText = @"图片上传成功！";
-        [HUD hide:YES];
+        [HUD hide:YES afterDelay:0.5];
         NSDictionary * dict = result[@"data"];
      self.imageName = dict[@"img"];
         self.shopImage.image = postImage;

@@ -35,6 +35,9 @@
 @property (nonatomic,strong)NSString * spare_address;
 @property (nonatomic,strong)NSString * type;
 @property (nonatomic,strong)NSString * img_path;
+@property (nonatomic,strong)NSString * category_name;
+@property (nonatomic,strong)NSString * people_location;
+@property (nonatomic,strong)NSString * is_deduction;
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 

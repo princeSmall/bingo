@@ -16,6 +16,8 @@
 #import "IncomeDetailsController.h"
 #import "MyWalletController.h"
 #import "MovieMineStoreInfoModel.h"
+#import "MovieCreateMineShopViewController.h"
+#import "TTIPersonViewController.h"
 
 #import "ShopMainModel.h"
 
@@ -24,7 +26,7 @@
 
 @property (nonatomic,strong) UIScrollView *scrollView;
 @property (nonatomic,strong) UILabel *shopNameLabel;
-@property (nonatomic,strong) UILabel *shopDescLabel;
+@property (nonatomic,strong) UITextView *shopDescLabel;
 @property (nonatomic,strong) UIView *bgView;
 @property (nonatomic,strong) UIView *myBtnView;
 @property (nonatomic,strong) ShopMainModel *storeModel;
@@ -95,17 +97,17 @@
     _shopImageView.contentMode = UIViewContentModeScaleAspectFill;
     
     [myView1 addSubview:_shopImageView];
-    UIImageView *smImageView = [WNController createImageViewWithFrame:CGRectMake(CGRectGetMaxX(_shopImageView.frame)-15, CGRectGetMaxY(_shopImageView.frame)-15, 30, 30) ImageName:@"shop_03-02"];
+    UIImageView *smImageView = [WNController createImageViewWithFrame:CGRectMake(CGRectGetMaxX(_shopImageView.frame)-20, CGRectGetMaxY(_shopImageView.frame)-20, 30, 30) ImageName:@"shop_03-02"];
     [myView1 addSubview:smImageView];
     //店铺名称
-    
+   
      CGSize size = [shopName sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
     CGFloat nameW = screenWidth-255;
-    float n = size.width/(int)nameW;
+    float n = 1;
     CGFloat nameH = ceilf(n) * size.height;
     //CGFloat nameW = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-230 andFont:DefaultFont].width;
     // CGFloat nameH = [DeliveryUtility caculateContentSizeWithContent:shopName andHight:21.0f andWidth:screenWidth-130 andFont:DefaultFont].height;
-    CGRect nameFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+15, CGRectGetMinY(_shopImageView.frame)+10 , nameW, nameH);
+    CGRect nameFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+15, CGRectGetMinY(_shopImageView.frame)+7 , nameW, nameH);
     self.shopNameLabel = [WNController createLabelWithFrame:nameFrame Font:16.0f Text:shopName textAligment:NSTextAlignmentLeft];
     self.shopNameLabel.textColor = [UIColor colorWithRed:0.22 green:0.22 blue:0.22 alpha:1];
     [myView1 addSubview:self.shopNameLabel];
@@ -118,15 +120,14 @@
     //星星前面的标志
     UIImageView *levelImage = [WNController createImageViewWithFrame:CGRectMake(CGRectGetMinX(starView.frame)-30,14, 25, 25) ImageName:@"shop_03.png"];
     [myView1 addSubview:levelImage];
-
     //店铺简介
     CGSize brifySize = [shopBrify sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
-    CGFloat brifyW = screenWidth-170;
+    CGFloat brifyW = screenWidth-160;
     
-    CGFloat brifyH =ceilf(brifySize.width/(int)brifyW )*brifySize.height;
-    CGRect brifyFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+20, CGRectGetMaxY(self.shopNameLabel.frame)+10, brifyW, brifyH);
+    CGFloat brifyH =ceilf(brifySize.width/(int)brifyW )*brifySize.height-10;
+    CGRect brifyFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+10, 40, brifyW, brifyH);
     
-    self.shopDescLabel = [WNController createLabelWithFrame:brifyFrame Font:13 Text:shopBrify textAligment:NSTextAlignmentLeft];
+    self.shopDescLabel = [WNController TextViewcreateLabelWithFrame:brifyFrame Font:14 Text:shopBrify textAligment:NSTextAlignmentLeft];
     self.shopDescLabel.textColor = [UIColor colorWithRed:0.62 green:0.62 blue:0.62 alpha:1];
     [myView1 addSubview:self.shopDescLabel];
 #warning 删除
@@ -330,8 +331,8 @@
 - (void)storeSetAction
 {
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MoviePersonal" bundle:nil];
-    StoreSettingController *tradingVc = [storyboard instantiateViewControllerWithIdentifier:@"settingStore"];
-    tradingVc.delegate = self;
+    MovieCreateMineShopViewController *tradingVc = [storyboard instantiateViewControllerWithIdentifier:@"createMineShop"];
+    tradingVc.openShop = @"0";
     [self.navigationController pushViewController:tradingVc animated:YES];
 }
 
@@ -355,9 +356,6 @@
     
     
     [self removeTapGesAction];
-//    PublishProductController  *tradingVc = [[PublishProductController alloc] init];
-//    [self.navigationController pushViewController:tradingVc animated:YES];
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MoviePersonal" bundle:nil];
     PublishProductController *tradingVc = [storyboard instantiateViewControllerWithIdentifier:@"publishProduct"];
     [self.navigationController pushViewController:tradingVc animated:YES];
@@ -368,9 +366,15 @@
 {
     [self removeTapGesAction];
     
-    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MoviePersonal" bundle:nil];
-    PublishPersonnelController *tradingVc = [storyboard instantiateViewControllerWithIdentifier:@"issuePerson"];
-    [self.navigationController pushViewController:tradingVc animated:YES];
+//    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MoviePersonal" bundle:nil];
+//    PublishPersonnelController *tradingVc = [storyboard instantiateViewControllerWithIdentifier:@"issuePerson"];
+//    [self.navigationController pushViewController:tradingVc animated:YES];
+    TTIPersonViewController * personView = [[TTIPersonViewController alloc]init];
+    [self.navigationController pushViewController:personView animated:YES];
+    
+    
+    
+    
 }
 //场地
 - (void)siteAction

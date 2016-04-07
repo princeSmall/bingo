@@ -338,9 +338,6 @@
     if ([array[2] isEqualToString:@"1"]) {
         self.btnType3.selected = YES;
     }
-    
-    
-
 }
 
 

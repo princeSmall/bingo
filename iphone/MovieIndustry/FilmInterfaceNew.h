@@ -142,11 +142,11 @@
  *192.168.2.110/index.php/api/
  */
 //大图
-#define TIBIGImage @"http://test.3tichina.com:8017/front/media/images/imgs/big/"
+#define TIBIGImage @"http://test.3tichina.com:8017/front/media/images/imgs/"
 //中图
-#define TIMIDDLEImage @"http://test.3tichina.com:8017/front/media/images/imgs/middle/"
+#define TIMIDDLEImage @"http://test.3tichina.com:8017/front/media/images/imgs/"
 //小图
-#define TISMALLImage @"http://test.3tichina.com:8017/front/media/images/imgs/small/"
+#define TISMALLImage @"http://test.3tichina.com:8017/front/media/images/imgs/"
 
 //内网测试
 

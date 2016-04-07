@@ -10,11 +10,7 @@
 
 @interface ShopSendClickView()
 //商家送货
-@property (nonatomic,strong)UIButton * button1;
-//顺风送货
-@property (nonatomic,strong)UIButton * button2;
-//申通送货
-@property (nonatomic,strong)UIButton * button3;
+
 
 @property (nonatomic,strong)ClickBlock block;
 
@@ -88,8 +84,8 @@
         [self addSubview:labelLine3];
         [self addSubview:buttonC3];
 
-        self.button1.selected = YES;
-        self.block(@"送货上门");
+//        self.button1.selected = YES;
+//        self.block(@"送货上门");
 
     }
     return self;
