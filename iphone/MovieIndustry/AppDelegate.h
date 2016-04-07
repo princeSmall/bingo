@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ManagerShippingAddressController.h"
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
@@ -20,6 +21,10 @@
 @property (nonatomic,strong) UITabBarController *tbbC;
 //订单id号
 @property (nonatomic,strong)NSString * orderid;
+@property (nonatomic,strong)UIViewController * ShowViewController;
+
+//选择收货地址页面标记
+@property (nonatomic,strong)ManagerShippingAddressController *managerShip;
 
 @end
 

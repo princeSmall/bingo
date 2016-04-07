@@ -15,6 +15,7 @@
 #import "LoginInController.h"
 #import "HelpViewController.h"
 #import "VerificationUserController.h"
+#import "FeedbackViewController.h"
 
 
 @interface SettingViewController ()<UIAlertViewDelegate>
@@ -85,8 +86,10 @@
 #pragma mark - 帮助与反馈
 - (IBAction)helperAndRecommended:(UIButton *)sender {
     
-    MovieHelperViewController *helperView = [[MovieHelperViewController alloc] init];
-    [self.navigationController pushViewController:helperView animated:YES];
+    FeedbackViewController * feed = [[FeedbackViewController alloc]init];
+    [self.navigationController pushViewController:feed animated:YES];
+//    MovieHelperViewController *helperView = [[MovieHelperViewController alloc] init];
+//    [self.navigationController pushViewController:helperView animated:YES];
 }
 
 

@@ -17,11 +17,12 @@
 @property (nonatomic,strong) UIImagePickerController *imagePicker;
 
 @property (strong, nonatomic) IBOutlet UITextField *txtGoodName;
+@property (weak, nonatomic) IBOutlet UIView *myView;
 
 @property (strong, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (strong, nonatomic) IBOutlet UITextField *txtPrice;
 @property (strong, nonatomic) IBOutlet UITextField *txtKamePrice;
+@property (strong, nonatomic) IBOutlet UITextField *txtPrice;
 
 @property (strong, nonatomic) IBOutlet UILabel *address;
 @property (strong, nonatomic) IBOutlet UILabel *deliveryMethod;

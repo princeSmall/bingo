@@ -12,6 +12,7 @@
 
 - (void)config:(ShippingAddressModel *)model
 {
+   
     self.consigneeLabel.text = model.consignee;
     //这边收货地址的拼接  富文本的[默认] 和随后的收货地址
     self.addressLabel.text = [NSString stringWithFormat:@"收货地址：%@%@",model.regionArea,model.address];
@@ -20,7 +21,7 @@
         NSString * addressStr = [NSString stringWithFormat:@"[默认] 收货地址：%@%@",model.regionArea,model.address];
         NSMutableAttributedString * addressAttr = [[NSMutableAttributedString alloc]initWithString:addressStr];
         [addressAttr addAttribute:NSForegroundColorAttributeName value:[UIColor redColor] range:NSMakeRange(0, 4)];
-        [addressAttr addAttribute:NSForegroundColorAttributeName value:[UIColor lightGrayColor] range:NSMakeRange(4, addressStr.length - 4)];
+        [addressAttr addAttribute:NSForegroundColorAttributeName value:[UIColor colorWithWhite:0.278 alpha:1.000] range:NSMakeRange(4, addressStr.length - 4)];
         self.addressLabel.attributedText = addressAttr;
         self.statsuButton.alpha = 1;
     }

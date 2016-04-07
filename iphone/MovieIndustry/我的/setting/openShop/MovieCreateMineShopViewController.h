@@ -13,4 +13,6 @@
 
 @interface MovieCreateMineShopViewController : BaseTableViewController
 
+@property (nonatomic,strong)NSString * openShop;
+
 @end

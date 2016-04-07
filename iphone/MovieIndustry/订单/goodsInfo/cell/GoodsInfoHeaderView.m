@@ -13,7 +13,7 @@
 - (void)drawRect:(CGRect)rect {
     self.goodsScrollView = [[SDCycleScrollView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, 366)];
     
-    self.goodsScrollView.backgroundColor = [UIColor blackColor];
+    self.goodsScrollView.backgroundColor = [UIColor whiteColor];
     
     //
     //    //设置自动滚动和滚动的时间

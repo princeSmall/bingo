@@ -15,6 +15,9 @@
 #import "JGAreaModel.h"
 #import "JGSecondCoverView.h"
 #import "PublishSecondCategoryController.h"
+#import "AddPictureTableViewCell.h"
+#import "JGAddPictureView.h"
+
 
 #define IMAGE_START_TAG 300
 #define BTN_START_TAG  200
@@ -55,8 +58,11 @@
 @property (weak, nonatomic) IBOutlet UITextField *yajinCount;
 @property (weak, nonatomic) IBOutlet UITextField *goodsCount;
 
+@property (nonatomic,strong)JGAddPictureView * addView;
 @property (nonatomic,strong) JGSecondCoverView * secView;
 
+
+@property (nonatomic,strong)NSMutableArray * imgArray;
 @end
 
 @implementation PublishProductController
@@ -125,11 +131,44 @@
     return _deliveryArray;
 }
 
+/**
+ *  点击发布的时候 ，第一步先上传图片
+ */
+- (void)UploadFile{
+
+//    self.addView.imageArray
+    
+    if ([self checkIssueProductValid]) {
+        [self.imagePathArray removeAllObjects];
+        if (self.addView.imageArray.count == 0) {
+            /**
+             *  这边提示需要选择1-5张图片
+             */
+        }else{
+            self.imgArray = [NSMutableArray arrayWithArray:self.addView.imageArray];
+            [self uploadChooseImageWith:self.imgArray[0]];
+            
+        }
+    }
+}
+
+
+
+
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    APP_DELEGATE.ShowViewController = self;
     _imagePathArray = nil;
-
+    self.imgArray = [NSMutableArray array];
+    self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
+    self.tableView.backgroundColor = [UIColor colorWithRed:0.800 green:0.812 blue:0.816 alpha:0.5];
+    
+    
+    self.addView = [[JGAddPictureView alloc]initWithFrame:CGRectMake(10, 35, APP_DELEGATE.window.frame.size.width, PictureWH) AndViewController:APP_DELEGATE.ShowViewController];
+    [self.myView addSubview:self.addView];
+    
+    
     if(self.desModel){
     [self setNavTabBar:@"修改产品信息"];
         self.txtGoodName.text = self.desModel.goods_name;
@@ -137,6 +176,8 @@
         self.txtKamePrice.text = self.desModel.market_price;
         self.goodsCount.text = self.desModel.goods_number;
         self.address.text = self.desModel.spare_address;
+        self.typeLbl.text = self.desModel.category_name;
+       [self.goodsDict setObject:self.desModel.goods_category_id forKey:@"goods_category_id"];
         if ([self.desModel.is_deposit isEqualToString:@"1"]) {
             self.depositSwBtn.on = YES;
         }else{
@@ -148,9 +189,26 @@
         self.yajinCount.text = self.desModel.goods_deposit;
 #warning 选择类型 没有做
 #warning 选择类型没有做TUPIAN
-        self.deliveryMethod.text = self.desModel.goods_express;
-        self.textViewDetail.text = self.desModel.goods_desc;
         
+        switch ([self.desModel.goods_express intValue]) {
+            case 0:
+                self.deliveryMethod.text = @"商家送货";
+                self.sendView.button1.selected = YES;
+                break;
+            case 1:
+                self.deliveryMethod.text = @"快递";
+                self.sendView.button2.selected = YES;
+                break;
+            case 2:
+                self.deliveryMethod.text = @"自提";
+                self.sendView.button3.selected = YES;
+                break;
+                
+            default:
+                break;
+        }
+        self.textViewDetail.text = self.desModel.goods_desc;
+
         for (NSString * str in self.desModel.imgs) {
             NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,str]];
             UIImage *image =[UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
@@ -158,7 +216,9 @@
                 [self.imageArray addObject:image];
             }
         }
-        
+        self.addView.imageArray = [NSMutableArray arrayWithArray:self.imageArray];
+       [self.imageArray addObject:[UIImage imageNamed:@"addPicture"]];
+        [self.addView ViewWithPictures:self.imageArray];
         
     }else
     {
@@ -199,10 +259,10 @@
     UIButton *comfirmBtn;
     
     if (!self.desModel) {
-        comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20, 20, kViewWidth-40, 40) title:@"发布" andFont:DefaultFont target:self action:@selector(issueProductComfimrAction:)];
+        comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20, 20, kViewWidth-40, 40) title:@"发布" andFont:DefaultFont target:self action:@selector(UploadFile)];
         
     }else{
-       comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20, 20, kViewWidth-40, 40) title:@"修改" andFont:DefaultFont target:self action:@selector(issueProductComfimrActionChange:)];
+       comfirmBtn = [DeliveryUtility createBtnFrame:CGRectMake(20, 20, kViewWidth-40, 40) title:@"修改" andFont:DefaultFont target:self action:@selector(UploadFile)];
     
     
     }
@@ -357,20 +417,6 @@
         [DeliveryUtility showMessage:@"请输入商品名称" target:self];
         return NO;
     }
-    //判断图片
-    NSString * imageAllStr ;
-    int imageNum=0;
-    for (int i = 0; i < self.imagePathArray.count; i ++) {
-        if ([_imagePathArray[i] isEqual:@""]) {
-            imageAllStr = @"1";
-            imageNum++;
-          
-        }
-    }
-    if (imageNum >= 5) {
-        [DeliveryUtility showMessage:@"请上传至少1张商品图片" target:self];
-        return NO;
-    }
     if (0 == originPrice.length) {
         [DeliveryUtility showMessage:@"请输入商品价格" target:self];
         return NO;
@@ -470,52 +516,6 @@
         chooseVC.delegate = self;
         [self.navigationController pushViewController:chooseVC animated:YES];
 #warning  点击选择城市列表
-        
-//        JGButtonAreaView * areaView = [[JGButtonAreaView alloc]initWithFrame:self.view.frame WithController:self];
-//    [areaView provinceActionEndWithtype:@"" Block:^(NSString *provinceStr) {
-//       
-//        NSArray * proArray = [provinceStr componentsSeparatedByString:@","];
-//        NSMutableDictionary * dict = [NSMutableDictionary dictionary];
-//        dict[@"user_id"] = APP_DELEGATE.user_id;
-//        dict[@"parent_id"] = proArray[1];
-//        
-//        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-//        [HttpRequestServers requestBaseUrl:TIShipping_Regions withParams:dict withRequestFinishBlock:^(id result) {
-//            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//            if (!result[@"data"]) {
-//                
-//            }else{
-//                NSMutableArray * citArray = [NSMutableArray array];
-//                NSArray * resArray = result[@"data"];
-//                for (int i = 0; i < resArray.count; i ++) {
-//                    JGAreaModel * model = [[JGAreaModel alloc]initWithDict:resArray[i]];
-//                    [citArray addObject:model];
-//                }
-//                
-//                CGRect rect = [UIScreen mainScreen].bounds;
-//                CGFloat CovX = rect.size.width/3*2;
-//                CGFloat covY = rect.size.height/6;
-//                CGFloat covW = rect.size.width/3;
-//                CGFloat covH = rect.size.height/3*2;
-//                if (self.secView) {
-//                    [self.secView removeFromSuperview];
-//                    self.secView = nil;
-//                }
-//                
-//                
-//                
-//                self.secView = [[JGSecondCoverView alloc]initWithFrame:CGRectMake(CovX, covY, covW, covH) And:citArray WithBlock:^(NSString *string) {
-//                    self.address.text = string;
-//                    [areaView.coverView removeFromSuperview];
-//                }];
-//                [areaView.coverView addSubview:self.secView.myTableView];
-//            }
-//        } withFieldBlock:^{
-//            [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
-//        }];
-//        
-//        
-//    }];
     }//选择类型
     else if (indexPath.row==8)
     {
@@ -525,12 +525,8 @@
         __weak typeof(self)wself = self;
         secondCategory.backFn = ^(NSDictionary * dict){
             [wself.goodsDict setObject:dict[@"category_id"] forKey:@"goods_category_id"];  ;
-            UITableViewCell *cell = [wself.tableView cellForRowAtIndexPath:indexPath];
-            cell.accessoryType = UITableViewCellAccessoryNone;
-            wself.typeLbl .frame=CGRectMake(kViewWidth-100, 0, 80, cell.frame.size.height);
-            wself.typeLbl.textColor = [UIColor blackColor];
             wself.typeLbl.text = dict[@"category_name"];
-            wself.typeLbl.textAlignment = NSTextAlignmentRight;
+           wself.typeLbl.textAlignment = NSTextAlignmentRight;
             
             
         };
@@ -666,18 +662,20 @@
             HUD.labelText = @"添加失败";
             [HUD hide:YES afterDelay:1.5];
         }else{
-            HUD.labelText = @"添加成功";
-            
-            if (self.imageArray.count >= (_imageIndex+1))
+            [self.imgArray removeObjectAtIndex:0];
+            [self.imagePathArray addObject:string];
+            if (self.imgArray.count > 0)
             {
-                [self.imageArray replaceObjectAtIndex:_imageIndex withObject:originImage];
+                [self uploadChooseImageWith:self.imgArray[0]];
             }else{
-                [self.imageArray addObject:originImage];
+                [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+                if (self.desModel) {
+                    [self issueProductComfimrActionChange:nil];
+                }else{
+                 [self issueProductComfimrAction:nil];
+                }
             }
-            [self.collectionView reloadData];
-            
-            [HUD hide:YES afterDelay:1.5];
-            [self.imagePathArray replaceObjectAtIndex:_imageIndex withObject:string];
         }
     }];
 }

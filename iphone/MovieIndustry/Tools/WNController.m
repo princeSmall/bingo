@@ -47,6 +47,29 @@
     return label ;
 }
 
+
++(UITextView*)TextViewcreateLabelWithFrame:(CGRect)frame Font:(int)font Text:(NSString*)text textAligment:(NSTextAlignment )textAligment
+{
+    UITextView*label=[[UITextView alloc]initWithFrame:frame];
+    //限制行数
+    //对齐方式
+    label.textAlignment= textAligment;
+    label.backgroundColor=[UIColor clearColor];
+    label.font=[UIFont systemFontOfSize:font];
+    //单词折行
+//    label.lineBreakMode=NSLineBreakByWordWrapping;
+    //默认字体颜色是白色
+    label.textColor=[UIColor blackColor];
+    //自适应（行数~字体大小按照设置大小进行设置）
+//    label.userInteractionEnabled = NO;
+    label.editable = NO;
+    label.text=text;
+    return label ;
+}
+
+
+
+
 //创建按钮 设置image和title
 +(UIButton*)createButtonWithFrame:(CGRect)frame ImageName:(NSString*)imageName Target:(id)target Action:(SEL)action Title:(NSString*)title fontSize:(int)fontSize
 {
