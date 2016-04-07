@@ -271,7 +271,7 @@
             [comfirmReceiveBtn addTarget:self action:@selector(comfirmReceiveMineOrderBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             [bottomView addSubview:comfirmReceiveBtn];
             
-            //查看物流
+            //延迟收货
             UIButton *checkDeliveyBtn = [self orderDetailButtonWithFrame:leftBtnFrame andTitle:@"延迟收货"];
             [checkDeliveyBtn addTarget:self action:@selector(checkMineOrderDeliveryBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
             [bottomView addSubview:checkDeliveyBtn];

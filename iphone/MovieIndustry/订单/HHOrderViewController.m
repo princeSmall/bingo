@@ -50,7 +50,7 @@
 @property (nonatomic,strong) NSMutableArray *dataArray;
 
 ///店铺mingc的数组
-@property (nonatomic,strong) NSMutableArray *shopArray;
+//@property (nonatomic,strong) NSMutableArray *shopArray;
 
 @property (nonatomic,strong) NSMutableArray *orderArray;
 
@@ -61,14 +61,14 @@
 @end
 
 @implementation HHOrderViewController
--(NSMutableArray *)shopArray
-{
-    if(!_shopArray)
-    {
-        _shopArray = [NSMutableArray array];
-    }
-    return _shopArray;
-}
+//-(NSMutableArray *)shopArray
+//{
+//    if(!_shopArray)
+//    {
+//        _shopArray = [NSMutableArray array];
+//    }
+//    return _shopArray;
+//}
 -(NSMutableArray *)orderArray
 {
     if(!_orderArray)
@@ -112,7 +112,7 @@
     
     [self createUI];
     [self createTableView];
-    _shopArray = [NSMutableArray array];
+    //_shopArray = [NSMutableArray array];
     ///初始化变量
     self.orderType = @"0";
     [self createRefresh];
@@ -186,10 +186,12 @@
             
             if ([dict[@"code"] intValue]==0)
             {
-                if (self.page == 1) {
+                if (self.page == 1||self.page==0) {
                     ///开始要把数据清空
-                    [self.shopArray removeAllObjects];
+                 //   [self.shopArray removeAllObjects];
                     [self.dataArray removeAllObjects];
+                    [self.goodsArray removeAllObjects];
+                    [self.orderArray removeAllObjects];
                 }
                 
                 
@@ -201,7 +203,8 @@
 
                     return ;
                 }
-               
+                self.goodsArray = [NSMutableArray array];
+                //self.shopArray = [NSMutableArray array];
                 for (NSDictionary *ordelDcit  in listArray)
                 {
                     OrderDataModel *ordelModel = [[OrderDataModel alloc]init];
@@ -216,10 +219,10 @@
                     
                     [self.orderArray addObject:ordelModel];
                     ///遍历商品数组 ///添加可变数组
-                    self.shopArray = [NSMutableArray array];
+                    
                     for (NSDictionary *goodsDict in ordelDcit[@"order_shops"])
                     {
-                        self.goodsArray = [NSMutableArray array];
+                        
                         OrderShopModel *goodsModel = [[OrderShopModel alloc] init];
                         goodsModel.shop_id = goodsDict[@"order_id"];
                         goodsModel.shop_name = goodsDict[@"shop_name"];
@@ -230,21 +233,9 @@
                         NSArray *arr = goodsDict[@"shop_goods"];
                         for(NSDictionary *goodsDetailDic in arr)
                         {
-                            OrderGoodsModel * goodsDetailModel = [[OrderGoodsModel alloc]init];
-                            goodsDetailModel.order_id = goodsDetailDic[@"order_id"];
-                            goodsDetailModel.shop_id = goodsDetailDic[@"shop_id"];
-                            goodsDetailModel.goods_id = goodsDetailDic[@"goods_id"];
-                            goodsDetailModel.goods_name = goodsDetailDic[@"goods_name"];
-                            goodsDetailModel.goods_number = goodsDetailDic[@"goods_number"];
-                            goodsDetailModel.goods_price = goodsDetailDic[@"goods_price"];
-                            goodsDetailModel.name_value_str = goodsDetailDic[@"name_value_str"];
-                            goodsDetailModel.goods_deposit = goodsDetailDic[@"goods_deposit"];
-                            
-                            goodsDetailModel.img_path =goodsDetailDic[@"img_path"];
+                            OrderGoodsModel * goodsDetailModel = [[OrderGoodsModel alloc]initWithDict:goodsDetailDic];
                              [self.goodsArray addObject:goodsDetailModel];
-                        
-                            [self.shopArray addObject:self.goodsArray];
-                            
+
                         }
                         
                         ///添加到数组里面
@@ -256,6 +247,7 @@
                     }
 
                 }
+               // [self.shopArray addObject:self.goodsArray];
                 
                 HUD.labelText = @"加载成功";
                 [HUD hide:YES afterDelay:0.25];
@@ -737,54 +729,54 @@
 - (void)deleteOrder:(UIButton *)button
 {
     HHNSLog(@"删除订单 %ld",button.tag);
-    
-    MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
-    
-    MyOrderShopModel *shopModel = self.shopArray[button.tag - 20000];
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:shopModel.order_id,@"order_id", nil];
-    [HttpRequestServers requestBaseUrl:Delete_Order_Url withParams:userDict withRequestFinishBlock:^(id result) {
-        NSDictionary *dict = result;
-        HHNSLog(@"----->dict %@",dict);
-        @try {
-            if ([dict[@"status"] isEqualToString:Status_Success]) {
-                
-                hud.labelText = @"删除完成";
-                [MBHudManager removeHud:hud scallBack:^(id obj) {
-                    
-                    
-                }];
-                self.page  =1;
-                [self loadData];
-                
-            }else
-            {
-                
-                hud.labelText = @"删除失败";
-                [MBHudManager removeHud:hud scallBack:^(id obj) {
-                    
-                    
-                }];
-            }
-        }
-        @catch (NSException *exception) {
-            [MBHudManager removeHud:hud scallBack:^(id obj) {
-                
-                
-            }];
-        }
-        @finally {
-            
-        }
-        
-        
-    } withFieldBlock:^{
-        [MBHudManager removeHud:hud scallBack:^(id obj) {
-            
-            
-        }];
-    }];
-    
-    
+    [DeliveryUtility showMessage:@"删除订单" target:self];
+//    MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
+//#warning 有问题
+//    MyOrderShopModel *shopModel = self.shopArray[button.tag - 20000];
+//    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:shopModel.order_id,@"order_id", nil];
+//    [HttpRequestServers requestBaseUrl:Delete_Order_Url withParams:userDict withRequestFinishBlock:^(id result) {
+//        NSDictionary *dict = result;
+//        HHNSLog(@"----->dict %@",dict);
+//        @try {
+//            if ([dict[@"status"] isEqualToString:Status_Success]) {
+//                
+//                hud.labelText = @"删除完成";
+//                [MBHudManager removeHud:hud scallBack:^(id obj) {
+//                    
+//                    
+//                }];
+//                self.page  =1;
+//                [self loadData];
+//                
+//            }else
+//            {
+//                
+//                hud.labelText = @"删除失败";
+//                [MBHudManager removeHud:hud scallBack:^(id obj) {
+//                    
+//                    
+//                }];
+//            }
+//        }
+//        @catch (NSException *exception) {
+//            [MBHudManager removeHud:hud scallBack:^(id obj) {
+//                
+//                
+//            }];
+//        }
+//        @finally {
+//            
+//        }
+//        
+//        
+//    } withFieldBlock:^{
+//        [MBHudManager removeHud:hud scallBack:^(id obj) {
+//            
+//            
+//        }];
+//    }];
+//    
+//    
 }
 
 #pragma mark - 进入评价页面
@@ -961,8 +953,9 @@
     NSMutableDictionary *params = [NSMutableDictionary dictionary];
     [params setValue:APP_DELEGATE.user_id forKey:@"user_id"];
     NSInteger section = button.tag-10000;
-    OrderGoodsModel *model =  self.shopArray[section];
-    [params setValue:model.order_id forKey:@"order_id"];
+    OrderGoodsModel *model =  self.goodsArray[section];
+    params[@"order_id"] = model.order_id;
+//    [params setValue:model.order_id forKey:@"order_id"];
     
     [HttpRequestServers requestBaseUrl:TIOrder_Delay withParams:params withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
@@ -970,8 +963,8 @@
         if([dict[@"code"] intValue]==0)
         {
             HUD.labelText = dict[@"message"];
-            [HUD hide:YES afterDelay:3];
-            
+            [HUD hide:YES];
+            [self loadData];
         }
         
         
@@ -985,14 +978,7 @@
 //    [PromptLabel custemAlertPromAddView:self.view text:@"后期开发中"];
      [DeliveryUtility showMessage:@"后期开发中" target:nil];
     
-//    NSInteger index = button.tag - 10000;
-//    
-//    MyOrderShopModel *model = self.shopArray[index];
-//    
-//    MovieDeliveryDetailViewController *deliveryVC = [[MovieDeliveryDetailViewController alloc] init];
-//    deliveryVC.orderId = model.order_id;
-//    [deliveryVC setHidesBottomBarWhenPushed:YES];
-//    [self.navigationController pushViewController:deliveryVC animated:YES];
+
 }
 
 #pragma mark -- 确认收货

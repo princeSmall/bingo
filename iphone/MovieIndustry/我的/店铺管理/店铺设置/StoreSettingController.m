@@ -63,6 +63,12 @@
 
 @property (nonatomic,strong)NSString * type;
 
+@property (nonatomic,strong)NSString * proString;
+
+@property (nonatomic ,strong)NSString *cityString;
+
+@property (nonatomic ,strong) NSString *sparesting;
+
 @property (nonatomic,strong)UITextField *cityPickTextField;
 
 @end
@@ -280,16 +286,20 @@
         
         self.proID = model.ID;
         self.buttonView.provinceBtn.buttonTitle = model.local_name;
+        self.proString = model.local_name;
     }
     if ([self.type isEqualToString:@"1"]) {
         JGAreaModel * model = self.provinceArray[row];
         self.citID = model.ID;
         self.buttonView.cityBtn.buttonTitle = model.local_name;
+        self.cityString =model.local_name;
     }
     if ([self.type isEqualToString:@"2"]) {
         JGAreaModel * model = self.provinceArray[row];
         self.areID = model.ID;
         self.buttonView.areaBtn.buttonTitle = model.local_name;
+        self.sparesting=model.local_name;
+
     }
     
 }
@@ -558,7 +568,7 @@
     }
     
     self.storeDict[@"category_id"] = category;
-    self.storeDict[@"spare_address"] = @"DAS";
+    self.storeDict[@"spare_address"] = [NSString stringWithFormat:@"%@,%@,%@",self.proString,self.cityString,self.sparesting];
 
     return YES;
 }

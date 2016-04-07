@@ -115,8 +115,7 @@
 #define TIShop_newGoodsList [NSString stringWithFormat:@"%@shop/newGoods",HttpUrlLeft]
 
 //47.获取城市列表
-//#define TICity_List [NSString stringWithFormat:@"http://1.szmytravel.sinaapp.com/home/index/SearchCity"]
-#define TICity_List [NSString stringWithFormat:@"http://localhost:8888/php/thinkphp_3/home/Shop/SearchCity"]
+#define TICity_List [NSString stringWithFormat:@"%@city/getCity",HttpUrlLeft]
 
 //48.发布闪电租
 #define TILightingRent_Send [NSString stringWithFormat:@"http://1.szmytravel.sinaapp.com/home/index/CreateLightSend "]
@@ -130,7 +129,7 @@
 //51.订单评论
 #define TIOrder_Evaluate [NSString stringWithFormat:@"%@order/evaluate",HttpUrlLeft]
 
-//52、订单列表
+//52、评论列表
 #define TIGoods_Evaluatelist [NSString stringWithFormat:@"%@goods/evaluatelist",HttpUrlLeft]
 
 

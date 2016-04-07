@@ -295,7 +295,7 @@
 #pragma mark -- 创建表格视图
 - (void)createTableViews
 {
-    self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(self.segmentView.frame)+1, kViewWidth,kViewHeight-44-98) style:UITableViewStyleGrouped];
+    self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(self.segmentView.frame)+1, kViewWidth,kViewHeight-CGRectGetMaxY(self.segmentView.frame)-1) style:UITableViewStyleGrouped];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     [self.view addSubview:self.mainTableView];
@@ -397,8 +397,8 @@
 #warning 缺少送货方式
 #warning 缺少送货方式字段
        // cell.deliveryWay
-        cell.price.text = [NSString stringWithFormat:@"￥%.2f",[good.goods_price floatValue]];
-        cell.yajinLabel.text = good.goods_deposit;
+        cell.price.text = [NSString stringWithFormat:@"￥%.1f",[good.goods_price floatValue]];
+        cell.yajinLabel.text = [NSString stringWithFormat:@"￥%.1f",[good.goods_deposit floatValue]];
         cell.address.text = good.local_name;
         cell.typeLabel.hidden = YES;
         if ([good.type isEqual:@"0"]) {
@@ -418,14 +418,12 @@
         if ([good.type isEqualToString:@"2"]) {
             cell.deliveryWay.text = @"场地";
         }
-        
-//        cell.deliveryWay.text =
-//        [cell.goodsImg sd_setImageWithURL:[NSURL URLWithString:good.img_path]];
+        NSString *url =[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,good.img_path];
         [cell.goodsImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,good.img_path]]];
         cell.address.text = good.spare_address;
         cell.rightBtn.hidden = NO;
         cell.rightBtn.tag = 666 + indexPath.row;
-          cell.yajinLabel.text = @"￥100.00";
+        
         [cell.rightBtn addTarget:self action:@selector(ChangeGoodsDes:) forControlEvents:UIControlEventTouchUpInside];
     }
     else{
@@ -436,7 +434,7 @@
 #warning 缺少送货方式
 #warning 缺少送货方式字段
             // cell.deliveryWay
-     cell.price.text = [NSString stringWithFormat:@"￥%.2f",[good.goods_price floatValue]];
+     cell.price.text = [NSString stringWithFormat:@"￥%.1f",[good.goods_price floatValue]];
             cell.address.text = good.local_name;
             cell.typeLabel.hidden = YES;
             if ([good.type isEqual:@"0"]) {
@@ -462,6 +460,7 @@
             [cell.goodsImg sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,good.img_path]]];
             cell.address.text = good.spare_address;
             cell.rightBtn.hidden = NO;
+            cell.yajinLabel.text = [NSString stringWithFormat:@"￥%.1f",[good.goods_deposit floatValue]];
     }
     }
     return cell;
@@ -510,6 +509,7 @@
  *  @param sender 按钮对象
  */
 - (void)ChangeGoodsDes:(UIButton *)sender{
+    NSInteger i = sender.tag-666;
    CartGood * model =_allGoodsArray[sender.tag - 666];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"MoviePersonal" bundle:nil];
 

@@ -108,7 +108,7 @@
 - (NSMutableArray *)imageArray
 {
     if (nil == _imageArray) {
-        _imageArray = [NSMutableArray new];
+        _imageArray = [NSMutableArray array];
     }
     return _imageArray;
 }
@@ -152,7 +152,7 @@
         self.textViewBriefly.text = self.desModel.goods_desc;
         
         for (int i = 0;i < self.desModel.imgs.count; i ++) {
-            NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.desModel.imgs[i]]];
+            NSURL * url = [NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.desModel.imgs[i]]];
             UIImage *image =[UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
             if (image) {
                 [self.imageArray addObject:image];

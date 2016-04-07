@@ -48,8 +48,6 @@
     //添加点击事件
     [leftBtn addTarget:self action:@selector(backAction) forControlEvents:UIControlEventTouchUpInside];
     [leftBtn setImageEdgeInsets:UIEdgeInsetsMake(0, -10, 0, 10)];
-    //    [self.navigationController.navigationBar addSubview:leftBtn];
-    
     //设置TabBar左边的按钮
     UIBarButtonItem *backItem = [[UIBarButtonItem alloc] initWithCustomView:leftBtn];
     [self.navigationItem setLeftBarButtonItem:backItem];

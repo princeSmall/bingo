@@ -146,7 +146,12 @@
         
     }else
     {
+<<<<<<< HEAD
 
+=======
+//        [self.navigationController popToRootViewControllerAnimated:YES];
+        
+>>>>>>> e29f718d8d7169cb8fa57d7b9e5e64468734be5c
         [self.navigationController popViewControllerAnimated:YES];
     }
 }
@@ -154,7 +159,7 @@
 #pragma mark - 获取网络城市数据
 - (void)loadCityData:(NSString *)cityID
 {
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:cityID,@"name", nil];
+    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:cityID,@"name",APP_DELEGATE.user_id,@"user_id", nil];
     [HttpRequestServers requestBaseUrl:TICity_List withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
         //        HHNSLog(@"-------->%@",dict);
