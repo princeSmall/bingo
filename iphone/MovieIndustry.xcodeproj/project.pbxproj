@@ -219,6 +219,7 @@
 		25A4C7121C92BA530024EB50 /* BBSSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7111C92BA530024EB50 /* BBSSearchController.m */; };
 		25A4C7161C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7141C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m */; };
 		25A4C7171C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A4C7151C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib */; };
+		33E743A51CB36684008A09C2 /* ShippingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E743A41CB36684008A09C2 /* ShippingController.m */; };
 		841960B31BFAEF740039B74B /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841960B21BFAEF740039B74B /* citydict.plist */; };
 		841B4CA81C0DA2D900DD51D9 /* ShopTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */; };
 		841B4CAA1C0DA2F200DD51D9 /* ShopTableViewHeader.xib in Resources */ = {isa = PBXBuildFile; fileRef = 841B4CA91C0DA2F200DD51D9 /* ShopTableViewHeader.xib */; };
@@ -1310,6 +1311,8 @@
 		25A4C7131C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyPostDetailBottomCell.h; sourceTree = "<group>"; };
 		25A4C7141C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyPostDetailBottomCell.m; sourceTree = "<group>"; };
 		25A4C7151C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyPostDetailBottomCell.xib; sourceTree = "<group>"; };
+		33E743A31CB36684008A09C2 /* ShippingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingController.h; sourceTree = "<group>"; };
+		33E743A41CB36684008A09C2 /* ShippingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingController.m; sourceTree = "<group>"; };
 		841960B21BFAEF740039B74B /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
 		841B4CA61C0DA2D900DD51D9 /* ShopTableViewHeader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShopTableViewHeader.h; sourceTree = "<group>"; };
 		841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShopTableViewHeader.m; sourceTree = "<group>"; };
@@ -4515,6 +4518,8 @@
 			children = (
 				848295B31C0EA02C00452BF9 /* TradingManagerController.h */,
 				848295B41C0EA02C00452BF9 /* TradingManagerController.m */,
+				33E743A31CB36684008A09C2 /* ShippingController.h */,
+				33E743A41CB36684008A09C2 /* ShippingController.m */,
 			);
 			path = "交易管理";
 			sourceTree = "<group>";
@@ -6195,6 +6200,7 @@
 				D3ED31281C5230FB00C10387 /* CollectionHeadView.m in Sources */,
 				8482952A1C0E9AB700452BF9 /* IndexHomeDealModel.m in Sources */,
 				254D66431C8FFFE8001DD1BE /* MovieSchool_NewsCell.m in Sources */,
+				33E743A51CB36684008A09C2 /* ShippingController.m in Sources */,
 				2578B8611C880AF000EB129D /* MyPostController.m in Sources */,
 				843327B11C0F262100E80FF1 /* GoodsDetailTableCell.m in Sources */,
 				8482962B1C0EA02C00452BF9 /* SettingViewController.m in Sources */,
