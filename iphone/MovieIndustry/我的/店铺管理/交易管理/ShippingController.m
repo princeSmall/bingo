@@ -27,7 +27,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    [self setNavTabBar:@"发货"];
+    [self setNavTabBar:@"上传物流单号"];
+    self.view.backgroundColor = [UIColor colorWithRed:0.910 green:0.918 blue:0.922 alpha:1.000];
     [self createTableView];
 }
 
@@ -42,6 +43,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self ;
     [self.view addSubview:self.tableView];
+    self.tableView.backgroundColor =[UIColor colorWithRed:0.910 green:0.918 blue:0.922 alpha:1.000];
+
     self.tableView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self createFooterView];
     
@@ -52,10 +55,15 @@
 -(void)createFooterView
 {
     UIView *footerView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, self.view.frame.size.width, 80)];
-    self.tableView.tableFooterView = footerView;
     UIButton *button = [[UIButton alloc]initWithFrame:CGRectMake(10, 10, self.view.frame.size.width-20, 50)];
-    [button setTitle:@"发货" forState:UIControlStateNormal];
+    [button setTitle:@"提交" forState:UIControlStateNormal];
     [button addTarget:self action:@selector(actionShipping) forControlEvents:UIControlEventTouchUpInside];
+    [footerView addSubview:button];
+    [button setTitleColor:[UIColor colorWithRed:0.337 green:0.341 blue:0.345 alpha:1.000] forState:UIControlStateNormal];
+    button.backgroundColor = [UIColor colorWithRed:0.996 green:1.000 blue:1.000 alpha:1.000];
+    button.layer.cornerRadius = 8;
+    self.tableView.tableFooterView = footerView;
+   
     
     
 }
@@ -64,7 +72,8 @@
  */
 -(void)actionShipping
 {
-    
+    NSLog(@"发货呗点击");
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
@@ -73,10 +82,15 @@
 }
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 2;
 }
 -(CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     return 50;
+}
+
+-(CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section
+{
+    return 10;
 }
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -93,32 +107,24 @@
 }
 -(void)setMycell:(UITableViewCell *)cell indexpath:(NSIndexPath *)indexpath
 {
-     NSArray *array = [NSArray arrayWithObjects:@"快递单号",@"快递公司",@"商品名", nil];
-    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(8, 5, 80, 40)];
-    label.text =[array objectAtIndex:indexpath.row];
-    [cell.contentView addSubview:label];
+     NSArray *array = [NSArray arrayWithObjects:@"请输入快递公司名称",@"请输入单号", nil];
+//    UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(8, 5, 160, 40)];
+//    label.text =[array objectAtIndex:indexpath.row];
+//    [cell.contentView addSubview:label];
     
-    CGRect rect = self.view.frame;
-    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(90, 5,rect.size.width-100 , 40)];
+//    CGRect rect = self.view.frame;
+    UIView  *lineView = [[UIView alloc]initWithFrame:CGRectMake(0, 50-1, kViewWidth, 1)];
+    lineView.backgroundColor = [UIColor colorWithRed:0.906 green:0.910 blue:0.918 alpha:1.000];
+    [cell addSubview:lineView];
+    UITextField *textField = [[UITextField alloc]initWithFrame:CGRectMake(10, 0, kViewWidth, cell.frame.size.height)];
     textField.borderStyle = UITextBorderStyleNone;
-    textField.textAlignment = NSTextAlignmentRight;
+    textField.textAlignment = NSTextAlignmentLeft;
     [cell.contentView addSubview:textField];
-    if(indexpath.row==0)
+    if(indexpath.row==1)
     {
         textField.keyboardType = UIKeyboardTypeNumberPad;
     }
-    if(indexpath.row==2)
-    {
-        textField.userInteractionEnabled = NO;
-        NSDictionary *dict =self.goodsDict[@"shop_goods"];
-        NSString *name = dict[@"goods_name"];
-//        for(NSDictionary *dic in array)
-//        {
-//            name = [name stringByAppendingFormat:@"%@,%@",name,dic[@"goods_name"]];
-//        }
-        
-        textField.text = name;
-    }
+    textField.placeholder = [array objectAtIndex:indexpath.row];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     
     

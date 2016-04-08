@@ -39,12 +39,41 @@
 }
 
 - (void)awakeFromNib {
+    self.goodsImage.layer.cornerRadius = 4;
     self.goodsImage.layer.borderColor = [UIColor colorWithRed:0.96 green:0.96 blue:0.96 alpha:1].CGColor;
     self.goodsImage.layer.borderWidth = 1.0;
     
+    self.refounBtn.layer.cornerRadius = 5;
+    self.refounBtn.layer.borderColor = [UIColor colorWithWhite:0.886 alpha:1.000].CGColor;
+    self.refounBtn.layer.borderWidth = 1;
+//    self.refounBtn.frame =CGRectMake(kViewWidth*3/4-100, self.frame.size.height-25-8, kViewWidth/4-10, 25);
+    [self setConstainsOfBtn:self.refounBtn];
+//    CGRect a = self.refounBtn.frame;
+    [self.refounBtn addTarget:self action:@selector(actionRefoun) forControlEvents:UIControlEventTouchUpInside];
+
+    
     
 }
+-(void)actionRefoun
+{
+    self.refounFn();
+}
 
+-(void)setConstainsOfBtn:(UIButton *)btn
+{
+    btn.translatesAutoresizingMaskIntoConstraints = NO;
+    NSLayoutConstraint *right = [NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeRight relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeRight multiplier:1.0 constant:-3];
+    [self addConstraint:right];
+    
+    NSLayoutConstraint *bottom = [NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeBottom relatedBy:NSLayoutRelationEqual toItem:self attribute:NSLayoutAttributeBottom multiplier:1.0 constant:-3];
+    [self addConstraint:bottom];
+    
+    NSLayoutConstraint *width = [NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:50];
+    [btn addConstraint:width];
+    
+    NSLayoutConstraint *height = [NSLayoutConstraint constraintWithItem:btn attribute:NSLayoutAttributeHeight relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeNotAnAttribute multiplier:1.0 constant:25];
+    [btn addConstraint:height];
+}
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 

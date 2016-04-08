@@ -132,6 +132,8 @@
 //52、评论列表
 #define TIGoods_Evaluatelist [NSString stringWithFormat:@"%@goods/evaluatelist",HttpUrlLeft]
 
+//53、退款接口
+#define TIOrder_Refund [NSString stringWithFormat:@"%@order/refund",HttpUrlLeft]
 
 //APPDELEGATE单类
 #define APP_DELEGATE ((AppDelegate *)[[UIApplication sharedApplication] delegate])

@@ -16,6 +16,10 @@
 @property (nonatomic,copy)NSString *shop_status;
 @property (nonatomic,copy)NSArray *order_shops;
 @property (nonatomic,strong)NSString * status;
+@property (nonatomic,strong)NSString * status_name;
+@property (nonatomic,strong)NSString * action;
+@property (nonatomic,strong)NSString * action_name;
+@property (nonatomic,strong)NSString * is_deposit;//押金
 
 - (instancetype)initWithDict:(NSDictionary *)dict;
 

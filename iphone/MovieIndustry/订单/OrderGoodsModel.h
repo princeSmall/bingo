@@ -18,6 +18,8 @@
 @property (nonatomic,strong)NSString *name_value_str;
 @property (nonatomic,strong)NSString *img_path;
 @property (nonatomic,strong)NSString *goods_deposit;
+@property (nonatomic,strong)NSString *is_refund;//是否退款
+@property (nonatomic,strong)NSString *is_deposit;
 
 
 - (instancetype)initWithDict:(NSDictionary *)dict;

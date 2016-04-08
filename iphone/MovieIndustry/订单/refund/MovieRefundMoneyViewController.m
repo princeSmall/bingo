@@ -56,7 +56,7 @@
     _refundType = 1; //默认支付宝
     _refundReasone = 1; //默认与卖家协商一致
     
-    self.typeArray = @[@"支付宝",@"微信",@"工行",@"其他"];
+    self.typeArray = @[@"支付宝",@"微信",@"钱包",@"其他"];
     self.reasonArray = @[@"与卖家协商一致",@"买家原因",@"退保证金",@"提前归还退差额",@"其他"];
 }
 
@@ -100,9 +100,27 @@
     [self.view endEditing:YES];
     [self.mainTableView endEditing:YES];
 }
-
+/**
+ *  确认按钮
+ *
+ *  @param button 按钮对象
+ */
 - (void)comfirmCommitRefundApply:(UIButton *)button
 {
+    NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
+    [userDict setValue:self.order_id forKey:@"order_id"];
+    [userDict setValue:self.goods_id forKey:@"goods_id"];
+    [userDict setValue:APP_DELEGATE.user_id forKey:@"user_id"];
+    [userDict setValue:self.txtMoney forKey:@"refund_amount"];
+    [userDict setValue:[self.reasonArray objectAtIndex:self.refundReasone] forKey:@"refund_reason"];
+    
+    [HttpRequestServers requestBaseUrl:TIOrder_Refund withParams:userDict withRequestFinishBlock:^(id result) {
+        
+        
+    } withFieldBlock:^{
+        
+    }];
+    
     ReturnAppayViewController *controller = [[ReturnAppayViewController alloc]init];
     [self.navigationController pushViewController:controller animated:YES];
 }

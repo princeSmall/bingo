@@ -43,6 +43,8 @@
 @property (nonatomic,strong)NSString * spare_address;
 @property (nonatomic,strong)NSString * status;
 
+@property (nonatomic,strong)NSString *status_name;
+
 
 
 

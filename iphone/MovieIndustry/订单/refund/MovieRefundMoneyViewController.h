@@ -10,4 +10,6 @@
 
 @interface MovieRefundMoneyViewController : BaseViewController
 
+@property (nonatomic,strong)NSString *order_id;
+@property (nonatomic,strong)NSString *goods_id;
 @end

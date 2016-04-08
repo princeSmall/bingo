@@ -131,9 +131,10 @@
                   
                     [shopModel setValue:[WNController nullString:shopDcit[@"method"]] forKey:@"method"];
                     shopModel.order_goods = shopDcit[@"order_goods"];
-                shopModel.spare_address = shopDcit[@"spare_address"];
-                shopModel.status = shopDcit[@"status"];
-                [self.shopsArray addObject:shopModel];
+                    shopModel.spare_address = shopDcit[@"spare_address"];
+                    shopModel.status = shopDcit[@"status"];
+                    shopModel.status_name = shopDcit[@"status_name"];
+                    [self.shopsArray addObject:shopModel];
                     NSString * addressLStr = [NSString stringWithFormat:@"收货地址：%@%@%@%@",shopModel.province_name,shopModel.city_name,shopModel.district_name,shopModel.address];
                     
                     self.tbHeaderView.addressLabel.text = [WNController nullString:addressLStr];
@@ -141,6 +142,7 @@
                     self.tbHeaderView.shouhuorenLabel.text =[WNController nullString:shopModel.consignee_name];
                     self.tbFooterView.price.text = [NSString stringWithFormat:@"￥%@",[WNController nullString:shopModel.order_amount]];
                 self.sendPrice = shopModel.order_amount;
+                self.tbHeaderView.orderStatusLabel.text = shopModel.status_name;
                 NSString * typePoss = @"";
 #warning 这边需要判断送货类型
                 if ([shopModel.method isEqualToString:@"0"]) {
@@ -568,8 +570,13 @@
 {
     MyOrderCellHeader *header = [[[NSBundle mainBundle] loadNibNamed:@"MyOrderCellHeader" owner:self options:nil] lastObject];
     header.orderStatusLabel.alpha = 0;
-
+    header.orderArrowImage.hidden= YES;
+    
+    CGSize size = [self.shopModel.shop_name sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:header.shopNameLabel.font,NSFontAttributeName, nil]];
     header.shopNameLabel.text = self.shopModel.shop_name;
+    CGRect rect =   header.shopNameLabel.frame;
+    rect.size.width = size.width;
+    header.shopNameLabel.frame = rect;
     return header;
 }
 

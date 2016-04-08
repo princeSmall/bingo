@@ -247,6 +247,8 @@
 		25A4C7121C92BA530024EB50 /* BBSSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7111C92BA530024EB50 /* BBSSearchController.m */; };
 		25A4C7161C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 25A4C7141C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m */; };
 		25A4C7171C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 25A4C7151C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib */; };
+		339DC9DE1CB65BB400A51702 /* RefundApplyController.m in Sources */ = {isa = PBXBuildFile; fileRef = 339DC9DC1CB65BB400A51702 /* RefundApplyController.m */; };
+		339DC9DF1CB65BB400A51702 /* RefundApplyController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 339DC9DD1CB65BB400A51702 /* RefundApplyController.xib */; };
 		33E743A51CB36684008A09C2 /* ShippingController.m in Sources */ = {isa = PBXBuildFile; fileRef = 33E743A41CB36684008A09C2 /* ShippingController.m */; };
 		841960B31BFAEF740039B74B /* citydict.plist in Resources */ = {isa = PBXBuildFile; fileRef = 841960B21BFAEF740039B74B /* citydict.plist */; };
 		841B4CA81C0DA2D900DD51D9 /* ShopTableViewHeader.m in Sources */ = {isa = PBXBuildFile; fileRef = 841B4CA71C0DA2D900DD51D9 /* ShopTableViewHeader.m */; };
@@ -1384,6 +1386,9 @@
 		25A4C7131C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ClassifyPostDetailBottomCell.h; sourceTree = "<group>"; };
 		25A4C7141C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ClassifyPostDetailBottomCell.m; sourceTree = "<group>"; };
 		25A4C7151C92CC4E0024EB50 /* ClassifyPostDetailBottomCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassifyPostDetailBottomCell.xib; sourceTree = "<group>"; };
+		339DC9DB1CB65BB400A51702 /* RefundApplyController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefundApplyController.h; sourceTree = "<group>"; };
+		339DC9DC1CB65BB400A51702 /* RefundApplyController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RefundApplyController.m; sourceTree = "<group>"; };
+		339DC9DD1CB65BB400A51702 /* RefundApplyController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = RefundApplyController.xib; sourceTree = "<group>"; };
 		33E743A31CB36684008A09C2 /* ShippingController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ShippingController.h; sourceTree = "<group>"; };
 		33E743A41CB36684008A09C2 /* ShippingController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ShippingController.m; sourceTree = "<group>"; };
 		841960B21BFAEF740039B74B /* citydict.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = citydict.plist; sourceTree = "<group>"; };
@@ -3272,6 +3277,16 @@
 			name = FlowMenu;
 			sourceTree = "<group>";
 		};
+		339DC9DA1CB659F500A51702 /* 退款 */ = {
+			isa = PBXGroup;
+			children = (
+				339DC9DB1CB65BB400A51702 /* RefundApplyController.h */,
+				339DC9DC1CB65BB400A51702 /* RefundApplyController.m */,
+				339DC9DD1CB65BB400A51702 /* RefundApplyController.xib */,
+			);
+			name = "退款";
+			sourceTree = "<group>";
+		};
 		8432109B1C10812400E3026F /* AliPay */ = {
 			isa = PBXGroup;
 			children = (
@@ -4876,13 +4891,10 @@
 		84908DAF1C055E690099BCB0 /* 订单 */ = {
 			isa = PBXGroup;
 			children = (
+				339DC9DA1CB659F500A51702 /* 退款 */,
 				D3332F801C5F5D3A00FA7CFB /* model */,
 				A25BB2F01BFC3D9E00E52ED8 /* HHOrderViewController.h */,
 				A25BB2F11BFC3D9E00E52ED8 /* HHOrderViewController.m */,
-				849487D01C086C040070AD4C /* MyOrderGoodsModel.h */,
-				849487D11C086C040070AD4C /* MyOrderGoodsModel.m */,
-				849487D31C086C420070AD4C /* MyOrderShopModel.h */,
-				849487D41C086C420070AD4C /* MyOrderShopModel.m */,
 				A25BB2F51BFC3DCA00E52ED8 /* cell */,
 			);
 			name = "订单";
@@ -5638,6 +5650,10 @@
 		D3332F801C5F5D3A00FA7CFB /* model */ = {
 			isa = PBXGroup;
 			children = (
+				849487D01C086C040070AD4C /* MyOrderGoodsModel.h */,
+				849487D11C086C040070AD4C /* MyOrderGoodsModel.m */,
+				849487D31C086C420070AD4C /* MyOrderShopModel.h */,
+				849487D41C086C420070AD4C /* MyOrderShopModel.m */,
 				D3332F811C5F5D7400FA7CFB /* OrderGoodsModel.h */,
 				D3332F821C5F5D7400FA7CFB /* OrderGoodsModel.m */,
 				D3332F841C5F5E6400FA7CFB /* OrderShopModel.h */,
@@ -6244,6 +6260,7 @@
 				D36C38EA1C58A00900E42CFD /* TradeFootCell.xib in Resources */,
 				D372F1A61C59FCA100FA363B /* HistoryBuyingHeadCell.xib in Resources */,
 				846164D51BFF3A8E003B656B /* discover_06@2x.png in Resources */,
+				339DC9DF1CB65BB400A51702 /* RefundApplyController.xib in Resources */,
 				00B1F3BF1C5B3AE70027672A /* icon_tscg.png in Resources */,
 				D372F1B11C5A150200FA363B /* BusinessHeadCell.xib in Resources */,
 				848295491C0E9AB700452BF9 /* MovieTuesdayActiveSecondCell.xib in Resources */,
@@ -6425,6 +6442,7 @@
 				252C4FD21C86BFC00081972A /* MASLayoutConstraint.m in Sources */,
 				8482954C1C0E9AB700452BF9 /* SearchIndexController.m in Sources */,
 				2578B86B1C8815D300EB129D /* NewEvaluateController.m in Sources */,
+				339DC9DE1CB65BB400A51702 /* RefundApplyController.m in Sources */,
 				00200A331C7C65D600DD8084 /* TAAnimatedDotView.m in Sources */,
 				843211091C10815700E3026F /* DataSigner.m in Sources */,
 				A2A1490C1C16DFB400D57969 /* MovieTuesdayGoodModel.m in Sources */,

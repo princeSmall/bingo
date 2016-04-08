@@ -17,8 +17,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.navigationItem.title = @"退款申请";
-    self.view.backgroundColor = RGBColor(234, 234, 234, 1);
+    [self setNavTabBar:@"退款申请"];
     
     UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(20, self.navigationController.navigationBar.frame.size.height+self.navigationController.navigationBar.frame.origin.y+30, self.view.frame.size.width-40, 60)];
     [self.view addSubview:label];
@@ -32,10 +31,15 @@
     button.backgroundColor = [UIColor whiteColor];
     button.layer.cornerRadius=8;
     button.layer.masksToBounds =YES;
+    [button addTarget:self action:@selector(actionConfirm) forControlEvents:UIControlEventTouchUpInside];
     [self.view addSubview:button];
   
     
     
+}
+-(void)actionConfirm
+{
+    [self.navigationController popToRootViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {

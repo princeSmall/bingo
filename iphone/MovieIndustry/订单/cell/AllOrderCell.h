@@ -7,8 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+typedef void (^refounFn)();
 
 @interface AllOrderCell : UITableViewCell
+
 
 //商品图片
 @property (weak, nonatomic) IBOutlet UIImageView *goodsImage;
@@ -23,6 +25,10 @@
 
 //押金label
 @property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
+//退款按钮
+@property (weak, nonatomic) IBOutlet UIButton *refounBtn;
+
+@property (nonatomic ,copy) refounFn refounFn;
 
 - (void)config:(NSDictionary *)model;
 

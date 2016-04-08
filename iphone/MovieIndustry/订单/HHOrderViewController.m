@@ -19,7 +19,7 @@
 #import "MyOrderCellFooter.h"
 #import "MyOrderCellHeader.h"
 #import "MyOrderGoodsModel.h"
-//#import "MyOrderShopModel.h"
+#import "RefundApplyController.h"
 #import "LoginInController.h"
 #import "OrderDataModel.h"
 #import "OrderGoodsModel.h"
@@ -214,6 +214,10 @@
                     ordelModel.pay_status = ordelDcit[@"pay_status"];
                     ordelModel.shop_status = ordelDcit[@"shop_status"];
                     ordelModel.order_shops = ordelDcit[@"order_shops"];
+                    ordelModel.status_name = ordelDcit[@"status_name"];
+                    ordelModel.action = ordelDcit[@"action"];
+                    ordelModel.action_name = ordelDcit[@"action_name"];
+                    ordelModel.is_deposit = ordelDcit[@"is_deposit"];
                     NSLog(@"%@",ordelModel.order_shops);
                     ordelModel.status = [NSString stringWithFormat:@"%d",[ordelDcit[@"status"] intValue]];
                     
@@ -355,10 +359,6 @@
     UIButton *btn5 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*4, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(waitComAction:) Title:@"待评价" fontSize:14];
     [btnView addSubview:btn5];
     
-    
-    
-    UIButton *btn6 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*5, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(BackComAction:) Title:@"退款" fontSize:14];
-    [btnView addSubview:btn6];
     }
 }
 
@@ -428,14 +428,18 @@
     [self loadData];
 }
 
-//退款按钮  事件的处理
-
-- (void)BackComAction:(UIButton *)btn{
+//退款按钮
+- (void)BackComAction:(NSString*)order_id
+             goods_id:(NSString *)goods_id
+          goods_price:(NSString *)goods_price
+{
     
-    [self setBtnType:@"4" selectBtn:btn btnLineFrame:CGRectMake(kViewWidth/6*5+5, 43, kViewWidth/6-10, 2)];
-    self.orderType = @"5";
-    self.page  =1;
-    [self loadData];
+    RefundApplyController *refundVC = [[RefundApplyController alloc] init];
+    refundVC.goods_id = goods_id;
+    refundVC.order_id = order_id;
+    refundVC.goods_price = goods_price;
+    [refundVC setHidesBottomBarWhenPushed:YES];
+    [self.navigationController pushViewController:refundVC animated:YES];
 }
 
 #pragma mark - TableView
@@ -483,8 +487,12 @@
         UIView *lineView = [WNController createViewFrame:CGRectMake(0, 100, kViewWidth, 2)];
         [cell.contentView addSubview:lineView];
     }
+    cell.refounFn = ^{
+        [self BackComAction:ordersArr.order_id goods_id:goodsModel[@"goods_id"] goods_price:goodsModel[@"goods_price"]];
     
+    };
     [cell config:goodsModel];
+
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
 }
@@ -513,7 +521,7 @@
         OrderDataModel *order = self.dataArray[section];
         NSArray *array= order.order_shops;
         ///设置订单按钮
-        tbheaderView.orderStatusLabel.text = [self orderStatusWithString:order.status];
+        tbheaderView.orderStatusLabel.text = order.status_name;
         tbheaderView.shopNameLabel.text = array[0][@"shop_name"];
         //调整frame
         CGSize size =[array[0][@"shop_name"] sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
@@ -527,37 +535,6 @@
     }
     
     return tbheaderView;
-}
-
-- (NSString *)orderStatusWithString:(NSString *)type
-{
-    
-    NSInteger index = [type integerValue];
-    
-    switch (index) {
-        case 1:
-            return @"待付款";
-            break;
-        case 2:
-            return @"待发货";
-            break;
-        case 3:
-            return @"待收货";
-            break;
-        case 4:
-            return @"待评价";
-            break;
-        case 5:
-            return @"交易成功";
-            break;
-        case 6:
-            return @"交易关闭";
-            break;
-        default:
-            break;
-    }
-    
-    return type;
 }
 
 #pragma mark - 点击进入店铺
@@ -598,7 +575,7 @@
         tbFooterView.goodsTotalLabel.text = [NSString stringWithFormat:@"共%d件商品",number];
         tbFooterView.leftBtn.tag = 10000+section;
         tbFooterView.rightBtn.tag = 20000+section;
-        [self checkCellBtnStatue:tbFooterView orderStatus:order.order_status status:order.status];
+        [self checkCellBtnStatue:tbFooterView orderStatus:order.order_status status:order.status section:section tableView:tableView];
         
     }
     
@@ -625,32 +602,38 @@
 - (void)checkCellBtnStatue:(MyOrderCellFooter *)view
                orderStatus:(NSString *)orderStatus
                     status:(NSString *)status
+                   section:(NSInteger )section tableView:(UITableView *)tableView
 {
     
   
 //    _btnType 0:全部 1:待付款 2:待发货 3:待收货 4:待评价
         
     switch ([status intValue]) {
-        case 1:
+        case 1://待付款
         {
             [view.leftBtn setTitle:@"取消订单" forState:UIControlStateNormal];
-            [view.leftBtn addTarget:self action:@selector(applyRefundAction:) forControlEvents:UIControlEventTouchUpInside];
+            [view.leftBtn addTarget:self action:@selector(warnSenderMineOrder:) forControlEvents:UIControlEventTouchUpInside];
             UIColor *btnColor = RGBColor(251, 0, 6, 1);
             [view.rightBtn setTitle:@"付款" forState:UIControlStateNormal];
             view.rightBtn.layer.borderColor = btnColor.CGColor;
             [view.rightBtn addTarget:self action:@selector(payForMineOrder:) forControlEvents:UIControlEventTouchUpInside];
         }
             break;
-        case 2:
+        case 2://待发货
         {
+            AllOrderCell *cell =[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+            cell.refounBtn.hidden=NO;
             view.leftBtn.hidden = YES;
             
             [view.rightBtn setTitle:@"取消订单" forState:UIControlStateNormal];
             [view.rightBtn addTarget:self action:@selector(warnSenderMineOrder:) forControlEvents:UIControlEventTouchUpInside];
         }
             break;
-        case 3:
+        case 3://待收货
         {
+            AllOrderCell *cell =[tableView cellForRowAtIndexPath:[NSIndexPath indexPathForRow:0 inSection:section]];
+            cell.refounBtn.hidden=NO;
+
             if([orderStatus intValue]!=9)
             {
                 [view.leftBtn setTitle:@"延迟收货" forState:UIControlStateNormal];
@@ -670,7 +653,7 @@
             
         }
             break;
-        case 4:
+        case 4://待评价
         {
             view.leftBtn.hidden = YES;
             
@@ -680,27 +663,23 @@
             [view.rightBtn addTarget:self action:@selector(gotoCommentView:) forControlEvents:UIControlEventTouchUpInside];
         }
             break;
-        case 5:
-        {
-            [view.leftBtn setTitle:@"查看物流" forState:UIControlStateNormal];
-            [view.leftBtn addTarget:self action:@selector(checkoutOrderDelivery:) forControlEvents:UIControlEventTouchUpInside];
-            
-            UIColor *btnColor = RGBColor(251, 0, 6, 1);
-            [view.rightBtn setTitle:@"删除订单" forState:UIControlStateNormal];
-            view.rightBtn.layer.borderColor = btnColor.CGColor;
-            [view.rightBtn addTarget:self action:@selector(deleteOrder:) forControlEvents:UIControlEventTouchUpInside];
-            
-        }
-            break;
-        case 6:
+//        case 5:
+//        {
+//            [view.leftBtn setTitle:@"查看物流" forState:UIControlStateNormal];
+//            [view.leftBtn addTarget:self action:@selector(checkoutOrderDelivery:) forControlEvents:UIControlEventTouchUpInside];
+//            
+//            UIColor *btnColor = RGBColor(251, 0, 6, 1);
+//            [view.rightBtn setTitle:@"删除订单" forState:UIControlStateNormal];
+//            view.rightBtn.layer.borderColor = btnColor.CGColor;
+//            [view.rightBtn addTarget:self action:@selector(deleteOrder:) forControlEvents:UIControlEventTouchUpInside];
+//            
+//        }
+//            break;
+        case 6://已完成
         {
             view.leftBtn.hidden = YES;
+            view.rightBtn.hidden = YES;
             
-            UIColor *btnColor = RGBColor(251, 0, 6, 1);
-            [view.rightBtn setTitle:@"删除订单" forState:UIControlStateNormal];
-//            [view.rightBtn setTitleColor:btnColor forState:UIControlStateNormal];
-            view.rightBtn.layer.borderColor = btnColor.CGColor;
-            [view.rightBtn addTarget:self action:@selector(deleteOrder:) forControlEvents:UIControlEventTouchUpInside];
         }
             break;
         default:

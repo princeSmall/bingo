@@ -5,6 +5,7 @@
 #import "MyOrderCellFooter.h"
 #import "JGBtnView.h"
 #import "ShippingController.h"
+#import "OrderGoodsModel.h"
 
 
 
@@ -239,8 +240,9 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section{
     MyOrderCellHeader * header = [[[NSBundle mainBundle]loadNibNamed:@"MyOrderCellHeader" owner:self options:nil]lastObject];
-    header.shopNameLabel.text = _orderListArray[section][@"shop_name"];
-    header.orderStatusLabel.text = _orderListArray[section][@"shop_goods"][@"status_name"];
+    NSDictionary *dict = _orderListArray[section];
+    header.shopNameLabel.text = dict[@"shop_name"];
+    header.orderStatusLabel.text = dict[@"shop_goods"][@"status_name"];
     header.orderArrowImage.hidden=YES;
     CGRect rect = header.shopNameLabel.frame;
     header.shopNameLabel.frame = CGRectMake(rect.origin.x, rect.origin.y, 150, rect.size.height);
