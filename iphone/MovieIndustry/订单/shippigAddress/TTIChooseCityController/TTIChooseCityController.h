@@ -7,6 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ShippingAddressModel.h"
+
 typedef void (^backInfoFn)(NSString * address,NSString * addressID);
 
 @interface TTIChooseCityController : UIViewController
@@ -14,5 +16,9 @@ typedef void (^backInfoFn)(NSString * address,NSString * addressID);
 @property (nonatomic ,copy)backInfoFn infoFn;
 
 @property (nonatomic,strong)NSString * openShop;
+
+@property (nonatomic,strong)ShippingAddressModel *model;
+
+@property (nonatomic,strong)NSString * queren;
 
 @end

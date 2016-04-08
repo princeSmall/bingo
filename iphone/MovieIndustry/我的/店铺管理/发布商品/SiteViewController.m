@@ -198,7 +198,7 @@
         self.addressLabel.text = self.desModel.people_location;
         self.typeLabel.text = self.desModel.category_name;
         self.typeID = self.desModel.goods_category_id;
-//        
+        self.makPrice.text = self.desModel.market_price;
 //        @property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 //        /**
 //         *类型
@@ -726,7 +726,13 @@
                 [self uploadSiteChooseImageWith:self.imgArray[0]];
             }else{
                 [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+                
+                if (self.desModel) {
+                    
+                    [self issueSiteChangeAction:nil];
+                }else{
                 [self issueSiteComfimrAction:nil];
+                }
         }
         }
     }];

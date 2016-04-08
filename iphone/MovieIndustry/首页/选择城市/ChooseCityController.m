@@ -146,12 +146,6 @@
         
     }else
     {
-<<<<<<< HEAD
-
-=======
-//        [self.navigationController popToRootViewControllerAnimated:YES];
-        
->>>>>>> e29f718d8d7169cb8fa57d7b9e5e64468734be5c
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

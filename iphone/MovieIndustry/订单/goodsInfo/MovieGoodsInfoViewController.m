@@ -20,6 +20,8 @@
 #import <RongIMKit/RongIMKit.h>
 #import "YourTestChatViewController.h"
 #import <ShareSDK/ShareSDK.h>
+#import "LoginInController.h"
+
 
 #import "GoodDesModel.h"
 #import "GoodCommitFrame.h"
@@ -199,8 +201,7 @@
               [DeliveryUtility showMessage:@"请选择型号" target:nil];
         }else
         {
-//            NSString *colorString = [self.selectedColorBtn titleForState:UIControlStateNormal];
-//            NSString *xinhaoString = [self.selectedXinhaoBtn titleForState:UIControlStateNormal];
+            
             ///数量
             NSString *goodsCount = [self.shopingCarView.goodsCountLabel titleForState:UIControlStateNormal];
             
@@ -225,7 +226,9 @@
                 }else
                 {
 //                    [PromptLabel custemAlertPromAddView:self.view text:@"加入购物车失败"];
-                      [DeliveryUtility showMessage:@"请先登录用户！" target:nil];
+                    LoginInController * login = [[LoginInController alloc]init];
+               
+//                      [DeliveryUtility showMessage:@"请先登录用户！" target:nil];
                     [self  removeTapGesViewConfirm];
                 }
                 
@@ -260,7 +263,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         self.navigationController.navigationBar.alpha = 0;
         
     } completion:^(BOOL finished) {
@@ -814,10 +817,17 @@
 #pragma mark - 添加商品到我的购物车
 - (void)addGoodInMineShopCar:(id)sender
 {
-    
+    if(!APP_DELEGATE.user_id)
+    {
+        LoginInController *loginVc = [[LoginInController alloc] init];
+        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:loginVc];
+        [self presentViewController:navC animated:YES completion:nil];
+        [self loadGoodsAttribute];
+        return;
+    }
     if ([self.model.goods_number isEqualToString:@"0"]) {
-//        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
-         [DeliveryUtility showMessage:@"亲，没有库存啦" target:nil];
+        //        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
+        [DeliveryUtility showMessage:@"亲，没有库存了" target:nil];
     }else
     {
         [self showSelectGoodsAttr:@"0"];

@@ -70,8 +70,8 @@
 
 @implementation HHMeViewController
 
-- (void)viewDidLoad {
-    [super viewDidLoad];
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:YES];
     self.shopStr = @"0";
     self.view.backgroundColor = [UIColor colorWithWhite:0.918 alpha:1.000];
     UILabel *ntitle = [[UILabel alloc] initWithFrame:CGRectMake(0, 0, 50, 50)];
@@ -94,6 +94,8 @@
     [[NSNotificationCenter defaultCenter]addObserver:self selector:@selector(getMineInfoRequest) name:@"storeOpenSuccess" object:nil];
     // Do any additional setup after loading the view from its nib.
 }
+
+
 
 - (void)getMineInfoRequest
 {
@@ -122,7 +124,12 @@
     NSData * data = [NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.desModel.img]]];
     
     self.sendData = data;
-    self.headBackGroundView.image = [[UIImage imageWithData:data] blurredImage:0.5];
+    
+    if (self.desModel.img) {
+           self.headBackGroundView.image = [[UIImage imageWithData:data] blurredImage:0.5];
+    }
+    
+ 
     [self.mainTableView reloadData];
 
 }

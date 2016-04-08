@@ -462,45 +462,17 @@ typedef void (^babyClassify)(void);
 #pragma mark - 宝贝分类
 - (void)loadType:(NSString *)parent_id judge:(int)judgement
 {
-    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:APP_DELEGATE.user_id,@"user_id", nil];
-    [userDict setValue:parent_id forKey:@"parent_id"];
+    self.listTypeArray = [NSMutableArray array];
+    [self.listTypeArray addObject:@"全部"];
+    [self.listTypeArray addObject:@"器材"];
+    [self.listTypeArray addObject:@"人员"];
+    [self.listTypeArray addObject:@"场地"];
+    self.listTypeIDArray = [NSMutableArray array];
+    [self.listTypeIDArray addObject:@"0"];
+    [self.listTypeIDArray addObject:@"1"];
+    [self.listTypeIDArray addObject:@"2"];
+    [self.listTypeIDArray addObject:@"3"];
     
-    [HttpRequestServers requestBaseUrl:TIPublish_Categories withParams:userDict withRequestFinishBlock:^(id result) {
-        
-        NSDictionary *dict = result;
-        if(judgement==0)
-        {
-            self.listTypeArray = [NSMutableArray array];
-            self.listTypeIDArray = [NSMutableArray array];
-        }
-        HHNSLog(@"loadTypeList -----%@",dict);
-        
-        @try {
-            if ([dict[@"code"] intValue] ==0) {
-                for (NSDictionary *listDict in dict[@"data"]) {
-                    [self.listTypeArray addObject:listDict[@"category_name"]];
-                    [self.listTypeIDArray addObject:listDict[@"category_id"]];
-                }
-            }
-        }
-        @catch (NSException *exception) {
-            
-        }
-        @finally {
-            
-        }
-        [_tbView reloadData];
-        [_collectView reloadData];
-        [_tbView.header endRefreshing];
-        [_tbView.footer endRefreshing];
-        
-        [_collectView.header endRefreshing];
-        [_collectView.footer endRefreshing];
-        _babyClassfyFn();
-        
-    } withFieldBlock:^{
-        
-    }];
 }
 
 #pragma mark -下载店铺数据
@@ -579,11 +551,6 @@ typedef void (^babyClassify)(void);
                     [self.categoryArr addObject:strg];
                 }
             }
-            
-            
-           
-      
-     
             [_tbView reloadData];
             [_collectView reloadData];
             //结束刷新
@@ -602,11 +569,7 @@ typedef void (^babyClassify)(void);
                 {
                     [weakSelf loadType:weakSelf.categoryArr[n] judge:n];
                 }
-                
             };
-            
-
-            
         }
 
         @catch (NSException *exception) {
@@ -630,8 +593,6 @@ typedef void (^babyClassify)(void);
 - (void)createUI
 {
     [self.view addSubview:self.searchHeaderView];
-    
-    
     UIView *btnView = [WNController createViewFrame:CGRectMake(0, 128+10, kViewWidth, 42)];
     [self.view addSubview:btnView];
     _btnLine = [[UIView alloc] initWithFrame:CGRectMake(10, 40, btnWidth/3-20, 2)];
@@ -1173,14 +1134,5 @@ typedef void (^babyClassify)(void);
 
 }
 
-/*
-#pragma mark - Navigation
-
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
-}
-*/
 
 @end

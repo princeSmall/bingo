@@ -12,13 +12,16 @@
 @implementation ShopGoodsCell
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.goodsImageView.layer.cornerRadius = 4;
+    self.goodsImageView.layer.masksToBounds = YES;
+    
+    self.goodsImageView.contentMode = UIViewContentModeScaleAspectFill;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {
     [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
 }
 
 -(void)config:(ShopGoodsModel*)model
@@ -49,7 +52,7 @@
     self.sendLbl.text = str;
     self.kamePriceLbl.text = [NSString stringWithFormat:@"¥%.2f",[model.goods_price floatValue]];
     if (model.goods_deposit) {
-         self.yajinLabel.text = model.goods_deposit;
+         self.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_deposit  floatValue]];;
     }else{
     self.yajinLabel.text = @"￥100.00";
     }
@@ -59,7 +62,7 @@
     [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
     [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
     [self.maketPriceLbl setAttributedText:attri];
-    
+    self.addressLabel.text = model.people_location;
 }
 
 @end

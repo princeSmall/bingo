@@ -17,10 +17,12 @@
 @implementation MovieCommentFirstCell
 
 - (void)awakeFromNib {
-    self.goodImg.layer.cornerRadius = 2;
+    self.goodImg.layer.cornerRadius = 4;
     self.goodImg.layer.masksToBounds = YES;
     self.goodImg.layer.borderColor = [UIColor colorWithRed:0.94 green:0.94 blue:0.94 alpha:1].CGColor;
     self.goodImg.layer.borderWidth = 1;
+    self.goodImg.contentMode =  UIViewContentModeScaleAspectFill;
+    
 }
 
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

@@ -99,6 +99,10 @@
     [UIView commitAnimations];
 }
 
+
+
+
+
 - (void)keyboardWillHide:(NSNotification *)notification {
     
     NSDictionary* userInfo = [notification userInfo];
@@ -109,7 +113,7 @@
     [UIView beginAnimations:nil context:NULL];
     [UIView setAnimationDuration:animationDuration];
     
-     self.mainTableView.frame = self.view.bounds;
+     self.mainTableView.frame = CGRectMake(0, CGRectGetMaxY(self.headView.frame)+1, self.view.frame.size.width, self.view.frame.size.height-CGRectGetMaxY(self.headView.frame));
     
     [UIView commitAnimations];
 }
@@ -119,8 +123,13 @@
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIKeyboardDidHideNotification object:nil];
 }
 
-- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event{
+- (void)TAPss{
+
     [self.view endEditing:YES];
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(nonnull NSIndexPath *)indexPath{
+ [self.view endEditing:YES];
 }
 
 
@@ -128,6 +137,11 @@
     self.mainTableView = [[UITableView alloc]initWithFrame:CGRectMake(0, CGRectGetMaxY(self.headView.frame)+1, self.view.frame.size.width, self.view.frame.size.height-CGRectGetMaxY(self.headView.frame))];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
+    
+    UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(TAPss)];
+    UISwipeGestureRecognizer * sw = [[UISwipeGestureRecognizer alloc]initWithTarget:self action:@selector(TAPss)];
+    [self.mainTableView addGestureRecognizer:tap];
+    [self.mainTableView addGestureRecognizer:sw];
     [self.view addSubview:self.mainTableView];
     self.mainTableView.backgroundColor = [UIColor clearColor];
     self.mainTableView.separatorStyle = UITableViewCellSeparatorStyleNone;

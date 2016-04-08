@@ -126,8 +126,9 @@
         segmentBtn.tag = BTN_START_TAG + i;
         segmentBtn.titleLabel.font = [UIFont systemFontOfSize:15.0f];
         [segmentBtn setTitle:titleArray[i] forState:UIControlStateNormal];
-        [segmentBtn setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
+        [segmentBtn setTitleColor:[UIColor colorWithWhite:0.204 alpha:1.000] forState:UIControlStateNormal];
         [segmentBtn setTitleColor:[UIColor redColor] forState:UIControlStateSelected];
+        segmentBtn.titleLabel.font = [UIFont systemFontOfSize:17];
         [segmentBtn addTarget:self action:@selector(changeGoodsScreenCondiction:) forControlEvents:UIControlEventTouchUpInside];
         
         if (i == 0) {
@@ -295,7 +296,7 @@
 #pragma mark -- 创建表格视图
 - (void)createTableViews
 {
-    self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(self.segmentView.frame)+1, kViewWidth,kViewHeight-CGRectGetMaxY(self.segmentView.frame)-1) style:UITableViewStyleGrouped];
+    self.mainTableView = [[UITableView alloc] initWithFrame:CGRectMake(0,CGRectGetMaxY(self.segmentView.frame)+1, kViewWidth,kViewHeight-CGRectGetMaxY(self.segmentView.frame)-45) style:UITableViewStyleGrouped];
     self.mainTableView.delegate = self;
     self.mainTableView.dataSource = self;
     [self.view addSubview:self.mainTableView];
@@ -391,8 +392,13 @@
     [self checkoutListStatue:cell];
 
     if (0 == _chooseIndex) {
-    CartGood * good = _allGoodsArray[indexPath.row];
+        CartGood * good;
+        if (indexPath.row == 5) {
+        good = _allGoodsArray[4];
+        }else{
+ good = _allGoodsArray[indexPath.row];
         cell.goodsName.text = good.goods_name;
+        }
 #warning 缺少送货方式
 #warning 缺少送货方式
 #warning 缺少送货方式字段
@@ -430,10 +436,6 @@
         if (1 == _chooseIndex) {
             CartGood * good = _rentGoodsArray[indexPath.row];
             cell.goodsName.text = good.goods_name;
-#warning 缺少送货方式
-#warning 缺少送货方式
-#warning 缺少送货方式字段
-            // cell.deliveryWay
      cell.price.text = [NSString stringWithFormat:@"￥%.1f",[good.goods_price floatValue]];
             cell.address.text = good.local_name;
             cell.typeLabel.hidden = YES;

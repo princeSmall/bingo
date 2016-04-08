@@ -11,7 +11,8 @@
 @implementation CollectGoodsCell1
 
 - (void)awakeFromNib {
-    // Initialization code
+    self.goodsImageView.layer.cornerRadius = 4;
+    self.goodsImageView.layer.masksToBounds = YES;
 }
 
 -(void )config:(CollectGoodsModel *)model
@@ -22,7 +23,7 @@
     self.goodsPriceLbl.text = [NSString stringWithFormat:@"¥%@",model.goods_price];
     NSArray *array = [NSArray arrayWithObjects:@"送货上门",@"快递",@"买家自提", nil];
     self.methodLbl.text = [NSString stringWithFormat:@"%@",[array objectAtIndex:[model.goods_express intValue]]];
-    self.addressLbL.text = model.spare_address;
+    self.addressLbL.text = model.people_location;
     self.orderTimeLbL.text=model.create_time;
    
     

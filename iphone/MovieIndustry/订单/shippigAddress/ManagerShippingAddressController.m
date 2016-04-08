@@ -131,7 +131,6 @@
                 morenModel.city_id = morenDict[@"city_id"];
                 morenModel.district_name = morenDict[@"district_name"];
                 morenModel.district_id = morenDict[@"district_id"];
-                
                NSString * regionArea = [NSString stringWithFormat:@"%@%@%@",morenDict[@"province_name"],morenDict[@"city_name"],morenDict[@"district_name"]];
                 userAddress = morenDict[@"addr_detail"];
                 morenModel.youbian = morenDict[@"post_code"];
@@ -222,7 +221,13 @@
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
     ShippingAddressModel *model = self.dataArray[indexPath.row];
+    
+    if (model.moren) {
+            [DeliveryUtility showMessage:@"请替换掉该默认地址" target:nil];
+    }else {
+    
     [self deleteShippingAddress:model.address_id];
+    }
     dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2.0 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
         [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
         [self loadAddressList];

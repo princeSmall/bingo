@@ -42,5 +42,5 @@
 @property (nonatomic,strong)NSString * goodsCount;
 
 @property (nonatomic,strong)NSString * dataStr;
-
+- (void)loadAddressMoren;
 @end

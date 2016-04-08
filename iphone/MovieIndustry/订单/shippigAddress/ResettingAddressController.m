@@ -111,7 +111,7 @@
     [self setNavRightItem:@"保存" rightAction:@selector(saveButtonAction)];
     self.addressDetailTextView.delegate = self;
     self.addressDetailTextView.returnKeyType = UIReturnKeyDone;
-    
+   
     self.consigneeTextField.text = self.model.consignee;
     self.phoneNumberText.text = self.model.tel;
     self.addressDetailTextView.text = self.model.address;

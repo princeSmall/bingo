@@ -17,6 +17,7 @@
 @property (nonatomic,copy)NSString *img_path;
 @property (nonatomic,copy)NSString *market_price;
 @property (nonatomic,copy)NSString *goods_deposit;
+@property (nonatomic,strong)NSString * people_location;
 
 -(instancetype)initWithDict:(NSDictionary *)dict;
 

@@ -25,6 +25,7 @@
 #import "ShipingMethodModel.h"
 #import "ShippingAddressController.h"
 #import "CartGood.h"
+#import "TTIChooseCityController.h"
 
 #import "ShopSendView.h"
 //支付选择控制器
@@ -150,7 +151,7 @@
     view.backgroundColor = [UIColor whiteColor];
     CGFloat labelY = 30;
     UILabel * label = [[UILabel alloc]initWithFrame:CGRectMake(0, labelY, kViewWidth, 24)];
-    label.textColor = [UIColor lightGrayColor];
+    label.textColor = [UIColor colorWithWhite:0.259 alpha:1.000];
     label.textAlignment = 1;
     label.text = @"点击添加收货地址";
     label.font = [UIFont systemFontOfSize:14];
@@ -175,8 +176,9 @@
 - (void)goCreateAddress{
 
     NSLog(@"去收货地址页面");
-    ShippingAddressController * shipp = [[ShippingAddressController alloc]init];
-    [self.navigationController pushViewController:shipp animated:YES];
+    TTIChooseCityController * choose = [[TTIChooseCityController alloc]init];
+    choose.queren = @"1";
+    [self.navigationController pushViewController:choose animated:YES];
     
 }
 
@@ -278,12 +280,16 @@
 - (void)viewDidLoad{
 
     [super viewDidLoad];
+    APP_DELEGATE.ShowViewController = self;
     self.addressDic = [NSMutableDictionary dictionary];
     ShopSendView * shop = [[ShopSendView alloc]initWithFrame:CGRectMake(0,kViewHeight, kViewWidth, 180) AndClickBlock:^(NSString *possType) {
         NSLog(@"%@",possType);
+        self.expressLabel.textColor = [UIColor blackColor];
         self.expressLabel.text = possType;
         [self removeTapGesAction];
     }];
+    
+    self.expressLabel.text = @"";
     self.shop = shop;
     shop.backgroundColor = [UIColor whiteColor];
     UIView *bgView = [[UIView alloc]initWithFrame:CGRectMake(0, 0, kViewWidth, kViewHeight)];
@@ -611,7 +617,7 @@
     NSNumber *number = [NSNumber numberWithInteger:section];
     
     ////设置快递和留言的状态
-    footerView.postTypeLabel.text = @"送货上门";
+//    footerView.postTypeLabel.text = @"送货上门";
     self.textFiledFoot = footerView.textField;
     if ([[self.memoDict objectForKey:number] isEqualToString:@"无"]) {
         footerView.textField.text = @"";
@@ -623,6 +629,7 @@
     ///
     
     [footerView.choosePostTypeButton addTarget:self action:@selector(choosePostTypeButtonAction:) forControlEvents:UIControlEventTouchUpInside];
+    self.expressLabel = footerView.postTypeLabel;
     footerView.choosePostTypeButton.tag = kPostTypeButton_Tag+section;
     ////设置tag值 用于取到快递信息
     footerView.tag = section;
@@ -695,7 +702,10 @@
 #pragma mark - 确认订单
 - (void)comfirmMineOrderInfo:(UIButton *)btn
 {
-    
+    if ([self.expressLabel.text isEqualToString:@"请选择送货方式"]) {
+        [DeliveryUtility showMessage:@"请选择送货方式" target:nil];
+        return;
+    }
     if (!self.isHaveAddress) {
         [self alertViewControllerShow];
     } 
@@ -704,10 +714,7 @@
     if([self.delegate respondsToSelector:@selector(payMineOrderSuccess:)])
     {}
       
-//    if ([self.textFiledFoot.text isEqualToString:@""]) {
-//            [DeliveryUtility showMessage:@"留言没有填写" target:nil];
-//            return;
-//        }
+
    
         
         if (self.goodsInfoArray) {
@@ -741,6 +748,9 @@
             dict[@"order_amount"] = [NSString stringWithFormat:@"%d",orderMoney];
             dict[@"pay_status"] = @"1";
             dict[@"pay_id"] = @"1";
+            
+            
+            
             dict[@"method"] =  [self judgeExpressType:self.expressLabel.text];
             dict[@"remark"] = @"购物车";
             dict[@"goods"] = orderStr;
