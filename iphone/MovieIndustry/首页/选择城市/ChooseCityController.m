@@ -146,10 +146,7 @@
         
     }else
     {
-<<<<<<< HEAD
-=======
 
->>>>>>> 39b4bf7f52416c91357684f8429a4d45c26c7638
         [self.navigationController popViewControllerAnimated:YES];
     }
 }

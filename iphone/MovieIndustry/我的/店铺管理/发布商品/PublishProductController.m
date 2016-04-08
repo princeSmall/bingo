@@ -338,6 +338,7 @@
         HUD.labelText = @"正在发布";
         [HUD show:YES];
       self.goodsDict[@"type"] = @"0";
+      
     [HttpRequestServers requestBaseUrl:TIPublish_Something withParams:self.goodsDict withRequestFinishBlock:^(id result) {
         NSLog(@"%@",result);
         HUD.labelText = @"发布信息成功";
