@@ -166,6 +166,11 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     self.imgArray = [NSMutableArray array];
     self.issueDict = [NSMutableDictionary dictionary];
     
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        self.addressLabel.text = @"请选择所在地";
+        self.goods_category_id.text = @"请选择类型";
+    });
+    
 //    [self createCareerChooseView];
     /**
      *  控制器赋值
@@ -176,9 +181,19 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     
     if (self.desModel) {
         [self setNavTabBar:@"修改人员信息"];
-        
-        self.goods_category = self.desModel.goods_category_id;
             dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        
+        self.goods_name.text = self.desModel.goods_name;
+        self.goods_mobile.text = self.desModel.goods_mobile;
+        self.goods_price.text = self.desModel.goods_price;
+        self.market_price.text = self.desModel.market_price;
+        self.goods_number.text = self.desModel.goods_number;
+               self.addressLabel.text = self.desModel.people_location;
+                        self.addressLabel.text = self.desModel.people_location;
+                        self.goods_deposit.text = self.desModel.goods_deposit;
+                self.goods_job.text = self.desModel.goods_job;
+                self.goods_category_id.text = self.desModel.category_name;
+                self.goods_category = self.desModel.goods_category_id;
             if ([self.desModel.is_deduction isEqualToString:@"1"]) {
                     self.jifen.on = YES;
                 }else{
@@ -299,11 +314,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         TTIInputCell * cell = [[TTIInputCell alloc]initWithTableView:tableView];
         [cell inputWithSring:@"姓名"];
         cell.inputTxfield.delegate = self;
-        
-        if (self.desModel) {
-               cell.inputTxfield.text = self.desModel.goods_name;
-        }
-        
         self.goods_name = cell.inputTxfield;
         return cell;
     }
@@ -321,9 +331,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
     if (indexPath.row == 3) {
         TTiZCTableViewCell * cell = [[TTiZCTableViewCell alloc]initWithTableView:tableView];
         [cell.btnClick addTarget:self action:@selector(ZCbtnClcik) forControlEvents:UIControlEventTouchUpInside];
-        if (self.desModel) {
-             cell.ZClabel.text = self.desModel.goods_job;
-        }
         self.goods_job = cell.ZClabel;
         return cell;
     }
@@ -332,10 +339,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         TTiTypeTableViewCell * cell = [[TTiTypeTableViewCell alloc]initWithTableView:tableView];
         cell.TYPE.text = @"宝贝所在地";
         [cell.btnClick addTarget:self action:@selector(PlaceClick) forControlEvents:UIControlEventTouchUpInside];
-        
-        if (self.desModel) {
-            cell.myLabel.text = self.desModel.people_location;
-        }
         
         self.addressLabel = cell.myLabel;
         return cell;
@@ -346,11 +349,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         TTIInputCell * cell = [[TTIInputCell alloc]initWithTableView:tableView];
         [cell inputWithSring:@"联系方式"];
         cell.inputTxfield.delegate = self;
-        if (self.desModel) {
-            cell.inputTxfield.text = self.desModel.goods_mobile;
-        }
-        
-        
         self.goods_mobile = cell.inputTxfield;
         cell.inputTxfield.keyboardType = UIKeyboardTypeNumberPad;
         return cell;
@@ -360,9 +358,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         cell.inputTxfield.delegate = self;
         [cell inputWithSring:@"市场价"];
         cell.inputTxfield.delegate = self;
-        if (self.desModel) {
-            cell.inputTxfield.text = self.desModel.market_price;
-        }
         self.goods_price = cell.inputTxfield;
         cell.inputTxfield.keyboardType = UIKeyboardTypeNumberPad;
         return cell;
@@ -371,10 +366,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         TTIInputCell * cell = [[TTIInputCell alloc]initWithTableView:tableView];
         [cell inputWithSring:@"咔么价"];
         cell.inputTxfield.delegate = self;
-        if (self.desModel) {
-            cell.inputTxfield.text = self.desModel.goods_price;
-        }
-        
         self.market_price = cell.inputTxfield;
         cell.inputTxfield.keyboardType = UIKeyboardTypeNumberPad;
         return cell;
@@ -383,10 +374,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         TTIInputCell * cell = [[TTIInputCell alloc]initWithTableView:tableView];
         [cell inputWithSring:@"数量"];
         cell.inputTxfield.delegate = self;
-        if (self.desModel) {
-            cell.inputTxfield.text = self.desModel.goods_number;
-        }
-        
         self.goods_number = cell.inputTxfield;
         cell.inputTxfield.keyboardType = UIKeyboardTypeNumberPad;
         return cell;
@@ -438,9 +425,6 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
         TTIInputCell * cell = [[TTIInputCell alloc]initWithTableView:tableView];
         [cell inputWithSring:@"押金金额"];
         cell.inputTxfield.delegate = self;
-        if (self.desModel) {
-            cell.inputTxfield.text = self.desModel.goods_deposit;
-        }
         self.goods_deposit = cell.inputTxfield;
         cell.inputTxfield.keyboardType = UIKeyboardTypeNumberPad;
         return cell;
@@ -662,33 +646,16 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
 }
 
 
-
-
 - (void)PostPersonInfo{
     if ([self checkIssueInfoWhetherValid]) {
         
         UIWindow *window = [[[UIApplication sharedApplication] delegate] window];
         MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:window animated:YES];
+        HUD.labelText = @"正在发布";
         [HUD show:YES];
         
         
         self.issueDict[@"type"] = @"1";
-        
-        if (self.desModel) {
-            [HttpRequestServers requestBaseUrl:TIPublish_UpdatePeople withParams:self.issueDict withRequestFinishBlock:^(id result) {
-                
-                if ([result[@"code"] intValue] == 0) {
-                    HUD.labelText = @"修改成功";
-                    [self performSelector:@selector(goBack) withObject:self afterDelay:1.0];
-                    [HUD hide:YES afterDelay:1.0];
-                }
-                
-            } withFieldBlock:^{
-                
-            }];
-        }else{
-        
-        
         
         [MovieHttpRequest createPublishMinePersonnelWith:self.issueDict CallBack:^(id obj) {
             
@@ -704,7 +671,7 @@ _myTableView.contentInset = UIEdgeInsetsMake(0, 0, 0, 0);
             [self performSelector:@selector(goBack) withObject:self afterDelay:0.25];
         }];
     }
-    }
+
 
 }
 

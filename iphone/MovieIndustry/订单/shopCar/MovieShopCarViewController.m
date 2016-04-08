@@ -79,7 +79,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTabBar:@"租物车"];
+    [self setNavTabBar:@"购物车"];
     [self setNavRightItem:@"编辑" rightAction:@selector(editShopingCarAction:)];
     
     self.allPrice = 0.0;
@@ -638,6 +638,74 @@
     //每次算完要重置为0，因为每次的都是全部循环算一遍
     self.allPrice = 0.0;
 }
+
+#pragma mark - 选择该店铺下所有商品
+//- (void)chooseCurrentShopAllGoods:(UIButton *)button
+//{
+//    button.selected = !button.selected;
+//
+//    NSInteger index = button.tag;
+//
+//    if (button.selected) {
+//
+//        for (NSInteger i = 0; i < 7 ; i++) {
+//
+//            [self.chooseDict setValue:[NSNumber numberWithBool:YES] forKey:[NSString stringWithFormat:@"%zd",(index*CELL_TAG_START + i)]];
+//        }
+//    }
+//    else
+//    {
+//        for (NSInteger i = 0; i < 7 ; i++) {
+//
+//            [self.chooseDict setValue:[NSNumber numberWithBool:NO] forKey:[NSString stringWithFormat:@"%zd",(index*CELL_TAG_START + i)]];
+//        }
+//    }
+//
+//    [self.mainTableView reloadSections:[NSIndexSet indexSetWithIndex:index] withRowAnimation:UITableViewRowAnimationNone];
+//}
+
+//#pragma mark - 选择该单个商品
+//- (void)chooseCurrentSingleGood:(UIButton *)button
+//{
+//    button.selected = !button.selected;
+//
+//    NSInteger sectionIndex = button.superview.tag;
+//
+//    if (button.selected) {
+//        [self.chooseDict setValue:[NSNumber numberWithBool:YES] forKey:[NSString stringWithFormat:@"%zd",sectionIndex*CELL_TAG_START + button.tag]];
+//    }
+//    else{
+//
+//#warning 有数据时,objectForKey 以便于统计所有订单的金额
+//
+//        //取消单个选中状态
+//        [self.chooseDict setValue:[NSNumber numberWithBool:NO] forKey:[NSString stringWithFormat:@"%zd",sectionIndex*CELL_TAG_START + button.tag]];
+//
+//        //取消全选按钮状态
+//        [self.chooseDict setValue:[NSNumber numberWithBool:NO] forKey:[NSString stringWithFormat:@"%zd",sectionIndex*CELL_TAG_START]];
+//    }
+//
+//    [self.mainTableView reloadSections:[NSIndexSet indexSetWithIndex:sectionIndex] withRowAnimation:UITableViewRowAnimationNone];
+//}
+//
+//
+
+//#pragma mark - 编辑店铺商品
+//- (void)editShopStatueBtnClicked:(UIButton *)button
+//{
+//    button.selected = !button.selected;
+//
+//    if (button.selected) {
+//        [self.editDict setValue:[NSString stringWithFormat:@"1"] forKey:[NSString stringWithFormat:@"%zd",button.tag]];
+//    }else{
+//        [self.editDict setValue:[NSString stringWithFormat:@"0"] forKey:[NSString stringWithFormat:@"%zd",button.tag]];
+//    }
+//
+//    [self.mainTableView reloadSections:[NSIndexSet indexSetWithIndex:button.tag] withRowAnimation:UITableViewRowAnimationNone];
+//}
+
+
+
 
 - (void)DeleteShopingCarGwc_id:(NSString *)gwc_id
 {

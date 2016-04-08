@@ -12,19 +12,21 @@
 
 - (void)awakeFromNib {
     // Initialization code
-    self.shopImageView.layer.cornerRadius = 4;
-    self.shopImageView.layer.masksToBounds = YES;
-    self.shopImageView.contentMode = UIViewContentModeScaleAspectFill;
-    
 }
+/*
+ //商家图片
+ @property (weak, nonatomic) IBOutlet UIImageView *shopImageView;
+ //商家名称
+ @property (weak, nonatomic) IBOutlet UILabel *shopNameLbL;
+ //商家地址
+ @property (weak, nonatomic) IBOutlet UILabel *shopAddressLbl;
+ //收藏时间
+ @property (weak, nonatomic) IBOutlet UILabel *conllectTimeLbl;*/
 -(void)config:(ConllectShopModel *)model
 {
     [self.shopImageView sd_setImageWithURL:[NSURL  URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,model.shop_logo]]];
     self.shopNameLbL.text = model.shop_name;
-    
-//    [NSString stringWithFormat:@"%@%@%@",]
-    
-    self.shopAddressLbl.text = model.city_name;
+    self.shopAddressLbl.text = model.spare_address;
     self.conllectTimeLbl.text = model.create_time;
 }
 - (void)setSelected:(BOOL)selected animated:(BOOL)animated {

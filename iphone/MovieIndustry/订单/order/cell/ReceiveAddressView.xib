@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
-        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
@@ -12,61 +11,45 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="94"/>
             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
             <subviews>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人：张小丽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="n0Q-DO-GZV">
-                    <rect key="frame" x="8" y="8" width="112" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="DIa-zk-bJR"/>
-                    </constraints>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13512345678" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Q3X-dw-ML0">
+                    <rect key="frame" x="217" y="10" width="121" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="0.21568627450980393" green="0.21568627450980393" blue="0.21568627450980393" alpha="1" colorSpace="calibratedRGB"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="help_right.png" translatesAutoresizingMaskIntoConstraints="NO" id="Sno-80-H42">
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货地址：上海市浦东新区上南路1123弄123号金逸广场4楼B座401" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="Mb8-TY-mr7">
+                    <rect key="frame" x="9" y="38" width="290" height="40"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货人：张小丽" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="n0Q-DO-GZV">
+                    <rect key="frame" x="9" y="11" width="165" height="24"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="help_right.png" id="Sno-80-H42">
                     <rect key="frame" x="346" y="31" width="21" height="21"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
                 </imageView>
-                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="mP9-jB-obc">
+                <view contentMode="scaleToFill" id="mP9-jB-obc">
                     <rect key="frame" x="0.0" y="84" width="375" height="10"/>
+                    <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <color key="backgroundColor" red="0.92549019607843142" green="0.92549019607843142" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
                 </view>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收货地址：上海市浦东新区上南路1123弄123号金逸广场4楼B座401" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mb8-TY-mr7">
-                    <rect key="frame" x="9" y="35" width="335" height="48"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                    <color key="textColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13512345678" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Q3X-dw-ML0">
-                    <rect key="frame" x="233" y="8" width="101" height="24"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="24" id="feh-ig-kN0"/>
-                    </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <color key="textColor" red="0.2156862745" green="0.2156862745" blue="0.2156862745" alpha="1" colorSpace="calibratedRGB"/>
-                    <nil key="highlightedColor"/>
-                </label>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="clK-xE-vQc">
-                    <rect key="frame" x="0.0" y="4" width="375" height="86"/>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" id="clK-xE-vQc">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="86"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <state key="normal">
                         <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                     </state>
                 </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-            <constraints>
-                <constraint firstItem="clK-xE-vQc" firstAttribute="top" secondItem="FLd-mZ-dZl" secondAttribute="top" constant="4" id="1VI-4T-TO3"/>
-                <constraint firstItem="Mb8-TY-mr7" firstAttribute="height" secondItem="FLd-mZ-dZl" secondAttribute="height" multiplier="0.52" id="5ZP-Oc-Tpu"/>
-                <constraint firstItem="n0Q-DO-GZV" firstAttribute="top" secondItem="FLd-mZ-dZl" secondAttribute="top" constant="8" id="6v3-cJ-Io1"/>
-                <constraint firstItem="Mb8-TY-mr7" firstAttribute="width" secondItem="FLd-mZ-dZl" secondAttribute="width" multiplier="0.895" id="Cpn-Gn-cuC"/>
-                <constraint firstItem="Mb8-TY-mr7" firstAttribute="top" secondItem="Q3X-dw-ML0" secondAttribute="bottom" constant="3" id="DfX-Zz-5qf"/>
-                <constraint firstItem="n0Q-DO-GZV" firstAttribute="leading" secondItem="FLd-mZ-dZl" secondAttribute="leading" constant="8" id="PvF-Wg-oUE"/>
-                <constraint firstAttribute="bottom" secondItem="clK-xE-vQc" secondAttribute="bottom" constant="4" id="U9s-XJ-fFB"/>
-                <constraint firstItem="Mb8-TY-mr7" firstAttribute="top" secondItem="n0Q-DO-GZV" secondAttribute="bottom" constant="3" id="csP-AS-7nm"/>
-                <constraint firstItem="clK-xE-vQc" firstAttribute="leading" secondItem="FLd-mZ-dZl" secondAttribute="leading" id="dIG-aK-J1I"/>
-                <constraint firstItem="Mb8-TY-mr7" firstAttribute="centerX" secondItem="FLd-mZ-dZl" secondAttribute="centerX" multiplier="0.94" id="glR-U9-4oh"/>
-                <constraint firstAttribute="trailing" secondItem="clK-xE-vQc" secondAttribute="trailing" id="ny8-HM-Y0n"/>
-                <constraint firstItem="Q3X-dw-ML0" firstAttribute="top" secondItem="FLd-mZ-dZl" secondAttribute="top" constant="8" id="q1D-I9-yO4"/>
-                <constraint firstAttribute="trailing" secondItem="Q3X-dw-ML0" secondAttribute="trailing" constant="41" id="so4-29-jYg"/>
-                <constraint firstItem="Mb8-TY-mr7" firstAttribute="centerY" secondItem="FLd-mZ-dZl" secondAttribute="centerY" multiplier="1.25" id="vS4-Di-o93"/>
-            </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
                 <outlet property="addressLabel" destination="Mb8-TY-mr7" id="2bu-Md-TgX"/>

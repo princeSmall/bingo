@@ -128,6 +128,13 @@
     
     if (self.desModel) {
         [self setNavTabBar:@"修改人员信息"];
+        self.txtPersonName.text = self.desModel.goods_name;
+        self.txtPrice.text = self.desModel.goods_price;
+        self.careerLab.text = self.desModel.goods_job;
+        self.txtPhoneNum.text = self.desModel.goods_mobile;
+        self.goodsCount.text = self.desModel.goods_number;
+//        self.address.text = self.desModel.spare_address;
+        self.txtSpecial.text = self.desModel.goods_alone;
         if ([self.desModel.is_deposit isEqualToString:@"1"]) {
             self.yajinSwitch.on = YES;
         }else{

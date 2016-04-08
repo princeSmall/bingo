@@ -14,8 +14,6 @@
 #import <ShareSDK/ShareSDK.h>
 #import <TencentOpenAPI/QQApiInterface.h>
 #import <TencentOpenAPI/TencentOAuth.h>
-
-#import "MovieRefundMoneyViewController.h"
 //微信支付
 #import "WXApi.h"
 #import "WeiboSDK.h"
@@ -80,6 +78,7 @@
 //       callbackSelector:@selector(tagsAliasCallback:tags:alias:)
 //                 object:self];
     [APService setupWithOption:launchOptions];
+    
     return YES;
 }
 //- (void)tagsAliasCallback:(int)iResCode

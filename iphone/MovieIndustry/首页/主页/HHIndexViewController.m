@@ -198,6 +198,8 @@
 //    [self loadArticleList];
     
     //获得首页商品
+    [self loadHomeGoodsData];
+   
     //活动数据
 //    [self loadActivityData];
     
@@ -205,12 +207,6 @@
     [self createRefresh];
     
 }
-
-- (void)viewWillAppear:(BOOL)animated{
-
-    [self loadHomeGoodsData];
-}
-
 
 #pragma mark - 添加刷新
 - (void)createRefresh

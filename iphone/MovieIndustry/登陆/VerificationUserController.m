@@ -102,7 +102,6 @@
 
 - (void)sendCodeButtonAction
 {
-      self.senderBtn.enabled = NO;
     NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.phoneNum.text,@"mobile", nil];
             
             [HttpRequestServers requestBaseUrl:TIMessage_Verifed withParams:userDict withRequestFinishBlock:^(id result) {

@@ -15,11 +15,6 @@
 
     self.goodsImg.layer.borderColor = RGBColor(212, 212, 212, 1).CGColor;
     self.rightBtn.layer.borderColor = RGBColor(212, 212, 212, 1).CGColor;
-    
-    self.goodsImg.layer.cornerRadius = 2;
-    self.goodsImg.layer.masksToBounds = YES;
-    self.goodsImg.contentMode = UIViewContentModeScaleAspectFill;
-    
 }
 
 

@@ -7,7 +7,6 @@
 //
 
 #import "BaseViewController.h"
-#import "ShippingAddressModel.h"
 
 @protocol ShippingAddressControllerDelegate <NSObject>
 
@@ -22,7 +21,7 @@
 
 @property (weak, nonatomic) IBOutlet UITextField *phoneNumberText;
 
-@property (nonatomic,strong) ShippingAddressModel *model;
+
 
 ///详细地址
 @property (weak, nonatomic) IBOutlet UITextView *addressDetailTextView;

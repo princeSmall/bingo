@@ -121,22 +121,15 @@
                 [PromptLabel custemAlertPromAddView:self.view text:@"请选择星级"];
             }else
             {
-//                if (!self.imageName) {
-//                    [PromptLabel custemAlertPromAddView:self.view text:@"请上传图片"];
-//                }else{
+                if (!self.imageName) {
+                    [PromptLabel custemAlertPromAddView:self.view text:@"请上传图片"];
+                }else{
                 MBProgressHUD *HUD = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 HUD.labelText = @"正在提交";
                 [HUD show:YES];
                 //分割字符串
                     NSMutableArray * iamgeArray = [NSMutableArray array];
-                /**
-                 *  如果没有上传图片这里
-                 */
-                if (self.imageName) {
                     [iamgeArray addObject:self.imageName];
-                }else{
-                [iamgeArray addObject:@""];
-                }
                 NSMutableDictionary *userDict = [NSMutableDictionary dictionary];
                     userDict[@"user_id"] = APP_DELEGATE.user_id;
                     userDict[@"order_id"] = APP_DELEGATE.orderid;
@@ -177,7 +170,7 @@
                 
             }
         }
-//        }
+        }
 }
 
 #pragma mark - UITableViewDataSource

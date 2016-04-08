@@ -15,7 +15,7 @@
 #import "WXApi.h"
 #import "WXApiObject.h"
 #import "payRequsestHandler.h"
-#import "MovieComfirmOrderDetailCell.h"
+
 
 @interface PayOrderController ()<UITableViewDelegate,UITableViewDataSource>
 @property (nonatomic,strong)UITableView *tableView;
@@ -343,19 +343,17 @@
 -(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     static NSString *cellIdentifier = @"PayHeadCell";
-    MovieComfirmOrderDetailCell *cell;
+    PayOrderHeadCell *cell;
     cell = [tableView dequeueReusableCellWithIdentifier:cellIdentifier];
     if(cell==nil)
     {
-//        PayOrderHeadCell
-        cell = [[[NSBundle mainBundle]loadNibNamed:@"MovieComfirmOrderDetailCell" owner:self options:nil]lastObject];
+        cell = [[[NSBundle mainBundle]loadNibNamed:@"PayOrderHeadCell" owner:self options:nil]lastObject];
     }
     if (self.model) {
-//        [cell.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.model.imgs[0]]]];
-//        cell.goodsNameLbl.text = self.model.goods_name;
-//        cell.goodsPriceLbl.text = [NSString stringWithFormat:@"￥%@",self.model.goods_price];
-//        cell.goodsNumebrLbl.text = [NSString stringWithFormat:@"X%@",self.goodsCount];
-        [cell config:self.model Andtype:@""];
+        [cell.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,self.model.imgs[0]]]];
+        cell.goodsNameLbl.text = self.model.goods_name;
+        cell.goodsPriceLbl.text = [NSString stringWithFormat:@"￥%@",self.model.goods_price];
+        cell.goodsNumebrLbl.text = [NSString stringWithFormat:@"X%@",self.goodsCount];
         
         if (!self.model.goods_deposit) {
             self.model.goods_deposit = @"0";
@@ -363,14 +361,12 @@
         
         cell.yajinLabel.text = [NSString stringWithFormat:@"￥%@",self.model.goods_deposit];
     }else{
-       
         CartGood * good = self.goodsInfoArray[indexPath.row];
-        [cell initCGood:good];
-//        [cell.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,good.img_path]]];
-//        cell.goodsNameLbl.text = good.goods_name;
-//        cell.goodsPriceLbl.text = [NSString stringWithFormat:@"￥%@",good.goods_price];
-//        cell.goodsNumebrLbl.text = [NSString stringWithFormat:@"X%@",good.goods_number];
-//        cell.yajinLabel.text = [NSString stringWithFormat:@"￥%@",good.goods_deposit];
+        [cell.goodsImageView sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIBIGImage,good.img_path]]];
+        cell.goodsNameLbl.text = good.goods_name;
+        cell.goodsPriceLbl.text = [NSString stringWithFormat:@"￥%@",good.goods_price];
+        cell.goodsNumebrLbl.text = [NSString stringWithFormat:@"X%@",good.goods_number];
+        cell.yajinLabel.text = [NSString stringWithFormat:@"￥%@",good.goods_deposit];
     }
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;

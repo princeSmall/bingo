@@ -8,8 +8,6 @@
 
 #import "ShippingAddressDescController.h"
 #import "ResettingAddressController.h"
-#import "TTIChooseCityController.h"
-#import "ShippingAddressController.h"
 
 @interface ShippingAddressDescController ()<UIActionSheetDelegate,ResettingAddressControllerDelegate>
 
@@ -86,9 +84,9 @@
 
 - (void)resetAddressAction
 {
-    
-     ShippingAddressController * resetVc = [[ ShippingAddressController alloc]init];
+    ResettingAddressController *resetVc = [[ResettingAddressController alloc] init];
     resetVc.model = self.model;
+    resetVc.delegate = self;
     [self.navigationController pushViewController:resetVc animated:YES];
 }
 
@@ -102,11 +100,7 @@
 {
     if (buttonIndex == 0) {
         
-        if (self.model.moren) {
-               [DeliveryUtility showMessage:@"请先替换掉默认收货地址" target:nil];
-        }else{
         [self deleteShippingAddress:self.model.address_id];
-        }
         
     }
 }

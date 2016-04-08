@@ -57,9 +57,9 @@
     label.backgroundColor=[UIColor clearColor];
     label.font=[UIFont systemFontOfSize:font];
     //单词折行
- 
+//    label.lineBreakMode=NSLineBreakByWordWrapping;
     //默认字体颜色是白色
-
+    label.textColor=[UIColor blackColor];
     //自适应（行数~字体大小按照设置大小进行设置）
 //    label.userInteractionEnabled = NO;
     label.editable = NO;
@@ -78,7 +78,7 @@
     button.frame=frame;
     [button setTitle:title forState:UIControlStateNormal];
     
-    [button setTitleColor:[UIColor colorWithRed:0.212 green:0.216 blue:0.220 alpha:1.000] forState:UIControlStateNormal];
+    [button setTitleColor:[UIColor blackColor] forState:UIControlStateNormal];
     //设置背景图片，可以使文字与图片共存
     [button setImage:[UIImage imageNamed:imageName] forState:UIControlStateNormal];
     //图片与文字如果需要同时存在，就需要图片足够小 详见人人项目按钮设置

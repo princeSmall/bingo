@@ -251,11 +251,6 @@ typedef void (^chooseFn)(id result,int status,NSString * ID);
             }else{
             NSLog(@"跳出页面");
             ShippingAddressController * ship = [[ShippingAddressController alloc]init];
-                
-                if (weakSelf.queren) {
-                    ship.isQuerenOrder = YES;
-                }
-                
             ship.addressID = [NSString stringWithFormat:@"%@,%@,%@",weakSelf.proID,weakSelf.citID,weakSelf.areID];
             ship.addressString = [NSString stringWithFormat:@"%@,%@,%@",weakSelf.label1.text,weakSelf.label2.text,result];
             [weakSelf.navigationController pushViewController:ship animated:YES];

@@ -129,7 +129,7 @@
         [self addSubview:button3];
         [self addSubview:labelLine3];
         [self addSubview:buttonC3];
-//        self.button1.selected = YES;
+        self.button1.selected = YES;
         //        self.block(@"商家送货");
     }
     return self;
