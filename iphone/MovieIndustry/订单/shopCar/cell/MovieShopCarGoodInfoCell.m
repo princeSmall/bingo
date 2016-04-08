@@ -25,6 +25,10 @@
 
 - (void)config:(CartGood *)model
 {
+    
+    self.goodImage.layer.cornerRadius = 4;
+    self.goodImage.layer.masksToBounds = YES;
+    self.goodImage.contentMode = UIViewContentModeScaleAspectFill;
     [self.goodImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,model.img_path]]];
     self.goodName.text = model.goods_name;
     self.goodColor.text = [NSString stringWithFormat:@"%@",model.name_value_str];

@@ -38,6 +38,7 @@
     NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[model.market_price floatValue]];
         self.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[model.goods_deposit floatValue]];
     NSUInteger length = [oldPrice length];
+    self.goodsNumLabel.text = [NSString stringWithFormat:@"X%@", model.goods_number];
     NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
     [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
     [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
@@ -67,6 +68,11 @@
 }
 
 - (void)awakeFromNib {
+    
+    
+    self.goodsImageView.layer.cornerRadius = 4;
+    self.goodsImageView.layer.masksToBounds = YES;
+    self.goodsImageView.contentMode = UIViewContentModeScaleAspectFill;
     // Initialization code
 }
 

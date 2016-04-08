@@ -22,6 +22,8 @@
 @property (nonatomic,copy)NSString *shop_tel;
 @property (nonatomic,copy)NSString *spare_address;
 @property (nonatomic,copy)NSString *type;
+@property (nonatomic,strong)NSString * people_location;
+
 -(instancetype)initWithDict:(NSDictionary *)dict;
 
 @end

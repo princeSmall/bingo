@@ -766,25 +766,7 @@
                             <rect key="frame" x="0.0" y="486" width="375" height="150"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
-                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tll-Z7-kY9">
-                                    <rect key="frame" x="20" y="30" width="335" height="40"/>
-                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
-                                    <state key="normal" title="开 通">
-                                        <color key="titleColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
-                                    </state>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                            <integer key="value" value="5"/>
-                                        </userDefinedRuntimeAttribute>
-                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="comfirmCreateMineShop:" destination="73a-Lp-cqV" eventType="touchUpInside" id="zN7-UV-jhJ"/>
-                                    </connections>
-                                </button>
-                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-eI-RWQ">
+                                <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ovJ-eI-RWQ">
                                     <rect key="frame" x="108" y="100" width="160" height="30"/>
                                     <subviews>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dXs-az-qa4">
@@ -812,9 +794,39 @@
                                         </button>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="953-iU-zno"/>
+                                        <constraint firstAttribute="width" constant="160" id="Yf5-kl-jOe"/>
+                                    </constraints>
                                 </view>
+                                <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tll-Z7-kY9">
+                                    <rect key="frame" x="20" y="30" width="335" height="40"/>
+                                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                    <state key="normal" title="开 通">
+                                        <color key="titleColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="calibratedRGB"/>
+                                        <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
+                                    </state>
+                                    <userDefinedRuntimeAttributes>
+                                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                            <integer key="value" value="5"/>
+                                        </userDefinedRuntimeAttribute>
+                                        <userDefinedRuntimeAttribute type="boolean" keyPath="clipsToBounds" value="YES"/>
+                                    </userDefinedRuntimeAttributes>
+                                    <connections>
+                                        <action selector="comfirmCreateMineShop:" destination="73a-Lp-cqV" eventType="touchUpInside" id="zN7-UV-jhJ"/>
+                                    </connections>
+                                </button>
                             </subviews>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            <constraints>
+                                <constraint firstItem="ovJ-eI-RWQ" firstAttribute="centerY" secondItem="23V-It-mKK" secondAttribute="centerY" multiplier="1.6" id="P9M-Kd-aro"/>
+                                <constraint firstItem="ovJ-eI-RWQ" firstAttribute="centerX" secondItem="23V-It-mKK" secondAttribute="centerX" id="aLR-aj-97q"/>
+                                <constraint firstItem="Tll-Z7-kY9" firstAttribute="leading" secondItem="23V-It-mKK" secondAttribute="leading" constant="20" id="v5i-UP-TUG"/>
+                                <constraint firstAttribute="trailing" secondItem="Tll-Z7-kY9" secondAttribute="trailing" constant="20" id="xm1-EI-T4x"/>
+                                <constraint firstItem="Tll-Z7-kY9" firstAttribute="top" secondItem="23V-It-mKK" secondAttribute="top" constant="30" id="xxD-Vo-Iyt"/>
+                                <constraint firstItem="ovJ-eI-RWQ" firstAttribute="top" secondItem="Tll-Z7-kY9" secondAttribute="bottom" constant="30" id="yIm-0y-lLq"/>
+                            </constraints>
                         </view>
                         <sections>
                             <tableViewSection id="Dey-BY-aty">

@@ -98,7 +98,6 @@
                     self.timer = [NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(updateTimer) userInfo:nil repeats:YES];
                     self.timeCount = 60;
                     ///
-                    self.sendCodeButton.enabled = NO;
                 }
                 else
                 {

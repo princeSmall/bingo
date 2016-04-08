@@ -124,12 +124,13 @@
     CGSize brifySize = [shopBrify sizeWithAttributes:[NSDictionary dictionaryWithObjectsAndKeys:DefaultFont,NSFontAttributeName, nil]];
     CGFloat brifyW = screenWidth-160;
     
-    CGFloat brifyH =ceilf(brifySize.width/(int)brifyW )*brifySize.height-10;
+    CGFloat brifyH =myView1.frame.size.height-nameH -5;
     CGRect brifyFrame = CGRectMake(CGRectGetMaxX(_shopImageView.frame)+10, 40, brifyW, brifyH);
     
     self.shopDescLabel = [WNController TextViewcreateLabelWithFrame:brifyFrame Font:14 Text:shopBrify textAligment:NSTextAlignmentLeft];
     self.shopDescLabel.textColor = [UIColor colorWithRed:0.62 green:0.62 blue:0.62 alpha:1];
     [myView1 addSubview:self.shopDescLabel];
+    self.shopDescLabel.text = self.storeModel.shop_desc;
 #warning 删除
     //第一条线
 //    UIView *line1 = [WNController createViewFrame:CGRectMake(0, 128, kViewWidth, 1)];

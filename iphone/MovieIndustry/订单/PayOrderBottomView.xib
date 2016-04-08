@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F1605" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
@@ -27,12 +27,6 @@
                             <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13512345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tz-89-yNt">
-                            <rect key="frame" x="94" y="72" width="139" height="21"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                            <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="张晓丽" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a3n-Zs-8hV">
                             <rect key="frame" x="8" y="14" width="359" height="21"/>
                             <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -51,6 +45,15 @@
                             <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13512345678" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3tz-89-yNt">
+                            <rect key="frame" x="78" y="72" width="95" height="21"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="21" id="LUs-ZV-Tb3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                            <color key="textColor" red="0.50196081400000003" green="0.50196081400000003" blue="0.50196081400000003" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
@@ -59,23 +62,22 @@
                         <constraint firstItem="fLd-2D-fcz" firstAttribute="width" secondItem="HX1-dW-ES8" secondAttribute="width" multiplier="0.13" id="46g-oV-kfd"/>
                         <constraint firstItem="dn1-FW-pOV" firstAttribute="width" secondItem="HX1-dW-ES8" secondAttribute="width" multiplier="0.958" id="7V5-PL-aAo"/>
                         <constraint firstItem="a3n-Zs-8hV" firstAttribute="centerX" secondItem="HX1-dW-ES8" secondAttribute="centerX" id="7n6-Ee-d3N"/>
+                        <constraint firstItem="3tz-89-yNt" firstAttribute="top" secondItem="dn1-FW-pOV" secondAttribute="bottom" constant="8" id="Dmg-3d-ULF"/>
                         <constraint firstItem="KC0-Sy-gvC" firstAttribute="centerY" secondItem="HX1-dW-ES8" secondAttribute="centerY" multiplier="1.28" id="KNP-94-5hy"/>
-                        <constraint firstItem="3tz-89-yNt" firstAttribute="centerY" secondItem="HX1-dW-ES8" secondAttribute="centerY" multiplier="1.28" id="LCY-z0-JoG"/>
-                        <constraint firstItem="3tz-89-yNt" firstAttribute="centerX" secondItem="HX1-dW-ES8" secondAttribute="centerX" multiplier="0.87" id="MJq-lw-rAn"/>
                         <constraint firstItem="PgF-Sj-FXU" firstAttribute="height" secondItem="HX1-dW-ES8" secondAttribute="height" multiplier="0.16" id="Me5-L8-OZe"/>
                         <constraint firstItem="KC0-Sy-gvC" firstAttribute="height" secondItem="HX1-dW-ES8" secondAttribute="height" multiplier="0.16" id="MyN-AX-cOX"/>
                         <constraint firstItem="fLd-2D-fcz" firstAttribute="centerX" secondItem="HX1-dW-ES8" secondAttribute="centerX" multiplier="0.17" id="OAX-1o-TGb"/>
+                        <constraint firstItem="3tz-89-yNt" firstAttribute="leading" secondItem="HX1-dW-ES8" secondAttribute="leading" constant="78" id="PSP-iZ-JYn"/>
                         <constraint firstItem="a3n-Zs-8hV" firstAttribute="width" secondItem="HX1-dW-ES8" secondAttribute="width" multiplier="0.955" id="Q92-va-EYh"/>
                         <constraint firstItem="fLd-2D-fcz" firstAttribute="centerY" secondItem="HX1-dW-ES8" secondAttribute="centerY" multiplier="1.71" id="RdC-fX-KKt"/>
-                        <constraint firstItem="3tz-89-yNt" firstAttribute="width" secondItem="HX1-dW-ES8" secondAttribute="width" multiplier="0.37" id="T6f-wc-J54"/>
                         <constraint firstItem="PgF-Sj-FXU" firstAttribute="width" secondItem="HX1-dW-ES8" secondAttribute="width" multiplier="0.23" id="Uvf-Eu-3Kp"/>
+                        <constraint firstItem="PgF-Sj-FXU" firstAttribute="top" secondItem="3tz-89-yNt" secondAttribute="bottom" constant="8" id="bcC-7T-GX4"/>
                         <constraint firstItem="PgF-Sj-FXU" firstAttribute="centerX" secondItem="HX1-dW-ES8" secondAttribute="centerX" multiplier="0.53" id="c2Q-gJ-dGd"/>
                         <constraint firstItem="dn1-FW-pOV" firstAttribute="centerY" secondItem="HX1-dW-ES8" secondAttribute="centerY" multiplier="0.82" id="f0J-n4-Tv5"/>
                         <constraint firstItem="PgF-Sj-FXU" firstAttribute="centerY" secondItem="HX1-dW-ES8" secondAttribute="centerY" multiplier="1.72" id="f25-VO-vCz"/>
                         <constraint firstItem="dn1-FW-pOV" firstAttribute="centerX" secondItem="HX1-dW-ES8" secondAttribute="centerX" id="h5o-g5-jVe"/>
                         <constraint firstItem="fLd-2D-fcz" firstAttribute="height" secondItem="HX1-dW-ES8" secondAttribute="height" multiplier="0.16" id="lTi-9T-BRj"/>
                         <constraint firstItem="KC0-Sy-gvC" firstAttribute="centerX" secondItem="HX1-dW-ES8" secondAttribute="centerX" multiplier="0.25" id="mun-2Q-VV5"/>
-                        <constraint firstItem="3tz-89-yNt" firstAttribute="height" secondItem="HX1-dW-ES8" secondAttribute="height" multiplier="0.16" id="qSc-Am-h5n"/>
                         <constraint firstItem="a3n-Zs-8hV" firstAttribute="height" secondItem="HX1-dW-ES8" secondAttribute="height" multiplier="0.16" id="vHe-g5-9rP"/>
                     </constraints>
                 </view>

@@ -10,6 +10,8 @@
 #import "ManagerShippingAddressController.h"
 #import "JGButtonAreaView.h"
 #import "JGAreaModel.h"
+#import "MovieComfirmOrderViewController.h"
+#import "TTIChooseCityController.h"
 
 
 @interface ShippingAddressController ()<UITextFieldDelegate,UIPickerViewDataSource,UIPickerViewDelegate,UITextViewDelegate>
@@ -107,21 +109,37 @@
 
 
 
+- (void)TAPs{
+    TTIChooseCityController * choose = [[TTIChooseCityController alloc]init];
+    choose.openShop = @"1";
+    choose.infoFn = ^(NSString * address,NSString * addressID){
+        
+        NSArray * addarr = [address componentsSeparatedByString:@","];
+        NSArray * addidarr = [addressID componentsSeparatedByString:@","];
+        _proviceStr = addarr[0];
+        _cityStr = addarr[1];
+        _areaStr = addarr[2];
+        self.proID = addidarr[0];
+        self.citID = addidarr[1];
+        self.areID = addidarr[2];
+        self.addressLabel.text = [NSString stringWithFormat:@"%@%@%@",addarr[0],addarr[1],addarr[2]];
+        
+        
+    };
+    
+    [self.navigationController pushViewController:choose animated:YES];
+
+}
 
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setNavTabBar:@"新建收货地址"];
-
+    
+    
     self.addressDetailTextView.delegate = self;
     //从本地读取plist文件
     self.postCodeLabel.delegate = self;
-
-    NSArray * arr = [self.addressString componentsSeparatedByString:@","];
-    _proviceStr = arr[0];
-    _cityStr = arr[1];
-    _areaStr = arr[2];
-    self.addressLabel.text = [NSString stringWithFormat:@"%@%@%@",arr[0],arr[1],arr[2]];
+    
     [self.consigneeTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     
     [self.phoneNumberText addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
@@ -129,6 +147,38 @@
     
     
     [self.view addSubview:self.cityPickTextField];
+    self.addressDetailTextView.textColor = [UIColor lightGrayColor];
+    if (self.model) {
+        [self setNavTabBar:@"修改收货地址"];
+        
+        self.addressLabel.text = self.model.regionArea;
+        self.consigneeTextField.text = self.model.consignee;
+        self.phoneNumberText.text = self.model.tel;
+        self.addressDetailTextView.text = self.model.address;
+        self.postCodeLabel.text = self.model.youbian;
+        _proviceStr = self.model.province_name;
+        _cityStr = self.model.city_name;
+        _areaStr = self.model.district_name;
+        self.proID = self.model.province_id;
+        self.citID = self.model.city_id;
+        self.areID = self.model.district_id;
+        UITapGestureRecognizer * tap = [[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(TAPs)];
+        self.addressLabel.userInteractionEnabled = YES;
+        [self.addressLabel addGestureRecognizer:tap];
+        
+    }else{
+    
+    [self setNavTabBar:@"新建收货地址"];
+        NSArray * arr = [self.addressString componentsSeparatedByString:@","];
+        _proviceStr = arr[0];
+        _cityStr = arr[1];
+        _areaStr = arr[2];
+        self.addressLabel.text = [NSString stringWithFormat:@"%@%@%@",arr[0],arr[1],arr[2]];
+
+    }
+
+
+
 
 }
 
@@ -156,9 +206,10 @@
 - (void)backAction
 {
     if (self.isQuerenOrder) {
-        
-        [self.navigationController popViewControllerAnimated:NO];
-        [self.delegate backleftViewController];
+      
+     [((MovieComfirmOrderViewController *)APP_DELEGATE.ShowViewController) loadAddressMoren];
+        [self.navigationController popToViewController:APP_DELEGATE.ShowViewController animated:YES];
+      
     }else
     {
         [self.navigationController popToViewController:APP_DELEGATE.managerShip animated:YES];
@@ -198,6 +249,19 @@
                         dict[@"post_code"] = self.postCodeLabel.text;
                         dict[@"addr_detail"] = self.addressDetailTextView.text;
                 
+                if (self.model) {
+                    dict[@"shipping_address_id"] = self.model.address_id;
+                    dict[@"spare_address"] = self.addressLabel.text;
+                    dict[@"province_id"] = self.proID;
+                    dict[@"city_id"] = self.citID;
+                    dict[@"province_name"] = _proviceStr;
+                    dict[@"city_name"] = _cityStr;
+                    dict[@"post_code"] = self.postCodeLabel.text;
+                    dict[@"district_id"] = self.areID;
+                    dict[@"district_name"] = _areaStr;
+                
+                }else{
+                
                 NSArray * arr = [self.addressID componentsSeparatedByString:@","];
                 NSArray * arr1 = [self.addressString componentsSeparatedByString:@","];
                 dict[@"spare_address"] = [arr1 componentsJoinedByString:@""];
@@ -207,7 +271,7 @@
                 dict[@"city_name"] = arr1[1];
                         dict[@"post_code"] = self.postCodeLabel.text;
                 dict[@"district_id"] = arr[2];
-                dict[@"district_name"] = arr1[2];
+                    dict[@"district_name"] = arr1[2];}
                         [HttpRequestServers requestBaseUrl:TIShipping_AddSAddr withParams:dict withRequestFinishBlock:^(id result) {
                             
                             NSDictionary *dict1 = result;
@@ -319,7 +383,6 @@
 
 - (void)textViewDidBeginEditing:(UITextView *)textView
 {
-    textView.textColor = [UIColor blackColor];
     if ([textView.text isEqualToString:@"详细地址"]) {
         textView.text = @"";
     }

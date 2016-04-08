@@ -18,5 +18,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *yajinLabel;
 
 -(void)config:(ShopGoodsModel*)model;
+@property (weak, nonatomic) IBOutlet UILabel *addressLabel;
 
 @end

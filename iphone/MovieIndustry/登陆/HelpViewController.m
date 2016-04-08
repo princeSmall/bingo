@@ -33,7 +33,7 @@
         [self setNavTabBar:@"修改账号"];
     }else
     {
-        [self setNavTabBar:@"帮助"];
+        [self setNavTabBar:@"修改账号"];
     }
     
     
@@ -84,13 +84,14 @@
 #pragma mark - 发送验证码
 - (void)sendCodeButtonAction
 {
+    self.sendCodeButton.enabled = NO;
     if ([self.phoneTextField.text isEqualToString:@""]) {
 //        [PromptLabel custemAlertPromAddView:self.view text:@"请输入手机号"];
         [DeliveryUtility showMessage:@"请输入手机号码" target:nil];
     }else
         if([self.phoneTextField.text isEqualToString:self.currentPhoneLabel.text])
         {
-            [DeliveryUtility showMessage:@"手机号码不正确" target:nil];
+            [DeliveryUtility showMessage:@"手机号码与当前手机号一致" target:nil];
         }
     else
     {
