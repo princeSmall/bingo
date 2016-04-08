@@ -4,6 +4,7 @@
 #import "MyOrderCellHeader.h"
 #import "MyOrderCellFooter.h"
 #import "JGBtnView.h"
+#import "ShippingController.h"
 
 
 
@@ -141,35 +142,7 @@
 
 
 
-//- (void)createUI
-//{
-//    UIView *btnView = [WNController createViewFrame:CGRectMake(0, 0, kViewWidth, 45)];
-//    [self.view addSubview:btnView];
-//    _btnLine = [[UIView alloc] initWithFrame:CGRectMake(5, 44, kViewWidth/6-10, 1)];
-//    _btnLine.backgroundColor = [UIColor redColor];
-//    [btnView addSubview:_btnLine];
-//    
-//    UIButton *btn1 = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(allOrderAction:) Title:@"全部" fontSize:14];
-//    
-//    //初始化选中的按钮
-//    _btnType = @"0";
-//    _selectedBtn = btn1;
-//    [_selectedBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
-//    
-//    [btnView addSubview:btn1];
-//    UIButton *btn2 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(noPayAction:) Title:@"待付款" fontSize:14];
-//    [btnView addSubview:btn2];
-//    UIButton *btn3 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*2, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(noSendAction:) Title:@"待发货" fontSize:14];
-//    [btnView addSubview:btn3];
-//    UIButton *btn4 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*3, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(waitReceiveAction:) Title:@"待收货" fontSize:14];
-//    [btnView addSubview:btn4];
-//    
-//    UIButton *btn5 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*4, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(waitComAction:) Title:@"待评价" fontSize:14];
-//    [btnView addSubview:btn5];
-//    UIButton *btn6 = [WNController createButtonWithFrame:CGRectMake(kViewWidth/6*5, 0, kViewWidth/6, 45) ImageName:@"" Target:self Action:@selector(BackMoneyComAction:) Title:@"退款" fontSize:14];
-//    [btnView addSubview:btn6];
-//    
-//}
+
 #warning
 #warning status=6时会报错
 #warning 
@@ -272,9 +245,7 @@
     CGRect rect = header.shopNameLabel.frame;
     header.shopNameLabel.frame = CGRectMake(rect.origin.x, rect.origin.y, 150, rect.size.height);
     
-#warning 这边需要传出事件  点击进入店铺
-#warning 这边需要传出事件  点击进入店铺
-#warning 这边需要传出事件  点击进入店铺
+
     return header;
 }
 
@@ -307,7 +278,7 @@
     NSArray *array = dic[status];
     
     NSDictionary *dict = _orderListArray[section];
-    NSString* order_id = _orderListArray[section][@"shop_goods"][@"order_id"];
+    NSString* order_id = dict[@"order_id"];
    
     //这边btn的tag值从678开始为第一个btn的index under
     JGBtnView * viewBtn = [[JGBtnView alloc]initWithFrame:CGRectMake(0, 40, self.view.frame.size.width, 34) AndArray:array AndEndBlock:^(NSString *btnType) {
@@ -322,23 +293,23 @@
             [self changeOrderStatus:order_id status:@"0"];
         }else if ([status1 isEqualToString:@"订单备注"])
         {
-//            [self  orderRemark:order_id];
-//               [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
-             [DeliveryUtility showMessage:@"二期开发中" target:nil];
+            [DeliveryUtility showMessage:@"二期开发中" target:nil];
         }else if ([status1 isEqualToString:@"发货"])
         {
-            [self changeOrderStatus:order_id status:@"2"];
+            ShippingController *shippingController = [[ShippingController alloc]init];
+            [self.navigationController pushViewController:shippingController animated:YES];
+            shippingController.goodsDict = _orderListArray[section];
+           // [self changeOrderStatus:order_id status:@"2"];
         }
         if ([status1 isEqualToString:@"修改订单"]) {
-//                    [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+
              [DeliveryUtility showMessage:@"二期开发中" target:nil];
         }
         if ([status1 isEqualToString:@"订单评价"]) {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"二期开发中"];
+
              [DeliveryUtility showMessage:@"二期开发中" target:nil];
         }
         if ([status1 isEqualToString:@"收货"]) {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"请确定用户已经收货"];
              [DeliveryUtility showMessage:@"请确定用户已经收货" target:nil];
         }
         

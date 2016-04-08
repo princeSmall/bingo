@@ -50,7 +50,7 @@
 @property (nonatomic,strong) NSMutableArray *dataArray;
 
 ///店铺mingc的数组
-//@property (nonatomic,strong) NSMutableArray *shopArray;
+@property (nonatomic,strong) NSMutableArray *shopArray;
 
 @property (nonatomic,strong) NSMutableArray *orderArray;
 
@@ -61,14 +61,14 @@
 @end
 
 @implementation HHOrderViewController
-//-(NSMutableArray *)shopArray
-//{
-//    if(!_shopArray)
-//    {
-//        _shopArray = [NSMutableArray array];
-//    }
-//    return _shopArray;
-//}
+-(NSMutableArray *)shopArray
+{
+    if(!_shopArray)
+    {
+        _shopArray = [NSMutableArray array];
+    }
+    return _shopArray;
+}
 -(NSMutableArray *)orderArray
 {
     if(!_orderArray)
@@ -223,14 +223,8 @@
                     for (NSDictionary *goodsDict in ordelDcit[@"order_shops"])
                     {
                         
-                        OrderShopModel *goodsModel = [[OrderShopModel alloc] init];
-                        goodsModel.shop_id = goodsDict[@"order_id"];
-                        goodsModel.shop_name = goodsDict[@"shop_name"];
-                        goodsModel.shop_logo = goodsDict[@"shop_logo"];
-                        goodsModel.shop_tel = goodsDict[@"shop_tel"];
-                        
-                        
-                        NSArray *arr = goodsDict[@"shop_goods"];
+                        OrderShopModel *goodsModel = [[OrderShopModel alloc] initWithDict:goodsDict];
+                        [self.shopArray addObject:goodsModel];
                         for(NSDictionary *goodsDetailDic in arr)
                         {
                             OrderGoodsModel * goodsDetailModel = [[OrderGoodsModel alloc]initWithDict:goodsDetailDic];
@@ -604,8 +598,6 @@
         tbFooterView.goodsTotalLabel.text = [NSString stringWithFormat:@"共%d件商品",number];
         tbFooterView.leftBtn.tag = 10000+section;
         tbFooterView.rightBtn.tag = 20000+section;
-//        [tbFooterView.rightBtn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
-        //tbFooterView.goodsPriceTotalLabel.text = [NSString stringWithFormat:@"%@",];
         [self checkCellBtnStatue:tbFooterView orderStatus:order.order_status status:order.status];
         
     }
@@ -639,20 +631,6 @@
 //    _btnType 0:全部 1:待付款 2:待发货 3:待收货 4:待评价
         
     switch ([status intValue]) {
-        case 0:
-        {
-            if([orderStatus intValue]==9)
-            {
-                view.leftBtn.hidden = YES;
-                UIColor *btnColor = RGBColor(251, 0, 6, 1);
-                [view.rightBtn setTitle:@"确认收货" forState:UIControlStateNormal];
-                view.rightBtn.layer.borderColor = btnColor.CGColor;
-                [view.rightBtn addTarget:self action:@selector(comfirmReceiveMineGood:) forControlEvents:UIControlEventTouchUpInside];
-                
-            }
-            
-        }
-            break;
         case 1:
         {
             [view.leftBtn setTitle:@"取消订单" forState:UIControlStateNormal];
@@ -678,6 +656,11 @@
                 [view.leftBtn setTitle:@"延迟收货" forState:UIControlStateNormal];
                 [view.leftBtn addTarget:self action:@selector(orderDelay:) forControlEvents:UIControlEventTouchUpInside];
             }
+            else
+            {
+                view.leftBtn .hidden = YES;
+            }
+        
             
             UIColor *btnColor = RGBColor(251, 0, 6, 1);
             [view.rightBtn setTitle:@"确认收货" forState:UIControlStateNormal];
