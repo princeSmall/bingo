@@ -20,11 +20,13 @@
 #import <RongIMKit/RongIMKit.h>
 #import "YourTestChatViewController.h"
 #import <ShareSDK/ShareSDK.h>
+#import "LoginInController.h"
+
 
 #import "GoodDesModel.h"
 #import "GoodCommitFrame.h"
 
-@interface MovieGoodsInfoViewController ()<ShareViewDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate>
+@interface MovieGoodsInfoViewController ()<ShareViewDelegate,UITableViewDataSource,UITableViewDelegate,UIWebViewDelegate,UIScrollViewDelegate>
 ///底部的View
 @property (nonatomic,strong) UIView *bottomView;
 @property (nonatomic,strong) UIView *selectBgView;
@@ -58,7 +60,7 @@
 @property (nonatomic,strong) UIView *btnLine;
 ///状态 0 代表详情 1 代表评论
 @property (nonatomic,copy)NSString * btnType;
-////加入购物车图片
+////加入租物车图片
 @property (nonatomic,copy) NSString * goodsCarImg;
 ///评论分页
 @property (nonatomic,assign) NSUInteger page;
@@ -75,6 +77,8 @@
 @property (nonatomic,strong)NSString * goodsDes;
 @property (nonatomic,strong)UILabel * labelDes;
 @property (nonatomic,strong)RCConversationViewController * chat;
+
+@property (nonatomic,strong)NSString *user_id;
 @end
 
 @implementation MovieGoodsInfoViewController
@@ -185,31 +189,30 @@
     [self performSelector:@selector(removeCarView) withObject:nil afterDelay:0.5];
 }
 
-#pragma mark - 加入购物车
+#pragma mark - 加入租物车
 - (void)joinGoodsCars
 {
     if ([[self.selectedColorBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-//        [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
-          [DeliveryUtility showMessage:@"请选择颜色" target:nil];
+        //        [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
+        [DeliveryUtility showMessage:@"请选择颜色" target:nil];
         
     }else
     {
         if ([[self.selectedXinhaoBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-//            [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
-              [DeliveryUtility showMessage:@"请选择型号" target:nil];
+            //            [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
+            [DeliveryUtility showMessage:@"请选择型号" target:nil];
         }else
         {
-//            NSString *colorString = [self.selectedColorBtn titleForState:UIControlStateNormal];
-//            NSString *xinhaoString = [self.selectedXinhaoBtn titleForState:UIControlStateNormal];
+            
             ///数量
             NSString *goodsCount = [self.shopingCarView.goodsCountLabel titleForState:UIControlStateNormal];
             
             NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:APP_DELEGATE.user_id,@"user_id",self.goodsId,@"goods_id",goodsCount,@"goods_number", nil];
             NSMutableDictionary * attributesDic = [NSMutableDictionary dictionary];
             attributesDic[@"attribute_name_id"] = @"1";
-             attributesDic[@"attribute_name"] = @"默认";
-             attributesDic[@"attribute_value_id"] = @"2";
-             attributesDic[@"attribute_value"] = @"默认";
+            attributesDic[@"attribute_name"] = @"默认";
+            attributesDic[@"attribute_value_id"] = @"2";
+            attributesDic[@"attribute_value"] = @"默认";
             userDict[@"attributes"] = attributesDic;
             [HttpRequestServers requestBaseUrl:TICart_AddCart withParams:userDict withRequestFinishBlock:^(id result) {
                 NSDictionary *dict = result;
@@ -217,22 +220,23 @@
                 
                 if ([dict[@"code"] intValue] == 0) {
                     
-  [DeliveryUtility showMessage:@"加入购物车成功！" target:nil];
-                   
+                    [DeliveryUtility showMessage:@"加入租物车成功！" target:nil];
+                    
                     
                     [self  removeTapGesViewConfirm];
                     
                 }else
                 {
-//                    [PromptLabel custemAlertPromAddView:self.view text:@"加入购物车失败"];
-                      [DeliveryUtility showMessage:@"请先登录用户！" target:nil];
+                    //                                      LoginInController * login = [[LoginInController alloc]init];
+                    
+                    //                      [DeliveryUtility showMessage:@"请先登录用户！" target:nil];
                     [self  removeTapGesViewConfirm];
                 }
                 
                 
             } withFieldBlock:^{
-//                [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
-                  [DeliveryUtility showMessage:kNetWork_ERROR target:nil];
+                //                [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
+                [DeliveryUtility showMessage:kNetWork_ERROR target:nil];
             }];
             
         }
@@ -260,7 +264,7 @@
 - (void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    [UIView animateWithDuration:0.3 animations:^{
+    [UIView animateWithDuration:0.1 animations:^{
         self.navigationController.navigationBar.alpha = 0;
         
     } completion:^(BOOL finished) {
@@ -276,27 +280,19 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+//        self.tbView.tableHeaderView.frame = CGRectMake(0, 0, kViewWidth, 1000);
     self.tbView.separatorStyle = UITableViewCellSeparatorStyleNone;
     [self setNavTabBar:@""];
-    [self createTableView];
+    
     self.goodsMaxBought = @"";
     self.btnType = @"0";
     self.page = 1;
-    self.shareImage = [UIImage imageNamed:@"index_logo_03"];
-//    index_logo_03
-    
-//    NSString *urlStr = [NSString stringWithFormat:@"http://kamefilm.uj345.net/dian.php/Home/Shequ/xiang?deal_id=%@",self.goodsId];
-    self.goodsDesc_Url = [NSString stringWithFormat:@"%@&deal_id=%@",Goods_xiangqing_url,self.goodsId];
-    
-    self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,kViewWidth-1,1)];
-    [self.webView setScalesPageToFit:YES];
-    //    self.webView.scrollView.pagingEnabled = NO;
-    self.webView.scrollView.scrollEnabled = NO;
-    self.webView.delegate = self;
-    [self.webView loadRequest:[NSURLRequest requestWithURL:[NSURL URLWithString:self.goodsDesc_Url]]];
+    self.shareImage = [UIImage imageNamed:@"180"];
+    //    index_logo_03
     
     //调商品详情接口
     ////初始化商品分类选择信息
+    [self createTableView];
 }
 
 
@@ -304,31 +300,55 @@
 {
     [self.view addSubview:self.tbView];
     
-    self.tbView.tableHeaderView.frame = CGRectMake(0, 0, kViewWidth, 527);
+    CGRect RECT = self.goodsTbHeaderView.frame;
+    
+    NSLog(@"%f",kViewWidth);
+    self.goodsTbHeaderView.backgroundColor = [UIColor colorWithRed:0.925 green:0.925 blue:0.949 alpha:1.000];
+    
+    if (kViewWidth == 320) {
+        RECT.size.height =kViewWidth + 190;
+    }
+    if (kViewWidth == 375) {
+        RECT.size.height =kViewWidth + 183;
+    }if (kViewWidth == 414) {
+        RECT.size.height = kViewWidth + 180;
+    }
+     self.goodsTbHeaderView.frame = RECT;
+    NSLog(@"%f",self.goodsTbHeaderView.frame.size.height);
+    
+    
+    self.tbView.tableHeaderView.backgroundColor = [UIColor greenColor];
+    
     self.tbView.tableHeaderView = self.goodsTbHeaderView;
+    
+   
+    
+    self.tbView.tableHeaderView.frame = RECT;
     self.tbView.tableFooterView = [[UIView alloc] init];
     
+
 }
 
 #pragma mark tableView代理方法
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    if ([self.btnType isEqualToString:@"1"]) {
-        return self.commentArray.count;
-    }
+
     if ([self.btnType isEqualToString:@"0"]) {
         return 1;
-    }
+    }else    if ([self.btnType isEqualToString:@"1"]) {
+        return self.commentArray.count;
+    }else{
     return 0;
+    }
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if ([self.btnType isEqualToString:@"0"]) {
-         CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
-        return size.height+5;
+        CGSize size = [self caculateContentSizeWithContent:self.goodsDes AndWidth:kViewWidth-1 andFont:[UIFont systemFontOfSize:18]];
+        return self.webView.frame.size.height;
     }else{
-    
+        
         if (self.commentArray.count > 0) {
             GoodCommitFrame * Gframe = self.commentArray[indexPath.row];
             return Gframe.cellHeigth;
@@ -352,10 +372,15 @@
         UITableViewCell *webCell = [tableView dequeueReusableCellWithIdentifier:webCellID];
         if (!webCell) {
             webCell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:webCellID];}
-        webCell.textLabel.numberOfLines = 0;
-        webCell.textLabel.textColor = [UIColor colorWithWhite:0.396 alpha:1.000];
-        webCell.textLabel.text = self.goodsDes;
+//        webCell.textLabel.numberOfLines = 0;
+//        webCell.textLabel.textColor = [UIColor colorWithWhite:0.396 alpha:1.000];
+//        webCell.textLabel.text = self.goodsDes;
+        [webCell.contentView addSubview:self.webView];
+        self.webView.backgroundColor = [UIColor clearColor];
+//        [self.webView sizeToFit];
+   
         webCell.selectionStyle = UITableViewCellSelectionStyleNone;
+        webCell.backgroundColor = [UIColor clearColor];
         self.tbView.scrollsToTop = YES;
         return webCell;
         
@@ -367,20 +392,21 @@
             cell = [[GoodsDetailTableCell alloc]initWithStyle:UITableViewCellStyleDefault reuseIdentifier:cellID];
         }
         
-        if (self.commentArray.count == 0) {
+//        if (self.commentArray.count == 0) {
+//            
+//        }else{
+//            
+            GoodCommitFrame *gf = self.commentArray[indexPath.row];
             
-        }else{
-        
-        GoodCommitFrame *gf = self.commentArray[indexPath.row];
-        
-            cell.Gframe = gf;}
+            cell.Gframe = gf;
+//        }
         cell.selectionStyle = UITableViewCellSelectionStyleNone;
         return cell;
-    }
-    
+    }else{
     UITableViewCell *cell = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleSubtitle reuseIdentifier:@""];
     cell.selectionStyle = UITableViewCellSelectionStyleNone;
     return cell;
+    }
 }
 
 //TableView的分割线处理
@@ -445,9 +471,9 @@
     self.shareView =  [[[NSBundle mainBundle] loadNibNamed:@"ShareView" owner:self options:nil] lastObject];
     self.shareView.delegate = self;
     //取消第三方授权
-//    [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
-//    [ShareSDK cancelAuthWithType:ShareTypeWeixiSession];
-//    [ShareSDK cancelAuthWithType:ShareTypeQQ];
+    //    [ShareSDK cancelAuthWithType:ShareTypeSinaWeibo];
+    //    [ShareSDK cancelAuthWithType:ShareTypeWeixiSession];
+    //    [ShareSDK cancelAuthWithType:ShareTypeQQ];
     
     [self.shareView show];
     
@@ -460,6 +486,8 @@
 }
 
 - (void)backIndex
+
+
 {
     [self removeCusShareView];
     [self.navigationController popToRootViewControllerAnimated:NO];
@@ -470,12 +498,12 @@
     [self removeCusShareView];
     
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"咔么电影"
-                                       defaultContent:@"咔么电影"
+    id<ISSContent> publishContent = [ShareSDK content:@"影视租赁"
+                                       defaultContent:@"影视租赁"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"咔么电影网"
-                                                  url:self.goodsDesc_Url
-                                          description:@"咔么电影网"
+                                                title:@"影视租赁"
+                                                  url:@"http://www.baidu.com"
+                                          description:@"影视租赁"
                                             mediaType:SSPublishContentMediaTypeNews];
     
     [ShareSDK shareContent:publishContent type:ShareTypeQQ authOptions:nil shareOptions:nil statusBarTips:YES result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
@@ -494,27 +522,36 @@
     }];
 }
 
-
+//收藏按钮
 - (void)collectButtonAction
 {
     [self removeCusShareView];
+     if(APP_DELEGATE.user_id ==nil)
+    {
+        LoginInController *controller = [[LoginInController alloc]init];
+        
+        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:controller];
+        [self presentViewController:navC animated:YES completion:nil];
+        return;
+    }
+    
     [MovieHttpRequest createCollectMyFavourableGoodWithGoodId:self.goodsId CallBack:^(id obj) {
         
-//        [PromptLabel custemAlertPromAddView:self.view text:@"收藏成功"];
-         [DeliveryUtility showMessage:@"收藏成功！" target:nil];
+        //        [PromptLabel custemAlertPromAddView:self.view text:@"收藏成功"];
+        [DeliveryUtility showMessage:@"收藏成功！" target:nil];
         
     } andSCallBack:^(id obj) {
         NSString *infoDict = obj;
-//        HHNSLog(@"%@",infoDict);
+        //        HHNSLog(@"%@",infoDict);
         if([infoDict isEqualToString:@"此商品已收藏"])
         {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"该商品已被收藏"];
-             [DeliveryUtility showMessage:@"该商品已被收藏" target:nil];
+            //            [PromptLabel custemAlertPromAddView:self.view text:@"该商品已被收藏"];
+            [DeliveryUtility showMessage:@"该商品已被收藏" target:nil];
         }
         else
         {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"收藏失败"];
-             [DeliveryUtility showMessage:@"收藏失败" target:nil];
+            //            [PromptLabel custemAlertPromAddView:self.view text:@"收藏失败"];
+            [DeliveryUtility showMessage:@"收藏失败" target:nil];
         }
         
     }];
@@ -523,16 +560,25 @@
 - (void)wechatButtonAction
 {
     [self removeCusShareView];
+
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"咔么电影"
-                                       defaultContent:@"咔么电影"
+
+    id<ISSContent> publishContent = [ShareSDK content:@"影视租赁"
+                                       defaultContent:@"影视租赁"
+
+
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"咔么电影"
-                                                  url:self.goodsDesc_Url
-                                          description:@"咔么电影网"
+                                                title:@"影视租赁"
+                                                  url:@"http://www.baidu.com"
+                                          description:@"影视租赁"
                                             mediaType:SSPublishContentMediaTypeNews];
     
-    [ShareSDK shareContent:publishContent type:ShareTypeWeixiSession authOptions:nil shareOptions:nil statusBarTips:YES result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+    [ShareSDK shareContent:publishContent
+                      type:ShareTypeWeixiSession
+               authOptions:nil
+              shareOptions:nil
+             statusBarTips:YES
+                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
         
         if (state == SSResponseStateSuccess)
         {
@@ -552,12 +598,13 @@
 {
     [self removeCusShareView];
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"咔么电影"
-                                       defaultContent:@"咔么电影"
+
+    id<ISSContent> publishContent = [ShareSDK content:@"影视租赁"
+                                       defaultContent:@"影视租赁"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"咔么电影"
-                                                  url:self.goodsDesc_Url
-                                          description:@"咔么电影网"
+                                                title:@"影视租赁"
+                                                  url:@"http://www.baidu.com"
+                                          description:@"影视租赁"
                                             mediaType:SSPublishContentMediaTypeNews];
     
     [ShareSDK shareContent:publishContent type:ShareTypeWeixiTimeline authOptions:nil shareOptions:nil statusBarTips:YES result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
@@ -578,18 +625,25 @@
 
 - (void)xinaButtonAction
 {
-   [self removeCusShareView];
+    [self removeCusShareView];
     
-    //构造分享内容
+
     id<ISSContent> publishContent = [ShareSDK content:[NSString stringWithFormat:@"%@ %@",@"咔么电影网",self.goodsDesc_Url]
-                                       defaultContent:@"咔么电影网"
-                                                image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"咔么电影网"
-                                                  url:self.goodsDesc_Url
-                                          description:@"咔么电影网"
+                                       defaultContent:@"影视租赁"
+                       image:[ShareSDK pngImageWithImage:_shareImage]
+                                                title:@"影视租赁"
+                                                  url:@"http://www.baidu.com"
+
+                                          description:@"影视租赁"
+
                                             mediaType:SSPublishContentMediaTypeNews];
     
-    [ShareSDK shareContent:publishContent type:ShareTypeSinaWeibo authOptions:nil shareOptions:nil statusBarTips:YES result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
+    [ShareSDK shareContent:publishContent
+                      type:ShareTypeSinaWeibo
+               authOptions:nil
+              shareOptions:nil
+             statusBarTips:YES
+                    result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
         
         if (state == SSResponseStateSuccess)
         {
@@ -607,7 +661,7 @@
 
 - (void)setNavBack
 {
-
+    
     UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(8, 35, 25, 25)];
     [leftBtn setImage:[UIImage imageNamed:@"goodInfo_back"] forState:UIControlStateNormal];
     //添加点击事件
@@ -621,7 +675,7 @@
     leftView.layer.masksToBounds = YES;
     [self.view addSubview:leftView];
     [self.view addSubview:leftBtn];
-
+    
     UIImageView *rightImage =[WNController createImageViewWithFrame:CGRectMake(kViewWidth-38, 33, 30, 30) ImageName:@"point_info"];
     
     UIView * rightView = [[UIView alloc]initWithFrame:CGRectMake(kViewWidth-38, 30, 30, 30)];
@@ -633,7 +687,7 @@
     [self setNavRightImage:@"point_info" rightAction:@selector(shareAction)];
     [self.view addSubview:rightImage];
     UIButton *rightBtn = [[UIButton alloc] initWithFrame:CGRectMake(kViewWidth-38, 30, 40, 40)];
-        [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
+    [rightBtn setImageEdgeInsets:UIEdgeInsetsMake(0, 6, 0, -6)];
     [rightBtn setImage:[UIImage imageNamed:@""] forState:UIControlStateNormal];
     [rightBtn addTarget:self action:@selector(shareAction) forControlEvents:UIControlEventTouchUpInside];
     rightBtn.alpha = 1;
@@ -644,7 +698,7 @@
 - (void)loadGoodsAttribute
 {
     MBProgressHUD *hud = [MBHudManager showHudAddToView:self.view andAddSubView:self.view];
-      NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.goodsId,@"goods_id", APP_DELEGATE.user_id,@"user_id",nil];
+    NSMutableDictionary *userDict = [NSMutableDictionary dictionaryWithObjectsAndKeys:self.goodsId,@"goods_id", APP_DELEGATE.user_id,@"user_id",nil];
     
     if(!APP_DELEGATE.user_id)
     {
@@ -667,7 +721,7 @@
                 weakSelf.curretPrice = [WNController nullString:infoDict[@"goods_price"]];
                 weakSelf.goodsMaxBought = [WNController nullString:infoDict[@"goods_number"]];
                 weakSelf.goodsCarImg = [WNController nullString:infoDict[@"img_path"]];
-             
+                
                 [weakSelf setNavBack];
                 hud.labelText = @"加载成功";
                 [MBHudManager removeHud:hud scallBack:^(id obj) {
@@ -714,16 +768,16 @@
         return;
     }else
     {
-    UIView *lineView = [WNController createViewFrame:CGRectMake(0, kViewHeight-51+20, kViewWidth, 1)];
-    lineView.backgroundColor = kViewBackColor;
-    [self.view addSubview:lineView];
-    self.bottomView = [WNController createViewFrame:CGRectMake(0, kViewHeight-50+20, kViewWidth, 50)];
-    UIButton *btn1  = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth/4, 50) ImageName:@"goodInfo_message" Target:self Action:@selector(sendMessageToCustomerService:) Title:@""];
-    //[btn1 setImage:[UIImage imageNamed:@"客服"] forState:UIControlStateNormal];
-    [btn1 setImageEdgeInsets:UIEdgeInsetsMake(0,12, 0, -12)];
-    [self.bottomView addSubview:btn1];
-    
-
+        UIView *lineView = [WNController createViewFrame:CGRectMake(0, kViewHeight-51+20, kViewWidth, 1)];
+        lineView.backgroundColor = kViewBackColor;
+        [self.view addSubview:lineView];
+        self.bottomView = [WNController createViewFrame:CGRectMake(0, kViewHeight-50+20, kViewWidth, 50)];
+        UIButton *btn1  = [WNController createButtonWithFrame:CGRectMake(0, 0, kViewWidth/4, 50) ImageName:@"goodInfo_message" Target:self Action:@selector(sendMessageToCustomerService:) Title:@""];
+        //[btn1 setImage:[UIImage imageNamed:@"客服"] forState:UIControlStateNormal];
+        [btn1 setImageEdgeInsets:UIEdgeInsetsMake(0,12, 0, -12)];
+//        [self.bottomView addSubview:btn1];
+        
+        
         if (self.isShop) {
             
         }else{
@@ -731,19 +785,19 @@
             [btn2 setImageEdgeInsets:UIEdgeInsetsMake(0, -12, 0, 12)];
             [self.bottomView addSubview:btn2];
         }
-    
-    UIButton *btn3  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/2, 0, kViewWidth/4, 50) ImageName:@"" Target:self Action:@selector(addGoodInMineShopCar:) Title:@"加入购物车" fontSize:(kViewWidth<375?14:16)];
-    
-    btn3.backgroundColor = [UIColor colorWithRed:0.98 green:0.6 blue:0.04 alpha:1];
-    [self.bottomView addSubview:btn3];
-    [btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    
-    UIButton *btn4  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/4*3, 0, kViewWidth/4, 50) ImageName:@"" Target:self Action:@selector(rentGoodRightNow:) Title:@"立即租" fontSize:(kViewWidth<375?14:16)];
-    btn4.backgroundColor = [UIColor redColor];
-    [btn4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
-    [self.bottomView addSubview:btn4];
-    
-    [self.view addSubview:self.bottomView];
+        
+        UIButton *btn3  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/2, 0, kViewWidth/4, 50) ImageName:@"" Target:self Action:@selector(addGoodInMineShopCar:) Title:@"加入租物车" fontSize:(kViewWidth<375?14:16)];
+        
+        btn3.backgroundColor = [UIColor colorWithRed:0.98 green:0.6 blue:0.04 alpha:1];
+        [self.bottomView addSubview:btn3];
+        [btn3 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        
+        UIButton *btn4  = [WNController createButtonWithFrame:CGRectMake(kViewWidth/4*3, 0, kViewWidth/4, 50) ImageName:@"" Target:self Action:@selector(rentGoodRightNow:) Title:@"立即租" fontSize:(kViewWidth<375?14:16)];
+        btn4.backgroundColor = [UIColor redColor];
+        [btn4 setTitleColor:[UIColor whiteColor] forState:UIControlStateNormal];
+        [self.bottomView addSubview:btn4];
+        
+        [self.view addSubview:self.bottomView];
     }
 }
 
@@ -774,7 +828,7 @@
     chat.title = @"KM1";
     self.chat = chat;
     [chat setMessageAvatarStyle:1];
-//        [chat setValue:[UIColor whiteColor] forKey:@"titleColor"];
+    //        [chat setValue:[UIColor whiteColor] forKey:@"titleColor"];
     chat.displayUserNameInCell = YES;
     UIButton *leftBtn = [[UIButton alloc] initWithFrame:CGRectMake(0, 5, 20, 20)];
     [leftBtn setImage:[UIImage imageNamed:@"back"] forState:UIControlStateNormal];
@@ -788,11 +842,11 @@
     [chat.navigationItem setLeftBarButtonItem:backItem];
     //显示聊天会话界面
     [self.navigationController pushViewController:chat animated:YES];
-
+    
 }
 - (void)setBackItem
 {
-
+    
 }
 
 - (void)backAction1WithController:(RCConversationViewController *)chat
@@ -815,14 +869,29 @@
 - (void)addGoodInMineShopCar:(id)sender
 {
     
+    if([self.user_id intValue]==[APP_DELEGATE.user_id intValue])
+    {
+        [DeliveryUtility showMessage:@"商家不能购买自己的商品" target:self];
+        return;
+    }
+    if(!APP_DELEGATE.user_id)
+    {
+        LoginInController *loginVc = [[LoginInController alloc] init];
+        loginVc.isCc = @"1";
+        UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:loginVc];
+        [self presentViewController:navC animated:YES completion:nil];
+        [self loadGoodsAttribute];
+        return;
+    }
+    //库存限制
     if ([self.model.goods_number isEqualToString:@"0"]) {
-//        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
-         [DeliveryUtility showMessage:@"亲，没有库存啦" target:nil];
+        //        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
+        [DeliveryUtility showMessage:@"亲，没有库存了" target:nil];
     }else
     {
         [self showSelectGoodsAttr:@"0"];
     }
-
+    
 }
 
 #pragma mark 弹出选择商品属性框
@@ -836,14 +905,20 @@
     [[UIApplication sharedApplication].keyWindow addSubview:self.shopingCarView];
     ///库存
     
-    
-    self.shopingCarView.InventoryLabel.text = [NSString stringWithFormat:@"库存%@件",self.model.goods_number];
+//    if([self.model.goods_number intValue]<=0)
+//    {
+//        self.shopingCarView.InventoryLabel.text = [NSString stringWithFormat:@"库存100件"];
+//    }
+//    else
+//    {
+        self.shopingCarView.InventoryLabel.text = [NSString stringWithFormat:@"库存%@件",self.model.goods_number];
+//    }
     
     
     if (self.model.img_path) {
-           [self.shopingCarView.goodsImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.model.img_path]]];
+        [self.shopingCarView.goodsImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.model.img_path]]];
     }else{
-    
+        
         [self.shopingCarView.goodsImage sd_setImageWithURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.model.imgs[0]]]];}
     
     CGFloat currenPri = [self.model.goods_price floatValue];
@@ -852,6 +927,12 @@
     if (self.goodsColorsArray.count<1) {
         CGFloat btnX = 12;
         UIButton *btn = [WNController createButtonWithFrame:CGRectMake(btnX, 12, 66, 30) ImageName:@"" Target:self Action:@selector(chooseColosAction:) Title:@"默认" fontSize:15];
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [self chooseColosAction:btn];
+        });
+        
+       
         [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         btn.layer.cornerRadius = 3;
         btn.layer.masksToBounds = YES;
@@ -877,6 +958,11 @@
     {
         CGFloat btnX = 12;
         UIButton *btn = [WNController createButtonWithFrame:CGRectMake(btnX, 12, 66, 30) ImageName:@"" Target:self Action:@selector(chooseXinhaoAction:) Title:@"默认" fontSize:15];
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+             [self chooseXinhaoAction:btn];
+        });
+       
+        
         [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
         btn.layer.cornerRadius = 3;
         btn.layer.masksToBounds = YES;
@@ -888,6 +974,7 @@
         for (int i = 0; i<self.goodsChicunArray.count; i++) {
             CGFloat btnX = 12+12*i+66*i;
             UIButton *btn = [WNController createButtonWithFrame:CGRectMake(btnX, 12, 66, 30) ImageName:@"" Target:self Action:@selector(chooseXinhaoAction:) Title:self.goodsChicunArray[i] fontSize:15];
+//            [self chooseXinhaoAction:btn];
             [btn setTitleColor:[UIColor grayColor] forState:UIControlStateNormal];
             btn.layer.cornerRadius = 3;
             btn.layer.masksToBounds = YES;
@@ -917,10 +1004,10 @@
     [self.selectedXinhaoBtn setTitle:@"" forState:UIControlStateNormal];
     
     if ([type isEqualToString:@"0"]) {
-        ///点击确认按钮 加入购物车
+        ///点击确认按钮 加入租物车
         [self.shopingCarView.comfirmButton addTarget:self action:@selector(addBuyCars) forControlEvents:UIControlEventTouchUpInside];
     }
-   
+    
     if ([type isEqualToString:@"1"]) {
         ///跳转到下一页
         [self.shopingCarView.comfirmButton addTarget:self action:@selector(nextRentAction) forControlEvents:UIControlEventTouchUpInside];
@@ -991,27 +1078,34 @@
         [self.shopingCarView.goodsCountLabel setTitle:[NSString stringWithFormat:@"%ld",count] forState:UIControlStateNormal];
     }else
     {
-//        [PromptLabel custemAlertPromAddView:self.shopingCarView  text:@"不能再加了"];
-         [DeliveryUtility showMessage:@"不能再加了" target:nil];
+    
+        [DeliveryUtility showMessage:@"不能再加了" target:nil];
     }
 }
 
 #pragma mark - 立即租用此商品
 - (void)rentGoodRightNow:(id)sender
 {
+    if([self.user_id intValue]==[APP_DELEGATE.user_id intValue])
+    {
+        [DeliveryUtility showMessage:@"商家不能购买自己的商品" target:self];
+        return;
+    }
     HHNSLog(@"立即租用此商品被点击");
     //显示选择分类
     if(!APP_DELEGATE.user_id)
     {
         LoginInController *loginVc = [[LoginInController alloc] init];
         UINavigationController *navC = [[UINavigationController alloc] initWithRootViewController:loginVc];
+        loginVc.isCc = @"1";
         [self presentViewController:navC animated:YES completion:nil];
         [self loadGoodsAttribute];
         return;
     }
+    //库存限制
     if ([self.model.goods_number isEqualToString:@"0"]) {
-//        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
-         [DeliveryUtility showMessage:@"亲，没有库存了" target:nil];
+        //        [PromptLabel custemAlertPromAddView:self.view text:@"亲，没有库存啦"];
+        [DeliveryUtility showMessage:@"亲，没有库存了" target:nil];
     }else
     {
         [self showSelectGoodsAttr:@"1"];
@@ -1033,7 +1127,7 @@
     attributesDic[@"attribute_value_id"] = @"2";
     attributesDic[@"attribute_value"] = @"默认";
     userDict[@"attributes"] = attributesDic;
-     userDict[@"cart_type"] = @"1";
+    userDict[@"cart_type"] = @"1";
     
     __weak typeof(self)weakSelf = self;
     [HttpRequestServers requestBaseUrl:TICart_AddCart withParams:userDict withRequestFinishBlock:^(id result) {
@@ -1043,20 +1137,21 @@
         if ([dict[@"code"] intValue] == 0) {
             weakSelf.dataStr = dict[@"data"];
             if ([[weakSelf.selectedColorBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-//                [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
-                 [DeliveryUtility showMessage:@"请选择颜色" target:nil];
+                //                [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择颜色"];
+                [DeliveryUtility showMessage:@"请选择颜色" target:nil];
                 
             }else
             {
                 if ([[weakSelf.selectedXinhaoBtn titleForState:UIControlStateNormal] isEqualToString:@""]) {
-//                    [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
-                     [DeliveryUtility showMessage:@"请选择型号" target:nil];
+                    //                    [PromptLabel custemAlertPromAddView:self.shopingCarView text:@"请选择型号"];
+                    [DeliveryUtility showMessage:@"请选择型号" target:nil];
                 }else
                 {
                     
                     [weakSelf removeCarView];
                     MovieComfirmOrderViewController *confirmVc = [[MovieComfirmOrderViewController alloc] init];
                     confirmVc.model = weakSelf.model;
+                    confirmVc.method = weakSelf.model.goods_express;
                     if(weakSelf.model.imgs ==nil)
                     {
                         NSLog(@"model is nil ");
@@ -1068,22 +1163,23 @@
                     confirmVc.dataStr = weakSelf.dataStr;
                     confirmVc.goodsID = weakSelf.goodsId;
                     confirmVc.shopID = weakSelf.shopID;
-//                    confirmVc.goodsInfoArray = array;
+                    confirmVc.type = weakSelf.model.type;
+                    //                    confirmVc.goodsInfoArray = array;
                     [weakSelf.navigationController pushViewController:confirmVc animated:YES];}}
             
         }else
         {
-//            [PromptLabel custemAlertPromAddView:self.view text:@"获取cartid失败"];
-             [DeliveryUtility showMessage:@"获取cartid失败" target:nil];
+            //            [PromptLabel custemAlertPromAddView:self.view text:@"获取cartid失败"];
+            [DeliveryUtility showMessage:@"获取cartid失败" target:nil];
             [weakSelf  removeTapGesViewConfirm];
         }
         
         
     } withFieldBlock:^{
-//        [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
-         [DeliveryUtility showMessage:kNetWork_ERROR target:nil];
+        //        [PromptLabel custemAlertPromAddView:self.shopingCarView text:kNetWork_ERROR];
+        [DeliveryUtility showMessage:kNetWork_ERROR target:nil];
     }];
-
+    
 }
 
 
@@ -1115,9 +1211,9 @@
     else
     {
         [userDict setObject:@"" forKey:@"user_id"];
-
+        
     }
-//    [userDict setObject:@"1" forKey:@"goods_id"];
+
     __weak typeof(self)weakSelf = self;
     [HttpRequestServers requestBaseUrl:TIGoods_Details withParams:userDict withRequestFinishBlock:^(id result) {
         NSDictionary *dict = result;
@@ -1126,36 +1222,53 @@
             
             NSDictionary *dic =  dict[@"data"];
             
-           GoodDesModel * model = [[GoodDesModel alloc]initWithDict:dic];
+            GoodDesModel * model = [[GoodDesModel alloc]initWithDict:dic];
             weakSelf.model = model;
             weakSelf.goodsDes = dic[@"goods_desc"];
-                weakSelf.goodsTbHeaderView.goodsNameLabel.text = [WNController nullString:dic[@"goods_name"]];
-            NSLog(@"%@",dic[@"spare_address"]);
-            weakSelf.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"spare_address"]];
-            //送货方式字段
+            weakSelf.goodsTbHeaderView.goodsNameLabel.text = [WNController nullString:dic[@"goods_name"]];
+            weakSelf.user_id = model.user_id;
+            self.goodsDesc_Url = model.goods_info;
+            
+            self.webView = [[UIWebView alloc] initWithFrame:CGRectMake(0,0,kViewWidth-1,1)];
 
-            NSArray *arr = [NSArray arrayWithObjects:@"送货上门",@"快递",@"买家自提", nil];
-            weakSelf.goodsTbHeaderView.businessPostTypeLabel.text = [WNController nullString:[ arr objectAtIndex: [dic[@"goods_express"]intValue]]];
+            self.webView.scrollView.scrollEnabled = NO;
+            self.webView.userInteractionEnabled = NO;
+            self.webView.delegate = self;
+            [self.webView loadHTMLString:self.goodsDesc_Url baseURL:nil];
+            
+            
+            weakSelf.goodsTbHeaderView.goodsLocationLabel.text = [WNController nullString:dic[@"people_location"]];
+            //送货方式字段
+            weakSelf.goodsTbHeaderView.desc.text = dic[@"goods_desc"];
+            NSArray *arr = [NSArray arrayWithObjects:@"送货上门",@"快递",@"自提", nil];
+            
+            if ([model.type intValue] == 0) {
+               weakSelf.goodsTbHeaderView.businessPostTypeLabel.text = [WNController nullString:[ arr objectAtIndex: [dic[@"goods_express"]intValue]]];
+            }else{
+            
+            weakSelf.goodsTbHeaderView.businessPostTypeLabel.text = @"";
+            }
+            
+
             weakSelf.goodsTbHeaderView.currentPriceLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_price"] floatValue]];
-                
-                ///设置下划线
+            
+            ///设置下划线
             NSString *oldPrice = [NSString stringWithFormat:@"￥%.2f",[[WNController nullString:dic[@"market_price"]] floatValue]];
             NSUInteger length = [oldPrice length];
             
             NSMutableAttributedString *attri = [[NSMutableAttributedString alloc] initWithString:oldPrice];
             [attri addAttribute:NSStrikethroughStyleAttributeName value:@(NSUnderlinePatternSolid | NSUnderlineStyleSingle) range:NSMakeRange(0, length)];
             [attri addAttribute:NSStrikethroughColorAttributeName value:[UIColor grayColor] range:NSMakeRange(0, length)];
-            weakSelf.goodsTbHeaderView.oldPriceLabel.attributedText = attri;
-            //self.goodsTbHeaderView.goodsLocationLabel.text = dic[@"spare_address"];
-            //押金label 的展示
+            weakSelf.goodsTbHeaderView.oldPriceLabel.text = oldPrice;
 #warning message
             weakSelf.goodsTbHeaderView.yajinLabel.text = [NSString stringWithFormat:@"￥%.2f",[dic[@"goods_deposit"] floatValue]];
             
             NSMutableArray *imgsArr = dic[@"imgs"];
-
+            
             weakSelf.imgsArray = imgsArr;
             
-            
+            //分享图片是第一张图
+            weakSelf.shareImage = [UIImage imageWithData:[NSData dataWithContentsOfURL:[NSURL URLWithString:[NSString stringWithFormat:@"%@%@",TIMIDDLEImage,self.model.imgs[0]]]]];
             
             if (weakSelf.imgsArray.count>0) {
                 NSMutableArray * imageArray = [NSMutableArray array];
@@ -1172,7 +1285,7 @@
             [weakSelf createUI];
             [weakSelf.tbView reloadData];
             
-
+            
         }
         @catch (NSException *exception) {
             
@@ -1211,9 +1324,8 @@
                     
                     [self.commentArray addObject:Gframe];
                 }
-               
-            } [_tbView reloadData];
-            [self.tbView reloadData];
+                
+            }
             
         }
         @catch (NSException *exception) {
@@ -1222,7 +1334,8 @@
         @finally {
             
         }
-        
+        [_tbView reloadData];
+        [self.tbView reloadData];
         
     } withFieldBlock:^{
         
@@ -1230,12 +1343,71 @@
     
 }
 
-
 - (void)webViewDidFinishLoad:(UIWebView *)webView
 {
+    
+
+    webView.userInteractionEnabled = NO;
+    if (self.view.frame.size.width == 320) {
+        [webView stringByEvaluatingJavaScriptFromString:
+         @"var script = document.createElement('script');"
+         "script.type = 'text/javascript';"
+         "script.text = \"function ResizeImages() { "
+         "var myimg,oldwidth;"
+         "var maxwidth = 320.0;" // UIWebView中显示的图片宽度
+         "for(i=0;i <document.images.length;i++){"
+         "myimg = document.images[i];"
+         "oldwidth = myimg.width;"
+         "if(oldwidth > maxwidth){"
+         "myimg.width = maxwidth;"
+         "myimg.height *= (maxwidth/oldwidth)*2;"
+         "}"
+         "}"
+         "}\";"
+         "document.getElementsByTagName('head')[0].appendChild(script);"];
+    }else if (self.view.frame.size.width == 375){
+        [webView stringByEvaluatingJavaScriptFromString:
+         @"var script = document.createElement('script');"
+         "script.type = 'text/javascript';"
+         "script.text = \"function ResizeImages() { "
+         "var myimg,oldwidth;"
+         "var maxwidth = 375.0;" // UIWebView中显示的图片宽度
+         "for(i=0;i <document.images.length;i++){"
+         "myimg = document.images[i];"
+         "oldwidth = myimg.width;"
+         "if(oldwidth > maxwidth){"
+         "myimg.width = maxwidth;"
+         "myimg.height *= (maxwidth/oldwidth)*2 -10;"
+         "}"
+         "}"
+         "}\";"
+         "document.getElementsByTagName('head')[0].appendChild(script);"];
+    }else{
+        [webView stringByEvaluatingJavaScriptFromString:
+         @"var script = document.createElement('script');"
+         "script.type = 'text/javascript';"
+         "script.text = \"function ResizeImages() { "
+         "var myimg,oldwidth;"
+         "var maxwidth = 414.0;" // UIWebView中显示的图片宽度
+         "for(i=0;i <document.images.length;i++){"
+         "myimg = document.images[i];"
+         "oldwidth = myimg.width;"
+         "if(oldwidth > maxwidth){"
+         "myimg.width = maxwidth;"
+         "myimg.height *= (maxwidth/oldwidth)*2-20;"
+         "}"
+         "}"
+         "}\";"
+         "document.getElementsByTagName('head')[0].appendChild(script);"];
+    }
+    
+    [webView stringByEvaluatingJavaScriptFromString:@"ResizeImages();"];
+    
     CGFloat webHeight = [[self.webView stringByEvaluatingJavaScriptFromString:@"document.body.offsetHeight"] floatValue];
+    
     CGRect webFrame = self.webView.frame;
     webFrame.size.height = webHeight;
+    
     self.webView.frame = webFrame;
     
     [self.tbView reloadData];

@@ -1,0 +1,233 @@
+K 25
+svn:wc:ra_dav:version-url
+V 190
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community
+END
+BBSSearchController.h
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/BBSSearchController.h
+END
+CreatPostController.xib
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/CreatPostController.xib
+END
+BBSSearchController.m
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/BBSSearchController.m
+END
+CreatPostController.h
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/CreatPostController.h
+END
+DiscoverBBSController.h
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/DiscoverBBSController.h
+END
+ClassifyPostDetailController.h
+K 25
+svn:wc:ra_dav:version-url
+V 221
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailController.h
+END
+NewEvaluateCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 210
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/NewEvaluateCell.xib
+END
+CreatPostController.m
+K 25
+svn:wc:ra_dav:version-url
+V 212
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/CreatPostController.m
+END
+ClassifyPostCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostCell.xib
+END
+DiscoverBBSController.m
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/DiscoverBBSController.m
+END
+ClassifyPostDetailController.m
+K 25
+svn:wc:ra_dav:version-url
+V 221
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailController.m
+END
+NewEvaluateCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/NewEvaluateCell.h
+END
+ClassifyPostCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostCell.h
+END
+ClassifyPostDetailHeadCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 221
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailHeadCell.xib
+END
+NewEvaluateController.h
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/NewEvaluateController.h
+END
+NewEvaluateCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/NewEvaluateCell.m
+END
+MyPostCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 205
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/MyPostCell.xib
+END
+ClassifyPostDetailBottomCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 223
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailBottomCell.xib
+END
+ClassifyPostController.h
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostController.h
+END
+ClassifyPostDetailHeadCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 219
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailHeadCell.h
+END
+ClassifyPostCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostCell.m
+END
+NewEvaluateController.m
+K 25
+svn:wc:ra_dav:version-url
+V 214
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/NewEvaluateController.m
+END
+ClassifyHeadCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyHeadCell.xib
+END
+MyPostCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/MyPostCell.h
+END
+ClassifyPostDetailBottomCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 221
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailBottomCell.h
+END
+ClassifyPostController.m
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostController.m
+END
+ClassifyPostDetailHeadCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 219
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailHeadCell.m
+END
+ClassifyHeadCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyHeadCell.h
+END
+MyPostController.h
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/MyPostController.h
+END
+BBSFriendMsgCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 211
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/BBSFriendMsgCell.xib
+END
+ClassifyPostDetailBottomCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 221
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyPostDetailBottomCell.m
+END
+MyPostCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 203
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/MyPostCell.m
+END
+MyPostController.m
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/MyPostController.m
+END
+ClassifyHeadCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/ClassifyHeadCell.m
+END
+BBSFriendMsgCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/BBSFriendMsgCell.h
+END
+BBSFriendMsgCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 209
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/BBSFriendMsgCell.m
+END
+BottomInputView.h
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/BottomInputView.h
+END
+BottomInputView.m
+K 25
+svn:wc:ra_dav:version-url
+V 208
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/Discovery/community/BottomInputView.m
+END

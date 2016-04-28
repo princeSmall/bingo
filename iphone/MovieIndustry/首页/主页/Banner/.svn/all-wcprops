@@ -1,0 +1,137 @@
+K 25
+svn:wc:ra_dav:version-url
+V 215
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner
+END
+TAAbstractDotView.h
+K 25
+svn:wc:ra_dav:version-url
+V 235
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TAAbstractDotView.h
+END
+NSData+SDDataCache.h
+K 25
+svn:wc:ra_dav:version-url
+V 236
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/NSData+SDDataCache.h
+END
+SearchViewCell.xib
+K 25
+svn:wc:ra_dav:version-url
+V 234
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SearchViewCell.xib
+END
+SearchView.xib
+K 25
+svn:wc:ra_dav:version-url
+V 230
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SearchView.xib
+END
+TAAbstractDotView.m
+K 25
+svn:wc:ra_dav:version-url
+V 235
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TAAbstractDotView.m
+END
+NSData+SDDataCache.m
+K 25
+svn:wc:ra_dav:version-url
+V 236
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/NSData+SDDataCache.m
+END
+SearchViewCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 232
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SearchViewCell.h
+END
+SearchView.h
+K 25
+svn:wc:ra_dav:version-url
+V 228
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SearchView.h
+END
+SDCycleScrollView.h
+K 25
+svn:wc:ra_dav:version-url
+V 235
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SDCycleScrollView.h
+END
+TAPageControl.h
+K 25
+svn:wc:ra_dav:version-url
+V 231
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TAPageControl.h
+END
+SearchViewCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 232
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SearchViewCell.m
+END
+SearchView.m
+K 25
+svn:wc:ra_dav:version-url
+V 228
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SearchView.m
+END
+SDCycleScrollView.m
+K 25
+svn:wc:ra_dav:version-url
+V 235
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SDCycleScrollView.m
+END
+TADotView.h
+K 25
+svn:wc:ra_dav:version-url
+V 227
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TADotView.h
+END
+UIView+SDExtension.h
+K 25
+svn:wc:ra_dav:version-url
+V 236
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/UIView+SDExtension.h
+END
+TAPageControl.m
+K 25
+svn:wc:ra_dav:version-url
+V 231
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TAPageControl.m
+END
+TAAnimatedDotView.h
+K 25
+svn:wc:ra_dav:version-url
+V 235
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TAAnimatedDotView.h
+END
+TADotView.m
+K 25
+svn:wc:ra_dav:version-url
+V 227
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TADotView.m
+END
+UIView+SDExtension.m
+K 25
+svn:wc:ra_dav:version-url
+V 236
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/UIView+SDExtension.m
+END
+SDCollectionViewCell.h
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SDCollectionViewCell.h
+END
+TAAnimatedDotView.m
+K 25
+svn:wc:ra_dav:version-url
+V 235
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/TAAnimatedDotView.m
+END
+SDCollectionViewCell.m
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E4%B8%BB%E9%A1%B5/Banner/SDCollectionViewCell.m
+END

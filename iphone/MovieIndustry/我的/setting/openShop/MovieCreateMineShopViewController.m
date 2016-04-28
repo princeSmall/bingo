@@ -268,7 +268,7 @@
         H = 88*count;
     }
     self.shopImage.image = [DeliveryUtility image:imageShop scaledToSize:CGSizeMake(W, H)];
-    self.shopImage.contentMode = UIViewContentModeScaleAspectFill;
+    self.shopImage.contentMode = UIViewContentModeScaleAspectFit;
     self.imageName = self.storeModel.shop_logo;
     self.txtShopName.text = self.storeModel.shop_name;
     self.txtContact.text = self.storeModel.shop_contact_person;
@@ -573,17 +573,17 @@
             HUD.labelText = @"保存发布";
             [HUD hide:YES];
             
-            [self.view makeToastCenter:@"恭喜成功开通店铺"];
+            [self.view makeToastCenter:@"恭喜成功开通店铺！"];
             [self performSelector:@selector(openMineShopGoBack) withObject:nil afterDelay:1.0];
             
         } andSCallBack:^(id obj) {
             
-            HUD.labelText = @"店铺名称已存在或者您已经拥有店铺";
-            [HUD hide:YES];
+//            HUD.labelText = @"店铺名称已存在或者您已经拥有店铺";
+            [DeliveryUtility showMessage:@"店铺名称已存在或者您已经拥有店铺" target:self];
+            [HUD hide:YES ];
         }];
     }
     
-    NSLog(@"确定开通店铺");
     }
 }
 /**
@@ -619,6 +619,10 @@
     }
     else if ([DeliveryUtility isNotLegal:shopNameStr]){
         [DeliveryUtility showMessage:@"店铺名称不可包含非法字符" target:self];
+        return NO;
+    }
+    else if (shopNameStr.length>10){
+        [DeliveryUtility showMessage:@"店铺名称长度不能超过10个字符" target:self];
         return NO;
     }
     
@@ -950,7 +954,6 @@
             UIImage *image = [info objectForKey:@"UIImagePickerControllerOriginalImage"];
             [self uploadStoreLogoImage:image];
         }
-        
     }
     
     [self dismissViewControllerAnimated:YES completion:nil];

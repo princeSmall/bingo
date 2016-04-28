@@ -23,6 +23,6 @@
 
 @property (weak, nonatomic) IBOutlet UIButton *agreeXieyiButton;
 
-
+@property (nonatomic,strong)NSString * isCc;
 @property (nonatomic,assign) BOOL isExitLogin;
 @end

@@ -12,6 +12,7 @@
 #import "CustomDatePickView.h"
 #import "MovieHelperDetailViewController.h"
 #import "HHIndexViewController.h"
+#import "MovieHelpViewController.h"
 
 @interface LoginInController ()<UITextFieldDelegate>
 @property (nonatomic,copy) NSString *codeString;
@@ -57,6 +58,7 @@
     //限制手机号输入位数
     [self.phoneTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
     [self.codeTextField addTarget:self action:@selector(textFieldDidChange:) forControlEvents:UIControlEventEditingChanged];
+    
     
 
 }
@@ -129,7 +131,10 @@
         [self.timer invalidate];
         self.timeLabel.text =@"重新发送";
         self.sendCodeButton.enabled = YES;
-        _codeString = nil;
+        
+        dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(540 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+            _codeString = nil;
+        });
     }
 }
 
@@ -174,9 +179,14 @@
                                 [UserLoginModel ArchiveUser:model];
                                 
                                 [self.view endEditing:YES];
-                                 [DeliveryUtility showMessage:@"登陆成功！" target:nil];
+//                                 [DeliveryUtility showMessage:@"登陆成功！" target:nil];
+                                
+                                [[NSNotificationCenter defaultCenter]postNotificationName:@"storeOpenSuccess" object:nil];
+                                
                                 [self.view endEditing:YES];
+                                self.view.window.rootViewController = APP_DELEGATE.tbbC;
                                 APP_DELEGATE.tbbC .selectedViewController = APP_DELEGATE.tbbC.viewControllers[0];
+                                
                                 dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(0.25 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
                                     [APP_DELEGATE.tbbC .selectedViewController.view endEditing:YES];
                                     
@@ -262,26 +272,29 @@
     [rightBtn addTarget:self action:@selector(rightAction) forControlEvents:UIControlEventTouchUpInside];
     [rightBtn setTitleEdgeInsets:UIEdgeInsetsMake(0, 0, 0, -12)];
     
-    //设置TabBar左边的按钮
-//    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
-//    [self.navigationItem setRightBarButtonItem:rightItem];
+    //设置TabBar右边的按钮
+    UIBarButtonItem *rightItem = [[UIBarButtonItem alloc] initWithCustomView:rightBtn];
+    [self.navigationItem setRightBarButtonItem:rightItem];
 }
 
 - (void)backAction
 {
     [self.view endEditing:YES];
 
-    [self dismissViewControllerAnimated:YES completion:nil];
+    if (self.isCc) {
+        [self.navigationController dismissViewControllerAnimated:YES completion:nil];
+    }else{
+    self.view.window.rootViewController = APP_DELEGATE.tbbC;
     APP_DELEGATE.tbbC .selectedViewController = APP_DELEGATE.tbbC.viewControllers[0];
-
+    }
 
 }
 
 //跳转到帮助页面
 - (void)rightAction
 {
-    HelpViewController *helpVc = [[HelpViewController alloc] init];
-     [self.view endEditing:YES];
+    MovieHelpViewController *helpVc = [[MovieHelpViewController alloc] init];
+    [self.view endEditing:YES];
     [self.navigationController pushViewController:helpVc animated:YES];
 }
 
@@ -312,6 +325,8 @@
 {
     self.timer = nil;
 }
+
+
 
 -(void)viewDidDisappear:(BOOL)animated
 {
