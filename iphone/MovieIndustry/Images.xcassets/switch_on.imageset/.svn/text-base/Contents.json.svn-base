@@ -1,0 +1,23 @@
+{
+  "images" : [
+    {
+      "idiom" : "universal",
+      "scale" : "1x",
+      "filename" : "74她的信息-资料设置_03.png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "2x",
+      "filename" : "74她的信息-资料设置_03 (2).png"
+    },
+    {
+      "idiom" : "universal",
+      "scale" : "3x",
+      "filename" : "74她的信息-资料设置_03 (3).png"
+    }
+  ],
+  "info" : {
+    "version" : 1,
+    "author" : "xcode"
+  }
+}

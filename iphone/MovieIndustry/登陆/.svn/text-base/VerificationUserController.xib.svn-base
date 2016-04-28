@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="9531" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9529"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="VerificationUserController">
+            <connections>
+                <outlet property="codeText" destination="OCE-Ud-TSu" id="1vW-nU-60t"/>
+                <outlet property="phoneNum" destination="Ifj-dW-OXw" id="r0m-bo-Frb"/>
+                <outlet property="senderBtn" destination="qLD-35-zjP" id="CqO-cV-YCt"/>
+                <outlet property="timeLabel" destination="Ont-z2-Vyq" id="PSr-yo-KZj"/>
+                <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="更换手机号，需要对当前手机号进行验证" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jz8-Iu-zf6">
+                    <rect key="frame" x="21" y="27" width="332" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="当前手机号：" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ndv-f9-oSQ">
+                    <rect key="frame" x="21" y="76" width="113" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="13312341456" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ifj-dW-OXw">
+                    <rect key="frame" x="142" y="76" width="128" height="21"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                    <color key="textColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="1" colorSpace="calibratedRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PMS-3r-Ijf">
+                    <rect key="frame" x="0.0" y="112" width="375" height="47"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="发送验证码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ont-z2-Vyq">
+                            <rect key="frame" x="279" y="8" width="88" height="38"/>
+                            <color key="backgroundColor" red="0.85098039219999999" green="0.0" blue="0.1176470588" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="14"/>
+                            <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DQh-Hk-sKn">
+                            <rect key="frame" x="0.0" y="0.0" width="67" height="47"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                            <color key="textColor" red="0.22352941179999999" green="0.22352941179999999" blue="0.22352941179999999" alpha="1" colorSpace="calibratedRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OCE-Ud-TSu">
+                            <rect key="frame" x="90" y="0.0" width="124" height="47"/>
+                            <color key="textColor" red="0.36470588240000001" green="0.36470588240000001" blue="0.36470588240000001" alpha="1" colorSpace="calibratedRGB"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qLD-35-zjP">
+                            <rect key="frame" x="279" y="8" width="88" height="38"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                            <state key="normal">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                            </state>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                    <integer key="value" value="6"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
+                            <connections>
+                                <action selector="sendCodeAction:" destination="-1" eventType="touchUpInside" id="67t-hI-5Sa"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstItem="DQh-Hk-sKn" firstAttribute="centerY" secondItem="PMS-3r-Ijf" secondAttribute="centerY" id="0g3-Ge-Jd6"/>
+                        <constraint firstItem="Ont-z2-Vyq" firstAttribute="width" secondItem="qLD-35-zjP" secondAttribute="width" id="4QA-Ei-BjZ"/>
+                        <constraint firstItem="Ont-z2-Vyq" firstAttribute="height" secondItem="qLD-35-zjP" secondAttribute="height" id="90u-08-cag"/>
+                        <constraint firstItem="DQh-Hk-sKn" firstAttribute="height" secondItem="PMS-3r-Ijf" secondAttribute="height" id="AFG-hn-CwA"/>
+                        <constraint firstItem="qLD-35-zjP" firstAttribute="width" secondItem="PMS-3r-Ijf" secondAttribute="width" multiplier="0.237" id="EIp-iQ-5Nn"/>
+                        <constraint firstItem="OCE-Ud-TSu" firstAttribute="centerY" secondItem="PMS-3r-Ijf" secondAttribute="centerY" id="FNr-gN-yUg"/>
+                        <constraint firstItem="qLD-35-zjP" firstAttribute="centerX" secondItem="PMS-3r-Ijf" secondAttribute="centerX" multiplier="1.72" id="FmL-w2-OMw"/>
+                        <constraint firstItem="DQh-Hk-sKn" firstAttribute="width" secondItem="PMS-3r-Ijf" secondAttribute="width" multiplier="0.18" id="JA2-wA-ubX"/>
+                        <constraint firstItem="OCE-Ud-TSu" firstAttribute="width" secondItem="PMS-3r-Ijf" secondAttribute="width" multiplier="0.33" id="LTf-cC-HWu"/>
+                        <constraint firstItem="Ont-z2-Vyq" firstAttribute="centerX" secondItem="PMS-3r-Ijf" secondAttribute="centerX" multiplier="1.72" id="Lz3-qU-D52"/>
+                        <constraint firstItem="OCE-Ud-TSu" firstAttribute="centerX" secondItem="PMS-3r-Ijf" secondAttribute="centerX" multiplier="0.81" id="Mwt-iT-0Yh"/>
+                        <constraint firstItem="Ont-z2-Vyq" firstAttribute="centerY" secondItem="PMS-3r-Ijf" secondAttribute="centerY" multiplier="1.15" id="NoC-tE-aOO"/>
+                        <constraint firstItem="qLD-35-zjP" firstAttribute="height" secondItem="PMS-3r-Ijf" secondAttribute="height" multiplier="0.8" id="QnZ-zD-Icy"/>
+                        <constraint firstItem="DQh-Hk-sKn" firstAttribute="centerX" secondItem="PMS-3r-Ijf" secondAttribute="centerX" multiplier="0.18" id="af1-j2-n1e"/>
+                        <constraint firstItem="OCE-Ud-TSu" firstAttribute="height" secondItem="PMS-3r-Ijf" secondAttribute="height" id="l2a-H7-bEU"/>
+                        <constraint firstItem="qLD-35-zjP" firstAttribute="centerY" secondItem="PMS-3r-Ijf" secondAttribute="centerY" multiplier="1.12" id="vtk-8K-CA5"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O7d-Wc-o8c">
+                    <rect key="frame" x="10" y="210" width="355" height="45"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <fontDescription key="fontDescription" name="STHeitiSC-Light" family="Heiti SC" pointSize="18"/>
+                    <state key="normal" title="下一步">
+                        <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="titleShadowColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                    </state>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="6"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="commitAction:" destination="-1" eventType="touchUpInside" id="B1u-jp-vP3"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="0.90196078430000004" green="0.90196078430000004" blue="0.90196078430000004" alpha="1" colorSpace="calibratedRGB"/>
+            <constraints>
+                <constraint firstItem="Ndv-f9-oSQ" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.257" id="0YV-9M-29O"/>
+                <constraint firstItem="Ndv-f9-oSQ" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.03" id="10M-Yg-f0R"/>
+                <constraint firstItem="Ifj-dW-OXw" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.34" id="65i-Uv-p6h"/>
+                <constraint firstItem="Ndv-f9-oSQ" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="0.4" constant="2.5" id="6Lp-a4-URz"/>
+                <constraint firstItem="Ndv-f9-oSQ" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.29" constant="4.2500000000000142" id="8ig-UN-Jvz"/>
+                <constraint firstItem="Ifj-dW-OXw" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" multiplier="1.1" id="9EV-r3-XPc"/>
+                <constraint firstItem="Ifj-dW-OXw" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.03" id="Icd-hJ-0F6"/>
+                <constraint firstItem="PMS-3r-Ijf" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.405" id="LDq-ZG-c57"/>
+                <constraint firstItem="Jz8-Iu-zf6" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.03" id="VmH-zx-QUi"/>
+                <constraint firstItem="O7d-Wc-o8c" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.7" id="fiB-gX-fD9"/>
+                <constraint firstItem="O7d-Wc-o8c" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="qAR-1Y-jgf"/>
+                <constraint firstItem="PMS-3r-Ijf" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.07" id="qPp-Jm-bk5"/>
+                <constraint firstItem="Ifj-dW-OXw" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.26" id="qQp-co-1al"/>
+                <constraint firstItem="Jz8-Iu-zf6" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" multiplier="0.11" id="sVU-u9-XCc"/>
+                <constraint firstItem="O7d-Wc-o8c" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.067" id="tHf-gg-rQh"/>
+                <constraint firstItem="PMS-3r-Ijf" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="ucr-n4-80M"/>
+                <constraint firstItem="O7d-Wc-o8c" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.945" id="vB6-Jd-V88"/>
+                <constraint firstItem="Jz8-Iu-zf6" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="wNP-ha-yvZ"/>
+                <constraint firstItem="PMS-3r-Ijf" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" id="wQk-R0-PPt"/>
+                <constraint firstItem="Jz8-Iu-zf6" firstAttribute="width" secondItem="i5M-Pr-FkT" secondAttribute="width" multiplier="0.885" id="yqe-UP-Ri6"/>
+            </constraints>
+            <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina47"/>
+        </view>
+    </objects>
+</document>

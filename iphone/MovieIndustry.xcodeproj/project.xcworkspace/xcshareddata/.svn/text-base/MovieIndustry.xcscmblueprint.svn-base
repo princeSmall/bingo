@@ -1,0 +1,86 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++D3BEA4F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++5FDA5C0" : {
+
+    },
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++830E143" : {
+
+    },
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++6003E38" : {
+
+    },
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++D3BEA4F" : {
+
+    },
+    "621f47df-520e-a74b-9a61-de415d0a38ae++3422+++28AE96F" : {
+
+    }
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++D3BEA4F" : 0,
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++F8B9D0A" : 0,
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++62743AC" : 0,
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++152FBE8" : 0,
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++830E143" : 0,
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++6003E38" : 0,
+    "621f47df-520e-a74b-9a61-de415d0a38ae++3422+++28AE96F" : 0,
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++5FDA5C0" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "8D790908-2F60-4D9A-A481-C848059DD324",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++D3BEA4F" : "%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC0426004\/",
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++F8B9D0A" : "%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%200425\/",
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++62743AC" : "%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202\/",
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++152FBE8" : "%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC0426004\/",
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++830E143" : "%E5%92%94%E4%B9%88\/",
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++6003E38" : "%E5%92%94%E4%B9%88\/",
+    "621f47df-520e-a74b-9a61-de415d0a38ae++3422+++28AE96F" : "%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%BA%8C%E7%89%88%E6%9C%AC0421\/",
+    "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++5FDA5C0" : "%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%200425\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "MovieIndustry",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "iphone\/MovieIndustry.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.1.12\/svn\/sgsb",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "621f47df-520e-a74b-9a61-de415d0a38ae++3422+++28AE96F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.3tichina.com:grp-project\/kame-iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++152FBE8"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.1.12\/svn\/sgsb",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++5FDA5C0"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.1.12\/svn\/sgsb",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++6003E38"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.3tichina.com:grp-project\/kame-iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++62743AC"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.3tichina.com:grp-project\/kame-iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++830E143"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "http:\/\/192.168.1.12\/svn\/sgsb",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Subversion",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++D3BEA4F"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "gitlab.3tichina.com:grp-project\/kame-iphone.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "D3447E6C6633B7F2F63B9FFBE39B546FEDEA238E+++F8B9D0A"
+    }
+  ]
+}

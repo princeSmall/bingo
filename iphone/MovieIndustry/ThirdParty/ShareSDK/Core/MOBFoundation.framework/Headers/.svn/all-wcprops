@@ -1,0 +1,179 @@
+K 25
+svn:wc:ra_dav:version-url
+V 227
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers
+END
+MOBFRSAHelper.h
+K 25
+svn:wc:ra_dav:version-url
+V 243
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFRSAHelper.h
+END
+MOBFDebug.h
+K 25
+svn:wc:ra_dav:version-url
+V 239
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFDebug.h
+END
+MOBFNotificationCenter.h
+K 25
+svn:wc:ra_dav:version-url
+V 252
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFNotificationCenter.h
+END
+MOBFNumber.h
+K 25
+svn:wc:ra_dav:version-url
+V 240
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFNumber.h
+END
+MOBFPluginManager.h
+K 25
+svn:wc:ra_dav:version-url
+V 247
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFPluginManager.h
+END
+MOBFJSTypeDefine.h
+K 25
+svn:wc:ra_dav:version-url
+V 246
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFJSTypeDefine.h
+END
+MOBFDataService.h
+K 25
+svn:wc:ra_dav:version-url
+V 245
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFDataService.h
+END
+MOBFHttpPostedFile.h
+K 25
+svn:wc:ra_dav:version-url
+V 248
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFHttpPostedFile.h
+END
+MOBFRSAKey.h
+K 25
+svn:wc:ra_dav:version-url
+V 240
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFRSAKey.h
+END
+MOBFDevice.h
+K 25
+svn:wc:ra_dav:version-url
+V 240
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFDevice.h
+END
+MOBFoundation.h
+K 25
+svn:wc:ra_dav:version-url
+V 243
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFoundation.h
+END
+MOBFXml.h
+K 25
+svn:wc:ra_dav:version-url
+V 237
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFXml.h
+END
+MOBFHttpService.h
+K 25
+svn:wc:ra_dav:version-url
+V 245
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFHttpService.h
+END
+MOBFOAuthService.h
+K 25
+svn:wc:ra_dav:version-url
+V 246
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFOAuthService.h
+END
+MOBFApplication.h
+K 25
+svn:wc:ra_dav:version-url
+V 245
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFApplication.h
+END
+MOBFImageService.h
+K 25
+svn:wc:ra_dav:version-url
+V 246
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFImageService.h
+END
+MOBFXmlNode.h
+K 25
+svn:wc:ra_dav:version-url
+V 241
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFXmlNode.h
+END
+MOBFString.h
+K 25
+svn:wc:ra_dav:version-url
+V 240
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFString.h
+END
+IMOBFPlugin.h
+K 25
+svn:wc:ra_dav:version-url
+V 241
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/IMOBFPlugin.h
+END
+MOBFData.h
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFData.h
+END
+MOBFJson.h
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFJson.h
+END
+MOBFRegex.h
+K 25
+svn:wc:ra_dav:version-url
+V 239
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFRegex.h
+END
+MOBFDate.h
+K 25
+svn:wc:ra_dav:version-url
+V 238
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFDate.h
+END
+MOBFViewController.h
+K 25
+svn:wc:ra_dav:version-url
+V 248
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFViewController.h
+END
+MOBFColor.h
+K 25
+svn:wc:ra_dav:version-url
+V 239
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFColor.h
+END
+MOBFMedia.h
+K 25
+svn:wc:ra_dav:version-url
+V 239
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFMedia.h
+END
+MOBFJSContext.h
+K 25
+svn:wc:ra_dav:version-url
+V 243
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFJSContext.h
+END
+MOBFImage.h
+K 25
+svn:wc:ra_dav:version-url
+V 239
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFImage.h
+END
+MOBFImageServiceTypeDef.h
+K 25
+svn:wc:ra_dav:version-url
+V 253
+/svn/sgsb/!svn/ver/852/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework/Headers/MOBFImageServiceTypeDef.h
+END

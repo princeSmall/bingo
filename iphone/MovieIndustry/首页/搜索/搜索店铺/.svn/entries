@@ -1,0 +1,121 @@
+8
+
+dir
+879
+http://jgpeng@192.168.1.12/svn/sgsb/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E9%A6%96%E9%A1%B5/%E6%90%9C%E7%B4%A2/%E6%90%9C%E7%B4%A2%E5%BA%97%E9%93%BA
+http://jgpeng@192.168.1.12/svn/sgsb
+
+
+
+2016-04-27T08:46:18.562500Z
+871
+kxbao
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+621f47df-520e-a74b-9a61-de415d0a38ae
+
+ShopGoodsCell.m
+file
+
+
+
+
+2016-04-28T01:23:56.000000Z
+c679dc816e5d8fabfd122a002470a684
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+ShopGoodsModel.m
+file
+
+
+
+
+2016-04-28T01:23:56.000000Z
+132b4d0a5571048a05356ed9f22aa707
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+店铺结果店铺主页
+dir
+
+店铺内搜索宝贝
+dir
+
+ShopGoodsCell.xib
+file
+
+
+
+
+2016-04-28T01:23:56.000000Z
+20d957dbd5dce6b7a854a1653cf6b173
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+SearchShopController.h
+file
+
+
+
+
+2016-04-28T01:23:56.000000Z
+a5c88a01ea97f3cd58462122e26f3beb
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+店铺简介
+dir
+
+ShopGoodsCell.h
+file
+
+
+
+
+2016-04-28T01:23:56.000000Z
+84a932782b0f658e80ac75500e12d8c4
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+ShopGoodsModel.h
+file
+
+
+
+
+2016-04-28T01:23:56.000000Z
+52a1d76368e5e1122f84c068c8b8addc
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+SearchShopController.m
+file
+
+
+
+
+2016-04-28T01:23:56.000000Z
+082fe291d5f67b04bf22e67615ba1d58
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+

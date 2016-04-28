@@ -1,0 +1,72 @@
+8
+
+dir
+879
+http://jgpeng@192.168.1.12/svn/sgsb/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/ThirdParty/ShareSDK/Core/MOBFoundation.framework
+http://jgpeng@192.168.1.12/svn/sgsb
+
+
+
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+621f47df-520e-a74b-9a61-de415d0a38ae
+
+MOBFoundation
+file
+
+
+
+
+2016-04-28T01:22:49.000000Z
+1bd22e744aa8cb88809b6f6809ba62f7
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+has-props
+
+Info.plist
+file
+
+
+
+
+2016-04-28T01:22:49.000000Z
+5037cc0c26bee7b65a2c0fd155cde5e1
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+has-props
+
+en.lproj
+dir
+
+Headers
+dir
+
+readme
+file
+
+
+
+
+2016-04-28T01:22:49.000000Z
+8c82cd0114cec6808b23eb690a5b5415
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+

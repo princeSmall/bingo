@@ -1,0 +1,125 @@
+8
+
+dir
+879
+http://jgpeng@192.168.1.12/svn/sgsb/trunk/iphone/%E5%92%94%E4%B9%88%E4%B8%80%E4%BB%A3/%E5%92%94%E4%B9%88%E9%A1%B9%E7%9B%AE%E7%AC%AC%E4%B8%80%E7%89%88%E6%9C%AC%202/iphone/MovieIndustry/%E6%88%91%E7%9A%84/setting
+http://jgpeng@192.168.1.12/svn/sgsb
+
+
+
+2016-04-27T01:07:52.468750Z
+863
+jgpeng
+
+
+svn:special svn:externals svn:needs-lock
+
+
+
+
+
+
+
+
+
+
+
+621f47df-520e-a74b-9a61-de415d0a38ae
+
+helper
+dir
+
+67设置.jpg
+file
+
+
+
+
+2016-04-28T01:24:34.000000Z
+e07a72eb0e4a8df8eb471c4448893e6d
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+has-props
+
+SettingViewController.h
+file
+
+
+
+
+2016-04-28T01:24:34.000000Z
+fce36fd5d20f3ca5a8812f086ea217c8
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+minePrivate
+dir
+
+FeedbackViewController.xib
+file
+
+
+
+
+2016-04-28T01:24:34.000000Z
+b3b8a92b0ce01331c947fcfd77671936
+2016-04-27T01:07:52.468750Z
+863
+jgpeng
+
+modifyAccout
+dir
+
+SettingViewController.m
+file
+
+
+
+
+2016-04-28T01:24:34.000000Z
+0019dcab23223f5f1aafd0c05fe83f6d
+2016-04-26T07:03:10.862500Z
+859
+kxbao
+
+FeedbackViewController.h
+file
+
+
+
+
+2016-04-28T01:24:34.000000Z
+edb8da40426e1bc9b3d40dd3f79f7443
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+openShop
+dir
+
+SettingViewController.xib
+file
+
+
+
+
+2016-04-28T01:24:34.000000Z
+d3480f090c6640840e5bb52ebd7d8e0c
+2016-04-25T01:40:00.351000Z
+852
+jgpeng
+
+FeedbackViewController.m
+file
+
+
+
+
+2016-04-28T01:24:34.000000Z
+68dce47c14cb85edb5e29ccbd2cd51ae
+2016-04-27T01:07:52.468750Z
+863
+jgpeng
+
