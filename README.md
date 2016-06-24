@@ -1,0 +1,3 @@
+# bingo
+Please read me...
+私人作品禁止转载————可供学习
