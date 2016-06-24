@@ -2,7 +2,7 @@
 //  BestCourse_Total_Controller.m
 //  MovieIndustry
 //
-//  Created by 石冬冬 on 16/3/11.
+//  Created by 童乐 on 16/3/11.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 

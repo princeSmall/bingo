@@ -2,7 +2,7 @@
 //  MovieIncomeDetailCell.m
 //  MovieIndustry
 //
-//  Created by 猫爷MACIO on 15/12/16.
+//  Created by 童乐 on 15/12/16.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 

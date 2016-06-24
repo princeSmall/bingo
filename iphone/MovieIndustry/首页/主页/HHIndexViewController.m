@@ -2,7 +2,7 @@
 //  HHIndexViewController.m
 //  MovieIndustry
 //
-//  Created by Pinocchio on 15/11/6.
+//  Created by 童乐 on 15/11/6.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 
@@ -179,7 +179,7 @@
 - (void)viewDidLoad{
 [super viewDidLoad];
  [self setNavTabBar];
-        [self createTableView];
+ [self createTableView];
     self.cityID =@"";
     
     //设置头部滚动视图
@@ -294,10 +294,14 @@
 - (void)setNavTabBar
 {
     
-    UIButton *titleView = [WNController createButtonWithFrame:CGRectMake(0, 0, 140, 31) ImageName:@"cameFilm" Target:nil Action:nil Title:@""];
-    titleView.userInteractionEnabled = NO;
-    [titleView setContentEdgeInsets:UIEdgeInsetsMake(-4, 0, 4, 0)];
-    self.navigationItem.titleView = titleView;
+    self.navigationItem.title =[NSString stringWithFormat:@"乐乐租赁"];
+    [self.navigationController.navigationBar setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIColor whiteColor],NSForegroundColorAttributeName, nil]];
+
+    
+//    UIButton *titleView = [WNController createButtonWithFrame:CGRectMake(0, 0, 140, 31) ImageName:@"cameFilm" Target:nil Action:nil Title:@""];
+//    titleView.userInteractionEnabled = NO;
+//    [titleView setContentEdgeInsets:UIEdgeInsetsMake(-4, 0, 4, 0)];
+//    self.navigationItem.titleView = titleView;
     
 #warning 这边是城市选择（左），闪电租（右）按钮
     UIView *leftView = [WNController createViewFrame:CGRectMake(0, 0, 70, 30)];

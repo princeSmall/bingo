@@ -2,7 +2,7 @@
 //  TTIChooseCell.m
 //  kamefengzhuang
 //
-//  Created by Hopkins Patrick on 3/29/16.
+//  Created by 童乐 Patrick on 3/29/16.
 //  Copyright © 2016 EC. All rights reserved.
 //
 

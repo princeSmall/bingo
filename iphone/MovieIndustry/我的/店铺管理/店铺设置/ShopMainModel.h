@@ -2,7 +2,7 @@
 //  ShopMainModel.h
 //  MovieIndustry
 //
-//  Created by aaa on 16/2/2.
+//  Created by 童乐 on 16/2/2.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 

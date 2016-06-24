@@ -2,7 +2,7 @@
 //  JGTimeView.h
 //  倒计时View
 //
-//  Created by aaa on 16/2/29.
+//  Created by 童乐 on 16/2/29.
 //  Copyright © 2016年 彭金光. All rights reserved.
 //
 

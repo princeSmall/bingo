@@ -2,7 +2,7 @@
 //  IndexGoodsCollectionCell1.h
 //  MovieIndustry
 //
-//  Created by aaa on 16/4/8.
+//  Created by 童乐 on 16/4/8.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 

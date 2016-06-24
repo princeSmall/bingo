@@ -2,7 +2,7 @@
 //  MovieTalkToPersonViewController.m
 //  MovieIndustry
 //
-//  Created by 猫爷MACIO on 15/11/20.
+//  Created by 童乐 on 15/11/20.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 
@@ -231,7 +231,7 @@
     id<ISSContent> publishContent = [ShareSDK content:@"咔么电影"
                                        defaultContent:@"咔么电影"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:[NSString stringWithFormat:@"%@&id=%@",ArtileDetial_HTML,self.articleId]
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];
@@ -265,7 +265,7 @@
     id<ISSContent> publishContent = [ShareSDK content:@"咔么电影"
                                        defaultContent:@"咔么电影"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:[NSString stringWithFormat:@"%@&id=%@",ArtileDetial_HTML,self.articleId]
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];
@@ -293,7 +293,7 @@
     id<ISSContent> publishContent = [ShareSDK content:@"咔么电影"
                                        defaultContent:@"咔么电影"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:[NSString stringWithFormat:@"%@&id=%@",ArtileDetial_HTML,self.articleId]
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];
@@ -323,7 +323,7 @@
     id<ISSContent> publishContent = [ShareSDK content:[NSString stringWithFormat:@"%@ %@",@"咔么电影",strUrl]
                                        defaultContent:@"咔么电影网"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:@""
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];

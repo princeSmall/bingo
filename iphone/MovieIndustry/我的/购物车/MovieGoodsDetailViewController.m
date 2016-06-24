@@ -2,7 +2,7 @@
 //  MovieGoodsDetailViewController.m
 //  MovieIndustry
 //
-//  Created by Hopkins Patrick on 1/26/16.
+//  Created by 童乐 Patrick on 1/26/16.
 //  Copyright © 2016 MovieIndustry. All rights reserved.
 //
 
@@ -437,12 +437,12 @@
     [self removeCusShareView];
     
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"影视租赁"
-                                       defaultContent:@"影视租赁"
+    id<ISSContent> publishContent = [ShareSDK content:@"商品租赁"
+                                       defaultContent:@"商品租赁"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:self.goodsDesc_Url
-                                          description:@"影视租赁"
+                                          description:@"商品租赁"
                                             mediaType:SSPublishContentMediaTypeNews];
     
     [ShareSDK shareContent:publishContent type:ShareTypeQQ authOptions:nil shareOptions:nil statusBarTips:YES result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
@@ -491,12 +491,12 @@
 {
     [self removeCusShareView];
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"影视租赁"
-                                       defaultContent:@"影视租赁"
+    id<ISSContent> publishContent = [ShareSDK content:@"商品租赁"
+                                       defaultContent:@"商品租赁"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:self.goodsDesc_Url
-                                          description:@"影视租赁"
+                                          description:@"商品租赁"
                                             mediaType:SSPublishContentMediaTypeNews];
     
     [ShareSDK shareContent:publishContent type:ShareTypeWeixiSession authOptions:nil shareOptions:nil statusBarTips:YES result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
@@ -520,12 +520,12 @@
 {
     [self removeCusShareView];
     //构造分享内容
-    id<ISSContent> publishContent = [ShareSDK content:@"影视租赁"
-                                       defaultContent:@"影视租赁"
+    id<ISSContent> publishContent = [ShareSDK content:@"商品租赁"
+                                       defaultContent:@"商品租赁"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:self.goodsDesc_Url
-                                          description:@"影视租赁"
+                                          description:@"商品租赁"
                                             mediaType:SSPublishContentMediaTypeNews];
     
     [ShareSDK shareContent:publishContent type:ShareTypeWeixiTimeline authOptions:nil shareOptions:nil statusBarTips:YES result:^(ShareType type, SSResponseState state, id<ISSPlatformShareInfo> statusInfo, id<ICMErrorInfo> error, BOOL end) {
@@ -552,7 +552,7 @@
     id<ISSContent> publishContent = [ShareSDK content:[NSString stringWithFormat:@"%@ %@",@"咔么电影网",self.goodsDesc_Url]
                                        defaultContent:@"咔么电影网"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:self.goodsDesc_Url
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];

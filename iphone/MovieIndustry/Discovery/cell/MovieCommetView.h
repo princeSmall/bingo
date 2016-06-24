@@ -2,7 +2,7 @@
 //  MovieCommetView.h
 //  MovieIndustry
 //
-//  Created by 猫爷MACIO on 15/12/1.
+//  Created by 童乐 on 15/12/1.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 

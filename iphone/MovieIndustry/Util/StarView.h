@@ -2,7 +2,7 @@
 //  ViewController.m
 //  五星View配合点击事件
 //
-//  Created by aaa on 16/2/17.
+//  Created by 童乐 on 16/2/17.
 //  Copyright © 2016年 彭金光. All rights reserved.
 //
 

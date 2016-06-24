@@ -2,7 +2,7 @@
 //  MovieClassesDetailHeadV.m
 //  MovieIndustry
 //
-//  Created by 石冬冬 on 16/3/10.
+//  Created by 童乐 on 16/3/10.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 

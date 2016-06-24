@@ -2,7 +2,7 @@
 //  MyRushOrdelCell.m
 //  MovieIndustry
 //
-//  Created by Hopkins Patrick on 3/1/16.
+//  Created by 童乐 Patrick on 3/1/16.
 //  Copyright © 2016 MovieIndustry. All rights reserved.
 //
 

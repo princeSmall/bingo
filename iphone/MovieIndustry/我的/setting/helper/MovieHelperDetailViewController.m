@@ -2,7 +2,7 @@
 //  MovieHelperDetailViewController.m
 //  MovieIndustry
 //
-//  Created by 猫爷MACIO on 15/12/14.
+//  Created by 童乐 on 15/12/14.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 

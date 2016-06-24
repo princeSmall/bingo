@@ -2,7 +2,7 @@
 //  JGPictureBtn.m
 //  图片View的封装（scrollerView）
 //
-//  Created by aaa on 16/3/4.
+//  Created by 童乐 on 16/3/4.
 //  Copyright © 2016年 彭金光. All rights reserved.
 //
 

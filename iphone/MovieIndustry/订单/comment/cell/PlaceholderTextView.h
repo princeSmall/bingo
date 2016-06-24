@@ -2,7 +2,7 @@
 //  PlaceholderTextView.h
 //  textView封装
 //
-//  Created by aaa on 16/1/28.
+//  Created by 童乐 on 16/1/28.
 //  Copyright © 2016年 彭金光. All rights reserved.
 //
 

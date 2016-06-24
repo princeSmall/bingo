@@ -2,7 +2,7 @@
 //  JGSecondCoverView.m
 //  MovieIndustry
 //
-//  Created by aaa on 16/2/19.
+//  Created by 童乐 on 16/2/19.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 

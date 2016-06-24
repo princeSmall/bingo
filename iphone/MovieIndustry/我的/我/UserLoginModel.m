@@ -2,7 +2,7 @@
 //  UserLoginModel.m
 //  MovieIndustry
 //
-//  Created by aaa on 16/2/3.
+//  Created by 童乐 on 16/2/3.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 

@@ -2,7 +2,7 @@
 //  BestLikeRankingCell.m
 //  MovieIndustry
 //
-//  Created by 石冬冬 on 16/2/29.
+//  Created by 童乐 on 16/2/29.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 

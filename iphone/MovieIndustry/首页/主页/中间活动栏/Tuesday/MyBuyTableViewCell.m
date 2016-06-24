@@ -2,7 +2,7 @@
 //  MyBuyTableViewCell.m
 //  MovieIndustry
 //
-//  Created by aaa on 16/3/1.
+//  Created by 童乐 on 16/3/1.
 //  Copyright © 2016年 MovieIndustry. All rights reserved.
 //
 
@@ -37,7 +37,7 @@
 @implementation MyBuyTableViewCell
 
 - (void)awakeFromNib{
-    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:@"http://gtb.baidu.com/HttpService/get?p=dHlwZT1pbWFnZS9qcGVnJm49dmlzJnQ9YWRpbWcmYz10YjppZyZyPTk4Mzc5Mjg4MCw5MzIwNjU2MDcAAAA"]];
+    [self.iconImage sd_setImageWithURL:[NSURL URLWithString:@"http://gtb.baidu.com/HttpService/get?p=dHlwZT1pbWFnZS9qcGVnJm49dmlzJnQ9YWRpbWcmYz10YjppZyZyPTk4Mzc5Mjg4MCw5MzIwNjU2MDc童乐A"]];
     self.iconImage.backgroundColor = [UIColor greenColor];
     self.iconImage.layer.cornerRadius = 30;
     self.iconImage.clipsToBounds = YES;

@@ -2,7 +2,7 @@
 //  PaySuccessViewController.h
 //  MovieIndustry
 //
-//  Created by Pinocchio on 15/12/10.
+//  Created by 童乐 on 15/12/10.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 

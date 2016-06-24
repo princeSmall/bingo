@@ -2,8 +2,8 @@
 //  JGButtonAreaView.m
 //  选择城市按钮
 //
-//  Created by aaa on 16/1/21.
-//  Copyright © 2016年 aaa. All rights reserved.
+//  Created by 童乐 on 16/1/21.
+//  Copyright © 2016年 童乐. All rights reserved.
 //
 
 #import "JGButtonAreaView.h"

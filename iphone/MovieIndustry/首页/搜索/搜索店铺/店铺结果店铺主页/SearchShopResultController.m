@@ -2,7 +2,7 @@
 //  SearchShopResultController.m
 //  MovieIndustry
 //
-//  Created by Pinocchio on 15/11/19.
+//  Created by 童乐 on 15/11/19.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 
@@ -330,7 +330,7 @@ typedef void (^babyClassify)(void);
     id<ISSContent> publishContent = [ShareSDK content:self.shopModel.shop_name
                                        defaultContent:@"咔么电影"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:@"http://www.comfilm.com"
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];
@@ -389,7 +389,7 @@ typedef void (^babyClassify)(void);
     id<ISSContent> publishContent = [ShareSDK content:self.shopModel.shop_name
                                        defaultContent:@"咔么电影"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:@"http://www.comfilm.com"
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];
@@ -417,7 +417,7 @@ typedef void (^babyClassify)(void);
     id<ISSContent> publishContent = [ShareSDK content:self.shopModel.shop_name
                                        defaultContent:@"咔么电影"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:@"http://www.comfilm.com"
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];
@@ -447,7 +447,7 @@ typedef void (^babyClassify)(void);
     id<ISSContent> publishContent = [ShareSDK content:[NSString stringWithFormat:@"%@ %@",self.shopModel.shop_name,strUrl]
                                        defaultContent:@"咔么电影网"
                                                 image:[ShareSDK pngImageWithImage:_shareImage]
-                                                title:@"影视租赁"
+                                                title:@"商品租赁"
                                                   url:@"http://www.comfilm.com"
                                           description:@"咔么电影网"
                                             mediaType:SSPublishContentMediaTypeNews];

@@ -2,7 +2,7 @@
 //  MovieCommentThirdCell.m
 //  MovieIndustry
 //
-//  Created by 猫爷MACIO on 15/11/18.
+//  Created by 童乐 on 15/11/18.
 //  Copyright (c) 2015年 MovieIndustry. All rights reserved.
 //
 
